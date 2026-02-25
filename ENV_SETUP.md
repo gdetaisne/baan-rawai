@@ -10,8 +10,8 @@ NEXT_PUBLIC_WIFI_NETWORK=Minou_5G
 NEXT_PUBLIC_TM0_FORM_URL=
 
 # Private secrets (DO NOT expose as NEXT_PUBLIC_)
-PRIVATE_ACCESS_CODE=5934
-DOOR_CODE=Touch screen with palm 5934 touch screen with palm (you must hear Lock Open)
+PRIVATE_ACCESS_CODE=5734
+DOOR_CODE=Touch screen with palm 5734 touch screen with palm (you must hear Lock Open)
 WIFI_PASSWORD=minoumi123!
 ```
 
@@ -24,23 +24,23 @@ In your CapRover app settings, add these environment variables:
 ```
 NEXT_PUBLIC_WIFI_NETWORK=Minou_5G
 NEXT_PUBLIC_TM0_FORM_URL=
-PRIVATE_ACCESS_CODE=5934
-DOOR_CODE=Touch screen with palm 5934 touch screen with palm (you must hear Lock Open)
+PRIVATE_ACCESS_CODE=5734
+DOOR_CODE=Touch screen with palm 5734 touch screen with palm (you must hear Lock Open)
 WIFI_PASSWORD=minoumi123!
 ```
 
 ## How it works
 
 - **NEXT_PUBLIC_WIFI_NETWORK**: Visible to everyone (the network name)
-- **WIFI_PASSWORD**: Only accessible after entering private mode passcode (5934)
-- **DOOR_CODE**: Only accessible after entering private mode passcode (5934)
+- **WIFI_PASSWORD**: Only accessible after entering private mode passcode (5734)
+- **DOOR_CODE**: Only accessible after entering private mode passcode (5734)
 - **PRIVATE_ACCESS_CODE**: The passcode guests need to unlock private info
 
 ## Testing Private Mode
 
 1. Go to "Before you arrive" section
 2. Click "Private" button (top right)
-3. Enter passcode: **5934**
+3. Enter passcode: **5734**
 4. Door code and WiFi password will now be visible
 
 ## Security
