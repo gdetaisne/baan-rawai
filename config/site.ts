@@ -23,7 +23,7 @@ export const siteConfig = {
   
   // WiFi - network name can be public, password requires private mode
   wifi: {
-    network: process.env.NEXT_PUBLIC_WIFI_NETWORK || 'BaanSayiuan_5G',
+    network: process.env.NEXT_PUBLIC_WIFI_NETWORK || 'Minou_5G',
   },
   
   // Private mode
