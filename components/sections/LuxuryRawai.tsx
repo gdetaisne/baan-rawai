@@ -11,6 +11,20 @@ export function LuxuryRawai() {
 
   return (
     <EditorialSection label="OUR RAWAI" title={t('title')} background="highlight">
+      {/* Video Background */}
+      <div className="mb-12 rounded-3xl overflow-hidden shadow-2xl">
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="w-full h-[300px] md:h-[400px] object-cover"
+          poster="/IMG_7221.jpeg"
+        >
+          <source src="/IMG_7204.MOV" type="video/mp4" />
+        </video>
+      </div>
+      
       <div className="grid md:grid-cols-2 gap-8 md:gap-10">
         {/* Beaches */}
         <EditorialCard>
