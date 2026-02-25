@@ -12,14 +12,14 @@ export function StickyMobileBar() {
 
   return (
     <>
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0F1416] border-t border-white/10 safe-area-bottom">
-        <div className="flex items-stretch divide-x divide-white/10">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#E8DCC4] safe-area-bottom shadow-lg">
+        <div className="flex items-stretch divide-x divide-[#E8DCC4]">
           {/* WhatsApp */}
           <a
             href={siteConfig.whatsapp.primary.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex flex-col items-center justify-center py-3 text-white hover:bg-white/5 transition-colors"
+            className="flex-1 flex flex-col items-center justify-center py-3 text-[#0A4D68] hover:bg-[#FFFBF5] transition-colors"
           >
             <MessageCircle className="w-5 h-5 mb-1.5" />
             <span className="text-xs tracking-wide">{t('whatsapp')}</span>
@@ -30,7 +30,7 @@ export function StickyMobileBar() {
             href={siteConfig.maps.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex flex-col items-center justify-center py-3 text-white hover:bg-white/5 transition-colors"
+            className="flex-1 flex flex-col items-center justify-center py-3 text-[#0A4D68] hover:bg-[#FFFBF5] transition-colors"
           >
             <MapPin className="w-5 h-5 mb-1.5" />
             <span className="text-xs tracking-wide">{t('directions')}</span>
@@ -39,7 +39,7 @@ export function StickyMobileBar() {
           {/* WiFi */}
           <button
             onClick={() => setShowWiFi(true)}
-            className="flex-1 flex flex-col items-center justify-center py-3 text-white hover:bg-white/5 transition-colors"
+            className="flex-1 flex flex-col items-center justify-center py-3 text-[#0A4D68] hover:bg-[#FFFBF5] transition-colors"
           >
             <Wifi className="w-5 h-5 mb-1.5" />
             <span className="text-xs tracking-wide">{t('wifi')}</span>

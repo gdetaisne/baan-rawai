@@ -9,18 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Capella x Raffles: Cinematic luxury palette
-        bg: 'rgb(var(--bg) / <alpha-value>)',
-        paper: 'rgb(var(--paper) / <alpha-value>)',
-        ink: 'rgb(var(--ink) / <alpha-value>)',
-        muted: 'rgb(var(--muted) / <alpha-value>)',
-        accent: 'rgb(var(--accent) / <alpha-value>)',
-        accent2: 'rgb(var(--accent2) / <alpha-value>)',
-        highlight: 'rgb(var(--highlight) / <alpha-value>)',
+        // Natural Phuket Luxury Palette
+        ocean: '#0A4D68',
+        sand: '#E8DCC4',
+        sunset: '#D4846C',
+        palm: '#2C5530',
+        paper: '#FFFBF5',
+        ink: '#1A1A1A',
+        muted: '#737373',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'Cormorant Garamond', 'serif'],
-        sans: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Lora', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         tighter: '-0.02em',
@@ -35,11 +35,8 @@ const config: Config = {
         '26': '6.5rem',
         '30': '7.5rem',
       },
-      borderRadius: {
-        'luxury': '2px',
-      },
       maxWidth: {
-        'paper': '1040px',
+        'container': '1280px',
       },
     },
   },

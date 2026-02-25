@@ -12,6 +12,29 @@
     "lucie": "Lucie",
     "guillaume": "Guillaume"
   },
+  "welcome": {
+    "label": "Bienvenue Chez Vous",
+    "title": "Faites comme chez vous",
+    "story1": "Ce n'est pas juste notre maison—c'est l'endroit où on se ressource, où on crée des souvenirs, où la vie ralentit. On veut que vous ressentiez la même magie qu'on ressent quand on est ici.",
+    "story2": "Des plages secrètes aux meilleurs spots de sunset, on a mis tout ce qu'on aime de Rawai dans ce guide. Installez-vous, explorez comme des locaux, et surtout : profitez.",
+    "signature": "— Lucie & Guillaume"
+  },
+  "experiences": {
+    "label": "Votre Rawai",
+    "title": "Trois façons de tomber amoureux de cet endroit",
+    "beach": {
+      "title": "Plage & Océan",
+      "description": "Eaux cristallines, criques cachées, et les meilleurs spots de coucher de soleil qu'on a trouvés après d'innombrables soirées à regarder le ciel devenir rose."
+    },
+    "islands": {
+      "title": "Sauts d'Îles",
+      "description": "Longtail boats vers des îles paradisiaques. Snorkeling, plages désertes, et fruits de mer locaux sur le sable—la Thaïlande comme elle devrait être."
+    },
+    "culture": {
+      "title": "Vivre Local",
+      "description": "Marchés de nuit, visites de temples, et ces petits moments qui font tomber amoureux de la culture thaïe. On vous montre nos favoris."
+    }
+  },
   "nav": {
     "beforeArrival": "Avant l'arrivée",
     "arrival": "Arrivée",

@@ -12,6 +12,29 @@
     "lucie": "Lucie",
     "guillaume": "Guillaume"
   },
+  "welcome": {
+    "label": "Welcome Home",
+    "title": "Mi casa es tu casa",
+    "story1": "This isn't just our house—it's where we escape, recharge, and make memories. We want you to feel the same magic we do when we're here.",
+    "story2": "From secret beaches to our favorite sunset spots, we've poured everything we love about Rawai into this guide. Make yourself at home, explore like a local, and most importantly: relax.",
+    "signature": "— Lucie & Guillaume"
+  },
+  "experiences": {
+    "label": "Your Rawai",
+    "title": "Three ways to fall in love with this place",
+    "beach": {
+      "title": "Beach & Ocean",
+      "description": "Crystal-clear waters, hidden coves, and the best sunset spots we've found after countless evenings watching the sky turn pink."
+    },
+    "islands": {
+      "title": "Island Hopping",
+      "description": "Longtail boats to paradise islands. Snorkeling, deserted beaches, and local seafood on the sand—exactly as Thailand should be."
+    },
+    "culture": {
+      "title": "Living Local",
+      "description": "Night markets, temple visits, and the little moments that make you fall in love with Thai culture. We'll show you our favorites."
+    }
+  },
   "nav": {
     "beforeArrival": "Before you arrive",
     "arrival": "Arrival",
