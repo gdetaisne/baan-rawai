@@ -2,7 +2,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
-import { LanguageToggle } from '@/components/LanguageToggle';
+import { LuxuryHeader } from '@/components/LuxuryHeader';
+import { LuxuryLayout } from '@/components/LuxuryLayout';
 import { StickyMobileBar } from '@/components/StickyMobileBar';
 import '../globals.css';
 
@@ -30,7 +31,7 @@ export function generateViewport() {
     width: 'device-width',
     initialScale: 1,
     maximumScale: 5,
-    themeColor: '#F7F5F2',
+    themeColor: '#0F1416',
   };
 }
 
@@ -54,8 +55,10 @@ export default async function LocaleLayout({
     <html lang={locale} className="scroll-smooth">
       <body>
         <NextIntlClientProvider messages={messages}>
-          <LanguageToggle />
-          {children}
+          <LuxuryLayout>
+            <LuxuryHeader />
+            {children}
+          </LuxuryLayout>
           <StickyMobileBar />
         </NextIntlClientProvider>
       </body>

@@ -1,30 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-display: 'Cormorant Garamond', serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+@layer base {
+  :root {
+    /* Capella x Raffles: Cinematic luxury palette */
+    --bg: 15 20 22;           /* #0F1416 deep ink background */
+    --paper: 247 244 238;     /* #F7F4EE warm paper surface */
+    --ink: 16 20 21;          /* #101415 primary text on paper */
+    --muted: 107 113 119;     /* #6B7177 secondary text */
+    --accent: 182 94 60;      /* #B65E3C burnt copper */
+    --accent2: 31 42 40;      /* #1F2A28 deep green-black */
+    --highlight: 231 222 210; /* #E7DED2 soft highlight blocks */
+    
+    --font-display: 'Cormorant Garamond', serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#0F1416] text-[#101415] font-sans antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-light;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'ss01' 1;
+  }
 }
 
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer components {
+  /* Editorial typography scale */
+  .text-display-xl {
+    @apply text-[40px] md:text-[56px] leading-[1.1] tracking-tight;
+  }
 
-body {
-  @apply bg-cream-100 text-ink font-sans;
-}
+  .text-display-lg {
+    @apply text-[32px] md:text-[44px] leading-[1.15] tracking-tight;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply font-display font-light;
+  .text-display-md {
+    @apply text-[24px] md:text-[36px] leading-[1.2] tracking-tight;
+  }
+
+  .text-display-sm {
+    @apply text-[20px] md:text-[28px] leading-[1.3];
+  }
+
+  .text-body-lg {
+    @apply text-[18px] leading-[1.7];
+  }
+
+  .text-body {
+    @apply text-[16px] leading-[1.7];
+  }
+
+  /* Section label (small caps editorial) */
+  .text-label {
+    @apply text-[11px] md:text-[12px] tracking-[0.15em] uppercase font-medium;
+  }
+
+  /* Paper surface */
+  .paper {
+    @apply bg-[#F7F4EE] text-[#101415];
+  }
+
+  /* Hairline border */
+  .border-hairline {
+    @apply border-[#101415]/[0.12];
+  }
 }
 
 @layer utilities {
@@ -37,6 +91,14 @@ h6 {
   }
 }
 
+/* Smooth transitions */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease, opacity 200ms ease, transform 200ms ease;
+  }
+}
+
+/* Animations */
 @keyframes slide-up {
   from {
     transform: translateY(100%);
@@ -50,4 +112,25 @@ h6 {
 
 .animate-slide-up {
   animation: slide-up 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+/* Backdrop blur for sticky header */
+.backdrop-blur-luxury {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }

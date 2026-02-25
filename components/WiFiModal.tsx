@@ -3,48 +3,45 @@
 import { X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { CopyField } from '@/components/ui/CopyField';
+import { PrivateModeGate } from '@/components/PrivateModeGate';
 import { siteConfig } from '@/config/site';
 
 interface WiFiModalProps {
-  isOpen: boolean;
   onClose: () => void;
 }
 
-export function WiFiModal({ isOpen, onClose }: WiFiModalProps) {
+export function WiFiModal({ onClose }: WiFiModalProps) {
   const t = useTranslations('wifiModal');
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center">
+    <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center animate-fade-in">
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-ink-green/50 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-[#0F1416]/80 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative w-full md:max-w-md bg-cream-50 border-t md:border border-stone-200 p-8 md:m-4 animate-slide-up">
+      <div className="relative w-full md:max-w-md bg-paper border-t md:border border-hairline p-8 md:m-4 md:rounded-luxury animate-slide-up shadow-2xl">
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 text-stone-400 hover:text-ink transition-colors"
+          className="absolute top-6 right-6 text-muted hover:text-ink transition-colors"
           aria-label={t('close')}
         >
           <X className="w-5 h-5" />
         </button>
 
-        <h3 className="text-2xl font-display font-light text-ink mb-8 tracking-wide">{t('title')}</h3>
+        <h3 className="font-display text-display-sm text-ink mb-8 tracking-tight">{t('title')}</h3>
 
         <div className="space-y-4">
-          <CopyField
-            label={t('network')}
-            value={siteConfig.wifi.name}
-            copyLabel={t('copy')}
-            copiedLabel={t('copied')}
-          />
-          <CopyField
-            label={t('password')}
-            value={siteConfig.wifi.password}
-            copyLabel={t('copy')}
-            copiedLabel={t('copied')}
-          />
+          <CopyField label={t('network')} value={siteConfig.wifi.network} />
+          
+          <PrivateModeGate>
+            {({ wifiPassword, isUnlocked }) => (
+              <CopyField
+                label={t('password')}
+                value={isUnlocked ? wifiPassword : ''}
+                locked={!isUnlocked}
+              />
+            )}
+          </PrivateModeGate>
         </div>
       </div>
     </div>
