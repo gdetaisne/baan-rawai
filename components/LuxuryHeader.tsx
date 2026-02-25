@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { Send } from 'lucide-react';
+import { siteConfig } from '@/config/site';
 
 export function LuxuryHeader() {
   const t = useTranslations('hero');

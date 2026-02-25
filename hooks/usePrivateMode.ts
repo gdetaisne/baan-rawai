@@ -12,6 +12,8 @@ interface PrivateModeStore {
   secrets: PrivateSecrets | null;
   isLoading: boolean;
   error: string | null;
+  doorCode: string;
+  wifiPassword: string;
   unlock: (passcode: string) => Promise<boolean>;
   reset: () => void;
 }
@@ -24,6 +26,8 @@ export const usePrivateMode = create<PrivateModeStore>((set) => {
   return {
     isUnlocked: !!initialSecrets,
     secrets: initialSecrets,
+    doorCode: initialSecrets?.doorCode || '',
+    wifiPassword: initialSecrets?.wifiPassword || '',
     isLoading: false,
     error: null,
 
@@ -50,7 +54,14 @@ export const usePrivateMode = create<PrivateModeStore>((set) => {
           sessionStorage.setItem('privateMode', JSON.stringify(secrets));
         }
 
-        set({ isUnlocked: true, secrets, isLoading: false, error: null });
+        set({ 
+          isUnlocked: true, 
+          secrets, 
+          doorCode: secrets.doorCode,
+          wifiPassword: secrets.wifiPassword,
+          isLoading: false, 
+          error: null 
+        });
         return true;
       } catch (error) {
         set({ error: 'Connection error', isLoading: false });
@@ -62,7 +73,13 @@ export const usePrivateMode = create<PrivateModeStore>((set) => {
       if (typeof window !== 'undefined') {
         sessionStorage.removeItem('privateMode');
       }
-      set({ isUnlocked: false, secrets: null, error: null });
+      set({ 
+        isUnlocked: false, 
+        secrets: null, 
+        doorCode: '',
+        wifiPassword: '',
+        error: null 
+      });
     },
   };
 });
