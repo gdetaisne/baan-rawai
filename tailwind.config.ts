@@ -9,57 +9,47 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Vibrant tropical palette
-        ocean: {
-          50: '#E8F4F8',
-          100: '#D1E9F1',
-          200: '#A3D3E3',
-          300: '#75BDD5',
-          400: '#47A7C7',
-          500: '#0891B9', // Main ocean blue
-          600: '#067494',
-          700: '#04576F',
-          800: '#023A4A',
-          900: '#011D25',
+        // Morari-inspired neutral palette
+        cream: {
+          50: '#FDFCFA',
+          100: '#FAF8F5',
+          200: '#F5F2ED',
+          300: '#EFEAE3',
+          400: '#E8E1D8',
+          500: '#E0D7CC',
         },
-        sand: {
-          50: '#FFFEF9',
-          100: '#FEFDF3',
-          200: '#FDFBE7',
-          300: '#FCF9DB',
-          400: '#FBF7CF',
-          500: '#FAF5C3', // Warm sand
+        taupe: {
+          100: '#E8E3DD',
+          200: '#D4CEC5',
+          300: '#C0B8AD',
+          400: '#ACA295',
+          500: '#988C7D',
+          600: '#847665',
         },
-        sunset: {
-          400: '#FF6B6B', // Coral red
-          500: '#FF8E53', // Sunset orange
-          600: '#FFB347', // Warm peach
+        stone: {
+          50: '#F9F8F6',
+          100: '#F0EDE8',
+          200: '#E1DBD1',
+          300: '#CFC6B8',
+          400: '#BDB19F',
+          500: '#A99B86',
+          600: '#8A7D6A',
+          700: '#6B5F4E',
+          800: '#4C4132',
+          900: '#2D2316',
         },
-        palm: '#2D5F4C', // Deep tropical green
-        sky: '#87CEEB', // Bright sky blue
-        dark: '#1A1A2E', // Deep navy
+        ink: '#1A1814',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'DM Serif Display', 'serif'],
+        display: ['var(--font-display)', 'Cormorant Garamond', 'serif'],
         sans: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
-        fun: ['var(--font-fun)', 'Space Grotesk', 'sans-serif'],
       },
       letterSpacing: {
         tighter: '-0.02em',
         tight: '-0.01em',
         wide: '0.05em',
         wider: '0.1em',
-        widest: '0.2em',
-      },
-      backgroundImage: {
-        'gradient-ocean': 'linear-gradient(135deg, #0891B9 0%, #47A7C7 100%)',
-        'gradient-sunset': 'linear-gradient(135deg, #FF8E53 0%, #FFB347 100%)',
-        'gradient-tropical': 'linear-gradient(135deg, #0891B9 0%, #2D5F4C 100%)',
-      },
-      boxShadow: {
-        'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
-        'medium': '0 8px 30px rgba(0, 0, 0, 0.12)',
-        'hard': '0 10px 40px rgba(0, 0, 0, 0.15)',
+        widest: '0.15em',
       },
     },
   },

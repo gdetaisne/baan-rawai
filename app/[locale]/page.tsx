@@ -29,21 +29,14 @@ export default function HomePage() {
       <GuestForm />
 
       {/* Footer */}
-      <footer className="bg-gradient-tropical text-white py-16 pb-28 md:pb-16 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-        
-        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-          <div className="text-5xl font-display mb-4">
+      <footer className="border-t border-stone-200 bg-cream-50 py-16 pb-28 md:pb-16">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <div className="text-4xl font-display font-light tracking-wider text-ink mb-4">
             Baan Sayiuan
           </div>
-          <div className="w-24 h-1 bg-gradient-sunset mx-auto mb-6 rounded-full" />
-          <p className="text-white/70 text-lg font-fun">
-            Rawai, Phuket 🏝️
-          </p>
-          <p className="text-white/50 text-sm mt-4">
-            See you soon ☀️
+          <div className="h-px w-16 bg-stone-300 mx-auto mb-6" />
+          <p className="text-stone-500 text-sm tracking-widest uppercase">
+            Rawai, Phuket
           </p>
         </div>
       </footer>

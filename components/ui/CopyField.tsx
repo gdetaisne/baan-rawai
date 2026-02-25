@@ -26,15 +26,15 @@ export function CopyField({ label, value, copyLabel, copiedLabel, className }: C
   };
 
   return (
-    <div className={cn('bg-white p-4 rounded-xl border border-ocean-100', className)}>
+    <div className={cn('border border-stone-200 bg-white p-4', className)}>
       <div className="flex items-center justify-between gap-4">
         <div className="flex-1 min-w-0">
-          <div className="text-xs text-dark/50 mb-1 font-fun tracking-wider uppercase">{label}</div>
-          <div className="font-medium text-dark truncate">{value}</div>
+          <div className="text-xs text-stone-400 mb-1 tracking-widest uppercase">{label}</div>
+          <div className="text-ink truncate">{value}</div>
         </div>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-ocean-600 bg-ocean-50 hover:bg-ocean-100 transition-colors rounded-full"
+          className="flex items-center gap-2 px-4 py-2 text-xs text-ink border border-stone-200 hover:border-ink hover:bg-stone-50 transition-colors tracking-widest uppercase"
           aria-label={`${copyLabel} ${label}`}
         >
           {copied ? (
