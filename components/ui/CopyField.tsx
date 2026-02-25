@@ -26,28 +26,30 @@ export function CopyField({ label, value, copyLabel, copiedLabel, className }: C
   };
 
   return (
-    <div className={cn('flex items-center justify-between gap-4 py-3', className)}>
-      <div className="flex-1 min-w-0">
-        <div className="text-sm text-dusty-blue mb-1">{label}</div>
-        <div className="font-medium text-ink-green truncate">{value}</div>
+    <div className={cn('bg-white p-4 rounded-xl border border-ocean-100', className)}>
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex-1 min-w-0">
+          <div className="text-xs text-dark/50 mb-1 font-fun tracking-wider uppercase">{label}</div>
+          <div className="font-medium text-dark truncate">{value}</div>
+        </div>
+        <button
+          onClick={handleCopy}
+          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-ocean-600 bg-ocean-50 hover:bg-ocean-100 transition-colors rounded-full"
+          aria-label={`${copyLabel} ${label}`}
+        >
+          {copied ? (
+            <>
+              <Check className="w-4 h-4" />
+              <span className="hidden sm:inline">{copiedLabel}</span>
+            </>
+          ) : (
+            <>
+              <Copy className="w-4 h-4" />
+              <span className="hidden sm:inline">{copyLabel}</span>
+            </>
+          )}
+        </button>
       </div>
-      <button
-        onClick={handleCopy}
-        className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-ink-green border border-ink-green/20 hover:border-ink-green/40 hover:bg-ink-green/5 transition-colors rounded-sm"
-        aria-label={`${copyLabel} ${label}`}
-      >
-        {copied ? (
-          <>
-            <Check className="w-4 h-4" />
-            <span className="hidden sm:inline">{copiedLabel}</span>
-          </>
-        ) : (
-          <>
-            <Copy className="w-4 h-4" />
-            <span className="hidden sm:inline">{copyLabel}</span>
-          </>
-        )}
-      </button>
     </div>
   );
 }

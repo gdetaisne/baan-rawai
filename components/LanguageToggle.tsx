@@ -24,11 +24,11 @@ export function LanguageToggle() {
   return (
     <button
       onClick={toggleLocale}
-      className="fixed top-8 right-8 z-50 flex items-center gap-2 px-5 py-2.5 bg-cream/90 backdrop-blur-sm border border-clay/20 text-ink-green hover:border-ink-green/40 transition-colors"
+      className="fixed top-6 right-6 z-50 flex items-center gap-2 px-5 py-2.5 bg-white shadow-soft hover:shadow-medium rounded-full text-ocean-600 hover:text-ocean-700 transition-all font-fun font-medium"
       aria-label="Toggle language"
     >
       <Globe className="w-4 h-4" />
-      <span className="text-xs font-medium uppercase tracking-wider">{locale === 'en' ? 'FR' : 'EN'}</span>
+      <span className="text-sm uppercase tracking-wider">{locale === 'en' ? 'FR' : 'EN'}</span>
     </button>
   );
 }
