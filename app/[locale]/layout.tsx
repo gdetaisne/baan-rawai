@@ -14,11 +14,14 @@ export async function generateMetadata({ params }: { params: { locale: string } 
   const { locale } = params;
 
   return {
-    title: 'Baan Sayiuan | Notre maison à Rawai',
+    title:
+      locale === 'fr'
+        ? 'Baan Sayiuan | Notre maison à Rawai'
+        : 'Baan Sayiuan | Our home in Rawai',
     description:
       locale === 'fr'
-        ? 'Notre maison à Rawai, Phuket. Tout ce que vous devez savoir pour profiter au max de votre séjour.'
-        : 'Our home in Rawai, Phuket. Everything you need to know to make the most of your stay.',
+        ? 'Votre guide complet pour notre maison à Rawai, Phuket. Tout ce dont vous avez besoin pour un séjour parfait.'
+        : 'Your complete guide to our home in Rawai, Phuket. Everything you need for an amazing stay.',
   };
 }
 

@@ -21,19 +21,18 @@ export const siteConfig = {
     link: 'https://maps.google.com/?q=59/45+Soi+Sayiuan+13+Rawai+Phuket',
   },
   
-  // WiFi (can be overridden by env vars)
+  // WiFi - network name can be public, password requires private mode
   wifi: {
-    name: process.env.NEXT_PUBLIC_WIFI_NAME || 'BaanSayiuan_5G',
-    password: process.env.NEXT_PUBLIC_WIFI_PASSWORD || 'UpdateBeforeArrival',
+    network: process.env.NEXT_PUBLIC_WIFI_NETWORK || 'BaanSayiuan_5G',
   },
   
-  // Door code
-  doorCode: process.env.NEXT_PUBLIC_DOOR_CODE || 'XXXX',
+  // Private mode
+  privateAccessEnabled: true,
   
   // External links
   links: {
     esim: 'https://www.airalo.com/thailand-esim',
-    tm0Form: process.env.NEXT_PUBLIC_TM0_FORM_URL || 'https://www.example.com/tm0',
+    tm0Form: process.env.NEXT_PUBLIC_TM0_FORM_URL || '', // Empty = hide button
   },
   
   // Boats
@@ -61,14 +60,14 @@ export const siteConfig = {
     { name: 'Rawai', description: 'Sunset views, not for swimming' },
   ],
   
-  // Day passes (TODO: Add real booking links)
+  // Day passes - TODO: Add real booking links
   dayPasses: [
-    { name: 'The Nai Harn', description: 'Panoramic views', link: '#' },
+    { name: 'The Nai Harn', description: 'Panoramic views, infinity pool', link: '#' },
     { name: 'Kata Rocks', description: 'Design hotel, very chic', link: '#' },
     { name: 'Sri Panwa', description: 'Sunset infinity pool', link: '#' },
   ],
   
-  // Restaurants (TODO: Add real names and Google Maps links)
+  // Restaurants - TODO: Add real names and Google Maps links
   restaurants: [
     { name: 'Restaurant Name 1', description: 'Easy lunch, kid-friendly', mapsLink: '#' },
     { name: 'Restaurant Name 2', description: 'Sunset seafood on the sand', mapsLink: '#' },
@@ -77,7 +76,7 @@ export const siteConfig = {
     { name: 'Restaurant Name 5', description: 'Beach club vibes', mapsLink: '#' },
   ],
   
-  // Spas (TODO: Add real names)
+  // Spas - TODO: Add real names
   spas: [
     { name: 'Spa Name 1', note: 'Traditional Thai massage' },
     { name: 'Spa Name 2', note: 'Luxury spa experience' },

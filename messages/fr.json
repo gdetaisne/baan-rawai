@@ -1,23 +1,47 @@
 {
+  "metadata": {
+    "title": "Baan Sayiuan | Notre maison à Rawai",
+    "description": "Votre guide complet pour notre maison à Rawai, Phuket. Tout ce dont vous avez besoin pour un séjour parfait."
+  },
   "hero": {
     "title": "Bienvenue à Baan Sayiuan",
     "subtitle": "Notre maison à Rawai, Phuket",
-    "ctaPrimary": "Découvrir",
+    "ctaPrimary": "Préparer votre séjour",
     "whatsapp": "WhatsApp",
     "directions": "Itinéraire",
     "lucie": "Lucie",
     "guillaume": "Guillaume"
   },
+  "nav": {
+    "beforeArrival": "Avant l'arrivée",
+    "arrival": "Arrivée",
+    "rawai": "Notre Rawai",
+    "boats": "Balades en bateau",
+    "dayPasses": "Day pass hôtels",
+    "guestForm": "Formulaire"
+  },
+  "privateMode": {
+    "title": "Accès privé",
+    "description": "Entrez le code que nous vous avons partagé pour accéder au code porte et mot de passe WiFi.",
+    "placeholder": "Entrez le code",
+    "unlock": "Déverrouiller",
+    "loading": "Déverrouillage...",
+    "hint": "Contactez-nous si vous avez besoin du code.",
+    "locked": {
+      "doorCode": "Le code porte sera partagé avant l'arrivée.",
+      "wifiPassword": "Mot de passe disponible en mode privé."
+    },
+    "button": "Privé"
+  },
   "beforeArrival": {
     "title": "Avant d'arriver",
     "taxi": {
       "title": "Taxi aéroport",
-      "description": "On peut vous organiser un taxi pour 700 THB (liquide). Le chauffeur vous attend à la sortie avec votre nom. Envoyez-nous juste vos infos de vol."
+      "description": "On peut organiser un taxi pour 700 THB (liquide). Le chauffeur vous attend à la sortie avec votre nom. Envoyez-nous vos infos de vol."
     },
     "doorCode": {
-      "title": "Code de la porte",
-      "description": "Code",
-      "note": "On vous l'envoie quelques jours avant"
+      "title": "Code porte",
+      "description": "Code"
     },
     "wifi": {
       "title": "WiFi",
@@ -27,97 +51,71 @@
       "copied": "Copié"
     },
     "atm": {
-      "title": "Important : Les distributeurs en Thaïlande",
-      "description": "Ici les distributeurs donnent l'argent AVANT de rendre la carte. Du coup plein de gens oublient leur carte et partent. Soyez pas cette personne. Aussi, choisissez toujours 'Without conversion' pour éviter les taux de change pourris."
+      "title": "Important : Distributeurs en Thaïlande",
+      "description": "Ici les distributeurs donnent l'argent AVANT de rendre la carte. Beaucoup de gens oublient leur carte. Soyez pas cette personne. Aussi, choisissez toujours 'Without conversion'."
     },
     "esim": {
       "title": "Prenez une eSIM avant de partir",
-      "description": "Installez-la avant le décollage pour avoir internet dès l'atterrissage. Croyez-nous, ça change la vie.",
+      "description": "Installez-la avant le décollage pour avoir internet dès l'atterrissage.",
       "cta": "Acheter une eSIM"
     }
   },
   "arrival": {
     "title": "Arrivée à Phuket",
     "immigration": {
-      "title": "File d'attente immigration",
-      "description": "Ça peut prendre 30 min ou 2h selon l'heure. Prenez un bouquin, un podcast, soyez zen."
+      "title": "File immigration",
+      "description": "Ça peut prendre 30 min ou 2h selon l'heure."
     },
     "fastTrack": {
-      "title": "Fast Track / Priority Lane",
-      "description": "Y'a un service qui vous accompagne via la file prioritaire. Environ 1000–2000 THB par personne. Ça vaut le coup si vous arrivez tard ou avec des enfants."
+      "title": "Priority Lane",
+      "description": "Service d'accompagnement via file prioritaire. Environ 1000–2000 THB par personne. Utile si arrivée tardive ou avec enfants."
     },
     "tm0": {
-      "title": "Remplir le formulaire TM0",
-      "description": "Il faut le faire avant l'arrivée. Faites-le dans l'avion.",
-      "cta": "Formulaire TM0"
+      "title": "Formulaire TM0",
+      "description": "À remplir avant l'arrivée.",
+      "cta": "Formulaire TM0",
+      "comingSoon": "Lien bientôt disponible"
     }
   },
   "rawai": {
     "title": "Notre Rawai",
     "beaches": {
-      "title": "Plages",
-      "naiHarn": "Plage principale, top pour nager",
-      "yaNui": "Petite crique, hyper calme",
-      "aoSane": "Rocheux, super pour le snorkeling",
-      "rawai": "Coucher de soleil, pas pour nager"
+      "title": "Plages"
     },
     "restaurants": {
       "title": "Où on mange",
       "openMaps": "Ouvrir dans Maps"
     },
     "spas": {
-      "title": "Massages & spas",
-      "bookingNote": "On peut réserver pour vous si vous voulez."
+      "title": "Massages",
+      "bookingNote": "On peut réserver pour vous."
     }
   },
   "boats": {
     "title": "Balades en bateau",
-    "halfDay": "Demi-journée / Facile",
-    "fullDay": "Journée complète / Best eau",
-    "multiStop": "Combos multi-îles",
-    "departure": "La plupart partent de la plage de Rawai.",
+    "halfDay": "Demi-journée",
+    "fullDay": "Journée complète",
+    "multiStop": "Multi-îles",
+    "departure": "Départs généralement depuis la plage de Rawai.",
     "help": "On connaît de bons capitaines. Demandez-nous."
   },
   "dayPasses": {
     "title": "Day pass hôtels",
-    "description": "Envie d'une journée dans une piscine 5 étoiles ? Les day pass donnent accès aux installations, parfois avec crédit food/drinks.",
+    "description": "Les day pass donnent accès aux piscines et installations d'hôtels pour la journée, parfois avec crédit food/drinks.",
     "cta": "Réserver"
   },
-  "liveLikeUs": {
-    "title": "Vivre comme un local",
-    "sevenEleven": {
-      "title": "7-Eleven",
-      "description": "24/7, partout. Votre meilleur ami."
-    },
-    "tops": {
-      "title": "Tops app",
-      "description": "Livraison de courses directement à la maison."
-    },
-    "transport": {
-      "title": "Grab / Bolt",
-      "description": "Comme Uber. Utilisez ça pour les trajets."
-    },
-    "pharmacy": {
-      "title": "Pharmacies",
-      "description": "Plein autour, bien fournies."
-    },
-    "water": {
-      "title": "Eau & soleil",
-      "description": "Buvez de l'eau en bouteille. Mettez de la crème solaire. Vous nous remercierez."
-    }
-  },
   "atHome": {
-    "title": "Règles de la maison (simple)",
+    "title": "À la maison",
     "shoesOff": "Chaussures enlevées à l'intérieur",
     "noGlass": "Pas de verre près de la piscine",
-    "ac": "Éteignez la clim en partant des pièces. Fermez les portes quand la clim est allumée."
+    "ac": "Éteindre la clim en partant. Garder portes fermées avec la clim."
   },
   "guestForm": {
     "title": "Aidez-nous à préparer",
     "description": "Dites-nous ce que vous aimez qu'on fasse les courses.",
     "arrival": "Date & heure d'arrivée",
     "flightNumber": "Numéro de vol (optionnel)",
-    "needTaxi": "Besoin d'un taxi aéroport ?",
+    "needTaxi": "Taxi aéroport ?",
     "yes": "Oui",
     "no": "Non",
     "breakfast": "Préférences petit-déj",
@@ -126,15 +124,15 @@
     "allergies": "Allergies / intolérances",
     "kids": "Nombre d'enfants",
     "kidsAges": "Âges",
-    "babyNeeds": "Trucs pour bébé",
+    "babyNeeds": "Besoins bébé",
     "diapers": "Besoin de couches ?",
     "diaperSize": "Taille",
     "babyFood": "Notes lait / nourriture",
     "sleeping": "Préférences couchage",
-    "other": "Autre chose qu'on devrait savoir ?",
+    "other": "Autre chose ?",
     "submit": "Envoyer",
-    "thankYou": "C'est noté !",
-    "confirmation": "On a tout reçu. À très vite.",
+    "thankYou": "Merci",
+    "confirmation": "On a tout reçu. À très bientôt.",
     "contactUs": "Des questions ? WhatsApp quand vous voulez."
   },
   "stickyBar": {

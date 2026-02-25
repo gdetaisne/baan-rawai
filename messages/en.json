@@ -1,12 +1,37 @@
 {
+  "metadata": {
+    "title": "Baan Sayiuan | Our home in Rawai",
+    "description": "Your complete guide to our home in Rawai, Phuket. Everything you need for an amazing stay."
+  },
   "hero": {
     "title": "Welcome to Baan Sayiuan",
     "subtitle": "Our home in Rawai, Phuket",
-    "ctaPrimary": "Scroll to explore",
+    "ctaPrimary": "Prepare your stay",
     "whatsapp": "WhatsApp",
-    "directions": "Find us",
+    "directions": "Directions",
     "lucie": "Lucie",
     "guillaume": "Guillaume"
+  },
+  "nav": {
+    "beforeArrival": "Before you arrive",
+    "arrival": "Arrival",
+    "rawai": "Our Rawai",
+    "boats": "Boat trips",
+    "dayPasses": "Day passes",
+    "guestForm": "Guest form"
+  },
+  "privateMode": {
+    "title": "Private Access",
+    "description": "Enter the passcode shared with you to access door code and WiFi password.",
+    "placeholder": "Enter passcode",
+    "unlock": "Unlock",
+    "loading": "Unlocking...",
+    "hint": "Contact us if you need the passcode.",
+    "locked": {
+      "doorCode": "Door code will be shared before arrival.",
+      "wifiPassword": "Password available in Private mode."
+    },
+    "button": "Private"
   },
   "beforeArrival": {
     "title": "Before you arrive",
@@ -16,8 +41,7 @@
     },
     "doorCode": {
       "title": "Door code",
-      "description": "Code",
-      "note": "We'll send it to you a few days before"
+      "description": "Code"
     },
     "wifi": {
       "title": "WiFi",
@@ -32,92 +56,66 @@
     },
     "esim": {
       "title": "Get an eSIM before you fly",
-      "description": "Install it before takeoff so you have internet the second you land. Trust us, it's a game changer.",
+      "description": "Install it before takeoff so you have internet the second you land.",
       "cta": "Buy an eSIM"
     }
   },
   "arrival": {
-    "title": "Landing in Phuket",
+    "title": "Arrival in Phuket",
     "immigration": {
       "title": "Immigration queue",
-      "description": "Can be 30 min or 2 hours depending on when you arrive. Bring a book, download a podcast, be zen."
+      "description": "Can be 30 min or 2 hours depending on when you arrive."
     },
     "fastTrack": {
-      "title": "Fast Track / Priority Lane",
-      "description": "There's a meet-and-greet service that escorts you through the priority lane. Around 1000–2000 THB per person. Worth it if you're arriving late or traveling with kids."
+      "title": "Priority Lane",
+      "description": "Meet-and-greet service through priority lane. Around 1000–2000 THB per person. Worth it if arriving late or with kids."
     },
     "tm0": {
-      "title": "Fill out the TM0 form",
-      "description": "You need to complete this before arrival. Do it on the plane.",
-      "cta": "TM0 form"
+      "title": "TM0 form",
+      "description": "Complete this before arrival.",
+      "cta": "TM0 form",
+      "comingSoon": "Link coming soon"
     }
   },
   "rawai": {
     "title": "Our Rawai",
     "beaches": {
-      "title": "Beaches",
-      "naiHarn": "Main beach, best for swimming",
-      "yaNui": "Tiny cove, super chill",
-      "aoSane": "Rocky, great snorkeling",
-      "rawai": "Sunset spot, not for swimming"
+      "title": "Beaches"
     },
     "restaurants": {
       "title": "Where we eat",
       "openMaps": "Open in Maps"
     },
     "spas": {
-      "title": "Massages & spas",
-      "bookingNote": "We can book for you if you want."
+      "title": "Massages",
+      "bookingNote": "We can book for you."
     }
   },
   "boats": {
     "title": "Boat trips",
-    "halfDay": "Half-day / Easy",
-    "fullDay": "Full-day / Best water",
-    "multiStop": "Multi-island combos",
-    "departure": "Most boats leave from Rawai Beach.",
+    "halfDay": "Half-day",
+    "fullDay": "Full-day",
+    "multiStop": "Multi-island",
+    "departure": "Departures usually from Rawai Beach.",
     "help": "We know good captains. Just ask."
   },
   "dayPasses": {
     "title": "Hotel day passes",
-    "description": "Fancy a day at a 5-star pool? Day passes get you access to hotel facilities, sometimes with food/drink credit.",
+    "description": "Day passes give you access to hotel pools and facilities for the day, sometimes with food and drink credit.",
     "cta": "Book"
   },
-  "liveLikeUs": {
-    "title": "Live like a local",
-    "sevenEleven": {
-      "title": "7-Eleven",
-      "description": "24/7, everywhere. Your best friend."
-    },
-    "tops": {
-      "title": "Tops app",
-      "description": "Grocery delivery straight to the house."
-    },
-    "transport": {
-      "title": "Grab / Bolt",
-      "description": "Like Uber. Use these for rides."
-    },
-    "pharmacy": {
-      "title": "Pharmacies",
-      "description": "Tons of them around town, well stocked."
-    },
-    "water": {
-      "title": "Water & sun",
-      "description": "Drink bottled water. Wear sunscreen. You'll thank us."
-    }
-  },
   "atHome": {
-    "title": "House rules (simple)",
+    "title": "At home",
     "shoesOff": "Shoes off inside",
     "noGlass": "No glass by the pool",
-    "ac": "Turn off AC when you leave rooms. Close doors when AC is on."
+    "ac": "Turn off AC when leaving. Close doors when AC is on."
   },
   "guestForm": {
-    "title": "Help us prep your stay",
+    "title": "Help us prepare",
     "description": "Tell us what you like so we can stock up.",
     "arrival": "Arrival date & time",
     "flightNumber": "Flight number (optional)",
-    "needTaxi": "Need airport taxi?",
+    "needTaxi": "Airport taxi?",
     "yes": "Yes",
     "no": "No",
     "breakfast": "Breakfast preferences",
@@ -126,14 +124,14 @@
     "allergies": "Allergies / intolerances",
     "kids": "Number of kids",
     "kidsAges": "Ages",
-    "babyNeeds": "Baby stuff",
-    "diapers": "Need diapers?",
+    "babyNeeds": "Baby needs",
+    "diapers": "Diapers needed?",
     "diaperSize": "Size",
     "babyFood": "Milk / food notes",
-    "sleeping": "Sleeping arrangements preference",
-    "other": "Anything else we should know?",
+    "sleeping": "Sleeping arrangements",
+    "other": "Anything else?",
     "submit": "Send",
-    "thankYou": "Got it!",
+    "thankYou": "Thank you",
     "confirmation": "We received everything. See you soon.",
     "contactUs": "Questions? WhatsApp us anytime."
   },

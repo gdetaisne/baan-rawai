@@ -1,78 +1,70 @@
 import { useTranslations } from 'next-intl';
-import { ArrowUpRight } from 'lucide-react';
-import { Container } from '@/components/ui/Container';
+import { CuratedListItem } from '@/components/CuratedListItem';
 import { siteConfig } from '@/config/site';
 
 export function OurRawai() {
   const t = useTranslations('rawai');
 
   return (
-    <section id="rawai" className="py-32 bg-background">
-      <Container>
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-display font-light tracking-wider uppercase text-ink-green mb-6">
+    <section id="rawai" className="py-20 px-6 md:px-12 bg-[#F7F5F2]/30">
+      <div className="max-w-3xl mx-auto">
+        {/* Section header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-display font-light text-[#1F2A28] tracking-tight mb-3">
             {t('title')}
           </h2>
-          <div className="w-24 h-px bg-ink-green/30 mx-auto" />
+          <div className="h-px w-12 bg-[#D6C2B0] mx-auto" />
         </div>
 
         {/* Beaches */}
-        <div className="max-w-4xl mx-auto mb-24">
-          <h3 className="text-3xl font-display font-light tracking-wide uppercase text-ink-green mb-12 text-center">
+        <div className="mb-20">
+          <h3 className="text-sm tracking-widest uppercase text-[#7A8A8F] mb-8 text-center">
             {t('beaches.title')}
           </h3>
-          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8">
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6">
             {siteConfig.beaches.map((beach) => (
-              <div key={beach.name} className="group">
-                <div className="text-lg font-medium text-ink-green mb-2 tracking-wide">{beach.name}</div>
-                <div className="text-sm text-dusty-blue leading-relaxed">{beach.description}</div>
+              <div key={beach.name} className="border-l border-[#D6C2B0] pl-4">
+                <div className="font-display text-lg text-[#1F2A28] mb-1">{beach.name}</div>
+                <div className="text-sm text-[#7A8A8F]">{beach.description}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Restaurants */}
-        <div className="max-w-4xl mx-auto mb-24">
-          <h3 className="text-3xl font-display font-light tracking-wide uppercase text-ink-green mb-12 text-center">
+        <div className="mb-20">
+          <h3 className="text-sm tracking-widest uppercase text-[#7A8A8F] mb-8 text-center">
             {t('restaurants.title')}
           </h3>
-          <div className="space-y-6">
+          <div>
             {siteConfig.restaurants.map((restaurant, index) => (
-              <a
+              <CuratedListItem
                 key={index}
-                href={restaurant.mapsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start justify-between gap-4 py-6 border-b border-clay/20 group hover:border-coral/30 transition-colors"
-              >
-                <div className="flex-1">
-                  <div className="text-lg font-medium text-ink-green mb-2 group-hover:text-coral transition-colors">
-                    {restaurant.name}
-                  </div>
-                  <div className="text-sm text-dusty-blue">{restaurant.description}</div>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-dusty-blue group-hover:text-coral transition-colors flex-shrink-0 mt-1" />
-              </a>
+                name={restaurant.name}
+                description={restaurant.description}
+                link={restaurant.mapsLink}
+                linkLabel={t('restaurants.openMaps')}
+              />
             ))}
           </div>
         </div>
 
         {/* Spas */}
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-3xl font-display font-light tracking-wide uppercase text-ink-green mb-12 text-center">
+        <div>
+          <h3 className="text-sm tracking-widest uppercase text-[#7A8A8F] mb-8 text-center">
             {t('spas.title')}
           </h3>
           <div className="space-y-6">
             {siteConfig.spas.map((spa, index) => (
-              <div key={index} className="py-4 border-b border-clay/20">
-                <div className="text-lg font-medium text-ink-green mb-2">{spa.name}</div>
-                <div className="text-sm text-dusty-blue">{spa.note}</div>
+              <div key={index} className="border-l border-[#D6C2B0] pl-4">
+                <div className="font-display text-lg text-[#1F2A28] mb-1">{spa.name}</div>
+                <div className="text-sm text-[#7A8A8F]">{spa.note}</div>
               </div>
             ))}
           </div>
-          <p className="text-sm text-dusty-blue/60 italic text-center mt-8">{t('spas.bookingNote')}</p>
+          <p className="text-sm text-[#7A8A8F] italic text-center mt-8">{t('spas.bookingNote')}</p>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

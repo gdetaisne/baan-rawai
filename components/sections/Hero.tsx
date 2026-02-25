@@ -1,14 +1,15 @@
 import { useTranslations } from 'next-intl';
-import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
+import { Button } from '@/components/ui/Button';
+import { siteConfig } from '@/config/site';
 
 export function Hero() {
   const t = useTranslations('hero');
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Full-screen background image */}
-      <div className="absolute inset-0">
+    <section className="relative">
+      {/* Full-bleed hero image */}
+      <div className="relative h-[70vh] md:h-[80vh]">
         <Image
           src="/IMG_7221.jpeg"
           alt="Baan Sayiuan"
@@ -18,30 +19,32 @@ export function Hero() {
           quality={95}
         />
         {/* Subtle overlay */}
-        <div className="absolute inset-0 bg-ink/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#1F2A28]/40" />
       </div>
 
-      {/* Centered content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <h1 className="text-7xl md:text-8xl lg:text-9xl font-display font-light text-white tracking-wider mb-8 leading-none">
-          Baan Sayiuan
-        </h1>
-        
-        <div className="flex items-center justify-center gap-4 mb-8">
-          <div className="h-px w-12 bg-white/40" />
-          <div className="w-1 h-1 rounded-full bg-white/40" />
-          <div className="h-px w-12 bg-white/40" />
+      {/* Text plaque on clay surface */}
+      <div className="relative -mt-32 mx-6 md:mx-12 mb-16">
+        <div className="bg-[#D6C2B0] border border-[#D6C2B0]/50 p-8 md:p-12 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light text-[#1F2A28] tracking-tight mb-4 leading-tight">
+            {t('title')}
+          </h1>
+          
+          <p className="text-lg md:text-xl text-[#1F2A28]/70 font-light mb-8">
+            {t('subtitle')}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button variant="primary" size="default" href="#guest-form">
+              {t('ctaPrimary')}
+            </Button>
+            <Button variant="ghost" size="default" href={siteConfig.whatsapp.primary.link}>
+              {t('whatsapp')}
+            </Button>
+            <Button variant="ghost" size="default" href={siteConfig.maps.link}>
+              {t('directions')}
+            </Button>
+          </div>
         </div>
-        
-        <p className="text-xl md:text-2xl text-white/90 font-light tracking-wide">
-          {t('subtitle')}
-        </p>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/70">
-        <span className="text-xs tracking-widest uppercase">{t('ctaPrimary')}</span>
-        <ChevronDown className="w-5 h-5 animate-bounce" />
       </div>
     </section>
   );
