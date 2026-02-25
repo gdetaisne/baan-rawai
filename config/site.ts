@@ -31,7 +31,7 @@ export const siteConfig = {
   
   // External links
   links: {
-    esim: 'https://www.airalo.com/thailand-esim',
+    esim: 'https://esim.holafly.com/fr/esim-thailande/?tw_source=google&tw_adid=769625392446&tw_campaign=22896705552&utm_source=google&utm_medium=cpc&utm_id=22896705552&cq_src=google_ads&cq_cmp=22896705552&cq_term=sim%20tha%C3%AFlande&cq_plac=&cq_net=g&cq_plt=gp&utm_campaign=HLF-B2C_GOO_ASIA_ASIA_FR_SEA_GEN_DEST_PURCH_PUSH_PROSP_AO_ADM&utm_adgroup=GOO_ASIA_ASIA_FR_SEA_GEN_DEST_COUNTRY_ASIA_THAILAND_NA_NA_PURCH_PUSH_PROSP_AO&gad_source=1&gad_campaignid=22896705552&gbraid=0AAAAAoN3UHN0roTFux6y8A2qwy2LMJ5DX&gclid=Cj0KCQiAtfXMBhDzARIsAJ0jp3CSjVfeEzqU9GQ3OOQmYVZGvrBYU3dyInc5qPQpnyFvoJr25wcimNAaAgFoEALw_wcB',
     tm0Form: process.env.NEXT_PUBLIC_TM0_FORM_URL || '', // Empty = hide button
   },
   
