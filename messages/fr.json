@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "title": "Baan Sayiuan | Notre maison à Rawai",
-    "description": "Votre guide complet pour notre maison à Rawai, Phuket. Tout ce dont vous avez besoin pour un séjour parfait."
+    "title": "Baan Sayiuan | Votre sanctuaire privé à Rawai",
+    "description": "Bienvenue à Baan Sayiuan, notre maison de famille à Rawai, Phuket. Tout ce dont vous avez besoin pour un séjour inoubliable."
   },
   "hero": {
     "title": "Bienvenue à Baan Sayiuan",
-    "subtitle": "Notre maison à Rawai, Phuket",
+    "subtitle": "Votre sanctuaire privé à Rawai",
     "ctaPrimary": "Préparer votre séjour",
     "whatsapp": "WhatsApp",
     "directions": "Itinéraire",
@@ -13,27 +13,8 @@
     "guillaume": "Guillaume"
   },
   "welcome": {
-    "label": "Bienvenue Chez Vous",
-    "title": "Faites comme chez vous",
-    "story1": "Ce n'est pas juste notre maison—c'est l'endroit où on se ressource, où on crée des souvenirs, où la vie ralentit. On veut que vous ressentiez la même magie qu'on ressent quand on est ici.",
-    "story2": "Des plages secrètes aux meilleurs spots de sunset, on a mis tout ce qu'on aime de Rawai dans ce guide. Installez-vous, explorez comme des locaux, et surtout : profitez.",
-    "signature": "— Lucie & Guillaume"
-  },
-  "experiences": {
-    "label": "Votre Rawai",
-    "title": "Trois façons de tomber amoureux de cet endroit",
-    "beach": {
-      "title": "Plage & Océan",
-      "description": "Eaux cristallines, criques cachées, et les meilleurs spots de coucher de soleil qu'on a trouvés après d'innombrables soirées à regarder le ciel devenir rose."
-    },
-    "islands": {
-      "title": "Sauts d'Îles",
-      "description": "Longtail boats vers des îles paradisiaques. Snorkeling, plages désertes, et fruits de mer locaux sur le sable—la Thaïlande comme elle devrait être."
-    },
-    "culture": {
-      "title": "Vivre Local",
-      "description": "Marchés de nuit, visites de temples, et ces petits moments qui font tomber amoureux de la culture thaïe. On vous montre nos favoris."
-    }
+    "title": "Bienvenue à la maison",
+    "description": "Plus qu'une simple villa, Baan Sayiuan est notre maison de famille—un lieu chaleureux et relaxant que nous aimons partager avec nos amis et notre famille. Nous avons créé ce guide pour que vous vous sentiez comme chez vous, découvriez la magie de Rawai et créiez des souvenirs inoubliables."
   },
   "nav": {
     "beforeArrival": "Avant l'arrivée",
@@ -134,8 +115,8 @@
     "ac": "Éteindre la clim en partant. Garder portes fermées avec la clim."
   },
   "guestForm": {
-    "title": "Aidez-nous à préparer",
-    "description": "Dites-nous ce que vous aimez qu'on fasse les courses.",
+    "title": "Aidez-nous à préparer votre séjour",
+    "description": "Dites-nous ce que vous aimez pour qu'on fasse les courses et rende votre arrivée parfaite.",
     "arrival": "Date & heure d'arrivée",
     "flightNumber": "Numéro de vol (optionnel)",
     "needTaxi": "Taxi aéroport ?",
@@ -170,5 +151,9 @@
     "copy": "Copier",
     "copied": "Copié",
     "close": "Fermer"
+  },
+  "thai": {
+    "title": "Thai essentiel pour les Farang",
+    "description": "Maîtrisez ces phrases et vous charmerez tous les locaux."
   }
 }
