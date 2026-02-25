@@ -1,291 +1,282 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { X, Send, CheckCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import { X, Send, Sparkles, Check } from 'lucide-react';
 
 export function GuestFormPopup() {
   const t = useTranslations('guestForm');
   const [isOpen, setIsOpen] = useState(false);
-  const [hasSubmitted, setHasSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    arrival: '',
-    flightNumber: '',
-    needTaxi: '',
-    breakfast: '',
-    juice: '',
-    cocktail: '',
-    allergies: '',
-    kids: '',
-    kidsAges: '',
-    diapers: '',
-    diaperSize: '',
-    babyFood: '',
-    sleeping: '',
-    other: '',
-  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [hasSeenPopup, setHasSeenPopup] = useState(false);
 
   useEffect(() => {
-    // Check if form has been submitted
+    // Check if form already submitted or popup already shown
     const submitted = localStorage.getItem('guestFormSubmitted');
+    const seen = localStorage.getItem('guestFormPopupSeen');
+    
     if (submitted) {
-      setHasSubmitted(true);
+      setIsSubmitted(true);
       return;
     }
 
-    // Show popup after 5 seconds if not submitted
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 5000);
-
-    return () => clearTimeout(timer);
+    // Show popup after 5 seconds if never seen
+    if (!seen) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+        localStorage.setItem('guestFormPopupSeen', 'true');
+        setHasSeenPopup(true);
+      }, 5000);
+      return () => clearTimeout(timer);
+    } else {
+      setHasSeenPopup(true);
+    }
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  useEffect(() => {
+    // Listen for custom event to open popup
+    const handleOpen = () => setIsOpen(true);
+    window.addEventListener('openGuestForm', handleOpen);
+    return () => window.removeEventListener('openGuestForm', handleOpen);
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
 
     try {
       const response = await fetch('/api/guest-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       });
 
       if (response.ok) {
         localStorage.setItem('guestFormSubmitted', 'true');
-        setHasSubmitted(true);
+        setIsSubmitted(true);
+        
+        // Close after showing success for 3 seconds
         setTimeout(() => {
           setIsOpen(false);
         }, 3000);
+      } else {
+        alert('Error submitting form. Please try WhatsApp instead.');
       }
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error('Form error:', error);
+      alert('Error submitting form. Please try WhatsApp instead.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  if (!isOpen || hasSubmitted) return null;
+  if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 animate-fade-in">
-      {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-deep/80 backdrop-blur-md"
-        onClick={() => setIsOpen(false)}
-      />
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl animate-slide-up">
+        {/* Close button */}
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-6 right-6 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-lg"
+        >
+          <X className="w-5 h-5 text-[#1A1A1A]" />
+        </button>
 
-      {/* Modal */}
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-turquoise to-coral p-8 text-white">
-          <button
-            onClick={() => setIsOpen(false)}
-            className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
-          >
-            <X className="w-6 h-6" />
-          </button>
-          <div className="flex items-center gap-3 mb-4">
-            <Send className="w-8 h-8" />
-            <h2 className="text-3xl font-display font-semibold">
-              {t('title')}
-            </h2>
+        {isSubmitted ? (
+          // Success State
+          <div className="p-12 text-center">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-palm to-ocean rounded-full mb-6">
+              <Check className="w-10 h-10 text-white" />
+            </div>
+            <h3 className="text-3xl font-display font-bold text-[#1A1A1A] mb-4">
+              {t('thankYou')}!
+            </h3>
+            <p className="text-lg text-[#737373] leading-relaxed">
+              {t('confirmation')}
+            </p>
           </div>
-          <p className="text-white/90 text-lg">
-            {t('description')}
-          </p>
-        </div>
+        ) : (
+          // Form
+          <>
+            {/* Header */}
+            <div className="p-8 md:p-12 bg-gradient-to-br from-ocean via-palm to-sunset text-white text-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-[url('/IMG_3154.jpeg')] bg-cover bg-center opacity-20" />
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-4">
+                  <Sparkles className="w-4 h-4 text-gold" />
+                  <span className="text-sm tracking-widest uppercase font-semibold">Important</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
+                  {t('title')}
+                </h2>
+                <p className="text-xl text-white/90 max-w-xl mx-auto leading-relaxed">
+                  {t('description')}
+                </p>
+              </div>
+            </div>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="p-8 space-y-6">
-          {/* Arrival */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">
-              {t('arrival')} *
-            </label>
-            <input
-              type="datetime-local"
-              name="arrival"
-              required
-              value={formData.arrival}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border-2 border-turquoise/20 rounded-lg focus:border-turquoise focus:outline-none transition-colors"
-            />
-          </div>
-
-          {/* Flight Number */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">
-              {t('flightNumber')}
-            </label>
-            <input
-              type="text"
-              name="flightNumber"
-              value={formData.flightNumber}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border-2 border-turquoise/20 rounded-lg focus:border-turquoise focus:outline-none transition-colors"
-            />
-          </div>
-
-          {/* Taxi */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">
-              {t('needTaxi')} *
-            </label>
-            <div className="flex gap-4">
-              <label className="flex items-center gap-2 cursor-pointer">
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="p-8 md:p-12 space-y-6">
+              {/* Arrival */}
+              <div>
+                <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">
+                  {t('arrival')} *
+                </label>
                 <input
-                  type="radio"
-                  name="needTaxi"
-                  value="yes"
+                  type="datetime-local"
+                  name="arrival"
                   required
-                  onChange={handleChange}
-                  className="w-5 h-5 text-turquoise"
+                  className="w-full px-4 py-3 border-2 border-sand bg-white text-[#1A1A1A] rounded-xl focus:border-ocean focus:ring-2 focus:ring-ocean/20 transition-all"
                 />
-                <span>{t('yes')}</span>
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer">
+              </div>
+
+              {/* Flight */}
+              <div>
+                <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">
+                  {t('flightNumber')}
+                </label>
                 <input
-                  type="radio"
-                  name="needTaxi"
-                  value="no"
-                  onChange={handleChange}
-                  className="w-5 h-5 text-turquoise"
+                  type="text"
+                  name="flightNumber"
+                  placeholder="e.g. TG417"
+                  className="w-full px-4 py-3 border-2 border-sand bg-white text-[#1A1A1A] rounded-xl focus:border-ocean focus:ring-2 focus:ring-ocean/20 transition-all"
                 />
-                <span>{t('no')}</span>
-              </label>
-            </div>
-          </div>
+              </div>
 
-          {/* Breakfast */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">
-              {t('breakfast')}
-            </label>
-            <input
-              type="text"
-              name="breakfast"
-              value={formData.breakfast}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border-2 border-turquoise/20 rounded-lg focus:border-turquoise focus:outline-none transition-colors"
-              placeholder="Croissants, fruits, eggs..."
-            />
-          </div>
+              {/* Taxi */}
+              <div>
+                <label className="block text-sm font-semibold text-[#1A1A1A] mb-3">
+                  {t('needTaxi')}
+                </label>
+                <div className="flex gap-4">
+                  <label className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border-2 border-sand rounded-xl cursor-pointer hover:border-ocean transition-colors has-[:checked]:border-ocean has-[:checked]:bg-ocean/5">
+                    <input type="radio" name="taxi" value="yes" className="accent-ocean" />
+                    <span className="font-medium">{t('yes')}</span>
+                  </label>
+                  <label className="flex-1 flex items-center justify-center gap-2 px-4 py-3 border-2 border-sand rounded-xl cursor-pointer hover:border-ocean transition-colors has-[:checked]:border-ocean has-[:checked]:bg-ocean/5">
+                    <input type="radio" name="taxi" value="no" className="accent-ocean" />
+                    <span className="font-medium">{t('no')}</span>
+                  </label>
+                </div>
+              </div>
 
-          {/* Juice & Cocktail */}
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-semibold text-ink mb-2">
-                {t('juice')}
-              </label>
-              <input
-                type="text"
-                name="juice"
-                value={formData.juice}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-turquoise/20 rounded-lg focus:border-turquoise focus:outline-none transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-ink mb-2">
-                {t('cocktail')}
-              </label>
-              <input
-                type="text"
-                name="cocktail"
-                value={formData.cocktail}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-turquoise/20 rounded-lg focus:border-turquoise focus:outline-none transition-colors"
-              />
-            </div>
-          </div>
+              {/* Breakfast */}
+              <div>
+                <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">
+                  {t('breakfast')}
+                </label>
+                <textarea
+                  name="breakfast"
+                  rows={2}
+                  placeholder="e.g. Eggs, croissants, fresh juice..."
+                  className="w-full px-4 py-3 border-2 border-sand bg-white text-[#1A1A1A] rounded-xl focus:border-ocean focus:ring-2 focus:ring-ocean/20 transition-all resize-none"
+                />
+              </div>
 
-          {/* Allergies */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">
-              {t('allergies')}
-            </label>
-            <textarea
-              name="allergies"
-              value={formData.allergies}
-              onChange={handleChange}
-              rows={2}
-              className="w-full px-4 py-3 border-2 border-turquoise/20 rounded-lg focus:border-turquoise focus:outline-none transition-colors resize-none"
-            />
-          </div>
+              {/* Juice & Cocktail */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">
+                    {t('juice')}
+                  </label>
+                  <input
+                    type="text"
+                    name="juice"
+                    placeholder="Orange, mango..."
+                    className="w-full px-4 py-3 border-2 border-sand bg-white text-[#1A1A1A] rounded-xl focus:border-ocean focus:ring-2 focus:ring-ocean/20 transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">
+                    {t('cocktail')}
+                  </label>
+                  <input
+                    type="text"
+                    name="cocktail"
+                    placeholder="Mojito, margarita..."
+                    className="w-full px-4 py-3 border-2 border-sand bg-white text-[#1A1A1A] rounded-xl focus:border-ocean focus:ring-2 focus:ring-ocean/20 transition-all"
+                  />
+                </div>
+              </div>
 
-          {/* Kids */}
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-semibold text-ink mb-2">
-                {t('kids')}
-              </label>
-              <input
-                type="number"
-                name="kids"
-                min="0"
-                value={formData.kids}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-turquoise/20 rounded-lg focus:border-turquoise focus:outline-none transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-ink mb-2">
-                {t('kidsAges')}
-              </label>
-              <input
-                type="text"
-                name="kidsAges"
-                value={formData.kidsAges}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-turquoise/20 rounded-lg focus:border-turquoise focus:outline-none transition-colors"
-                placeholder="2, 5, 8..."
-              />
-            </div>
-          </div>
+              {/* Allergies */}
+              <div>
+                <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">
+                  {t('allergies')}
+                </label>
+                <textarea
+                  name="allergies"
+                  rows={2}
+                  className="w-full px-4 py-3 border-2 border-sand bg-white text-[#1A1A1A] rounded-xl focus:border-ocean focus:ring-2 focus:ring-ocean/20 transition-all resize-none"
+                />
+              </div>
 
-          {/* Other */}
-          <div>
-            <label className="block text-sm font-semibold text-ink mb-2">
-              {t('other')}
-            </label>
-            <textarea
-              name="other"
-              value={formData.other}
-              onChange={handleChange}
-              rows={3}
-              className="w-full px-4 py-3 border-2 border-turquoise/20 rounded-lg focus:border-turquoise focus:outline-none transition-colors resize-none"
-            />
-          </div>
+              {/* Kids */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">
+                    {t('kids')}
+                  </label>
+                  <input
+                    type="number"
+                    name="kids"
+                    min="0"
+                    defaultValue="0"
+                    className="w-full px-4 py-3 border-2 border-sand bg-white text-[#1A1A1A] rounded-xl focus:border-ocean focus:ring-2 focus:ring-ocean/20 transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">
+                    {t('kidsAges')}
+                  </label>
+                  <input
+                    type="text"
+                    name="kidsAges"
+                    placeholder="e.g. 3, 7"
+                    className="w-full px-4 py-3 border-2 border-sand bg-white text-[#1A1A1A] rounded-xl focus:border-ocean focus:ring-2 focus:ring-ocean/20 transition-all"
+                  />
+                </div>
+              </div>
 
-          {/* Submit */}
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isSubmitting ? (
-              <>
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                <span>Sending...</span>
-              </>
-            ) : (
-              <>
-                <Send className="w-5 h-5" />
-                <span>{t('submit')}</span>
-              </>
-            )}
-          </button>
-        </form>
+              {/* Other */}
+              <div>
+                <label className="block text-sm font-semibold text-[#1A1A1A] mb-2">
+                  {t('other')}
+                </label>
+                <textarea
+                  name="other"
+                  rows={3}
+                  placeholder="Anything else we should know?"
+                  className="w-full px-4 py-3 border-2 border-sand bg-white text-[#1A1A1A] rounded-xl focus:border-ocean focus:ring-2 focus:ring-ocean/20 transition-all resize-none"
+                />
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-4 bg-gradient-to-r from-ocean via-palm to-sunset text-white font-bold text-lg rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    <span>{t('submit')}</span>
+                  </>
+                )}
+              </button>
+            </form>
+          </>
+        )}
       </div>
     </div>
   );

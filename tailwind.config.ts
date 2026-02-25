@@ -7,18 +7,18 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      colors: {
-        // 2025 Modern Palette - Vibrant & Contemporary
-        turquoise: '#00BFA5',
-        coral: '#FF6B6B',
-        gold: '#FFC43D',
-        deep: '#121926',
-        paper: '#FFFFFF',
-        cream: '#FAF8F6',
-        ink: '#1A1A1A',
-        muted: '#6B7280',
-      },
+      extend: {
+        colors: {
+          // Natural Phuket Luxury Palette - 2025 Edition
+          ocean: '#0A4D68',
+          sand: '#E8DCC4',
+          sunset: '#D4846C',
+          palm: '#2C5530',
+          paper: '#FFFBF5',
+          ink: '#1A1A1A',
+          muted: '#737373',
+          gold: '#FFC43D',
+        },
       fontFamily: {
         display: ['Lora', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],

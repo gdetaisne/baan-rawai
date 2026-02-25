@@ -1,20 +1,39 @@
 {
   "metadata": {
-    "title": "Baan Sayiuan | Your Private Sanctuary in Rawai",
-    "description": "Welcome to Baan Sayiuan, our family home in Rawai, Phuket. Everything you need for an unforgettable stay."
+    "title": "Baan Sayiuan | Our home in Rawai",
+    "description": "Your complete guide to our home in Rawai, Phuket. Everything you need for an amazing stay."
   },
   "hero": {
     "title": "Welcome to Baan Sayiuan",
-    "subtitle": "Your private sanctuary in Rawai",
-    "ctaPrimary": "Prepare Your Stay",
+    "subtitle": "Our home in Rawai, Phuket",
+    "ctaPrimary": "Prepare your stay",
     "whatsapp": "WhatsApp",
     "directions": "Directions",
     "lucie": "Lucie",
     "guillaume": "Guillaume"
   },
   "welcome": {
-    "title": "Welcome Home",
-    "description": "More than just a villa, Baan Sayiuan is our family home—a place of warmth and relaxation we love to share with our closest friends and family. We've curated this guide to help you feel right at home, discover the magic of Rawai, and create unforgettable memories."
+    "label": "Welcome Home",
+    "title": "Mi casa es tu casa",
+    "story1": "This isn't just our house—it's where we escape, recharge, and make memories. We want you to feel the same magic we do when we're here.",
+    "story2": "From secret beaches to our favorite sunset spots, we've poured everything we love about Rawai into this guide. Make yourself at home, explore like a local, and most importantly: relax.",
+    "signature": "— Lucie & Guillaume"
+  },
+  "experiences": {
+    "label": "Your Rawai",
+    "title": "Three ways to fall in love with this place",
+    "beach": {
+      "title": "Beach & Ocean",
+      "description": "Crystal-clear waters, hidden coves, and the best sunset spots we've found after countless evenings watching the sky turn pink."
+    },
+    "islands": {
+      "title": "Island Hopping",
+      "description": "Longtail boats to paradise islands. Snorkeling, deserted beaches, and local seafood on the sand—exactly as Thailand should be."
+    },
+    "culture": {
+      "title": "Living Local",
+      "description": "Night markets, temple visits, and the little moments that make you fall in love with Thai culture. We'll show you our favorites."
+    }
   },
   "nav": {
     "beforeArrival": "Before you arrive",
@@ -115,8 +134,8 @@
     "ac": "Turn off AC when leaving. Close doors when AC is on."
   },
   "guestForm": {
-    "title": "Help us prepare your stay",
-    "description": "Tell us what you like so we can stock up and make your arrival perfect.",
+    "title": "Help us prepare",
+    "description": "Tell us what you like so we can stock up.",
     "arrival": "Arrival date & time",
     "flightNumber": "Flight number (optional)",
     "needTaxi": "Airport taxi?",
@@ -144,16 +163,16 @@
     "directions": "Directions",
     "wifi": "WiFi"
   },
-  "wifiModal": {
-    "title": "WiFi",
-    "network": "Network",
-    "password": "Password",
-    "copy": "Copy",
-    "copied": "Copied",
-    "close": "Close"
-  },
-  "thai": {
-    "title": "Essential Thai for Farang",
-    "description": "Master these phrases and you'll charm every local."
+    "wifiModal": {
+      "title": "WiFi",
+      "network": "Network",
+      "password": "Password",
+      "copy": "Copy",
+      "copied": "Copied",
+      "close": "Close"
+    },
+    "thai": {
+      "title": "Essential Thai for Farang",
+      "description": "Master these phrases and you'll charm every local. Trust us, a little Thai goes a long way!"
+    }
   }
-}

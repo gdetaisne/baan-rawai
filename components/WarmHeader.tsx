@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
-import { Send } from 'lucide-react';
 
 export function WarmHeader() {
   const t = useTranslations('hero');
@@ -35,7 +34,7 @@ export function WarmHeader() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -47,8 +46,8 @@ export function WarmHeader() {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className={`font-display text-xl md:text-2xl font-semibold transition-colors ${
-            scrolled ? 'text-ink' : 'text-white'
+          className={`font-display text-xl md:text-2xl transition-colors ${
+            scrolled ? 'text-[#1A1A1A]' : 'text-white'
           }`}
         >
           Baan Sayiuan
@@ -59,9 +58,9 @@ export function WarmHeader() {
           {/* Language toggle */}
           <button
             onClick={toggleLanguage}
-            className={`text-xs tracking-widest uppercase font-semibold transition-colors ${
+            className={`text-xs tracking-widest uppercase font-medium transition-colors ${
               scrolled 
-                ? 'text-muted hover:text-ink' 
+                ? 'text-[#737373] hover:text-[#1A1A1A]' 
                 : 'text-white/80 hover:text-white'
             }`}
           >
@@ -71,14 +70,9 @@ export function WarmHeader() {
           {/* Desktop CTA */}
           <button
             onClick={scrollToForm}
-            className={`hidden md:flex items-center gap-2 px-6 py-2.5 text-sm font-semibold rounded-lg transition-all ${
-              scrolled
-                ? 'bg-turquoise text-white hover:bg-turquoise/90 shadow-lg shadow-turquoise/30'
-                : 'bg-white/20 text-white backdrop-blur-sm hover:bg-white/30'
-            }`}
+            className="hidden md:block px-6 py-2.5 bg-[#0A4D68] text-white text-sm hover:bg-[#0A4D68]/90 transition-colors rounded-sm"
           >
-            <Send className="w-4 h-4" />
-            <span>{t('ctaPrimary')}</span>
+            {t('ctaPrimary')}
           </button>
         </div>
       </div>
