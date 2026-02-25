@@ -1,0 +1,153 @@
+{
+  "hero": {
+    "title": "Bienvenue à Baan Sayiuan",
+    "subtitle": "Notre maison à Rawai, Phuket",
+    "ctaPrimary": "Découvrir",
+    "whatsapp": "WhatsApp",
+    "directions": "Itinéraire",
+    "lucie": "Lucie",
+    "guillaume": "Guillaume"
+  },
+  "beforeArrival": {
+    "title": "Avant d'arriver",
+    "taxi": {
+      "title": "Taxi aéroport",
+      "description": "On peut vous organiser un taxi pour 700 THB (liquide). Le chauffeur vous attend à la sortie avec votre nom. Envoyez-nous juste vos infos de vol."
+    },
+    "doorCode": {
+      "title": "Code de la porte",
+      "description": "Code",
+      "note": "On vous l'envoie quelques jours avant"
+    },
+    "wifi": {
+      "title": "WiFi",
+      "network": "Réseau",
+      "password": "Mot de passe",
+      "copy": "Copier",
+      "copied": "Copié"
+    },
+    "atm": {
+      "title": "Important : Les distributeurs en Thaïlande",
+      "description": "Ici les distributeurs donnent l'argent AVANT de rendre la carte. Du coup plein de gens oublient leur carte et partent. Soyez pas cette personne. Aussi, choisissez toujours 'Without conversion' pour éviter les taux de change pourris."
+    },
+    "esim": {
+      "title": "Prenez une eSIM avant de partir",
+      "description": "Installez-la avant le décollage pour avoir internet dès l'atterrissage. Croyez-nous, ça change la vie.",
+      "cta": "Acheter une eSIM"
+    }
+  },
+  "arrival": {
+    "title": "Arrivée à Phuket",
+    "immigration": {
+      "title": "File d'attente immigration",
+      "description": "Ça peut prendre 30 min ou 2h selon l'heure. Prenez un bouquin, un podcast, soyez zen."
+    },
+    "fastTrack": {
+      "title": "Fast Track / Priority Lane",
+      "description": "Y'a un service qui vous accompagne via la file prioritaire. Environ 1000–2000 THB par personne. Ça vaut le coup si vous arrivez tard ou avec des enfants."
+    },
+    "tm0": {
+      "title": "Remplir le formulaire TM0",
+      "description": "Il faut le faire avant l'arrivée. Faites-le dans l'avion.",
+      "cta": "Formulaire TM0"
+    }
+  },
+  "rawai": {
+    "title": "Notre Rawai",
+    "beaches": {
+      "title": "Plages",
+      "naiHarn": "Plage principale, top pour nager",
+      "yaNui": "Petite crique, hyper calme",
+      "aoSane": "Rocheux, super pour le snorkeling",
+      "rawai": "Coucher de soleil, pas pour nager"
+    },
+    "restaurants": {
+      "title": "Où on mange",
+      "openMaps": "Ouvrir dans Maps"
+    },
+    "spas": {
+      "title": "Massages & spas",
+      "bookingNote": "On peut réserver pour vous si vous voulez."
+    }
+  },
+  "boats": {
+    "title": "Balades en bateau",
+    "halfDay": "Demi-journée / Facile",
+    "fullDay": "Journée complète / Best eau",
+    "multiStop": "Combos multi-îles",
+    "departure": "La plupart partent de la plage de Rawai.",
+    "help": "On connaît de bons capitaines. Demandez-nous."
+  },
+  "dayPasses": {
+    "title": "Day pass hôtels",
+    "description": "Envie d'une journée dans une piscine 5 étoiles ? Les day pass donnent accès aux installations, parfois avec crédit food/drinks.",
+    "cta": "Réserver"
+  },
+  "liveLikeUs": {
+    "title": "Vivre comme un local",
+    "sevenEleven": {
+      "title": "7-Eleven",
+      "description": "24/7, partout. Votre meilleur ami."
+    },
+    "tops": {
+      "title": "Tops app",
+      "description": "Livraison de courses directement à la maison."
+    },
+    "transport": {
+      "title": "Grab / Bolt",
+      "description": "Comme Uber. Utilisez ça pour les trajets."
+    },
+    "pharmacy": {
+      "title": "Pharmacies",
+      "description": "Plein autour, bien fournies."
+    },
+    "water": {
+      "title": "Eau & soleil",
+      "description": "Buvez de l'eau en bouteille. Mettez de la crème solaire. Vous nous remercierez."
+    }
+  },
+  "atHome": {
+    "title": "Règles de la maison (simple)",
+    "shoesOff": "Chaussures enlevées à l'intérieur",
+    "noGlass": "Pas de verre près de la piscine",
+    "ac": "Éteignez la clim en partant des pièces. Fermez les portes quand la clim est allumée."
+  },
+  "guestForm": {
+    "title": "Aidez-nous à préparer",
+    "description": "Dites-nous ce que vous aimez qu'on fasse les courses.",
+    "arrival": "Date & heure d'arrivée",
+    "flightNumber": "Numéro de vol (optionnel)",
+    "needTaxi": "Besoin d'un taxi aéroport ?",
+    "yes": "Oui",
+    "no": "Non",
+    "breakfast": "Préférences petit-déj",
+    "juice": "Jus préféré",
+    "cocktail": "Cocktail préféré",
+    "allergies": "Allergies / intolérances",
+    "kids": "Nombre d'enfants",
+    "kidsAges": "Âges",
+    "babyNeeds": "Trucs pour bébé",
+    "diapers": "Besoin de couches ?",
+    "diaperSize": "Taille",
+    "babyFood": "Notes lait / nourriture",
+    "sleeping": "Préférences couchage",
+    "other": "Autre chose qu'on devrait savoir ?",
+    "submit": "Envoyer",
+    "thankYou": "C'est noté !",
+    "confirmation": "On a tout reçu. À très vite.",
+    "contactUs": "Des questions ? WhatsApp quand vous voulez."
+  },
+  "stickyBar": {
+    "whatsapp": "WhatsApp",
+    "directions": "Itinéraire",
+    "wifi": "WiFi"
+  },
+  "wifiModal": {
+    "title": "WiFi",
+    "network": "Réseau",
+    "password": "Mot de passe",
+    "copy": "Copier",
+    "copied": "Copié",
+    "close": "Fermer"
+  }
+}

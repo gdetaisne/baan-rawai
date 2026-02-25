@@ -1,0 +1,153 @@
+{
+  "hero": {
+    "title": "Welcome to Baan Sayiuan",
+    "subtitle": "Our home in Rawai, Phuket",
+    "ctaPrimary": "Scroll to explore",
+    "whatsapp": "WhatsApp",
+    "directions": "Find us",
+    "lucie": "Lucie",
+    "guillaume": "Guillaume"
+  },
+  "beforeArrival": {
+    "title": "Before you arrive",
+    "taxi": {
+      "title": "Airport taxi",
+      "description": "We can arrange a taxi for 700 THB (cash). The driver will wait for you at arrivals with your name on a sign. Just send us your flight details."
+    },
+    "doorCode": {
+      "title": "Door code",
+      "description": "Code",
+      "note": "We'll send it to you a few days before"
+    },
+    "wifi": {
+      "title": "WiFi",
+      "network": "Network",
+      "password": "Password",
+      "copy": "Copy",
+      "copied": "Copied"
+    },
+    "atm": {
+      "title": "Important: ATMs in Thailand",
+      "description": "ATMs here give you the cash BEFORE returning your card. So many people forget their card and leave. Don't be that person. Also, always choose 'Without conversion' to avoid terrible exchange rates."
+    },
+    "esim": {
+      "title": "Get an eSIM before you fly",
+      "description": "Install it before takeoff so you have internet the second you land. Trust us, it's a game changer.",
+      "cta": "Buy an eSIM"
+    }
+  },
+  "arrival": {
+    "title": "Landing in Phuket",
+    "immigration": {
+      "title": "Immigration queue",
+      "description": "Can be 30 min or 2 hours depending on when you arrive. Bring a book, download a podcast, be zen."
+    },
+    "fastTrack": {
+      "title": "Fast Track / Priority Lane",
+      "description": "There's a meet-and-greet service that escorts you through the priority lane. Around 1000–2000 THB per person. Worth it if you're arriving late or traveling with kids."
+    },
+    "tm0": {
+      "title": "Fill out the TM0 form",
+      "description": "You need to complete this before arrival. Do it on the plane.",
+      "cta": "TM0 form"
+    }
+  },
+  "rawai": {
+    "title": "Our Rawai",
+    "beaches": {
+      "title": "Beaches",
+      "naiHarn": "Main beach, best for swimming",
+      "yaNui": "Tiny cove, super chill",
+      "aoSane": "Rocky, great snorkeling",
+      "rawai": "Sunset spot, not for swimming"
+    },
+    "restaurants": {
+      "title": "Where we eat",
+      "openMaps": "Open in Maps"
+    },
+    "spas": {
+      "title": "Massages & spas",
+      "bookingNote": "We can book for you if you want."
+    }
+  },
+  "boats": {
+    "title": "Boat trips",
+    "halfDay": "Half-day / Easy",
+    "fullDay": "Full-day / Best water",
+    "multiStop": "Multi-island combos",
+    "departure": "Most boats leave from Rawai Beach.",
+    "help": "We know good captains. Just ask."
+  },
+  "dayPasses": {
+    "title": "Hotel day passes",
+    "description": "Fancy a day at a 5-star pool? Day passes get you access to hotel facilities, sometimes with food/drink credit.",
+    "cta": "Book"
+  },
+  "liveLikeUs": {
+    "title": "Live like a local",
+    "sevenEleven": {
+      "title": "7-Eleven",
+      "description": "24/7, everywhere. Your best friend."
+    },
+    "tops": {
+      "title": "Tops app",
+      "description": "Grocery delivery straight to the house."
+    },
+    "transport": {
+      "title": "Grab / Bolt",
+      "description": "Like Uber. Use these for rides."
+    },
+    "pharmacy": {
+      "title": "Pharmacies",
+      "description": "Tons of them around town, well stocked."
+    },
+    "water": {
+      "title": "Water & sun",
+      "description": "Drink bottled water. Wear sunscreen. You'll thank us."
+    }
+  },
+  "atHome": {
+    "title": "House rules (simple)",
+    "shoesOff": "Shoes off inside",
+    "noGlass": "No glass by the pool",
+    "ac": "Turn off AC when you leave rooms. Close doors when AC is on."
+  },
+  "guestForm": {
+    "title": "Help us prep your stay",
+    "description": "Tell us what you like so we can stock up.",
+    "arrival": "Arrival date & time",
+    "flightNumber": "Flight number (optional)",
+    "needTaxi": "Need airport taxi?",
+    "yes": "Yes",
+    "no": "No",
+    "breakfast": "Breakfast preferences",
+    "juice": "Favorite juice",
+    "cocktail": "Favorite cocktail",
+    "allergies": "Allergies / intolerances",
+    "kids": "Number of kids",
+    "kidsAges": "Ages",
+    "babyNeeds": "Baby stuff",
+    "diapers": "Need diapers?",
+    "diaperSize": "Size",
+    "babyFood": "Milk / food notes",
+    "sleeping": "Sleeping arrangements preference",
+    "other": "Anything else we should know?",
+    "submit": "Send",
+    "thankYou": "Got it!",
+    "confirmation": "We received everything. See you soon.",
+    "contactUs": "Questions? WhatsApp us anytime."
+  },
+  "stickyBar": {
+    "whatsapp": "WhatsApp",
+    "directions": "Directions",
+    "wifi": "WiFi"
+  },
+  "wifiModal": {
+    "title": "WiFi",
+    "network": "Network",
+    "password": "Password",
+    "copy": "Copy",
+    "copied": "Copied",
+    "close": "Close"
+  }
+}
