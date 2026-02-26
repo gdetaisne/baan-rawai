@@ -82,51 +82,44 @@ export function ThaiLexicon() {
   const t = useTranslations('thai');
 
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12 bg-gradient-to-br from-ocean/5 via-paper to-sunset/5 relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-palm/10 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-sunset/10 to-transparent rounded-full blur-3xl" />
-      
-      <div className="max-w-6xl mx-auto relative">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-ocean/10 to-sunset/10 backdrop-blur-sm rounded-full mb-6">
-            <span className="text-2xl">🇹🇭</span>
-            <span className="text-sm tracking-widest uppercase text-ocean font-semibold">Thai for Farang</span>
-          </div>
+    <section className="py-32 md:py-40 px-8 md:px-12 lg:px-16 bg-paper">
+      <div className="max-w-container mx-auto">
+        {/* Minimal Header */}
+        <div className="text-center mb-20 md:mb-24">
+          <span className="text-label text-muted">
+            THAI FOR FARANG
+          </span>
+          <div className="h-px w-12 bg-ink/20 mx-auto mt-4 mb-12" />
           
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-[#1A1A1A] mb-6">
+          <h2 className="text-display-md text-ink mb-8">
             {t('title')}
           </h2>
           
-          <p className="text-xl text-[#737373] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-body-lg text-muted max-w-2xl mx-auto">
             {t('description')}
           </p>
         </div>
 
-        {/* Phrases Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Minimal Phrases Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {thaiPhrases.map((phrase, index) => (
             <div
               key={index}
-              className="group relative p-6 bg-white/80 backdrop-blur-sm border border-[#E8DCC4] rounded-2xl hover:shadow-2xl hover:shadow-ocean/10 hover:scale-105 transition-all duration-300 overflow-hidden"
+              className="group relative p-8 bg-white border border-black/5 hover:border-black/10 transition-all duration-500"
             >
-              {/* Gradient on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-ocean/5 to-sunset/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
               <div className="relative">
                 {/* Thai */}
-                <div className="text-4xl font-bold text-ocean mb-3 font-display">
+                <div className="text-4xl text-ink mb-4 font-display">
                   {phrase.thai}
                 </div>
                 
                 {/* Phonetic */}
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-lg font-medium text-[#1A1A1A] italic">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="text-lg text-ink/60 italic font-light">
                     {phrase.phonetic}
                   </span>
                   <button 
-                    className="p-1.5 hover:bg-ocean/10 rounded-full transition-colors"
+                    className="p-1.5 hover:opacity-60 transition-opacity duration-300"
                     onClick={() => {
                       // Optional: Add text-to-speech
                       if ('speechSynthesis' in window) {
@@ -136,19 +129,19 @@ export function ThaiLexicon() {
                       }
                     }}
                   >
-                    <Volume2 className="w-4 h-4 text-ocean" />
+                    <Volume2 className="w-4 h-4 text-ink/40" />
                   </button>
                 </div>
                 
                 {/* Translations */}
-                <div className="space-y-1.5 text-sm">
+                <div className="space-y-2 text-sm text-muted">
                   <div className="flex items-start gap-2">
-                    <span className="text-[#D4846C] font-medium">EN:</span>
-                    <span className="text-[#737373]">{phrase.english}</span>
+                    <span className="text-label text-ink/40">EN:</span>
+                    <span>{phrase.english}</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="text-[#D4846C] font-medium">FR:</span>
-                    <span className="text-[#737373]">{phrase.french}</span>
+                    <span className="text-label text-ink/40">FR:</span>
+                    <span>{phrase.french}</span>
                   </div>
                 </div>
               </div>
@@ -156,12 +149,12 @@ export function ThaiLexicon() {
           ))}
         </div>
 
-        {/* Pro Tip */}
-        <div className="mt-12 p-8 bg-gradient-to-r from-gold/10 via-sunset/10 to-gold/10 border border-gold/30 rounded-2xl text-center">
-          <p className="text-lg text-[#1A1A1A] leading-relaxed">
-            <span className="font-bold text-gold">Pro tip:</span> Add{' '}
-            <span className="font-semibold">"khrap" (ครับ)</span> if you're male or{' '}
-            <span className="font-semibold">"kha" (ค่ะ)</span> if you're female at the end of sentences for extra politeness!
+        {/* Minimal Pro Tip */}
+        <div className="mt-16 p-8 md:p-10 bg-white border border-black/5 text-center max-w-3xl mx-auto">
+          <p className="text-body text-muted">
+            <span className="text-ink font-normal">Pro tip:</span> Add{' '}
+            <span className="text-ink">"khrap" (ครับ)</span> if you're male or{' '}
+            <span className="text-ink">"kha" (ค่ะ)</span> if you're female at the end of sentences for extra politeness.
           </p>
         </div>
       </div>

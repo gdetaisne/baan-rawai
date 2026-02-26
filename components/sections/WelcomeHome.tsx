@@ -6,42 +6,39 @@ export function WelcomeHome() {
   const t = useTranslations('welcome');
 
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12 bg-gradient-to-b from-paper via-white to-paper relative overflow-hidden">
-      {/* Decorative gradient blobs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-sunset/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-ocean/10 rounded-full blur-3xl" />
-      
-      <div className="max-w-4xl mx-auto text-center relative">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-sunset/20 to-ocean/20 backdrop-blur-sm rounded-full mb-8">
-          <span className="text-sm tracking-widest uppercase text-ocean font-semibold">
+    <section className="py-32 md:py-40 px-8 md:px-12 lg:px-16 bg-paper">
+      <div className="max-w-narrow mx-auto text-center">
+        {/* Minimal Label */}
+        <div className="mb-16">
+          <span className="text-label text-muted">
             {t('label')}
           </span>
+          <div className="h-px w-12 bg-ink/20 mx-auto mt-4" />
         </div>
         
         {/* Thai Title + English */}
-        <div className="mb-8 space-y-3">
-          <h2 className="text-5xl md:text-7xl font-display font-bold text-ocean">
+        <div className="mb-16 space-y-6">
+          <h2 className="text-display-md text-ink">
             บ้านฉันคือบ้านคุณ
           </h2>
-          <p className="text-3xl md:text-4xl font-display text-[#1A1A1A] italic">
+          <p className="text-display-sm text-ink/80 italic">
             {t('title')}
           </p>
         </div>
         
-        {/* Story - 2025 card style */}
-        <div className="space-y-6 text-lg md:text-xl text-[#737373] leading-relaxed max-w-3xl mx-auto">
-          <p className="p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-sand shadow-lg">
+        {/* Story - Minimal */}
+        <div className="space-y-8 text-body-lg text-muted max-w-xl mx-auto">
+          <p>
             {t('story1')}
           </p>
-          <p className="p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-sand shadow-lg">
+          <p>
             {t('story2')}
           </p>
         </div>
 
-        {/* Signature with gradient */}
-        <div className="mt-16 inline-block p-8 bg-gradient-to-br from-ocean/5 via-sunset/5 to-palm/5 rounded-3xl border border-sand/50">
-          <p className="text-2xl font-display italic bg-gradient-to-r from-ocean via-sunset to-palm bg-clip-text text-transparent">
+        {/* Signature */}
+        <div className="mt-20">
+          <p className="text-xl font-display italic text-ink/60">
             {t('signature')}
           </p>
         </div>

@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
-import { Send } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 
 export function LuxuryHeader() {
@@ -33,38 +32,43 @@ export function LuxuryHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? 'bg-[#F7F4EE]/95 backdrop-blur-luxury shadow-sm border-b border-hairline'
+          ? 'bg-white/95 backdrop-blur-sm shadow-sm'
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 md:py-6 flex items-center justify-between">
-        {/* Wordmark */}
-        <h1 className="font-display text-2xl md:text-3xl tracking-tight text-ink">
-          {siteConfig.name}
+      <div className="max-w-7xl mx-auto px-8 md:px-12 lg:px-16 py-6 flex items-center justify-between">
+        {/* Minimal Wordmark */}
+        <h1 className={`font-light text-xl tracking-[0.1em] transition-colors duration-500 ${
+          scrolled ? 'text-ink' : 'text-white'
+        }`}>
+          {siteConfig.name.toUpperCase()}
         </h1>
 
-        {/* Right side actions */}
-        <div className="flex items-center gap-4 md:gap-6">
+        {/* Minimal Navigation */}
+        <nav className="flex items-center gap-8 md:gap-10">
           {/* Language toggle */}
           <button
             onClick={toggleLanguage}
-            className="text-label text-muted hover:text-ink transition-colors"
+            className={`text-label hover:opacity-60 transition-all duration-500 ${
+              scrolled ? 'text-ink' : 'text-white'
+            }`}
             aria-label="Toggle language"
           >
             {locale === 'en' ? 'FR' : 'EN'}
           </button>
 
-          {/* Desktop CTA */}
+          {/* Desktop text link */}
           <button
             onClick={scrollToForm}
-            className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm tracking-wide hover:bg-accent/90 transition-colors rounded-luxury"
+            className={`hidden md:block text-label hover:opacity-60 transition-all duration-500 ${
+              scrolled ? 'text-ink' : 'text-white'
+            }`}
           >
-            <Send className="w-4 h-4" />
-            <span>{t('ctaPrimary')}</span>
+            INQUIRE
           </button>
-        </div>
+        </nav>
       </div>
     </header>
   );

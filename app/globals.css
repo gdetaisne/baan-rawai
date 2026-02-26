@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@200;300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,17 +6,15 @@
 
 @layer base {
   :root {
-    /* Natural Phuket Luxury Palette - 2025 Edition */
-    --ocean: 10 77 104;       /* #0A4D68 Deep ocean blue */
-    --sand: 232 220 196;      /* #E8DCC4 Warm sand */
-    --sunset: 212 132 108;    /* #D4846C Coral sunset */
-    --palm: 44 85 48;         /* #2C5530 Palm green */
-    --paper: 255 251 245;     /* #FFFBF5 Warm white */
-    --ink: 26 26 26;          /* #1A1A1A Soft black */
-    --muted: 115 115 115;     /* #737373 Muted gray */
-    --gold: 255 196 61;       /* #FFC43D Golden accent */
+    /* COMO-Inspired Minimal Luxury Palette */
+    --background: 15 20 22;      /* #0F1416 Deep ink background */
+    --paper: 247 244 238;        /* #F7F4EE Warm paper surface */
+    --ink: 26 26 26;             /* #1A1A1A Primary text */
+    --muted: 138 138 138;        /* #8A8A8A Soft gray */
+    --accent: 196 165 114;       /* #C4A572 Discrete gold */
+    --border: 0 0 0;             /* #000000 with opacity for hairlines */
     
-    --font-display: 'Lora', serif;
+    --font-display: 'Cormorant Garamond', serif;
     --font-sans: 'Inter', system-ui, sans-serif;
   }
 
@@ -30,53 +28,60 @@
   }
 
   body {
-    @apply bg-[#FFFBF5] text-[#1A1A1A];
+    @apply bg-[#F7F4EE] text-[#1A1A1A];
     font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.8;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 500;
+    font-weight: 300;
+    letter-spacing: -0.02em;
   }
 }
 
 @layer components {
-  /* Typography Scale - Warm & Editorial */
+  /* Typography Scale - Minimal & Refined */
   .text-display-xl {
-    @apply text-[48px] md:text-[72px] leading-[1.1] tracking-tight;
+    @apply text-[56px] md:text-[80px] leading-[1.05] tracking-[-0.02em] font-light;
   }
 
   .text-display-lg {
-    @apply text-[36px] md:text-[56px] leading-[1.15] tracking-tight;
+    @apply text-[40px] md:text-[64px] leading-[1.1] tracking-[-0.02em] font-light;
   }
 
   .text-display-md {
-    @apply text-[28px] md:text-[40px] leading-[1.2];
+    @apply text-[32px] md:text-[48px] leading-[1.15] tracking-[-0.01em] font-light;
   }
 
   .text-display-sm {
-    @apply text-[22px] md:text-[32px] leading-[1.3];
+    @apply text-[24px] md:text-[36px] leading-[1.25] font-light;
   }
 
   .text-body-lg {
-    @apply text-[20px] leading-[1.7];
+    @apply text-[18px] md:text-[20px] leading-[1.8] font-light;
   }
 
   .text-body {
-    @apply text-[16px] leading-[1.7];
+    @apply text-[16px] leading-[1.8] font-light;
   }
 
-  /* Premium buttons */
+  .text-label {
+    @apply text-[11px] md:text-[12px] tracking-[0.2em] uppercase font-light;
+  }
+
+  /* Minimal Premium Buttons - COMO Style */
   .btn-primary {
-    @apply px-8 py-4 bg-[#0A4D68] text-white hover:bg-[#0A4D68]/90 transition-all duration-300 rounded-sm font-medium;
+    @apply px-10 py-4 border border-white/40 text-white hover:bg-white/10 hover:border-white/60 transition-all duration-500 font-light tracking-[0.1em];
   }
 
   .btn-secondary {
-    @apply px-8 py-4 border-2 border-white text-white hover:bg-white/10 transition-all duration-300 rounded-sm font-medium;
+    @apply px-10 py-4 border border-black/20 text-[#1A1A1A] hover:border-black/40 transition-all duration-500 font-light tracking-[0.1em];
   }
 
-  .btn-light {
-    @apply px-8 py-4 bg-white text-[#1A1A1A] hover:bg-white/90 transition-all duration-300 rounded-sm font-medium;
+  .btn-text {
+    @apply text-sm tracking-[0.1em] font-light hover:opacity-60 transition-opacity duration-300;
   }
 }
 
@@ -90,11 +95,11 @@
   }
 }
 
-/* Animations */
+/* Minimal Animations - COMO Style */
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -103,11 +108,11 @@
 }
 
 .animate-fade-in {
-  animation: fade-in 1.2s ease-out;
+  animation: fade-in 1s ease-out;
 }
 
 .animate-fade-in-delay {
-  animation: fade-in 1.2s ease-out 0.3s both;
+  animation: fade-in 1s ease-out 0.2s both;
 }
 
 @keyframes slide-up {
@@ -122,23 +127,10 @@
 }
 
 .animate-slide-up {
-  animation: slide-up 0.4s ease-out;
+  animation: slide-up 0.5s ease-out;
 }
 
-@keyframes bounce-soft {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-bounce-soft {
-  animation: bounce-soft 2s ease-in-out infinite;
-}
-
-/* Hover Effects */
+/* Subtle Hover Effects */
 .hover-zoom {
   overflow: hidden;
 }
@@ -148,19 +140,14 @@
 }
 
 .hover-zoom:hover img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
-/* Parallax */
-.parallax {
-  will-change: transform;
-}
-
-/* Smooth transitions */
+/* Smooth transitions - Slower for luxury feel */
 @media (prefers-reduced-motion: no-preference) {
   * {
     transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
-    transition-duration: 200ms;
-    transition-timing-function: ease-out;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }

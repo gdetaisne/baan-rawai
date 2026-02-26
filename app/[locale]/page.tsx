@@ -29,15 +29,15 @@ export default function HomePage() {
       {/* Guest Form Popup - THE differentiator */}
       <GuestFormPopup />
 
-      {/* Footer */}
-      <footer className="border-t border-[#E8DCC4] py-16 pb-28 md:pb-16 px-6 md:px-12 text-center bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="font-display text-3xl text-[#1A1A1A] mb-4">
-            Baan Sayiuan
+      {/* Minimal Footer */}
+      <footer className="border-t border-black/5 py-20 pb-32 md:pb-20 px-8 md:px-12 text-center bg-paper">
+        <div className="max-w-content mx-auto">
+          <div className="font-display text-2xl text-ink mb-6 tracking-[0.1em]">
+            BAAN SAYIUAN
           </div>
-          <div className="h-px w-16 bg-[#D4846C] mx-auto mb-4" />
-          <p className="text-sm tracking-wider uppercase text-[#737373]">
-            Rawai, Phuket
+          <div className="h-px w-12 bg-ink/20 mx-auto mb-6" />
+          <p className="text-label text-muted">
+            RAWAI · PHUKET
           </p>
         </div>
       </footer>

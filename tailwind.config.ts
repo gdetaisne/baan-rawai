@@ -9,35 +9,48 @@ const config: Config = {
   theme: {
       extend: {
         colors: {
-          // Natural Phuket Luxury Palette - 2025 Edition
-          ocean: '#0A4D68',
-          sand: '#E8DCC4',
-          sunset: '#D4846C',
-          palm: '#2C5530',
-          paper: '#FFFBF5',
+          // COMO-Inspired Minimal Luxury Palette
+          background: '#0F1416',
+          paper: '#F7F4EE',
           ink: '#1A1A1A',
-          muted: '#737373',
-          gold: '#FFC43D',
+          muted: '#8A8A8A',
+          accent: '#C4A572',
+          border: '#000000',
         },
       fontFamily: {
-        display: ['Lora', 'serif'],
+        display: ['Cormorant Garamond', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         tighter: '-0.02em',
         tight: '-0.01em',
+        normal: '0',
         wide: '0.05em',
         wider: '0.1em',
-        widest: '0.15em',
+        widest: '0.2em',
       },
       spacing: {
         '18': '4.5rem',
         '22': '5.5rem',
         '26': '6.5rem',
         '30': '7.5rem',
+        '32': '8rem',
+        '40': '10rem',
+        '48': '12rem',
       },
       maxWidth: {
         'container': '1280px',
+        'content': '1040px',
+        'narrow': '720px',
+      },
+      backdropBlur: {
+        'luxury': '12px',
+      },
+      borderRadius: {
+        'luxury': '2px',
+      },
+      borderWidth: {
+        'hairline': '0.5px',
       },
     },
   },

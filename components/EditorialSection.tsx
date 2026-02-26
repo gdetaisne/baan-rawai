@@ -11,7 +11,7 @@ interface EditorialSectionProps {
 }
 
 /**
- * Magazine-style section wrapper with small caps label, H2, optional intro.
+ * Minimal COMO-style section wrapper with refined spacing.
  */
 export function EditorialSection({
   label,
@@ -24,21 +24,19 @@ export function EditorialSection({
   return (
     <section
       className={cn(
-        'py-20 md:py-28 px-6 md:px-12',
-        background === 'highlight' && 'bg-highlight',
+        'py-32 md:py-40 px-8 md:px-12 lg:px-16',
+        background === 'highlight' ? 'bg-white' : 'bg-paper',
         className
       )}
     >
-      <div className="max-w-5xl mx-auto">
-        {/* Section header */}
-        <div className="mb-12 md:mb-16 text-center">
-          <p className="text-label text-muted mb-4">{label}</p>
-          <h2 className="text-display-md font-display text-ink mb-6">{title}</h2>
+      <div className="max-w-content mx-auto">
+        {/* Minimal Section header */}
+        <div className="mb-20 md:mb-24 text-center">
+          <p className="text-label text-muted">{label}</p>
+          <div className="h-px w-12 bg-ink/20 mx-auto mt-4 mb-12" />
+          <h2 className="text-display-md text-ink mb-8">{title}</h2>
           {description && (
-            <>
-              <div className="h-px w-12 bg-ink/20 mx-auto mb-6" />
-              <p className="text-body-lg text-muted max-w-2xl mx-auto">{description}</p>
-            </>
+            <p className="text-body-lg text-muted max-w-2xl mx-auto">{description}</p>
           )}
         </div>
 

@@ -7,13 +7,13 @@ interface EditorialCardProps {
 }
 
 /**
- * Premium card with hairline border, refined padding, luxury spacing.
+ * Minimal COMO-style card with subtle border.
  */
 export function EditorialCard({ children, className }: EditorialCardProps) {
   return (
     <div
       className={cn(
-        'bg-white border border-hairline p-8 md:p-10 rounded-luxury',
+        'bg-white border border-black/5 p-8 md:p-10 hover:border-black/10 transition-all duration-500',
         className
       )}
     >
