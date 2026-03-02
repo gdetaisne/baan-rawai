@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gloock&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=IBM+Plex+Mono:wght@200;300;400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,8 +6,9 @@
 
 @layer base {
   :root {
-    --font-display: 'Cormorant', 'Georgia', serif;
+    --font-display: 'Cormorant Garamond', 'Georgia', serif;
     --font-sans: 'DM Sans', system-ui, sans-serif;
+    --font-accent: 'IBM Plex Mono', 'Courier New', monospace;
   }
 
   * {
@@ -20,54 +21,53 @@
   }
 
   body {
-    background-color: #FAFAFA;
-    color: #1A1916;
+    background-color: #FAF9F6;
+    color: #1F3D35;
     font-family: var(--font-sans);
     font-weight: 300;
-    line-height: 1.75;
+    line-height: 1.78;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: -0.01em;
-    line-height: 1.15;
+    line-height: 1.1;
   }
 }
 
 @layer components {
   /* ── Typography scale ── */
 
-  /* Matching Aguas de Ibiza: 64px/77px desktop, 40px/48px tablet, 36px/43px mobile */
   .text-display-xl {
     font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(52px, 9vw, 110px);
+    font-weight: 400;
+    font-size: clamp(52px, 8.6vw, 108px);
     line-height: 1.05;
     letter-spacing: -0.01em;
   }
 
   .text-display-lg {
     font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(40px, 6.5vw, 80px);
-    line-height: 1.1;
+    font-weight: 400;
+    font-size: clamp(38px, 6vw, 74px);
+    line-height: 1.08;
     letter-spacing: -0.01em;
   }
 
   .text-display-md {
     font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: 1.2;
+    font-weight: 400;
+    font-size: clamp(30px, 4.4vw, 58px);
+    line-height: 1.14;
     letter-spacing: 0;
   }
 
   .text-display-sm {
     font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(26px, 3.5vw, 44px);
-    line-height: 1.25;
+    font-weight: 400;
+    font-size: clamp(24px, 3.2vw, 42px);
+    line-height: 1.2;
     letter-spacing: 0;
   }
 
@@ -85,8 +85,16 @@
 
   .text-label {
     @apply text-[10px] md:text-[11px] tracking-[0.2em] uppercase;
-    font-family: var(--font-sans);
-    font-weight: 400;
+    font-family: var(--font-accent);
+    font-weight: 300;
+    letter-spacing: 0.22em;
+  }
+
+  .text-accent {
+    font-family: var(--font-accent);
+    font-weight: 300;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
   }
 
   /* ── Buttons ── */
@@ -101,26 +109,33 @@
 
   /* Ghost dark — over light bg */
   .btn-ghost-dark {
-    @apply inline-flex items-center gap-3 px-8 py-3.5 border border-[#1A1916]/30 text-[#1A1916] text-[11px] tracking-[0.18em] uppercase
-           hover:bg-[#1A1916] hover:text-white transition-all duration-500;
+    @apply inline-flex items-center gap-3 px-8 py-3.5 border border-[#1F3D35]/35 text-[#1F3D35] text-[11px] tracking-[0.18em] uppercase
+           hover:bg-[#1F3D35] hover:text-[#FAF9F6] transition-all duration-500;
     font-family: var(--font-sans);
     font-weight: 400;
   }
 
-  /* Bronze accent */
+  /* Ocean teal accent */
   .btn-accent {
-    @apply inline-flex items-center gap-3 px-8 py-3.5 bg-[#1E7A8C] text-white text-[11px] tracking-[0.18em] uppercase
-           hover:bg-[#165E6E] transition-all duration-500;
+    @apply inline-flex items-center gap-3 px-8 py-3.5 bg-[#3E7C7A] text-white text-[11px] tracking-[0.18em] uppercase
+           hover:bg-[#1F3D35] transition-all duration-500;
     font-family: var(--font-sans);
     font-weight: 400;
   }
 
-  /* Text link with arrow */
-  .btn-text-dark {
-    @apply inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase text-[#1A1916]
-           border-b border-[#1A1916]/30 pb-0.5 hover:border-[#1A1916] transition-all duration-300;
+  .btn-clay {
+    @apply inline-flex items-center gap-3 px-8 py-3.5 bg-[#C96F4A] text-white text-[11px] tracking-[0.18em] uppercase
+           hover:bg-[#A95939] transition-all duration-500;
     font-family: var(--font-sans);
     font-weight: 400;
+  }
+
+  .btn-text-dark {
+    @apply inline-flex items-center gap-2 text-[11px] uppercase text-[#1F3D35]
+           border-b border-[#1F3D35]/35 pb-0.5 hover:border-[#1F3D35] transition-all duration-300;
+    font-family: var(--font-accent);
+    font-weight: 300;
+    letter-spacing: 0.16em;
   }
 
   .btn-text-white {
@@ -133,17 +148,17 @@
   /* ── Form fields ── */
 
   .field {
-    @apply w-full px-0 py-3 border-0 border-b border-[#B8CED3] bg-transparent text-[#1A1916]
-           text-[14px] placeholder-[#9BBAC0]
-           focus:outline-none focus:border-[#1E7A8C] transition-colors duration-300;
+    @apply w-full px-0 py-3 border-0 border-b border-[#CBBEAA] bg-transparent text-[#1F3D35]
+           text-[14px] placeholder-[#8A8F89]
+           focus:outline-none focus:border-[#3E7C7A] transition-colors duration-300;
     font-family: var(--font-sans);
     font-weight: 300;
   }
 
   .field-box {
-    @apply w-full px-4 py-3.5 border border-[#DDE8EA] bg-white text-[#1A1916]
-           text-[14px] placeholder-[#9BBAC0]
-           focus:outline-none focus:border-[#1E7A8C] transition-colors duration-300;
+    @apply w-full px-4 py-3.5 border border-[#E6DDD0] bg-white text-[#1F3D35]
+           text-[14px] placeholder-[#8A8F89]
+           focus:outline-none focus:border-[#3E7C7A] transition-colors duration-300;
     font-family: var(--font-sans);
     font-weight: 300;
   }
@@ -197,6 +212,23 @@
 .img-zoom:hover img,
 .img-zoom:hover video {
   transform: scale(1.04);
+}
+
+/* ── Premium micro-interactions ── */
+
+.luxury-hover {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.luxury-hover:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.02);
+}
+
+.fade-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* ── Utilities ── */

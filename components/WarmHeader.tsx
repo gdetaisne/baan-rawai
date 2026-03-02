@@ -1,11 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 
 export function WarmHeader() {
-  const t = useTranslations('hero');
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -31,7 +30,7 @@ export function WarmHeader() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/96 backdrop-blur-sm border-b border-[#DDE8EA]'
+          ? 'bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#E6DDD0]'
           : 'bg-transparent'
       }`}
     >
@@ -41,9 +40,9 @@ export function WarmHeader() {
           <button
             onClick={toggleLanguage}
             className={`text-[10px] tracking-[0.22em] uppercase transition-colors duration-500 ${
-              scrolled ? 'text-[#7A766E] hover:text-[#1A1916]' : 'text-white/60 hover:text-white'
+              scrolled ? 'text-[#6E7C76] hover:text-[#1F3D35]' : 'text-white/65 hover:text-white'
             }`}
-            style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 400 }}
+            style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}
           >
             {locale === 'en' ? 'FR' : 'EN'}
           </button>
@@ -54,9 +53,9 @@ export function WarmHeader() {
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            style={{ fontFamily: 'Gloock, serif' }}
+            style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}
             className={`text-lg md:text-xl font-normal tracking-wide transition-colors duration-500 ${
-              scrolled ? 'text-[#1A1916]' : 'text-white'
+              scrolled ? 'text-[#1F3D35]' : 'text-white'
             }`}
           >
             Baan Sayiuan
@@ -69,12 +68,12 @@ export function WarmHeader() {
             onClick={scrollToForm}
             className={`hidden md:inline-flex items-center text-[10px] tracking-[0.18em] uppercase px-4 py-2 border transition-all duration-500 ${
               scrolled
-                ? 'border-[#1A1916]/25 text-[#1A1916] hover:bg-[#1A1916] hover:text-white'
-                : 'border-white/50 text-white hover:border-white hover:bg-white/10'
+                ? 'border-[#1F3D35]/30 text-[#1F3D35] hover:bg-[#1F3D35] hover:text-[#FAF9F6]'
+                : 'border-white/45 text-white hover:border-white hover:bg-white/10'
             }`}
             style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 400 }}
           >
-            {t('ctaPrimary')}
+            Questionnaire
           </button>
         </div>
       </div>

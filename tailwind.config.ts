@@ -9,19 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Mer d'Andaman — Light palette with Thai sea blue accent
-        background: '#FAFAFA',   // White main background
-        surface:    '#FFFFFF',   // Pure white surfaces
-        paper:      '#F5F5F3',   // Stone white — alternate sections
-        ink:        '#1A1916',   // Near-black — primary text
-        muted:      '#7A766E',   // Warm gray — secondary text
-        accent:     '#1E7A8C',   // Andaman Sea teal — CTAs, labels
-        border:     '#DDE8EA',   // Light sea-gray border
-        'border-dark': '#B8CED3', // Stronger border
+        // Tropical sanctuary palette
+        background: '#FAF9F6',   // Soft Coconut White
+        surface: '#FFFFFF',      // Surface white
+        paper: '#F5EFE6',        // Warm Sand
+        ink: '#1F3D35',          // Deep Palm Green
+        muted: '#6E7C76',        // Soft desaturated green-gray
+        accent: '#3E7C7A',       // Ocean Teal
+        clay: '#C96F4A',         // Sunset Clay
+        border: '#E6DDD0',       // Warm sand border
+        'border-dark': '#CBBEAA', // Darker sand border
       },
       fontFamily: {
-        display: ['Cormorant', 'Georgia', 'serif'],
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        accent: ['"IBM Plex Mono"', '"Courier New"', 'monospace'],
       },
       letterSpacing: {
         tighter: '-0.03em',

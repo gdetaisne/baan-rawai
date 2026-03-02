@@ -22,23 +22,23 @@ export function ThaiLexicon() {
   const t = useTranslations('thai');
 
   return (
-    <section className="section-padding bg-[#F5F5F3] border-t border-[#DDE8EA]">
+    <section className="section-padding bg-paper border-t border-border">
       <div className="max-w-content mx-auto">
         {/* Header */}
-        <div className="section-header text-center">
-          <p className="text-label text-[#1E7A8C] tracking-[0.25em] mb-8">THAI FOR FARANG</p>
-          <h2 className="text-display-md text-[#1A1916] mb-6">{t('title')}</h2>
-          <p className="text-body-lg text-[#7A766E] max-w-xl mx-auto">{t('description')}</p>
+        <div className="section-header">
+          <p className="text-label text-accent mb-8">THAI FOR FARANG</p>
+          <h2 className="text-display-md text-ink mb-6">{t('title')}</h2>
+          <p className="text-body-lg text-muted max-w-xl">{t('description')}</p>
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#DDE8EA]">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {thaiPhrases.map((phrase, i) => (
-            <div key={i} className="bg-white p-8 group hover:bg-[#F9F9F7] transition-colors duration-300">
+            <div key={i} className="bg-surface p-8 group hover:bg-background transition-colors duration-300 luxury-hover">
               {/* Thai */}
               <div
-                className="text-4xl text-[#1A1916] mb-3"
-                style={{ fontFamily: 'Gloock, serif', fontWeight: 400 }}
+                className="text-4xl text-ink mb-3"
+                style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}
               >
                 {phrase.thai}
               </div>
@@ -46,8 +46,8 @@ export function ThaiLexicon() {
               {/* Phonetic */}
               <div className="flex items-center gap-2 mb-5">
                 <span
-                  className="text-lg text-[#1E7A8C] italic"
-                  style={{ fontFamily: 'Gloock, serif', fontWeight: 400 }}
+                  className="text-lg text-accent italic"
+                  style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}
                 >
                   {phrase.phonetic}
                 </span>
@@ -59,22 +59,22 @@ export function ThaiLexicon() {
                       window.speechSynthesis.speak(u);
                     }
                   }}
-                  className="text-[#B8CED3] hover:text-[#1E7A8C] transition-colors"
+                  className="text-muted/50 hover:text-accent transition-colors"
                 >
                   <Volume2 className="w-4 h-4" />
                 </button>
               </div>
 
               {/* Translations */}
-              <div className="space-y-1 text-sm text-[#7A766E]">
+              <div className="space-y-1 text-sm text-muted">
                 <div className="flex gap-2">
-                  <span className="text-[9px] tracking-[0.15em] uppercase text-[#1E7A8C]/60 mt-0.5 min-w-[18px]"
-                        style={{ fontFamily: '"DM Sans", sans-serif' }}>EN</span>
+                  <span className="text-[9px] tracking-[0.15em] uppercase text-accent/70 mt-0.5 min-w-[18px]"
+                        style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}>EN</span>
                   <span>{phrase.english}</span>
                 </div>
                 <div className="flex gap-2">
-                  <span className="text-[9px] tracking-[0.15em] uppercase text-[#1E7A8C]/60 mt-0.5 min-w-[18px]"
-                        style={{ fontFamily: '"DM Sans", sans-serif' }}>FR</span>
+                  <span className="text-[9px] tracking-[0.15em] uppercase text-accent/70 mt-0.5 min-w-[18px]"
+                        style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}>FR</span>
                   <span>{phrase.french}</span>
                 </div>
               </div>
@@ -83,9 +83,9 @@ export function ThaiLexicon() {
         </div>
 
         {/* Pro tip */}
-        <div className="mt-px bg-[#DDE8EA]">
-          <p className="bg-[#F9F9F7] p-8 text-sm text-[#7A766E] text-center">
-            <span className="text-[#1A1916]" style={{ fontFamily: 'Gloock, serif' }}>Pro tip — </span>
+        <div className="mt-px bg-border">
+          <p className="bg-background p-8 text-sm text-muted text-center">
+            <span className="text-ink" style={{ fontFamily: '"Cormorant Garamond", serif' }}>Pro tip — </span>
             Add <em>"khrap" (ครับ)</em> if male or <em>"kha" (ค่ะ)</em> if female at the end of sentences for extra politeness.
           </p>
         </div>

@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { EditorialSection } from '@/components/EditorialSection';
-import { EditorialCard } from '@/components/EditorialCard';
 import { LuxuryListItem } from '@/components/LuxuryListItem';
 import { siteConfig } from '@/config/site';
 
@@ -19,33 +18,42 @@ export function LuxuryRawai() {
         </video>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        <EditorialCard>
-          <h3 className="text-display-sm text-[#1A1916] mb-6">{t('beaches.title')}</h3>
-          {siteConfig.beaches.map((b, i) => <LuxuryListItem key={i} name={b.name} description={b.description} />)}
-        </EditorialCard>
+      <div className="space-y-0 border-y border-border">
+        <section className="grid md:grid-cols-[220px_1fr] gap-8 py-10 border-b border-border">
+          <p className="text-accent text-muted/70 pt-2">BEACHES</p>
+          <div>
+            <h3 className="text-display-sm text-ink mb-6">{t('beaches.title')}</h3>
+            {siteConfig.beaches.map((b, i) => <LuxuryListItem key={i} name={b.name} description={b.description} />)}
+          </div>
+        </section>
 
-        <EditorialCard>
-          <h3 className="text-display-sm text-[#1A1916] mb-6">{t('restaurants.title')}</h3>
-          {siteConfig.restaurants.map((r, i) => (
-            <LuxuryListItem key={i} name={r.name} description={r.description}
-                            link={r.mapsLink !== '#' ? r.mapsLink : undefined}
-                            linkLabel={t('restaurants.openMaps')} />
-          ))}
-        </EditorialCard>
-
-        <EditorialCard className="md:col-span-2">
-          <h3 className="text-display-sm text-[#1A1916] mb-3">{t('spas.title')}</h3>
-          <p className="text-body text-[#7A766E] mb-6">{t('spas.bookingNote')}</p>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {siteConfig.spas.map((s, i) => (
-              <div key={i} className="p-5 bg-[#F5F5F3] border border-[#DDE8EA]">
-                <p className="text-[#1A1916] mb-1" style={{ fontFamily: 'Gloock, serif', fontWeight: 400 }}>{s.name}</p>
-                <p className="text-sm text-[#7A766E]">{s.note}</p>
-              </div>
+        <section className="grid md:grid-cols-[220px_1fr] gap-8 py-10 border-b border-border">
+          <p className="text-accent text-muted/70 pt-2">FOOD</p>
+          <div>
+            <h3 className="text-display-sm text-ink mb-6">{t('restaurants.title')}</h3>
+            {siteConfig.restaurants.map((r, i) => (
+              <LuxuryListItem key={i} name={r.name} description={r.description}
+                              link={r.mapsLink !== '#' ? r.mapsLink : undefined}
+                              linkLabel={t('restaurants.openMaps')} />
             ))}
           </div>
-        </EditorialCard>
+        </section>
+
+        <section className="grid md:grid-cols-[220px_1fr] gap-8 py-10">
+          <p className="text-accent text-muted/70 pt-2">WELLNESS</p>
+          <div>
+            <h3 className="text-display-sm text-ink mb-3">{t('spas.title')}</h3>
+            <p className="text-body text-muted mb-6">{t('spas.bookingNote')}</p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {siteConfig.spas.map((s, i) => (
+                <div key={i} className="p-5 bg-background border border-border luxury-hover">
+                  <p className="text-ink mb-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}>{s.name}</p>
+                  <p className="text-sm text-muted">{s.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
     </EditorialSection>
   );

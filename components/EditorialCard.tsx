@@ -6,10 +6,14 @@ interface EditorialCardProps {
   className?: string;
 }
 
-// Pas de border, pas de background — juste du contenu qui respire
 export function EditorialCard({ children, className }: EditorialCardProps) {
   return (
-    <div className={cn('py-8 border-t border-[#DDE8EA] first:border-t-0', className)}>
+    <div
+      className={cn(
+        'bg-white border border-[#DDE8EA] p-8 md:p-10 hover:border-[#1E7A8C]/30 transition-colors duration-500',
+        className
+      )}
+    >
       {children}
     </div>
   );

@@ -2,30 +2,39 @@
 
 import { useTranslations } from 'next-intl';
 import { EditorialSection } from '@/components/EditorialSection';
-import { EditorialCard } from '@/components/EditorialCard';
-import { Button } from '@/components/ui/Button';
 import { siteConfig } from '@/config/site';
 
 export function LuxuryArrival() {
   const t = useTranslations('arrival');
   return (
     <EditorialSection label="ARRIVAL" title={t('title')} background="ivory">
-      <div className="max-w-3xl mx-auto space-y-4">
-        <EditorialCard>
-          <h3 className="text-display-sm text-[#1A1916] mb-3">{t('immigration.title')}</h3>
-          <p className="text-body text-[#7A766E]">{t('immigration.description')}</p>
-        </EditorialCard>
+      <div className="max-w-3xl space-y-0 border-y border-border">
+        <div className="grid md:grid-cols-[60px_1fr] gap-4 md:gap-10 py-8 border-b border-border">
+          <p className="text-accent text-muted/70 pt-2">01</p>
+          <div>
+            <h3 className="text-display-sm text-ink mb-3">{t('immigration.title')}</h3>
+            <p className="text-body text-muted">{t('immigration.description')}</p>
+          </div>
+        </div>
 
-        <EditorialCard className="border-l-2 border-l-[#1E7A8C]">
-          <h3 className="text-display-sm text-[#1A1916] mb-3">{t('fastTrack.title')}</h3>
-          <p className="text-body text-[#5C5850]">{t('fastTrack.description')}</p>
-        </EditorialCard>
+        <div className="grid md:grid-cols-[60px_1fr] gap-4 md:gap-10 py-8 border-b border-border">
+          <p className="text-accent text-muted/70 pt-2">02</p>
+          <div>
+            <h3 className="text-display-sm text-ink mb-3">{t('fastTrack.title')}</h3>
+            <p className="text-body text-muted">{t('fastTrack.description')}</p>
+          </div>
+        </div>
 
-        <EditorialCard>
-          <h3 className="text-display-sm text-[#1A1916] mb-3">{t('tm0.title')}</h3>
-          <p className="text-body text-[#7A766E] mb-6">{t('tm0.description')}</p>
-          <Button variant="ghost" size="sm" href={siteConfig.links.tdacForm}>{t('tm0.cta')} →</Button>
-        </EditorialCard>
+        <div className="grid md:grid-cols-[60px_1fr] gap-4 md:gap-10 py-8">
+          <p className="text-accent text-muted/70 pt-2">03</p>
+          <div>
+            <h3 className="text-display-sm text-ink mb-3">{t('tm0.title')}</h3>
+            <p className="text-body text-muted mb-6">{t('tm0.description')}</p>
+            <a href={siteConfig.links.tdacForm} className="btn-text-dark text-[10px]">
+              {t('tm0.cta')} →
+            </a>
+          </div>
+        </div>
       </div>
     </EditorialSection>
   );
