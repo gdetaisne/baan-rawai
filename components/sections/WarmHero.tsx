@@ -13,7 +13,7 @@ export function WarmHero() {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[640px] overflow-hidden bg-[#1F3D35]">
+    <section className="relative h-screen min-h-[640px] overflow-hidden bg-ink">
       {/* Video / poster */}
       <video
         ref={videoRef}
@@ -68,7 +68,7 @@ export function WarmHero() {
         <div className="max-w-container mx-auto px-8 md:px-14 lg:px-20 py-4 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
           <button
             onClick={() => document.getElementById('before-arrival')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-left text-white/80 hover:text-white transition-colors"
+            className="text-left text-white/80 hover:text-white transition-colors luxury-hover"
           >
             <p className="text-[9px] uppercase tracking-[0.22em] mb-1" style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}>Check-in</p>
             <p className="text-sm" style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300 }}>Before you arrive</p>
@@ -76,7 +76,7 @@ export function WarmHero() {
 
           <button
             onClick={() => document.getElementById('guest-form')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-left text-white/80 hover:text-white transition-colors"
+            className="text-left text-white/80 hover:text-white transition-colors luxury-hover"
           >
             <p className="text-[9px] uppercase tracking-[0.22em] mb-1" style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}>Questionnaire</p>
             <p className="text-sm" style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300 }}>Prepare your stay</p>
@@ -85,7 +85,7 @@ export function WarmHero() {
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); document.getElementById('before-arrival')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="hidden md:block text-left text-white/80 hover:text-white transition-colors"
+            className="hidden md:block text-left text-white/80 hover:text-white transition-colors luxury-hover"
           >
             <p className="text-[9px] uppercase tracking-[0.22em] mb-1" style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}>Location</p>
             <p className="text-sm" style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300 }}>Rawai, Phuket</p>
@@ -93,7 +93,7 @@ export function WarmHero() {
 
           <button
             onClick={() => document.getElementById('guest-form')?.scrollIntoView({ behavior: 'smooth' })}
-            className="hidden md:flex justify-end text-white hover:text-[#C96F4A] transition-colors text-sm uppercase tracking-[0.18em]"
+            className="hidden md:flex justify-end text-white hover:text-clay transition-colors text-sm uppercase tracking-[0.18em] luxury-hover"
             style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}
           >
             Check availability

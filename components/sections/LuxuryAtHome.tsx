@@ -5,7 +5,7 @@ import { EditorialSection } from '@/components/EditorialSection';
 
 export function LuxuryAtHome() {
   const t = useTranslations('atHome');
-  const rules = ['shoesOff', 'ac'];
+  const rules = ['shoesOff', 'noGlass', 'ac'];
   return (
     <EditorialSection label="HOUSE NOTES" title={t('title')} background="ivory">
       <div className="max-w-3xl space-y-0 border-y border-border">

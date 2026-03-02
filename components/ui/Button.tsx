@@ -12,13 +12,13 @@ interface ButtonProps {
 }
 
 export function Button({ children, variant = 'primary', size = 'default', href, onClick, type = 'button', className }: ButtonProps) {
-  const base = 'inline-flex items-center justify-center tracking-[0.15em] uppercase transition-all duration-400';
+  const base = 'inline-flex items-center justify-center tracking-[0.15em] uppercase transition-all duration-500';
   const fontStyle = { fontFamily: '"DM Sans", sans-serif', fontWeight: 400 };
 
   const variants = {
-    primary:   'bg-[#1E7A8C] text-white hover:bg-[#165E6E] text-[10px]',
-    secondary: 'border border-[#1A1916]/25 text-[#1A1916] hover:bg-[#1A1916] hover:text-white text-[10px]',
-    ghost:     'text-[#1E7A8C] border-b border-[#1E7A8C]/40 pb-px hover:border-[#1E7A8C] text-[10px]',
+    primary:   'bg-accent text-white hover:bg-ink text-[10px]',
+    secondary: 'border border-ink/25 text-ink hover:bg-ink hover:text-background text-[10px]',
+    ghost:     'text-accent border-b border-accent/40 pb-px hover:border-accent text-[10px]',
   };
 
   const sizes = {

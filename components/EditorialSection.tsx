@@ -24,20 +24,22 @@ export function EditorialSection({
     <section
       id={id}
       className={cn(
-        'section-padding border-t border-[#DDE8EA]',
-        background === 'ivory' ? 'bg-[#F5F5F3]' : 'bg-white',
+        'section-padding border-t border-border',
+        background === 'ivory' ? 'bg-paper' : 'bg-background',
         className
       )}
     >
       <div className="max-w-content mx-auto">
-        <div className="section-header text-center">
-          <p className="text-label text-[#1E7A8C] tracking-[0.25em] mb-8">{label}</p>
-          <h2 className="text-display-md text-[#1A1916] mb-6">{title}</h2>
+        <div className="section-header fade-reveal">
+          <p className="text-label text-accent mb-8">{label}</p>
+          <h2 className="text-display-md text-ink mb-6 max-w-3xl">{title}</h2>
           {description && (
-            <p className="text-body-lg text-[#7A766E] max-w-2xl mx-auto">{description}</p>
+            <p className="text-body-lg text-muted max-w-2xl">{description}</p>
           )}
         </div>
-        {children}
+        <div className="fade-reveal">
+          {children}
+        </div>
       </div>
     </section>
   );

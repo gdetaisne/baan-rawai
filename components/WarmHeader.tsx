@@ -30,7 +30,7 @@ export function WarmHeader() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#E6DDD0]'
+          ? 'bg-background/95 backdrop-blur-md border-b border-border'
           : 'bg-transparent'
       }`}
     >
@@ -40,7 +40,7 @@ export function WarmHeader() {
           <button
             onClick={toggleLanguage}
             className={`text-[10px] tracking-[0.22em] uppercase transition-colors duration-500 ${
-              scrolled ? 'text-[#6E7C76] hover:text-[#1F3D35]' : 'text-white/65 hover:text-white'
+              scrolled ? 'text-muted hover:text-ink' : 'text-white/65 hover:text-white'
             }`}
             style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}
           >
@@ -55,7 +55,7 @@ export function WarmHeader() {
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}
             className={`text-lg md:text-xl font-normal tracking-wide transition-colors duration-500 ${
-              scrolled ? 'text-[#1F3D35]' : 'text-white'
+              scrolled ? 'text-ink' : 'text-white'
             }`}
           >
             Baan Sayiuan
@@ -68,7 +68,7 @@ export function WarmHeader() {
             onClick={scrollToForm}
             className={`hidden md:inline-flex items-center text-[10px] tracking-[0.18em] uppercase px-4 py-2 border transition-all duration-500 ${
               scrolled
-                ? 'border-[#1F3D35]/30 text-[#1F3D35] hover:bg-[#1F3D35] hover:text-[#FAF9F6]'
+                ? 'border-ink/30 text-ink hover:bg-ink hover:text-background'
                 : 'border-white/45 text-white hover:border-white hover:bg-white/10'
             }`}
             style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 400 }}
