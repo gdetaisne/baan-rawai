@@ -6,17 +6,10 @@ interface EditorialCardProps {
   className?: string;
 }
 
-/**
- * Minimal COMO-style card with subtle border.
- */
+// Pas de border, pas de background — juste du contenu qui respire
 export function EditorialCard({ children, className }: EditorialCardProps) {
   return (
-    <div
-      className={cn(
-        'bg-white border border-black/5 p-8 md:p-10 hover:border-black/10 transition-all duration-500',
-        className
-      )}
-    >
+    <div className={cn('py-8 border-t border-[#DDE8EA] first:border-t-0', className)}>
       {children}
     </div>
   );

@@ -11,24 +11,16 @@ export function LuxuryGuestForm() {
   const t = useTranslations('guestForm');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Implement actual form submission
-    setSubmitted(true);
-  };
-
   if (submitted) {
     return (
-      <EditorialSection label="THANK YOU" title={t('thankYou')} background="highlight">
-        <div className="max-w-xl mx-auto text-center">
-          <div className="inline-block p-5 bg-white rounded-luxury mb-8">
-            <Send className="w-10 h-10 text-accent" />
+      <EditorialSection label="THANK YOU" title={t('thankYou')} background="white">
+        <div className="max-w-lg mx-auto text-center">
+          <div className="w-14 h-14 border border-[#1E7A8C]/40 flex items-center justify-center mx-auto mb-8">
+            <Send className="w-5 h-5 text-[#1E7A8C]" />
           </div>
-          <p className="text-body-lg text-ink mb-8 leading-relaxed">{t('confirmation')}</p>
-          <p className="text-body text-muted mb-8">{t('contactUs')}</p>
-          <Button variant="primary" size="default" href={siteConfig.whatsapp.primary.link}>
-            <MessageCircle className="w-5 h-5 mr-2" />
-            WhatsApp
+          <p className="text-body-lg text-[#5C5850] mb-8">{t('confirmation')}</p>
+          <Button variant="primary" href={siteConfig.whatsapp.primary.link}>
+            <MessageCircle className="w-4 h-4 mr-2" /> WhatsApp
           </Button>
         </div>
       </EditorialSection>
@@ -36,183 +28,103 @@ export function LuxuryGuestForm() {
   }
 
   return (
-    <EditorialSection
-      label="PREPARE YOUR STAY"
-      title={t('title')}
-      description={t('description')}
-      background="highlight"
-    >
+    <EditorialSection id="guest-form" label="PREPARE YOUR STAY"
+                      title={t('title')} description={t('description')} background="white">
       <div className="max-w-2xl mx-auto">
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-8">
           {/* Arrival */}
           <div>
-            <label className="block text-label text-ink mb-3">{t('arrival')}</label>
-            <input
-              type="datetime-local"
-              className="w-full px-4 py-3.5 border border-hairline bg-white text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury"
-            />
+            <label className="text-label text-[#1E7A8C] tracking-[0.2em] block mb-3">{t('arrival')}</label>
+            <input type="datetime-local" className="field-box w-full" />
           </div>
 
-          {/* Flight number */}
           <div>
-            <label className="block text-label text-ink mb-3">{t('flightNumber')}</label>
-            <input
-              type="text"
-              className="w-full px-4 py-3.5 border border-hairline bg-white text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury"
-            />
+            <label className="text-label text-[#1E7A8C] tracking-[0.2em] block mb-3">{t('flightNumber')}</label>
+            <input type="text" className="field-box w-full" />
           </div>
 
-          {/* Need taxi */}
+          {/* Taxi */}
           <div>
-            <label className="block text-label text-ink mb-4">{t('needTaxi')}</label>
-            <div className="flex gap-6">
-              <label className="flex items-center cursor-pointer">
-                <input
-                  type="radio"
-                  name="taxi"
-                  value="yes"
-                  className="mr-2 accent-accent"
-                />
-                <span className="text-body text-ink">{t('yes')}</span>
-              </label>
-              <label className="flex items-center cursor-pointer">
-                <input
-                  type="radio"
-                  name="taxi"
-                  value="no"
-                  className="mr-2 accent-accent"
-                />
-                <span className="text-body text-ink">{t('no')}</span>
-              </label>
-            </div>
-          </div>
-
-          {/* Breakfast */}
-          <div>
-            <label className="block text-label text-ink mb-3">{t('breakfast')}</label>
-            <textarea
-              rows={3}
-              className="w-full px-4 py-3.5 border border-hairline bg-white text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury resize-none"
-            />
-          </div>
-
-          {/* Juice & Cocktail */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-label text-ink mb-3">{t('juice')}</label>
-              <input
-                type="text"
-                className="w-full px-4 py-3.5 border border-hairline bg-white text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury"
-              />
-            </div>
-            <div>
-              <label className="block text-label text-ink mb-3">{t('cocktail')}</label>
-              <input
-                type="text"
-                className="w-full px-4 py-3.5 border border-hairline bg-white text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury"
-              />
-            </div>
-          </div>
-
-          {/* Allergies */}
-          <div>
-            <label className="block text-label text-ink mb-3">{t('allergies')}</label>
-            <textarea
-              rows={2}
-              className="w-full px-4 py-3.5 border border-hairline bg-white text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury resize-none"
-            />
-          </div>
-
-          {/* Kids */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-label text-ink mb-3">{t('kids')}</label>
-              <input
-                type="number"
-                min="0"
-                className="w-full px-4 py-3.5 border border-hairline bg-white text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury"
-              />
-            </div>
-            <div>
-              <label className="block text-label text-ink mb-3">{t('kidsAges')}</label>
-              <input
-                type="text"
-                placeholder="e.g. 3, 7"
-                className="w-full px-4 py-3.5 border border-hairline bg-white text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury"
-              />
-            </div>
-          </div>
-
-          {/* Baby needs */}
-          <div className="p-6 bg-white border border-hairline rounded-luxury space-y-4">
-            <h4 className="text-label text-ink">{t('babyNeeds')}</h4>
-
-            <div>
-              <label className="block text-sm text-muted mb-3">{t('diapers')}</label>
-              <div className="flex gap-6">
-                <label className="flex items-center cursor-pointer">
-                  <input
-                    type="radio"
-                    name="diapers"
-                    value="yes"
-                    className="mr-2 accent-accent"
-                  />
-                  <span className="text-body text-ink">{t('yes')}</span>
+            <label className="text-label text-[#1E7A8C] tracking-[0.2em] block mb-4">{t('needTaxi')}</label>
+            <div className="flex gap-4">
+              {['yes', 'no'].map(v => (
+                <label key={v} className="flex-1 flex items-center justify-center gap-2 py-3 border border-[#DDE8EA] cursor-pointer hover:border-[#1E7A8C]/40 has-[:checked]:border-[#1E7A8C] has-[:checked]:bg-[#F9F9F7] transition-all duration-300">
+                  <input type="radio" name="taxi" value={v} className="accent-[#1E7A8C]" />
+                  <span className="text-sm text-[#1A1916]">{t(v as 'yes' | 'no')}</span>
                 </label>
-                <label className="flex items-center cursor-pointer">
-                  <input
-                    type="radio"
-                    name="diapers"
-                    value="no"
-                    className="mr-2 accent-accent"
-                  />
-                  <span className="text-body text-ink">{t('no')}</span>
-                </label>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <label className="text-label text-[#1E7A8C] tracking-[0.2em] block mb-3">{t('breakfast')}</label>
+            <textarea rows={3} className="field-box w-full resize-none" />
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label className="text-label text-[#1E7A8C] tracking-[0.2em] block mb-3">{t('juice')}</label>
+              <input type="text" className="field-box w-full" />
+            </div>
+            <div>
+              <label className="text-label text-[#1E7A8C] tracking-[0.2em] block mb-3">{t('cocktail')}</label>
+              <input type="text" className="field-box w-full" />
+            </div>
+          </div>
+
+          <div>
+            <label className="text-label text-[#1E7A8C] tracking-[0.2em] block mb-3">{t('allergies')}</label>
+            <textarea rows={2} className="field-box w-full resize-none" />
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label className="text-label text-[#1E7A8C] tracking-[0.2em] block mb-3">{t('kids')}</label>
+              <input type="number" min="0" className="field-box w-full" />
+            </div>
+            <div>
+              <label className="text-label text-[#1E7A8C] tracking-[0.2em] block mb-3">{t('kidsAges')}</label>
+              <input type="text" placeholder="e.g. 3, 7" className="field-box w-full" />
+            </div>
+          </div>
+
+          {/* Baby */}
+          <div className="p-6 bg-[#F5F5F3] border border-[#DDE8EA] space-y-4">
+            <h4 className="text-label text-[#1E7A8C] tracking-[0.2em]">{t('babyNeeds')}</h4>
+            <div>
+              <label className="text-sm text-[#7A766E] block mb-3">{t('diapers')}</label>
+              <div className="flex gap-4">
+                {['yes', 'no'].map(v => (
+                  <label key={v} className="flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="diapers" value={v} className="accent-[#1E7A8C]" />
+                    <span className="text-sm text-[#1A1916]">{t(v as 'yes' | 'no')}</span>
+                  </label>
+                ))}
               </div>
             </div>
-
             <div>
-              <label className="block text-sm text-muted mb-2">{t('diaperSize')}</label>
-              <input
-                type="text"
-                className="w-full px-4 py-2.5 border border-hairline bg-paper text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury"
-              />
+              <label className="text-sm text-[#7A766E] block mb-2">{t('diaperSize')}</label>
+              <input type="text" className="field-box w-full" />
             </div>
-
             <div>
-              <label className="block text-sm text-muted mb-2">{t('babyFood')}</label>
-              <textarea
-                rows={2}
-                className="w-full px-4 py-2.5 border border-hairline bg-paper text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury resize-none"
-              />
+              <label className="text-sm text-[#7A766E] block mb-2">{t('babyFood')}</label>
+              <textarea rows={2} className="field-box w-full resize-none" />
             </div>
           </div>
 
-          {/* Sleeping */}
           <div>
-            <label className="block text-label text-ink mb-3">{t('sleeping')}</label>
-            <textarea
-              rows={2}
-              className="w-full px-4 py-3.5 border border-hairline bg-white text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury resize-none"
-            />
+            <label className="text-label text-[#1E7A8C] tracking-[0.2em] block mb-3">{t('sleeping')}</label>
+            <textarea rows={2} className="field-box w-full resize-none" />
           </div>
 
-          {/* Other */}
           <div>
-            <label className="block text-label text-ink mb-3">{t('other')}</label>
-            <textarea
-              rows={3}
-              className="w-full px-4 py-3.5 border border-hairline bg-white text-ink focus:outline-none focus:border-accent transition-colors rounded-luxury resize-none"
-            />
+            <label className="text-label text-[#1E7A8C] tracking-[0.2em] block mb-3">{t('other')}</label>
+            <textarea rows={3} className="field-box w-full resize-none" />
           </div>
 
-          {/* Submit */}
-          <div className="pt-6">
-            <Button type="submit" variant="primary" size="lg" className="w-full">
-              <Send className="w-5 h-5 mr-2" />
-              {t('submit')}
-            </Button>
-          </div>
+          <Button type="submit" variant="primary" size="lg" className="w-full">
+            <Send className="w-4 h-4 mr-2" /> {t('submit')}
+          </Button>
         </form>
       </div>
     </EditorialSection>

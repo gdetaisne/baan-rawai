@@ -7,50 +7,41 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-      extend: {
-        colors: {
-          // COMO-Inspired Minimal Luxury Palette
-          background: '#0F1416',
-          paper: '#F7F4EE',
-          ink: '#1A1A1A',
-          muted: '#8A8A8A',
-          accent: '#C4A572',
-          border: '#000000',
-        },
+    extend: {
+      colors: {
+        // Mer d'Andaman — Light palette with Thai sea blue accent
+        background: '#FAFAFA',   // White main background
+        surface:    '#FFFFFF',   // Pure white surfaces
+        paper:      '#F5F5F3',   // Stone white — alternate sections
+        ink:        '#1A1916',   // Near-black — primary text
+        muted:      '#7A766E',   // Warm gray — secondary text
+        accent:     '#1E7A8C',   // Andaman Sea teal — CTAs, labels
+        border:     '#DDE8EA',   // Light sea-gray border
+        'border-dark': '#B8CED3', // Stronger border
+      },
       fontFamily: {
-        display: ['Cormorant Garamond', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Cormorant', 'Georgia', 'serif'],
+        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
-        tighter: '-0.02em',
-        tight: '-0.01em',
-        normal: '0',
-        wide: '0.05em',
-        wider: '0.1em',
-        widest: '0.2em',
-      },
-      spacing: {
-        '18': '4.5rem',
-        '22': '5.5rem',
-        '26': '6.5rem',
-        '30': '7.5rem',
-        '32': '8rem',
-        '40': '10rem',
-        '48': '12rem',
+        tighter: '-0.03em',
+        tight:   '-0.02em',
+        normal:  '0',
+        wide:    '0.05em',
+        wider:   '0.12em',
+        widest:  '0.22em',
       },
       maxWidth: {
-        'container': '1280px',
-        'content': '1040px',
-        'narrow': '720px',
-      },
-      backdropBlur: {
-        'luxury': '12px',
+        container: '1360px',
+        content:   '1100px',
+        narrow:    '740px',
+        text:      '620px',
       },
       borderRadius: {
-        'luxury': '2px',
+        luxury: '1px',
       },
       borderWidth: {
-        'hairline': '0.5px',
+        hairline: '0.5px',
       },
     },
   },

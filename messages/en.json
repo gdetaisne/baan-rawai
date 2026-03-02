@@ -4,8 +4,8 @@
     "description": "Your complete guide to our home in Rawai, Phuket. Everything you need for an amazing stay."
   },
   "hero": {
-    "title": "Welcome to Baan Sayiuan",
-    "subtitle": "Our home in Rawai, Phuket",
+    "title": "Our home is yours.",
+    "subtitle": "A private villa in Rawai, Phuket",
     "ctaPrimary": "Prepare your stay",
     "whatsapp": "WhatsApp",
     "directions": "Directions",
@@ -75,7 +75,7 @@
     },
     "atm": {
       "title": "Important: ATMs in Thailand",
-      "description": "ATMs here give you the cash BEFORE returning your card. So many people forget their card and leave. Don't be that person. Also, always choose 'Without conversion' to avoid terrible exchange rates."
+      "description": "ATMs here dispense cash BEFORE returning your card. Lots of people forget their card. Don't be that person. (Pierre, if you leave your card in the ATM, we warned you — and you're buying the round.) Also, always choose 'Without conversion'. There are ATMs in front of every 7-11."
     },
     "esim": {
       "title": "Get an eSIM before you fly",
@@ -94,10 +94,9 @@
       "description": "Meet-and-greet service through priority lane. Around 1000–2000 THB per person. Worth it if arriving late or with kids."
     },
     "tm0": {
-      "title": "TM0 form",
-      "description": "Complete this before arrival.",
-      "cta": "TM0 form",
-      "comingSoon": "Link coming soon"
+      "title": "TDAC Form",
+      "description": "Fill it in before you fly to save time at immigration. One form per family member.",
+      "cta": "Fill in the TDAC form"
     }
   },
   "rawai": {

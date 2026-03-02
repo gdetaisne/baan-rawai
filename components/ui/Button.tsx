@@ -11,48 +11,33 @@ interface ButtonProps {
   className?: string;
 }
 
-export function Button({
-  children,
-  variant = 'primary',
-  size = 'default',
-  href,
-  onClick,
-  type = 'button',
-  className,
-}: ButtonProps) {
-  const baseStyles =
-    'inline-flex items-center justify-center font-medium tracking-wide transition-colors rounded-luxury';
+export function Button({ children, variant = 'primary', size = 'default', href, onClick, type = 'button', className }: ButtonProps) {
+  const base = 'inline-flex items-center justify-center tracking-[0.15em] uppercase transition-all duration-400';
+  const fontStyle = { fontFamily: '"DM Sans", sans-serif', fontWeight: 400 };
 
   const variants = {
-    primary: 'bg-accent text-white hover:bg-accent/90',
-    secondary: 'bg-white border border-hairline text-ink hover:bg-highlight',
-    ghost: 'text-ink hover:text-accent underline-offset-4 hover:underline',
+    primary:   'bg-[#1E7A8C] text-white hover:bg-[#165E6E] text-[10px]',
+    secondary: 'border border-[#1A1916]/25 text-[#1A1916] hover:bg-[#1A1916] hover:text-white text-[10px]',
+    ghost:     'text-[#1E7A8C] border-b border-[#1E7A8C]/40 pb-px hover:border-[#1E7A8C] text-[10px]',
   };
 
   const sizes = {
-    sm: 'px-4 py-2 text-sm',
-    default: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-base',
+    sm:      'px-5 py-2',
+    default: 'px-8 py-3.5',
+    lg:      'px-10 py-4',
   };
 
-  const classes = cn(baseStyles, variants[variant], sizes[size], className);
+  const cls = cn(base, variants[variant], sizes[size], className);
 
   if (href) {
     return (
-      <a
-        href={href}
-        target={href.startsWith('http') ? '_blank' : undefined}
-        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-        className={classes}
-      >
+      <a href={href} target={href.startsWith('http') ? '_blank' : undefined}
+         rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+         className={cls} style={fontStyle}>
         {children}
       </a>
     );
   }
 
-  return (
-    <button type={type} onClick={onClick} className={classes}>
-      {children}
-    </button>
-  );
+  return <button type={type} onClick={onClick} className={cls} style={fontStyle}>{children}</button>;
 }

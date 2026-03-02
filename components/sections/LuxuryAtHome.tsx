@@ -5,22 +5,21 @@ import { EditorialSection } from '@/components/EditorialSection';
 
 export function LuxuryAtHome() {
   const t = useTranslations('atHome');
-
   const rules = ['shoesOff', 'noGlass', 'ac'];
-
   return (
-    <EditorialSection label="HOUSE NOTES" title={t('title')}>
-      <div className="max-w-2xl mx-auto">
-        <div className="space-y-6">
-          {rules.map((rule, index) => (
-            <div key={rule} className="flex items-start gap-6 py-4 border-b border-hairline last:border-0">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-highlight flex items-center justify-center">
-                <span className="text-sm font-medium text-accent">{index + 1}</span>
-              </div>
-              <p className="text-body text-ink leading-relaxed flex-1 pt-0.5">{t(rule)}</p>
-            </div>
-          ))}
-        </div>
+    <EditorialSection label="HOUSE NOTES" title={t('title')} background="ivory">
+      <div className="max-w-2xl mx-auto divide-y divide-[#DDE8EA]">
+        {rules.map((rule, i) => (
+          <div key={rule} className="flex items-start gap-8 py-8">
+            <span
+              className="text-4xl text-[#B8CED3] flex-shrink-0 leading-none mt-1 tabular-nums"
+              style={{ fontFamily: 'Gloock, serif', fontWeight: 400 }}
+            >
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <p className="text-body text-[#5C5850] flex-1 pt-1">{t(rule)}</p>
+          </div>
+        ))}
       </div>
     </EditorialSection>
   );

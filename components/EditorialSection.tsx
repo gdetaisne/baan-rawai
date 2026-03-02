@@ -2,45 +2,42 @@ import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 interface EditorialSectionProps {
+  id?: string;
   label: string;
   title: string;
   description?: string;
   children: ReactNode;
   className?: string;
-  background?: 'default' | 'highlight';
+  background?: 'white' | 'ivory';
 }
 
-/**
- * Minimal COMO-style section wrapper with refined spacing.
- */
 export function EditorialSection({
+  id,
   label,
   title,
   description,
   children,
   className,
-  background = 'default',
+  background = 'white',
 }: EditorialSectionProps) {
   return (
     <section
+      id={id}
       className={cn(
-        'py-32 md:py-40 px-8 md:px-12 lg:px-16',
-        background === 'highlight' ? 'bg-white' : 'bg-paper',
+        'py-24 md:py-36',
+        background === 'ivory' ? 'bg-[#F5F5F3]' : 'bg-white',
         className
       )}
     >
-      <div className="max-w-content mx-auto">
-        {/* Minimal Section header */}
-        <div className="mb-20 md:mb-24 text-center">
-          <p className="text-label text-muted">{label}</p>
-          <div className="h-px w-12 bg-ink/20 mx-auto mt-4 mb-12" />
-          <h2 className="text-display-md text-ink mb-8">{title}</h2>
-          {description && (
-            <p className="text-body-lg text-muted max-w-2xl mx-auto">{description}</p>
-          )}
-        </div>
-
-        {/* Content */}
+      {/* Header — left aligned, big, editorial */}
+      <div className="px-8 md:px-14 lg:px-20 mb-16 md:mb-24">
+        <p className="text-label text-[#1E7A8C] tracking-[0.25em] mb-8">{label}</p>
+        <h2 className="text-display-md text-[#1A1916] max-w-2xl">{title}</h2>
+        {description && (
+          <p className="text-body-lg text-[#7A766E] mt-6 max-w-xl">{description}</p>
+        )}
+      </div>
+      <div className="px-8 md:px-14 lg:px-20">
         {children}
       </div>
     </section>

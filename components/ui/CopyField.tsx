@@ -16,26 +16,22 @@ export function CopyField({ label, value, locked = false, className }: CopyField
 
   const handleCopy = async () => {
     if (locked) return;
-    
     try {
       await navigator.clipboard.writeText(value);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
+    } catch {}
   };
 
   if (locked) {
     return (
-      <div className={cn('border border-hairline bg-highlight/30 p-4 rounded-luxury', className)}>
+      <div className={cn('border border-[#DDE8EA] bg-[#F5F5F3] p-4', className)}>
         <div className="flex items-center gap-3">
-          <Lock className="w-4 h-4 text-muted flex-shrink-0" />
-          <div className="flex-1 min-w-0">
-            <div className="text-xs text-muted mb-1 tracking-widest uppercase">{label}</div>
-            <div className="text-sm text-muted italic">
-              {value || 'Available in Private mode'}
-            </div>
+          <Lock className="w-3.5 h-3.5 text-[#9BBAC0]" />
+          <div>
+            <p className="text-[10px] tracking-[0.18em] uppercase text-[#9BBAC0] mb-0.5"
+               style={{ fontFamily: '"DM Sans", sans-serif' }}>{label}</p>
+            <p className="text-sm text-[#B8CED3] italic">Available in private mode</p>
           </div>
         </div>
       </div>
@@ -43,28 +39,20 @@ export function CopyField({ label, value, locked = false, className }: CopyField
   }
 
   return (
-    <div className={cn('border border-hairline bg-white p-4 rounded-luxury', className)}>
+    <div className={cn('border border-[#DDE8EA] bg-white p-4 hover:border-[#1E7A8C]/40 transition-colors duration-300', className)}>
       <div className="flex items-center justify-between gap-4">
-        <div className="flex-1 min-w-0">
-          <div className="text-xs text-muted mb-1.5 tracking-widest uppercase">{label}</div>
-          <div className="text-ink truncate font-mono text-sm">{value}</div>
+        <div>
+          <p className="text-[10px] tracking-[0.18em] uppercase text-[#1E7A8C]/70 mb-1"
+             style={{ fontFamily: '"DM Sans", sans-serif' }}>{label}</p>
+          <p className="text-[#1A1916] font-mono text-sm">{value}</p>
         </div>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-2 px-3 py-2 text-xs text-ink border border-hairline hover:border-accent hover:bg-highlight transition-colors tracking-widest uppercase rounded-luxury flex-shrink-0"
-          aria-label={`Copy ${label}`}
+          className="flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase text-[#7A766E] border border-[#DDE8EA] px-3 py-2 hover:border-[#1E7A8C] hover:text-[#1E7A8C] transition-all duration-300 flex-shrink-0"
+          style={{ fontFamily: '"DM Sans", sans-serif' }}
         >
-          {copied ? (
-            <>
-              <Check className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Copied</span>
-            </>
-          ) : (
-            <>
-              <Copy className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Copy</span>
-            </>
-          )}
+          {copied ? <><Check className="w-3.5 h-3.5" /><span className="hidden sm:inline">Copied</span></>
+                  : <><Copy className="w-3.5 h-3.5" /><span className="hidden sm:inline">Copy</span></>}
         </button>
       </div>
     </div>

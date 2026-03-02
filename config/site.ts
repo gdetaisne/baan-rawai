@@ -21,18 +21,19 @@ export const siteConfig = {
     link: 'https://maps.google.com/?q=59/45+Soi+Sayiuan+13+Rawai+Phuket',
   },
   
-  // WiFi - network name can be public, password requires private mode
+  // WiFi
   wifi: {
-    network: process.env.NEXT_PUBLIC_WIFI_NETWORK || 'Minou_5G',
+    network:  process.env.NEXT_PUBLIC_WIFI_NETWORK  || 'Minou_5G',
+    password: process.env.NEXT_PUBLIC_WIFI_PASSWORD || '',
   },
-  
-  // Private mode
-  privateAccessEnabled: true,
+
+  // Door code
+  doorCode: process.env.NEXT_PUBLIC_DOOR_CODE || '',
   
   // External links
   links: {
     esim: 'https://esim.holafly.com/fr/esim-thailande/?tw_source=google&tw_adid=769625392446&tw_campaign=22896705552&utm_source=google&utm_medium=cpc&utm_id=22896705552&cq_src=google_ads&cq_cmp=22896705552&cq_term=sim%20tha%C3%AFlande&cq_plac=&cq_net=g&cq_plt=gp&utm_campaign=HLF-B2C_GOO_ASIA_ASIA_FR_SEA_GEN_DEST_PURCH_PUSH_PROSP_AO_ADM&utm_adgroup=GOO_ASIA_ASIA_FR_SEA_GEN_DEST_COUNTRY_ASIA_THAILAND_NA_NA_PURCH_PUSH_PROSP_AO&gad_source=1&gad_campaignid=22896705552&gbraid=0AAAAAoN3UHN0roTFux6y8A2qwy2LMJ5DX&gclid=Cj0KCQiAtfXMBhDzARIsAJ0jp3CSjVfeEzqU9GQ3OOQmYVZGvrBYU3dyInc5qPQpnyFvoJr25wcimNAaAgFoEALw_wcB',
-    tm0Form: process.env.NEXT_PUBLIC_TM0_FORM_URL || '', // Empty = hide button
+    tdacForm: 'https://tdac.immigration.go.th/arrival-card/#/tac/arrival-card/add',
   },
   
   // Boats

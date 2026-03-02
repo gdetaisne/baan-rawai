@@ -7,26 +7,25 @@ interface LuxuryListItemProps {
   linkLabel?: string;
 }
 
-/**
- * Raffles-style curated list item with elegant hierarchy.
- */
 export function LuxuryListItem({ name, description, link, linkLabel }: LuxuryListItemProps) {
   return (
-    <div className="border-b border-hairline last:border-0 py-6 first:pt-0 last:pb-0">
+    <div className="border-b border-[#DDE8EA] last:border-0 py-5 first:pt-0 last:pb-0">
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1">
-          <h4 className="font-display text-lg text-ink mb-1.5">{name}</h4>
-          <p className="text-sm text-muted leading-relaxed">{description}</p>
+          <h4 className="text-[#1A1916] mb-1" style={{ fontFamily: 'Gloock, serif', fontSize: '1.05rem', fontWeight: 400 }}>
+            {name}
+          </h4>
+          <p className="text-sm text-[#7A766E] leading-relaxed">{description}</p>
         </div>
         {link && (
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm text-accent hover:text-accent/80 transition-colors whitespace-nowrap mt-1"
+            className="flex items-center gap-1 text-[10px] tracking-[0.15em] uppercase text-[#1E7A8C] hover:text-[#135462] transition-colors whitespace-nowrap mt-1"
+            style={{ fontFamily: '"DM Sans", sans-serif' }}
           >
-            <span>{linkLabel || 'View'}</span>
-            <ExternalLink className="w-3.5 h-3.5" />
+            {linkLabel || 'View'} <ExternalLink className="w-3 h-3 ml-0.5" />
           </a>
         )}
       </div>

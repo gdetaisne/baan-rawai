@@ -4,7 +4,7 @@
     "description": "Votre guide complet pour notre maison à Rawai, Phuket. Tout ce dont vous avez besoin pour un séjour parfait."
   },
   "hero": {
-    "title": "Bienvenue à Baan Sayiuan",
+    "title": "Notre maison est la vôtre.",
     "subtitle": "Notre maison à Rawai, Phuket",
     "ctaPrimary": "Préparer votre séjour",
     "whatsapp": "WhatsApp",
@@ -60,7 +60,7 @@
     "title": "Avant d'arriver",
     "taxi": {
       "title": "Taxi aéroport",
-      "description": "On peut organiser un taxi pour 700 THB (liquide). Le chauffeur vous attend à la sortie avec votre nom. Envoyez-nous vos infos de vol."
+      "description": "On peut organiser un taxi pour 700 THB. Le chauffeur vous attend à la sortie avec votre nom. Envoyez-nous vos infos de vol."
     },
     "doorCode": {
       "title": "Code porte",
@@ -75,7 +75,7 @@
     },
     "atm": {
       "title": "Important : Distributeurs en Thaïlande",
-      "description": "Ici les distributeurs donnent l'argent AVANT de rendre la carte. Beaucoup de gens oublient leur carte. Soyez pas cette personne. Aussi, choisissez toujours 'Without conversion'."
+      "description": "Ici les distributeurs donnent l'argent AVANT de rendre la carte. Beaucoup de gens oublient leur carte. Ne soyez pas cette personne. (Pierre, si tu oublies ta carte dans l'ATM, on t'aura prévenu et tu paieras ta tournée.) Aussi, choisissez toujours 'Without conversion'. Il y a des ATM devant tous les 7-11."
     },
     "esim": {
       "title": "Prenez une eSIM avant de partir",
@@ -94,10 +94,9 @@
       "description": "Service d'accompagnement via file prioritaire. Environ 1000–2000 THB par personne. Utile si arrivée tardive ou avec enfants."
     },
     "tm0": {
-      "title": "Formulaire TM0",
-      "description": "À remplir avant l'arrivée.",
-      "cta": "Formulaire TM0",
-      "comingSoon": "Lien bientôt disponible"
+      "title": "Formulaire TDAC",
+      "description": "À remplir avant de partir pour gagner du temps à l'arrivée. Un formulaire par membre de la famille.",
+      "cta": "Remplir le formulaire TDAC"
     }
   },
   "rawai": {

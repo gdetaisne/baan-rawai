@@ -1,6 +1,6 @@
 import { WarmHero } from '@/components/sections/WarmHero';
 import { WelcomeHome } from '@/components/sections/WelcomeHome';
-import { ExperienceGrid } from '@/components/sections/ExperienceGrid';
+import { PhotoBand } from '@/components/sections/PhotoBand';
 import { ThaiLexicon } from '@/components/sections/ThaiLexicon';
 import { LuxuryBeforeArrival } from '@/components/sections/LuxuryBeforeArrival';
 import { LuxuryArrival } from '@/components/sections/LuxuryArrival';
@@ -15,28 +15,29 @@ export default function HomePage() {
   return (
     <>
       <WarmHero />
-      <WelcomeHome />
-      <ExperienceGrid />
-      <ThaiLexicon />
       <LuxuryBeforeArrival />
       <LuxuryArrival />
       <LuxuryRawai />
+      <ThaiLexicon />
       <LuxuryBoats />
       <LuxuryDayPasses />
       <LuxuryAtHome />
+      <PhotoBand />
+      <WelcomeHome />
       <LuxuryGuestForm />
-      
-      {/* Guest Form Popup - THE differentiator */}
+
       <GuestFormPopup />
 
-      {/* Minimal Footer */}
-      <footer className="border-t border-black/5 py-20 pb-32 md:pb-20 px-8 md:px-12 text-center bg-paper">
+      <footer className="border-t border-[#DDE8EA] py-20 pb-32 md:pb-20 px-6 md:px-12 text-center bg-[#F5F5F3]">
         <div className="max-w-content mx-auto">
-          <div className="font-display text-2xl text-ink mb-6 tracking-[0.1em]">
-            BAAN SAYIUAN
-          </div>
-          <div className="h-px w-12 bg-ink/20 mx-auto mb-6" />
-          <p className="text-label text-muted">
+          <p
+            className="text-2xl text-[#1A1916] mb-5 tracking-wide"
+            style={{ fontFamily: 'Gloock, serif', fontWeight: 400 }}
+          >
+            Baan Sayiuan
+          </p>
+          <div className="w-10 h-px bg-[#1E7A8C]/30 mx-auto mb-5" />
+          <p style={{ fontFamily: '"DM Sans", sans-serif', fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#1E7A8C', opacity: 0.6 }}>
             RAWAI · PHUKET
           </p>
         </div>
