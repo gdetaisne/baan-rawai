@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
 
-    // Format email content
     const emailContent = `
 New Guest Form Submission - Baan Sayiuan
 
@@ -29,33 +29,22 @@ ${data.other || 'None'}
 Submitted at: ${new Date().toISOString()}
     `.trim();
 
-    // Send email using Resend (you'll need to install and configure)
-    // For now, we'll use a simple fetch to a service like Resend
-    const RESEND_API_KEY = process.env.RESEND_API_KEY;
-
-    if (!RESEND_API_KEY) {
-      // Fallback: log to console in development
-      console.log('Guest Form Submission:', emailContent);
-      return NextResponse.json({ success: true, message: 'Form received (dev mode)' });
-    }
-
-    const emailResponse = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.SMTP_USER,   // ex: veltzlucie@gmail.com
+        pass: process.env.SMTP_PASS,   // App Password Gmail (16 caractères)
       },
-      body: JSON.stringify({
-        from: 'Baan Sayiuan <noreply@baan-sayiuan.com>',
-        to: 'veltzlucie@gmail.com',
-        subject: `🏝️ New Guest Form - ${data.arrival || 'Arrival TBD'}`,
-        text: emailContent,
-      }),
     });
 
-    if (!emailResponse.ok) {
-      throw new Error('Failed to send email');
-    }
+    await transporter.sendMail({
+      from: `Baan Sayiuan <${process.env.SMTP_USER}>`,
+      to: process.env.SMTP_TO || 'veltzlucie@gmail.com',
+      subject: `🏝️ New Guest Form - ${data.arrival || 'Arrival TBD'}`,
+      text: emailContent,
+    });
 
     return NextResponse.json({ success: true, message: 'Form submitted successfully' });
   } catch (error) {
