@@ -105,25 +105,35 @@ export function LuxuryBeforeArrival() {
         </div>
       </div>
 
-      {/* ── Cadre immigration pleine largeur ── */}
-      <div className="bg-[#1A2E3D] px-8 md:px-14 py-10 md:py-14">
-        <div className="max-w-content mx-auto">
-          {/* Titre script */}
+      {/* ── Section immigration ── */}
+      <div className="bg-[#1A2E3D] px-8 md:px-14 pt-10 md:pt-14 pb-12 md:pb-16">
+        <div className="max-w-content mx-auto flex flex-col items-center text-center">
+
+          {/* Titre script AU-DESSUS du cadre */}
           <p
-            className="font-handwritten text-white mb-6"
+            className="font-handwritten text-white mb-8"
             style={{ fontSize: 'clamp(48px, 6vw, 90px)', fontWeight: 400, lineHeight: 1.0, opacity: 0.95 }}
           >
             {t('immigrationTip.label')}
           </p>
-          {/* Ligne fine */}
-          <div className="w-12 h-px bg-white/20 mb-6" />
-          {/* Texte */}
-          <p
-            className="text-white/75 leading-[1.85] max-w-3xl"
-            style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '14px' }}
-          >
-            {t('immigrationTip.description')}
-          </p>
+
+          {/* Cadre texte centré */}
+          <div className="border border-white/15 px-8 md:px-14 py-8 md:py-10 max-w-2xl w-full">
+            {/* Highlight */}
+            <p
+              className="text-white mb-5 uppercase tracking-[0.2em]"
+              style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '13px', letterSpacing: '0.2em' }}
+            >
+              {t('immigrationTip.highlight')}
+            </p>
+            <p
+              className="text-white/65 leading-[1.9] text-left"
+              style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '13px' }}
+            >
+              {t('immigrationTip.description')}
+            </p>
+          </div>
+
         </div>
       </div>
 

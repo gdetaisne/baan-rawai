@@ -80,7 +80,8 @@
     },
     "immigrationTip": {
       "label": "Important — Immigration",
-      "description": "The queue can take 30 min or 2 hours depending on when you arrive. The hack: the priority lane. Normally reserved, but you can pay to access it. Just say \"Priority lane, how much?\" — it's between 500 and 1,000 baht, totally at their discretion, and yes, it's baksheesh — but you won't wait a single second. They only take Thai Baht. Exchange euros in France or at the airport (there's a counter before immigration). Have your passport and TDAC form ready."
+      "highlight": "THE HACK — PRIORITY LANE.",
+      "description": "Normally reserved, but you can pay to access it. Just say \"Priority lane, how much?\" — it's between 500 and 1,000 baht, totally at their discretion, and yes, it's baksheesh — but you won't wait a single second. They only take Thai Baht. Exchange euros in France or at the airport (there's a counter before immigration). Have your passport and TDAC form ready."
     }
   },
   "arrival": {
@@ -94,11 +95,13 @@
     },
     "doorCode": {
       "title": "Door code",
-      "description": "Code"
+      "description": "Tap the lock with your palm → enter the code → tap the lock again → wait for \"lock open\".",
+      "label": "Code"
     },
     "atm": {
       "title": "ATMs in Thailand",
-      "description": "ATMs dispense cash BEFORE returning your card — don't forget it. Always choose 'Without conversion'. There's one in front of every 7-11."
+      "highlight": "CASH BEFORE CARD — DON'T FORGET IT.",
+      "description": "Always choose 'Without conversion'. There's one in front of every 7-11."
     }
   },
   "rawai": {
@@ -107,7 +110,7 @@
       "title": "Beaches"
     },
     "restaurants": {
-      "title": "Where we eat",
+      "title": "Eat like a local",
       "openMaps": "Open in Maps"
     },
     "spas": {
@@ -130,10 +133,10 @@
   },
   "atHome": {
     "title": "At home",
-    "shoesOff": "Shoes off inside",
+    "shoesOff": "Shoes off inside — thai style.",
     "noGlass": "No glass by the pool",
     "ac": "Turn off AC when leaving. Close doors when AC is on.",
-    "towels": "Clean towels available for the pool, beach & shower — in the bathroom cabinet."
+    "towels": "Towels available for the pool, beach and shower. No need to overpack."
   },
   "guestForm": {
     "title": "Help us prepare",

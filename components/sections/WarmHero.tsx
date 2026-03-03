@@ -34,39 +34,43 @@ export function WarmHero() {
       {/* Dégradé bas pour lisibilité */}
       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-      {/* ── BOTTOM: BAAN SAYIUAN + ligne + infos ── */}
-      <div className="absolute bottom-0 left-0 right-0 px-5 md:px-10 pb-6 md:pb-8 animate-fade-in">
-        {/* "Welcome to" en script */}
-        <p
-          className="font-handwritten text-white leading-none"
-          style={{
-            fontSize: 'clamp(56px, 9vw, 130px)',
-            fontWeight: 400,
-            opacity: 0.75,
-            marginBottom: '0.1em',
-          }}
-        >
-          Welcome to
-        </p>
-        {/* Grande phrase */}
-        <p
-          className="text-white uppercase leading-none whitespace-nowrap"
-          style={{
-            fontFamily: '"Ade Display", serif',
-            fontWeight: 400,
-            fontSize: 'clamp(32px, 7.2vw, 112px)',
-            letterSpacing: '0.04em',
-            opacity: 0.92,
-          }}
-        >
-          BAAN SAYIUAN
-        </p>
+      {/* ── BOTTOM: titre + ligne + infos ── */}
+      <div className="absolute bottom-0 left-0 right-0 pb-6 md:pb-8 animate-fade-in">
+        {/* Bloc titre — pleine largeur */}
+        <div className="px-5 md:px-10">
+          {/* "Welcome to" en script */}
+          <p
+            className="font-handwritten text-white leading-none relative z-10"
+            style={{
+              fontSize: 'clamp(64px, 9vw, 130px)',
+              fontWeight: 400,
+              opacity: 0.80,
+              marginBottom: '-0.12em',
+            }}
+          >
+            Welcome to
+          </p>
+          {/* BAAN SAYIUAN — pleine largeur */}
+          <p
+            className="text-white uppercase leading-none whitespace-nowrap relative z-0"
+            style={{
+              fontFamily: '"Ade Display", serif',
+              fontWeight: 400,
+              fontSize: 'clamp(52px, 12.5vw, 200px)',
+              letterSpacing: '-0.01em',
+              opacity: 0.95,
+              lineHeight: 0.9,
+            }}
+          >
+            BAAN SAYIUAN
+          </p>
+        </div>
 
         {/* Ligne fine séparatrice */}
-        <div className="h-px w-full bg-white/40 mt-4 mb-5" />
+        <div className="h-px w-full bg-white/40 mt-4 mb-5 px-5 md:px-10" />
 
         {/* Infos: 3 colonnes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 md:divide-x md:divide-white/20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 md:divide-x md:divide-white/20 px-5 md:px-10">
           {/* Adresse */}
           <a
             href="https://maps.google.com/?q=59/45+Soi+Sayiuan+13,+Rawai,+Mueang+Phuket+District,+Phuket+83130,+Thailand"

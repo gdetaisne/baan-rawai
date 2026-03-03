@@ -19,10 +19,10 @@ export default function HomePage() {
       <LuxuryArrival />
       <LuxuryAtHome />
       <LuxuryRawai />
-      <ThaiLexicon />
       <LuxuryDayPasses />
       <PhotoBand />
       <LuxuryGuestForm />
+      <ThaiLexicon />
 
       <GuestFormPopup />
 

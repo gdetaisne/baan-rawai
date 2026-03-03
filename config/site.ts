@@ -56,8 +56,7 @@ export const siteConfig = {
   // Beaches
   beaches: [
     { name: 'Nai Harn', description: 'Main beach, best swimming' },
-    { name: 'Ya Nui', description: 'Small cove, calm water' },
-    { name: 'Ao Sane', description: 'Rocky, good snorkeling' },
+    { name: 'Ya Nui', description: 'Our favourite — small cove, calm water' },
     { name: 'Rawai', description: 'Sunset views, not for swimming' },
   ],
   
@@ -68,18 +67,42 @@ export const siteConfig = {
     { name: 'Sri Panwa', description: 'Sunset infinity pool', link: '#' },
   ],
   
-  // Restaurants - TODO: Add real names and Google Maps links
+  // Restaurants
   restaurants: [
-    { name: 'Restaurant Name 1', description: 'Easy lunch, kid-friendly', mapsLink: '#' },
-    { name: 'Restaurant Name 2', description: 'Sunset seafood on the sand', mapsLink: '#' },
-    { name: 'Restaurant Name 3', description: 'Elevated Thai cuisine', mapsLink: '#' },
-    { name: 'Restaurant Name 4', description: 'Italian, great pizza', mapsLink: '#' },
-    { name: 'Restaurant Name 5', description: 'Beach club vibes', mapsLink: '#' },
+    { 
+      name: 'Nikita\'s', 
+      description: 'Legendary beach restaurant in Rawai. Fresh seafood, cold beers, feet in the sand.', 
+      mapsLink: 'https://maps.google.com/?q=Nikita\'s+Restaurant+Rawai+Phuket',
+      photo: '/IMG_3365.jpeg',
+    },
+    { 
+      name: 'Locanda del Pescatore', 
+      description: 'Italian by the sea. Proper pasta, great wine list — a surprising gem in Rawai.',
+      mapsLink: 'https://maps.google.com/?q=Locanda+del+Pescatore+Rawai+Phuket',
+      photo: '/IMG_7234.jpeg',
+    },
+    {
+      name: 'Le Celtique',
+      description: 'French bistro in Rawai. Steak frites, wine, and a proper crêpe. A little piece of France.',
+      mapsLink: 'https://maps.google.com/?q=Le+Celtique+Rawai+Phuket',
+      photo: '/IMG_9878.jpeg',
+    },
   ],
   
   // Spas - TODO: Add real names
   spas: [
     { name: 'Spa Name 1', note: 'Traditional Thai massage' },
     { name: 'Spa Name 2', note: 'Luxury spa experience' },
+  ],
+
+  // Activities
+  activities: [
+    { name: 'Muay Thai', note: 'Tiger Muay Thai — 10 min away. Best gym on the island.', category: 'sport' },
+    { name: 'Ayurveda', note: 'Naga Ayurveda — traditional treatments, highly recommended.', category: 'wellness' },
+    { name: 'Yoga', note: 'Prana Yoga — daily classes, all levels.', category: 'wellness' },
+    { name: 'Pilates', note: 'Studio 36 — reformer pilates, book in advance.', category: 'wellness' },
+    { name: 'Jungceylon', note: 'Patong — big mall, cinema, supermarket.', category: 'shopping' },
+    { name: 'Central Festival', note: 'Phuket Town — the main mall, all brands.', category: 'shopping' },
+    { name: 'Night Market', note: 'Naka Weekend Market (Sat & Sun) — street food, clothes, everything.', category: 'market' },
   ],
 } as const;

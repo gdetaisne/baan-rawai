@@ -1,52 +1,104 @@
 'use client';
 
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { EditorialSection } from '@/components/EditorialSection';
 import { CopyField } from '@/components/ui/CopyField';
 import { siteConfig } from '@/config/site';
-import { AlertCircle } from 'lucide-react';
 
 export function LuxuryArrival() {
   const t = useTranslations('arrival');
 
   return (
-    <EditorialSection label="AT THE HOUSE" title={t('title')} background="ivory">
-      <div className="max-w-3xl space-y-0 border-y border-border">
+    <section id="arrival" className="border-t border-border bg-background">
+      <div className="flex flex-col md:flex-row min-h-[560px]">
 
-        {/* WiFi */}
-        <div className="grid md:grid-cols-[60px_1fr] gap-4 md:gap-10 py-8 border-b border-border">
-          <p className="text-accent text-muted/70 pt-2">01</p>
-          <div>
-            <h3 className="text-display-sm text-ink mb-4">{t('wifi.title')}</h3>
+        {/* ── GAUCHE : infos pratiques ── */}
+        <div className="flex-1 flex flex-col justify-center px-8 md:px-14 py-14 md:py-20">
+
+          {/* Label */}
+          <p
+            className="uppercase tracking-[0.24em] text-accent mb-8"
+            style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
+          >
+            AT THE HOUSE
+          </p>
+
+          {/* Titre script */}
+          <h2
+            className="font-handwritten text-ink mb-10"
+            style={{ fontSize: 'clamp(64px, 9vw, 130px)', lineHeight: 1.0, fontWeight: 400 }}
+          >
+            {t('title')}
+          </h2>
+
+          {/* WiFi */}
+          <div className="mb-6">
+            <p
+              className="uppercase tracking-[0.2em] text-muted mb-3"
+              style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
+            >
+              {t('wifi.title')}
+            </p>
             <div className="space-y-2">
               <CopyField label={t('wifi.network')} value={siteConfig.wifi.network} />
               <CopyField label={t('wifi.password')} value={siteConfig.wifi.password} />
             </div>
           </div>
-        </div>
 
-        {/* Code porte */}
-        <div className="grid md:grid-cols-[60px_1fr] gap-4 md:gap-10 py-8 border-b border-border">
-          <p className="text-accent text-muted/70 pt-2">02</p>
-          <div>
-            <h3 className="text-display-sm text-ink mb-4">{t('doorCode.title')}</h3>
-            <CopyField label={t('doorCode.description')} value={siteConfig.doorCode} />
+          {/* Code porte */}
+          <div className="mb-8">
+            <p
+              className="uppercase tracking-[0.2em] text-muted mb-3"
+              style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
+            >
+              {t('doorCode.title')}
+            </p>
+            <CopyField label={t('doorCode.label')} value={siteConfig.doorCode} />
+            <p
+              className="mt-3 text-muted leading-[1.7]"
+              style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '12px' }}
+            >
+              {t('doorCode.description')}
+            </p>
+          </div>
+
+          {/* ATM — encart sombre */}
+          <div className="bg-[#1A2E3D] px-6 py-6 mt-2">
+            <p
+              className="text-white/45 uppercase tracking-[0.22em] mb-4"
+              style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
+            >
+              {t('atm.title')}
+            </p>
+            <p
+              className="text-white uppercase tracking-[0.18em] mb-4"
+              style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '12px' }}
+            >
+              {t('atm.highlight')}
+            </p>
+            <p
+              className="text-white/65 leading-[1.75]"
+              style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '13px' }}
+            >
+              {t('atm.description')}
+            </p>
           </div>
         </div>
 
-        {/* ATM */}
-        <div className="grid md:grid-cols-[60px_1fr] gap-4 md:gap-10 py-8">
-          <p className="text-accent text-muted/70 pt-2">03</p>
-          <div className="flex items-start gap-3">
-            <AlertCircle className="w-4 h-4 text-clay mt-1 flex-shrink-0" />
-            <div>
-              <h3 className="text-display-sm text-ink mb-2">{t('atm.title')}</h3>
-              <p className="text-body text-muted">{t('atm.description')}</p>
-            </div>
+        {/* ── DROITE : photo cadrée ── */}
+        <div className="md:w-[45%] flex-shrink-0 flex items-center justify-center p-8 md:p-10 bg-paper">
+          <div className="relative w-full h-[320px] md:h-[480px]">
+            <Image
+              src="/IMG_1458.jpeg"
+              alt="Baan Sayiuan — Rawai"
+              fill
+              className="object-cover object-center"
+              sizes="45vw"
+            />
           </div>
         </div>
 
       </div>
-    </EditorialSection>
+    </section>
   );
 }

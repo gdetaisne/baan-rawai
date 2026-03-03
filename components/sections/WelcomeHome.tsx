@@ -47,7 +47,7 @@ export function WelcomeHome() {
         {/* Signature — très grande, style poème */}
         <p
           className="font-handwritten text-white leading-[0.9]"
-          style={{ fontSize: 'clamp(52px, 7vw, 96px)', fontWeight: 400, opacity: 0.9 }}
+            style={{ fontSize: 'clamp(64px, 9vw, 130px)', fontWeight: 400, opacity: 0.9 }}
         >
           {t('signature')}
         </p>

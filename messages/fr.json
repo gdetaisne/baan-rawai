@@ -80,7 +80,8 @@
     },
     "immigrationTip": {
       "label": "Important — Immigration",
-      "description": "Ça peut prendre 30 min ou 2h selon l'heure d'arrivée. LE bon plan : la priority lane. Normalement réservée mais vous pouvez payer pour y accéder. Dites juste \"Priority lane, how much ?\" — c'est entre 500 et 1 000 bahts, c'est à la tête du client, et oui c'est du bakchich — mais vous n'attendrez pas une seule seconde. Ils n'acceptent que les bahts. Échangez des euros en France ou à l'aéroport (il y a un comptoir avant l'immigration). Ayez votre passeport et votre formulaire TDAC à portée de main."
+      "highlight": "LE BON PLAN — PRIORITY LANE.",
+      "description": "Normalement réservée mais vous pouvez payer pour y accéder. Dites juste \"Priority lane, how much ?\" — c'est entre 500 et 1 000 bahts, c'est à la tête du client, et oui c'est du bakchich — mais vous n'attendrez pas une seule seconde. Ils n'acceptent que les bahts. Échangez des euros en France ou à l'aéroport (il y a un comptoir avant l'immigration). Ayez votre passeport et votre formulaire TDAC à portée de main."
     }
   },
   "arrival": {
@@ -94,11 +95,13 @@
     },
     "doorCode": {
       "title": "Code porte",
-      "description": "Code"
+      "description": "Taper le lock avec la paume → entrer le code → retaper le lock avec la paume → entendre \"lock open\".",
+      "label": "Code"
     },
     "atm": {
       "title": "Distributeurs en Thaïlande",
-      "description": "Les distributeurs donnent l'argent AVANT de rendre la carte — ne l'oubliez pas. Choisissez toujours 'Without conversion'. Il y en a un devant chaque 7-11."
+      "highlight": "L'ARGENT AVANT LA CARTE — NE L'OUBLIEZ PAS.",
+      "description": "Choisissez toujours 'Without conversion'. Il y en a un devant chaque 7-11."
     }
   },
   "rawai": {
@@ -107,7 +110,7 @@
       "title": "Plages"
     },
     "restaurants": {
-      "title": "Où on mange",
+      "title": "Eat like a local",
       "openMaps": "Ouvrir dans Maps"
     },
     "spas": {
@@ -130,10 +133,10 @@
   },
   "atHome": {
     "title": "À la maison",
-    "shoesOff": "Chaussures enlevées à l'intérieur",
+    "shoesOff": "Chaussures enlevées à l'intérieur — thai style.",
     "noGlass": "Pas de verre près de la piscine",
     "ac": "Éteindre la clim en partant. Garder portes fermées avec la clim.",
-    "towels": "Serviettes propres disponibles pour la piscine, la plage et la douche — dans l'armoire de la salle de bain."
+    "towels": "Serviettes disponibles pour la piscine, la plage et la douche. Ne vous surchargez pas."
   },
   "guestForm": {
     "title": "Aidez-nous à préparer",
