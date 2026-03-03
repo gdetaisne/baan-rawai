@@ -22,42 +22,45 @@ export function LuxuryRawai() {
   return (
     <section id="our-rawai" className="border-t border-border bg-background">
 
-      {/* ── Header ── */}
-      <div className="px-8 md:px-14 pt-14 md:pt-20 pb-10">
-        <p
-          className="uppercase tracking-[0.24em] text-accent mb-8"
-          style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
-        >
-          OUR RAWAI
-        </p>
-        <h2
-          className="font-handwritten text-ink"
-          style={{ fontSize: 'clamp(64px, 9vw, 130px)', lineHeight: 1.0, fontWeight: 400 }}
-        >
-          {t('title')}
-        </h2>
-      </div>
-
-      {/* ── Vidéo pleine largeur ── */}
-      <div className="w-full mb-0">
+      {/* ── Vidéo hero avec titre centré dessus ── */}
+      <div className="relative w-full h-[360px] md:h-[520px] overflow-hidden">
         <video
           autoPlay muted loop playsInline
-          className="w-full h-[260px] md:h-[420px] object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           poster="/IMG_7221.jpeg"
         >
-          <source src="/IMG_0987.MOV" type="video/mp4" />
+          <source src="/IMG_0769.MOV" type="video/mp4" />
         </video>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
+
+        {/* Titre centré */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+          <p
+            className="uppercase tracking-[0.24em] text-white/60 mb-4"
+            style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
+          >
+            OUR RAWAI
+          </p>
+          <h2
+            className="font-handwritten text-white"
+            style={{ fontSize: 'clamp(64px, 9vw, 130px)', lineHeight: 1.0, fontWeight: 400 }}
+          >
+            {t('title')}
+          </h2>
+        </div>
       </div>
 
       {/* ── Beaches — grille 3 colonnes pleine largeur ── */}
       <div className="w-full">
-        <div className="px-8 md:px-14 py-6">
-          <p
-            className="uppercase tracking-[0.24em] text-accent"
-            style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
+        <div className="px-8 md:px-14 py-8">
+          <h3
+            className="font-handwritten text-ink"
+            style={{ fontSize: 'clamp(64px, 9vw, 130px)', lineHeight: 1.0, fontWeight: 400 }}
           >
-            BEACHES
-          </p>
+            Beaches
+          </h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
