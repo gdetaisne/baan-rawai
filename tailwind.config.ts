@@ -9,16 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Tropical sanctuary palette
-        background: '#FAF9F6',   // Soft Coconut White
-        surface: '#FFFFFF',      // Surface white
-        paper: '#F5EFE6',        // Warm Sand
-        ink: '#1F3D35',          // Deep Palm Green
-        muted: '#6E7C76',        // Soft desaturated green-gray
-        accent: '#3E7C7A',       // Ocean Teal
-        clay: '#C96F4A',         // Sunset Clay
-        border: '#E6DDD0',       // Warm sand border
-        'border-dark': '#CBBEAA', // Darker sand border
+        // Tropical sanctuary palette (locked)
+        background: '#FAF9F6',
+        surface: '#FFFFFF',
+        paper: '#F5EFE6',
+        ink: '#1F3D35',
+        muted: '#6E7C76',
+        accent: '#3E7C7A',
+        clay: '#C96F4A',
+        border: '#E6DDD0',
+        'border-dark': '#CBBEAA',
       },
       fontFamily: {
         display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
