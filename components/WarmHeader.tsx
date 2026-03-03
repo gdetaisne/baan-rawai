@@ -28,54 +28,71 @@ export function WarmHeader() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled
-          ? 'bg-background/95 backdrop-blur-md border-b border-border'
+          ? 'bg-background/90 backdrop-blur-md border-b border-border/50'
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-container mx-auto px-6 md:px-12 py-5 grid grid-cols-3 items-center">
+      <div className="max-w-container mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
         {/* Left — language toggle */}
-        <div className="flex items-center">
-          <button
-            onClick={toggleLanguage}
-            className={`text-[10px] tracking-[0.22em] uppercase transition-colors duration-500 ${
-              scrolled ? 'text-muted hover:text-ink' : 'text-white/65 hover:text-white'
-            }`}
-            style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}
-          >
-            {locale === 'en' ? 'FR' : 'EN'}
-          </button>
-        </div>
+        <button
+          onClick={toggleLanguage}
+          className={`text-[10px] tracking-[0.22em] uppercase transition-colors duration-500 w-10 ${
+            scrolled ? 'text-muted hover:text-ink' : 'text-white/65 hover:text-white'
+          }`}
+          style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}
+        >
+          {locale === 'en' ? 'FR' : 'EN'}
+        </button>
 
-        {/* Center — logo */}
-        <div className="flex justify-center">
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}
-            className={`text-lg md:text-xl font-normal tracking-wide transition-colors duration-500 ${
+        {/* Centre — logo + nav */}
+        <div className="flex flex-col items-center gap-3">
+          <span
+            className={`uppercase transition-colors duration-500 ${
               scrolled ? 'text-ink' : 'text-white'
             }`}
+            style={{
+              fontFamily: '"Ade Display", serif',
+              fontWeight: 400,
+              fontSize: 'clamp(16px, 2vw, 22px)',
+              letterSpacing: '0.06em',
+            }}
           >
-            Baan Sayiuan
-          </a>
+            BAAN SAYIUAN
+          </span>
+          <nav className="hidden md:flex items-center gap-x-6">
+            {[
+              { label: 'BEFORE ARRIVAL', id: 'before-arrival' },
+              { label: 'OUR RAWAI',      id: 'our-rawai'      },
+              { label: 'AT HOME',        id: 'at-home'        },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })}
+                className={`text-[10px] tracking-[0.2em] uppercase transition-colors duration-300 ${
+                  scrolled ? 'text-muted hover:text-ink' : 'text-white/60 hover:text-white'
+                }`}
+                style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
         </div>
 
-        {/* Right — CTA with border */}
-        <div className="flex justify-end">
-          <button
-            onClick={scrollToForm}
-            className={`hidden md:inline-flex items-center text-[10px] tracking-[0.18em] uppercase px-4 py-2 border transition-all duration-500 ${
-              scrolled
-                ? 'border-ink/30 text-ink hover:bg-ink hover:text-background'
-                : 'border-white/45 text-white hover:border-white hover:bg-white/10'
-            }`}
-            style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 400 }}
-          >
-            Questionnaire
-          </button>
-        </div>
+        {/* Right — CTA */}
+        <button
+          onClick={scrollToForm}
+          className={`hidden md:inline-flex items-center text-[10px] tracking-[0.18em] uppercase px-4 py-2 border transition-all duration-500 ${
+            scrolled
+              ? 'border-ink/30 text-ink hover:bg-ink hover:text-background'
+              : 'border-white/45 text-white hover:border-white hover:bg-white/10'
+          }`}
+          style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 400 }}
+        >
+          QUESTIONNAIRE
+        </button>
       </div>
     </header>
   );

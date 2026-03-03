@@ -14,14 +14,14 @@ export default function HomePage() {
   return (
     <>
       <WarmHero />
+      <WelcomeHome />
       <LuxuryBeforeArrival />
       <LuxuryArrival />
+      <LuxuryAtHome />
       <LuxuryRawai />
       <ThaiLexicon />
       <LuxuryDayPasses />
-      <LuxuryAtHome />
       <PhotoBand />
-      <WelcomeHome />
       <LuxuryGuestForm />
 
       <GuestFormPopup />
@@ -30,12 +30,12 @@ export default function HomePage() {
         <div className="max-w-content mx-auto">
           <p
             className="text-2xl text-ink mb-5 tracking-wide"
-            style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}
+            style={{ fontFamily: '"Ade Display", serif', fontWeight: 400 }}
           >
             Baan Sayiuan
           </p>
           <div className="w-10 h-px bg-accent/30 mx-auto mb-5" />
-          <p style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#3E7C7A', opacity: 0.6 }}>
+          <p style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#2E6B8A', opacity: 0.6 }}>
             RAWAI · PHUKET
           </p>
         </div>

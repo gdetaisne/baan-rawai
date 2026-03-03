@@ -47,7 +47,7 @@ export function LuxuryRawai() {
             <div className="grid sm:grid-cols-2 gap-4">
               {siteConfig.spas.map((s, i) => (
                 <div key={i} className="p-5 bg-background border border-border luxury-hover">
-                  <p className="text-ink mb-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}>{s.name}</p>
+                  <p className="text-ink mb-1" style={{ fontFamily: '"Ade Display", serif', fontWeight: 400 }}>{s.name}</p>
                   <p className="text-sm text-muted">{s.note}</p>
                 </div>
               ))}

@@ -1,12 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=IBM+Plex+Mono:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=IBM+Plex+Mono:wght@200;300;400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: 'Ade Display';
+    src: url('/fonts/Ade-Display.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Brittany';
+    src: url('/fonts/Brittany.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Chelsea Olivia';
+    src: url('/fonts/ChelseaOlivia.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
-    --font-display: 'Cormorant Garamond', 'Georgia', serif;
+    --font-display: 'Ade Display', 'Georgia', serif;
     --font-sans: 'DM Sans', system-ui, sans-serif;
     --font-accent: 'IBM Plex Mono', 'Courier New', monospace;
   }
@@ -21,8 +45,8 @@
   }
 
   body {
-    background-color: #FAF9F6;
-    color: #1F3D35;
+    background-color: #FFFFFF;
+    color: #1A2E3D;
     font-family: var(--font-sans);
     font-weight: 300;
     line-height: 1.78;
@@ -109,16 +133,16 @@
 
   /* Ghost dark — over light bg */
   .btn-ghost-dark {
-    @apply inline-flex items-center gap-3 px-8 py-3.5 border border-[#1F3D35]/35 text-[#1F3D35] text-[11px] tracking-[0.18em] uppercase
-           hover:bg-[#1F3D35] hover:text-[#FAF9F6] transition-all duration-500;
+    @apply inline-flex items-center gap-3 px-8 py-3.5 border border-[#1A2E3D]/35 text-[#1A2E3D] text-[11px] tracking-[0.18em] uppercase
+           hover:bg-[#1A2E3D] hover:text-white transition-all duration-500;
     font-family: var(--font-sans);
     font-weight: 400;
   }
 
-  /* Ocean teal accent */
+  /* Ocean blue accent */
   .btn-accent {
-    @apply inline-flex items-center gap-3 px-8 py-3.5 bg-[#3E7C7A] text-white text-[11px] tracking-[0.18em] uppercase
-           hover:bg-[#1F3D35] transition-all duration-500;
+    @apply inline-flex items-center gap-3 px-8 py-3.5 bg-[#2E6B8A] text-white text-[11px] tracking-[0.18em] uppercase
+           hover:bg-[#1A2E3D] transition-all duration-500;
     font-family: var(--font-sans);
     font-weight: 400;
   }
@@ -131,8 +155,8 @@
   }
 
   .btn-text-dark {
-    @apply inline-flex items-center gap-2 text-[11px] uppercase text-[#1F3D35]
-           border-b border-[#1F3D35]/35 pb-0.5 hover:border-[#1F3D35] transition-all duration-300;
+    @apply inline-flex items-center gap-2 text-[11px] uppercase text-[#1A2E3D]
+           border-b border-[#1A2E3D]/35 pb-0.5 hover:border-[#1A2E3D] transition-all duration-300;
     font-family: var(--font-accent);
     font-weight: 300;
     letter-spacing: 0.16em;
@@ -148,17 +172,17 @@
   /* ── Form fields ── */
 
   .field {
-    @apply w-full px-0 py-3 border-0 border-b border-[#CBBEAA] bg-transparent text-[#1F3D35]
-           text-[14px] placeholder-[#8A8F89]
-           focus:outline-none focus:border-[#3E7C7A] transition-colors duration-300;
+    @apply w-full px-0 py-3 border-0 border-b border-[#B8CDD6] bg-transparent text-[#1A2E3D]
+           text-[14px] placeholder-[#8A9AAF]
+           focus:outline-none focus:border-[#2E6B8A] transition-colors duration-300;
     font-family: var(--font-sans);
     font-weight: 300;
   }
 
   .field-box {
-    @apply w-full px-4 py-3.5 border border-[#E6DDD0] bg-white text-[#1F3D35]
-           text-[14px] placeholder-[#8A8F89]
-           focus:outline-none focus:border-[#3E7C7A] transition-colors duration-300;
+    @apply w-full px-4 py-3.5 border border-[#D8E4EA] bg-white text-[#1A2E3D]
+           text-[14px] placeholder-[#8A9AAF]
+           focus:outline-none focus:border-[#2E6B8A] transition-colors duration-300;
     font-family: var(--font-sans);
     font-weight: 300;
   }
@@ -239,4 +263,27 @@
 
 .text-balance {
   text-wrap: balance;
+}
+
+/* ── Editorial striped letter block ── */
+
+.striped-editorial-bg {
+  background-color: #1A2E3D;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.2) 0px,
+    rgba(255, 255, 255, 0.2) 1px,
+    transparent 1px,
+    transparent 6px
+  );
+}
+
+.editorial-letter {
+  background: #FFFFFF;
+  border: 1px solid #d8cab8;
+  box-shadow: 0 12px 26px rgba(16, 26, 39, 0.13);
+}
+
+.font-handwritten {
+  font-family: 'Chelsea Olivia', 'Brittany', 'Great Vibes', 'Brush Script MT', cursive;
 }

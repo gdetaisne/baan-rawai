@@ -1,10 +1,9 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { siteConfig } from '@/config/site';
 
 export function WarmHero() {
-  const t = useTranslations('hero');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
@@ -31,73 +30,93 @@ export function WarmHero() {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/IMG_3154.jpeg)' }} />
       )}
 
-      {/* Overlay — cinematic, luxe et lisible */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/60" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(0,0,0,0.35)_100%)]" />
+      <div className="absolute inset-0 bg-black/25" />
+      {/* Dégradé bas pour lisibilité */}
+      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-      {/* Texte principal */}
-      <div className="relative h-full flex flex-col justify-end px-8 md:px-14 lg:px-20 pb-24 md:pb-28 animate-fade-in">
-        <p className="text-[10px] md:text-[11px] text-white/65 uppercase tracking-[0.26em] mb-5"
-           style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}>
-          Rawai, Phuket · Since 2025
-        </p>
-
-        <h1
-          className="text-white mb-6 max-w-3xl"
+      {/* ── BOTTOM: BAAN SAYIUAN + ligne + infos ── */}
+      <div className="absolute bottom-0 left-0 right-0 px-5 md:px-10 pb-6 md:pb-8 animate-fade-in">
+        {/* "Welcome to" en script */}
+        <p
+          className="font-handwritten text-white leading-none"
           style={{
-            fontFamily: '"Cormorant Garamond", serif',
+            fontSize: 'clamp(56px, 9vw, 130px)',
             fontWeight: 400,
-            fontSize: 'clamp(54px, 8.8vw, 112px)',
-            lineHeight: 1.05,
-            letterSpacing: '-0.02em',
+            opacity: 0.75,
+            marginBottom: '0.1em',
           }}
         >
-          {t('title')}
-        </h1>
-
-        <p
-          className="text-white/75 text-sm md:text-base max-w-lg"
-          style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, letterSpacing: '0.02em' }}
-        >
-          {t('subtitle')}
+          Welcome to
         </p>
-      </div>
+        {/* Grande phrase */}
+        <p
+          className="text-white uppercase leading-none whitespace-nowrap"
+          style={{
+            fontFamily: '"Ade Display", serif',
+            fontWeight: 400,
+            fontSize: 'clamp(32px, 7.2vw, 112px)',
+            letterSpacing: '0.04em',
+            opacity: 0.92,
+          }}
+        >
+          BAAN SAYIUAN
+        </p>
 
-      {/* Bottom utility bar */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-white/25 bg-black/25 backdrop-blur-sm">
-        <div className="max-w-container mx-auto px-8 md:px-14 lg:px-20 py-4 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
-          <button
-            onClick={() => document.getElementById('before-arrival')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-left text-white/80 hover:text-white transition-colors luxury-hover"
-          >
-            <p className="text-[9px] uppercase tracking-[0.22em] mb-1" style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}>Check-in</p>
-            <p className="text-sm" style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300 }}>Before you arrive</p>
-          </button>
+        {/* Ligne fine séparatrice */}
+        <div className="h-px w-full bg-white/40 mt-4 mb-5" />
 
-          <button
-            onClick={() => document.getElementById('guest-form')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-left text-white/80 hover:text-white transition-colors luxury-hover"
-          >
-            <p className="text-[9px] uppercase tracking-[0.22em] mb-1" style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}>Questionnaire</p>
-            <p className="text-sm" style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300 }}>Prepare your stay</p>
-          </button>
-
+        {/* Infos: 3 colonnes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 md:divide-x md:divide-white/20">
+          {/* Adresse */}
           <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); document.getElementById('before-arrival')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="hidden md:block text-left text-white/80 hover:text-white transition-colors luxury-hover"
+            href="https://maps.google.com/?q=59/45+Soi+Sayiuan+13,+Rawai,+Mueang+Phuket+District,+Phuket+83130,+Thailand"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col gap-1 md:pr-8 hover:opacity-100 transition-opacity duration-300 opacity-85"
           >
-            <p className="text-[9px] uppercase tracking-[0.22em] mb-1" style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}>Location</p>
-            <p className="text-sm" style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300 }}>Rawai, Phuket</p>
+            <span style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '9px', letterSpacing: '0.24em' }}
+                  className="text-white/55 uppercase">
+              ADRESSE ↗
+            </span>
+            <span style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '12px', letterSpacing: '0.12em' }}
+                  className="text-white group-hover:underline underline-offset-2">
+              59/45 SOI SAYIUAN 13, RAWAI, PHUKET 83130
+            </span>
           </a>
 
-          <button
-            onClick={() => document.getElementById('guest-form')?.scrollIntoView({ behavior: 'smooth' })}
-            className="hidden md:flex justify-end text-white hover:text-clay transition-colors text-sm uppercase tracking-[0.18em] luxury-hover"
-            style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300 }}
+          {/* WhatsApp Lucie */}
+          <a
+            href={siteConfig.whatsapp.primary.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col gap-1 md:px-8 hover:opacity-100 transition-opacity duration-300 opacity-85"
           >
-            Check availability
-          </button>
+            <span style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '9px', letterSpacing: '0.24em' }}
+                  className="text-white/55 uppercase">
+              WHATSAPP · {siteConfig.whatsapp.primary.name.toUpperCase()}
+            </span>
+            <span style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '12px', letterSpacing: '0.12em' }}
+                  className="text-white group-hover:underline underline-offset-2">
+              {siteConfig.whatsapp.primary.number}
+            </span>
+          </a>
+
+          {/* WhatsApp Guillaume */}
+          <a
+            href={siteConfig.whatsapp.secondary.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col gap-1 md:px-8 hover:opacity-100 transition-opacity duration-300 opacity-85"
+          >
+            <span style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '9px', letterSpacing: '0.24em' }}
+                  className="text-white/55 uppercase">
+              WHATSAPP · {siteConfig.whatsapp.secondary.name.toUpperCase()}
+            </span>
+            <span style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '12px', letterSpacing: '0.12em' }}
+                  className="text-white group-hover:underline underline-offset-2">
+              {siteConfig.whatsapp.secondary.number}
+            </span>
+          </a>
         </div>
       </div>
     </section>

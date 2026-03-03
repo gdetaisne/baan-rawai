@@ -5,7 +5,7 @@
   },
   "hero": {
     "title": "Our home is yours.",
-    "subtitle": "A private villa in Rawai, Phuket",
+    "subtitle": "ยินดีต้อนรับกลับบ้าน",
     "ctaPrimary": "Prepare your stay",
     "whatsapp": "WhatsApp",
     "directions": "Directions",
@@ -14,10 +14,10 @@
   },
   "welcome": {
     "label": "Welcome Home",
-    "title": "Mi casa es tu casa",
-    "story1": "This isn't just our house—it's where we escape, recharge, and make memories. We want you to feel the same magic we do when we're here.",
-    "story2": "From secret beaches to our favorite sunset spots, we've poured everything we love about Rawai into this guide. Make yourself at home, explore like a local, and most importantly: relax.",
-    "signature": "— Lucie & Guillaume"
+    "title": "Our home is your home",
+    "story1": "Lucie & Guillaume, Ezekiel & Henry — we packed this house with everything we love: good vibes, cold beers in the fridge, and a pool that's basically mandatory.",
+    "story2": "Make yourself at home. Seriously. The towels are in the bathroom, the WiFi's on the wall, and the best sunset spot is five minutes away.",
+    "signature": "Lucie & Guillaume"
   },
   "experiences": {
     "label": "Your Rawai",
@@ -58,14 +58,33 @@
   },
   "beforeArrival": {
     "title": "Before you arrive",
+    "esim": {
+      "title": "Get an eSIM",
+      "description": "Install it before takeoff so you have internet the second you land.",
+      "cta": "Buy an eSIM"
+    },
     "taxi": {
       "title": "Airport taxi",
-      "description": "We can arrange a taxi for 700 THB (cash). The driver will wait for you at arrivals with your name on a sign. Just send us your flight details."
+      "description": "We can arrange a taxi for 700 THB (cash). The driver will wait for you at arrivals with your name on a sign. Just send us your flight details.",
+      "cta": "Book a taxi"
     },
-    "doorCode": {
-      "title": "Door code",
-      "description": "Code"
+    "tdac": {
+      "title": "TDAC Form",
+      "description": "Fill it in before you fly to save time at immigration. One form per family member.",
+      "cta": "Fill in the TDAC form"
     },
+    "grab": {
+      "title": "Download Grab",
+      "description": "Grab is the Uber of Southeast Asia — taxis, food delivery, everything. Download it before you land.",
+      "cta": "Download Grab"
+    },
+    "immigrationTip": {
+      "label": "Important — Immigration",
+      "description": "The queue can take 30 min or 2 hours depending on when you arrive. The hack: the priority lane. Normally reserved, but you can pay to access it. Just say \"Priority lane, how much?\" — it's between 500 and 1,000 baht, totally at their discretion, and yes, it's baksheesh — but you won't wait a single second. They only take Thai Baht. Exchange euros in France or at the airport (there's a counter before immigration). Have your passport and TDAC form ready."
+    }
+  },
+  "arrival": {
+    "title": "Arrival at the house",
     "wifi": {
       "title": "WiFi",
       "network": "Network",
@@ -73,30 +92,13 @@
       "copy": "Copy",
       "copied": "Copied"
     },
+    "doorCode": {
+      "title": "Door code",
+      "description": "Code"
+    },
     "atm": {
-      "title": "Important: ATMs in Thailand",
-      "description": "ATMs here dispense cash BEFORE returning your card. Lots of people forget their card. Don't be that person. (Pierre, if you leave your card in the ATM, we warned you — and you're buying the round.) Also, always choose 'Without conversion'. There are ATMs in front of every 7-11."
-    },
-    "esim": {
-      "title": "Get an eSIM before you fly",
-      "description": "Install it before takeoff so you have internet the second you land.",
-      "cta": "Buy an eSIM"
-    }
-  },
-  "arrival": {
-    "title": "Arrival in Phuket",
-    "immigration": {
-      "title": "Immigration queue",
-      "description": "Can be 30 min or 2 hours depending on when you arrive."
-    },
-    "fastTrack": {
-      "title": "Priority Lane",
-      "description": "Meet-and-greet service through priority lane. Around 1000–2000 THB per person. Worth it if arriving late or with kids."
-    },
-    "tm0": {
-      "title": "TDAC Form",
-      "description": "Fill it in before you fly to save time at immigration. One form per family member.",
-      "cta": "Fill in the TDAC form"
+      "title": "ATMs in Thailand",
+      "description": "ATMs dispense cash BEFORE returning your card — don't forget it. Always choose 'Without conversion'. There's one in front of every 7-11."
     }
   },
   "rawai": {
@@ -130,7 +132,8 @@
     "title": "At home",
     "shoesOff": "Shoes off inside",
     "noGlass": "No glass by the pool",
-    "ac": "Turn off AC when leaving. Close doors when AC is on."
+    "ac": "Turn off AC when leaving. Close doors when AC is on.",
+    "towels": "Clean towels available for the pool, beach & shower — in the bathroom cabinet."
   },
   "guestForm": {
     "title": "Help us prepare",

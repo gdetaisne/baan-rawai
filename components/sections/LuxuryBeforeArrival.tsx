@@ -1,90 +1,132 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Plane, Wifi, Key, Smartphone, AlertCircle } from 'lucide-react';
-import { CopyField } from '@/components/ui/CopyField';
 import { siteConfig } from '@/config/site';
+
+const GRAB_URL = 'https://www.grab.com/download/';
 
 export function LuxuryBeforeArrival() {
   const t = useTranslations('beforeArrival');
 
+  const items = [
+    {
+      key: 'esim',
+      cta: { label: t('esim.cta'), href: siteConfig.links.esim, internal: false },
+    },
+    {
+      key: 'taxi',
+      cta: { label: t('taxi.cta'), href: '#guest-form', internal: true },
+    },
+    {
+      key: 'tdac',
+      cta: { label: t('tdac.cta'), href: siteConfig.links.tdacForm, internal: false },
+    },
+    {
+      key: 'grab',
+      cta: { label: t('grab.cta'), href: GRAB_URL, internal: false },
+    },
+  ];
+
   return (
-    <section id="before-arrival" className="section-padding bg-paper border-t border-border">
-      <div className="max-w-content mx-auto">
-        <div className="section-header">
-          <p className="text-label text-accent mb-8">ESSENTIALS</p>
-          <h2 className="text-display-md text-ink mb-6">{t('title')}</h2>
-          <p className="text-body-lg text-muted max-w-xl">
-            Everything you need to know before you land
+    <section id="before-arrival" className="border-t border-border bg-paper">
+      <div className="flex flex-col md:flex-row min-h-[600px]">
+
+        {/* ── GAUCHE : vidéo verticale cadrée de blanc ── */}
+        <div className="md:w-1/2 flex-shrink-0 flex items-center justify-center p-8 md:p-10">
+          <div className="relative w-full max-w-[320px] mx-auto" style={{ aspectRatio: '9/16' }}>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src="/IMG_0936.MOV" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
+        {/* ── DROITE : liste ── */}
+        <div className="flex-1 px-8 md:px-14 py-12 md:py-16 flex flex-col justify-center">
+          {/* Header */}
+          <p
+            className="uppercase tracking-[0.24em] text-accent mb-6"
+            style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
+          >
+            ESSENTIALS
           </p>
-        </div>
+          <h2
+            className="font-handwritten text-ink mb-10"
+            style={{ fontSize: 'clamp(64px, 9vw, 130px)', lineHeight: 1.0, fontWeight: 400 }}
+          >
+            {t('title')}
+          </h2>
 
-        <div className="space-y-0 border-y border-border">
-          {/* Taxi */}
-          <div className="grid md:grid-cols-[80px_1fr] gap-4 md:gap-10 py-9 border-b border-border">
-            <div className="flex-shrink-0 w-10 h-10 border border-border flex items-center justify-center">
-              <Plane className="w-4 h-4 text-accent" />
-            </div>
-            <div>
-              <h3 className="text-display-sm text-ink mb-3">{t('taxi.title')}</h3>
-              <p className="text-body text-muted">{t('taxi.description')}</p>
-            </div>
-          </div>
-
-          {/* WiFi */}
-          <div className="grid md:grid-cols-[80px_1fr] gap-4 md:gap-10 py-9 border-b border-border">
-            <div className="flex-shrink-0 w-10 h-10 border border-border flex items-center justify-center">
-              <Wifi className="w-4 h-4 text-accent" />
-            </div>
-            <div>
-              <h3 className="text-display-sm text-ink mb-5">{t('wifi.title')}</h3>
-              <div className="space-y-3">
-                <CopyField label={t('wifi.network')} value={siteConfig.wifi.network} />
-                <CopyField label={t('wifi.password')} value={siteConfig.wifi.password} />
+          {/* Items */}
+          <div className="divide-y divide-border">
+            {items.map(({ key, cta }) => (
+              <div key={key} className="py-4 group">
+                <h3
+                  className="text-ink mb-1"
+                  style={{ fontFamily: '"Ade Display", serif', fontWeight: 400, fontSize: '16px', lineHeight: 1.2 }}
+                >
+                  {t(`${key}.title`)}
+                </h3>
+                <p
+                  className="text-muted mb-2 leading-[1.65]"
+                  style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '12px', maxWidth: '420px' }}
+                >
+                  {t(`${key}.description`)}
+                </p>
+                {cta && (
+                  cta.internal ? (
+                    <button
+                      onClick={() => document.getElementById('guest-form')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="text-accent hover:text-ink transition-colors duration-200 text-left"
+                      style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase' }}
+                    >
+                      {cta.label} →
+                    </button>
+                  ) : (
+                    <a
+                      href={cta.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent hover:text-ink transition-colors duration-200"
+                      style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase' }}
+                    >
+                      {cta.label} →
+                    </a>
+                  )
+                )}
               </div>
-            </div>
-          </div>
-
-          {/* Door code */}
-          <div className="grid md:grid-cols-[80px_1fr] gap-4 md:gap-10 py-9 border-b border-border">
-            <div className="flex-shrink-0 w-10 h-10 border border-border flex items-center justify-center">
-              <Key className="w-4 h-4 text-accent" />
-            </div>
-            <div>
-              <h3 className="text-display-sm text-ink mb-5">{t('doorCode.title')}</h3>
-              <CopyField label={t('doorCode.description')} value={siteConfig.doorCode} />
-            </div>
-          </div>
-
-          {/* eSIM */}
-          <div className="grid md:grid-cols-[80px_1fr] gap-4 md:gap-10 py-9">
-            <div className="flex-shrink-0 w-10 h-10 border border-border flex items-center justify-center">
-              <Smartphone className="w-4 h-4 text-accent" />
-            </div>
-            <div>
-              <h3 className="text-display-sm text-ink mb-3">{t('esim.title')}</h3>
-              <p className="text-body text-muted mb-6">{t('esim.description')}</p>
-              <a href={siteConfig.links.esim} target="_blank" rel="noopener noreferrer"
-                 className="btn-text-dark text-[10px]">
-                {t('esim.cta')}
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* ATM note */}
-        <div className="mt-8 p-7 md:p-9 bg-background border border-border">
-          <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-10 h-10 border border-border flex items-center justify-center">
-              <AlertCircle className="w-4 h-4 text-clay" />
-            </div>
-            <div>
-              <h3 className="text-display-sm text-ink mb-2">{t('atm.title')}</h3>
-              <p className="text-body text-muted">{t('atm.description')}</p>
-            </div>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* ── Cadre immigration pleine largeur ── */}
+      <div className="bg-[#1A2E3D] px-8 md:px-14 py-10 md:py-14">
+        <div className="max-w-content mx-auto">
+          {/* Titre script */}
+          <p
+            className="font-handwritten text-white mb-6"
+            style={{ fontSize: 'clamp(48px, 6vw, 90px)', fontWeight: 400, lineHeight: 1.0, opacity: 0.95 }}
+          >
+            {t('immigrationTip.label')}
+          </p>
+          {/* Ligne fine */}
+          <div className="w-12 h-px bg-white/20 mb-6" />
+          {/* Texte */}
+          <p
+            className="text-white/75 leading-[1.85] max-w-3xl"
+            style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '14px' }}
+          >
+            {t('immigrationTip.description')}
+          </p>
+        </div>
+      </div>
+
     </section>
   );
 }

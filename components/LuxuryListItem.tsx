@@ -12,7 +12,7 @@ export function LuxuryListItem({ name, description, link, linkLabel }: LuxuryLis
     <div className="border-b border-border last:border-0 py-5 first:pt-0 last:pb-0">
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1">
-          <h4 className="text-ink mb-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontSize: '1.05rem', fontWeight: 400 }}>
+          <h4 className="text-ink mb-1" style={{ fontFamily: '"Ade Display", serif', fontSize: '1.05rem', fontWeight: 400 }}>
             {name}
           </h4>
           <p className="text-sm text-muted leading-relaxed">{description}</p>

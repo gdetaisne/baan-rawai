@@ -16,7 +16,7 @@ export function LuxuryBoats() {
           <div className="space-y-6">
             {siteConfig.boats.halfDay.map((b, i) => (
               <div key={i} className="border-b border-border/70 last:border-0 pb-5 last:pb-0">
-                <p className="text-ink mb-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}>{b.name}</p>
+                <p className="text-ink mb-1" style={{ fontFamily: '"Ade Display", serif', fontWeight: 400 }}>{b.name}</p>
                 <p className="text-sm text-muted mb-1">{b.why}</p>
                 <p className="text-xs text-muted/70 italic">Best for: {b.bestFor}</p>
               </div>
@@ -30,7 +30,7 @@ export function LuxuryBoats() {
           <div className="space-y-6">
             {siteConfig.boats.fullDay.map((b, i) => (
               <div key={i} className="border-b border-border/70 last:border-0 pb-5 last:pb-0">
-                <p className="text-ink mb-1" style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}>{b.name}</p>
+                <p className="text-ink mb-1" style={{ fontFamily: '"Ade Display", serif', fontWeight: 400 }}>{b.name}</p>
                 <p className="text-sm text-muted mb-1">{b.why}</p>
                 <p className="text-xs text-muted/70 italic">Best for: {b.bestFor}</p>
               </div>

@@ -38,7 +38,7 @@ export function ThaiLexicon() {
               {/* Thai */}
               <div
                 className="text-4xl text-ink mb-3"
-                style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}
+                style={{ fontFamily: '"Ade Display", serif', fontWeight: 400 }}
               >
                 {phrase.thai}
               </div>
@@ -47,7 +47,7 @@ export function ThaiLexicon() {
               <div className="flex items-center gap-2 mb-5">
                 <span
                   className="text-lg text-accent italic"
-                  style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 400 }}
+                  style={{ fontFamily: '"Ade Display", serif', fontWeight: 400 }}
                 >
                   {phrase.phonetic}
                 </span>
@@ -85,7 +85,7 @@ export function ThaiLexicon() {
         {/* Pro tip */}
         <div className="mt-px bg-border">
           <p className="bg-background p-8 text-sm text-muted text-center">
-            <span className="text-ink" style={{ fontFamily: '"Cormorant Garamond", serif' }}>Pro tip — </span>
+            <span className="text-ink" style={{ fontFamily: '"Ade Display", serif' }}>Pro tip — </span>
             Add <em>"khrap" (ครับ)</em> if male or <em>"kha" (ค่ะ)</em> if female at the end of sentences for extra politeness.
           </p>
         </div>

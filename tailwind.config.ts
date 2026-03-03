@@ -9,19 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Tropical sanctuary palette (locked)
-        background: '#FAF9F6',
-        surface: '#FFFFFF',
-        paper: '#F5EFE6',
-        ink: '#1F3D35',
-        muted: '#6E7C76',
-        accent: '#3E7C7A',
-        clay: '#C96F4A',
-        border: '#E6DDD0',
-        'border-dark': '#CBBEAA',
+        // Ocean blue palette
+        background: '#FFFFFF',
+        surface:    '#FFFFFF',
+        paper:      '#FFFFFF',
+        ink:        '#1A2E3D',
+        muted:      '#5A7080',
+        accent:     '#2E6B8A',
+        clay:       '#C96F4A',
+        border:     '#D8E4EA',
+        'border-dark': '#B8CDD6',
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        display: ['"Ade Display"', 'Georgia', 'serif'],
         sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
         accent: ['"IBM Plex Mono"', '"Courier New"', 'monospace'],
       },
