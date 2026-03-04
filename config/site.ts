@@ -55,16 +55,37 @@ export const siteConfig = {
   
   // Beaches
   beaches: [
-    { name: 'Nai Harn', description: 'Main beach, best swimming' },
-    { name: 'Ya Nui', description: 'Our favourite — small cove, calm water' },
-    { name: 'Rawai', description: 'Sunset views, not for swimming' },
+    { name: 'Nai Harn', description: 'Best swimming, sunbeds & massages on the beach, plenty of restaurants. Weekend market sometimes.' },
+    { name: 'Ya Nui', description: 'Our favourite. Secret cove, perfect for snorkeling — kayak & parasol rental, tiny beach shack. Try the mango passion fruit shake.' },
+    { name: 'Rawai', description: 'Seafront restaurants, perfect sunsets — not for swimming. Jump on a speedboat or longtail to the nearby islands in half a day or a full day.' },
   ],
   
   // Day passes - TODO: Add real booking links
   dayPasses: [
-    { name: 'The Nai Harn', description: 'Panoramic views, infinity pool', link: '#' },
-    { name: 'Kata Rocks', description: 'Design hotel, very chic', link: '#' },
-    { name: 'Sri Panwa', description: 'Sunset infinity pool', link: '#' },
+    {
+      name: 'The Nai Harn',
+      tagline: 'Infinity pool above the ocean',
+      description: 'The most beautiful pool view on the island — a 50m infinity pool that drops straight into the Andaman. Sunbeds, towels, full restaurant & bar included. Book early, it sells out.',
+      includes: ['Infinity pool', 'Sunbeds & towels', 'Restaurant credit', 'Gym access'],
+      price: 'from 2,500 THB / person',
+      link: '#',
+    },
+    {
+      name: 'Kata Rocks',
+      tagline: 'Design hotel, Kata hill views',
+      description: 'A striking modernist hotel perched on the rocks above Kata Bay. Sleek pools, attentive service, and one of the best cocktail bars on the island. Chic without being stuffy.',
+      includes: ['Pool access', 'Sunbeds', 'Food & drink credit', 'Gym & spa'],
+      price: 'from 3,500 THB / person',
+      link: '#',
+    },
+    {
+      name: 'Sri Panwa',
+      tagline: 'Cape Panwa, sunset side',
+      description: 'Perched on Cape Panwa with 360° views — the sunset here is ridiculous. Multiple pools, a beach club, spa, and a tuk-tuk to drive you around the property. A full day out.',
+      includes: ['Multiple pools', 'Beach club', 'Food & drink credit', 'Tuk-tuk shuttle'],
+      price: 'from 3,000 THB / person',
+      link: '#',
+    },
   ],
   
   // Restaurants
@@ -89,20 +110,55 @@ export const siteConfig = {
     },
   ],
   
-  // Spas - TODO: Add real names
-  spas: [
-    { name: 'Spa Name 1', note: 'Traditional Thai massage' },
-    { name: 'Spa Name 2', note: 'Luxury spa experience' },
-  ],
-
-  // Activities
+  // Activities (includes wellness)
   activities: [
-    { name: 'Muay Thai', note: 'Tiger Muay Thai — 10 min away. Best gym on the island.', category: 'sport' },
-    { name: 'Ayurveda', note: 'Naga Ayurveda — traditional treatments, highly recommended.', category: 'wellness' },
-    { name: 'Yoga', note: 'Prana Yoga — daily classes, all levels.', category: 'wellness' },
-    { name: 'Pilates', note: 'Studio 36 — reformer pilates, book in advance.', category: 'wellness' },
-    { name: 'Jungceylon', note: 'Patong — big mall, cinema, supermarket.', category: 'shopping' },
-    { name: 'Central Festival', note: 'Phuket Town — the main mall, all brands.', category: 'shopping' },
-    { name: 'Night Market', note: 'Naka Weekend Market (Sat & Sun) — street food, clothes, everything.', category: 'market' },
+    {
+      name: 'Muay Thai',
+      note: 'Tiger Muay Thai, 10 min from the house. Best gym on the island — pros train here. Go once, you\'re hooked.',
+      category: 'sport',
+      mapsLink: 'https://maps.google.com/?q=Tiger+Muay+Thai+Phuket',
+    },
+    {
+      name: 'Ayurveda',
+      note: 'Naga Ayurveda in Rawai. Traditional Indian treatments, real practitioners, not a tourist spa. Book in advance.',
+      category: 'wellness',
+      mapsLink: 'https://maps.google.com/?q=Naga+Ayurveda+Rawai+Phuket',
+    },
+    {
+      name: 'Yoga',
+      note: 'Prana Yoga, 5 min away. Daily classes from 7am, all levels. Morning flow with a sea breeze — hard to beat.',
+      category: 'wellness',
+      mapsLink: 'https://maps.google.com/?q=Prana+Yoga+Rawai+Phuket',
+    },
+    {
+      name: 'Pilates',
+      note: 'Studio 36 — reformer pilates on the island. Small groups, good instructors. Book 48h ahead, it fills up.',
+      category: 'wellness',
+      mapsLink: 'https://maps.google.com/?q=Studio+36+Pilates+Phuket',
+    },
+    {
+      name: 'Massages',
+      note: 'There\'s a massage shop every 50 meters in Rawai. Most are great. Budget 300–500 THB/hr. We have a favourite — just ask.',
+      category: 'wellness',
+      mapsLink: null,
+    },
+    {
+      name: 'Jungceylon',
+      note: 'Big mall in Patong. Cinema, supermarket, everything you forgot to pack. 30 min by Grab.',
+      category: 'shopping',
+      mapsLink: 'https://maps.google.com/?q=Jungceylon+Patong+Phuket',
+    },
+    {
+      name: 'Central Festival',
+      note: 'The main mall in Phuket Town. All the brands, a great food court, and proper air conditioning on a hot day.',
+      category: 'shopping',
+      mapsLink: 'https://maps.google.com/?q=Central+Festival+Phuket',
+    },
+    {
+      name: 'Naka Weekend Market',
+      note: 'Saturday & Sunday evenings. Street food, cheap clothes, local crafts, and an insane pad thai stall near the entrance. Go hungry.',
+      category: 'market',
+      mapsLink: 'https://maps.google.com/?q=Naka+Weekend+Market+Phuket',
+    },
   ],
 } as const;
