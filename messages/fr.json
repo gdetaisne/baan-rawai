@@ -131,10 +131,21 @@
   },
   "dayPasses": {
     "title": "Day pass hôtels",
-    "description": "Les day pass donnent accès aux piscines et installations d'hôtels pour la journée, parfois avec crédit food/drinks.",
+    "intro": "Une journée, accès cinq étoiles. Pas de chambre.",
+    "whatIsItLabel": "C'est quoi un day pass ?",
+    "whatIsIt": "Un day pass donne accès à un hôtel de luxe — piscine, beach club, restaurant — sans réserver de chambre. On paie un forfait, en général 2 000–4 000 THB, et la journée est à vous.",
+    "whatIsItDetail": "La plupart incluent un crédit food & drinks qui couvre une bonne partie du tarif. C'est un des meilleurs rapports qualité-expérience qu'on connaisse à Phuket.",
+    "typicallyIncludesLabel": "Généralement inclus",
+    "includes": {
+      "poolAccess": { "label": "Accès piscine", "detail": "Infinity pools, beach clubs, rooftop" },
+      "sunbedsAndTowels": { "label": "Transats & serviettes", "detail": "Réservés, sans se lever à l'aube" },
+      "foodCredit": { "label": "Crédit food & drinks", "detail": "500–1 500 THB inclus" },
+      "facilities": { "label": "Spa & salle de sport", "detail": "Souvent au tarif day-pass" }
+    },
+    "ourPicksLabel": "Nos coups de cœur",
     "cta": "Réserver",
-    "farangTip": "Payer l'entrée d'un hôtel 5★ pour juste une journée ? En Thaïlande c'est parfaitement normal. Piscine à débordement sur la mer, bar, resto — sans dormir sur place. Les Thaïlandais trouvent ça bizarre. Les Farangs adorent.",
-    "sevenEleven": "Le 7-Eleven c'est pas juste une épicerie. ATM, sim card, café, repas chaud, médicaments, eau fraîche — il y en a un tous les 200m. C'est votre meilleur ami à Phuket."
+    "comingSoon": "Lien bientôt disponible",
+    "farangTip": "Un day pass donne accès à un hôtel de luxe — piscine, beach club, restaurant — sans réserver de chambre. On paie un forfait, en général 2 000–4 000 THB, et la journée est à vous."
   },
   "atHome": {
     "title": "À la maison",
@@ -171,7 +182,7 @@
   "stickyBar": {
     "whatsapp": "WhatsApp",
     "directions": "Itinéraire",
-    "wifi": "WiFi"
+    "door": "Code porte"
   },
     "wifiModal": {
       "title": "WiFi",

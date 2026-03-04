@@ -16,6 +16,52 @@ const beachMapsLinks = [
   'https://maps.google.com/?q=Rawai+Beach+Phuket',
 ];
 
+type Activity = typeof siteConfig.activities[number];
+
+function ActivityItem({ activity: a, index: i }: { activity: Activity; index: number }) {
+  const inner = (
+    <div className="group flex gap-5 items-start py-4 border-b border-border/40 last:border-0">
+      <span
+        className="text-ink/25 select-none mt-0.5 flex-shrink-0"
+        style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '11px', minWidth: '20px' }}
+      >
+        {String(i + 1).padStart(2, '0')}
+      </span>
+      <div className="flex-1">
+        <p
+          className="text-ink leading-snug mb-1"
+          style={{ fontFamily: '"Ade Display", serif', fontWeight: 400, fontSize: '20px' }}
+        >
+          {a.name}
+        </p>
+        <p
+          className="text-muted leading-[1.65]"
+          style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '12px' }}
+        >
+          {a.note}
+        </p>
+      </div>
+      {a.mapsLink && (
+        <span
+          className="text-accent/50 group-hover:text-accent transition-colors flex-shrink-0 mt-1"
+          style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px', letterSpacing: '0.18em' }}
+        >
+          Maps ↗
+        </span>
+      )}
+    </div>
+  );
+
+  if (a.mapsLink) {
+    return (
+      <a href={a.mapsLink} target="_blank" rel="noopener noreferrer" className="block">
+        {inner}
+      </a>
+    );
+  }
+  return inner;
+}
+
 export function LuxuryRawai() {
   const t = useTranslations('rawai');
 
@@ -118,114 +164,148 @@ export function LuxuryRawai() {
           ))}
         </div>
       </div>
-      <div className="border-t border-border px-8 md:px-14 py-10 md:py-12 grid md:grid-cols-2 gap-10 md:gap-16">
-
-        {/* Restos */}
-        <div>
-          <p
-            className="uppercase tracking-[0.24em] text-accent mb-6"
-            style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
-          >
-            FOOD
-          </p>
-          <h3
-            className="text-ink mb-6"
-            style={{ fontFamily: '"Ade Display", serif', fontWeight: 400, fontSize: '22px' }}
-          >
-            {t('restaurants.title')}
-          </h3>
-        <div className="divide-y divide-border">
-            {siteConfig.restaurants.map((r, i) => (
-              <a
-                key={i}
-                href={r.mapsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group py-4 flex items-center gap-5 cursor-pointer"
-              >
-                {/* Photo */}
-                <div className="relative flex-shrink-0 w-16 h-16 overflow-hidden">
-                  <Image
-                    src={r.photo ?? '/placeholder-hero.jpg'}
-                    alt={r.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="64px"
-                  />
-                </div>
-                <div className="flex-1">
-                  <p className="text-ink text-[14px]" style={{ fontFamily: '"Ade Display", serif', fontWeight: 400 }}>{r.name}</p>
-                  <p className="text-muted text-[12px] mt-0.5" style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300 }}>{r.description}</p>
-                </div>
-                <span
-                    className="text-accent group-hover:text-ink transition-colors flex-shrink-0"
-                    style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '10px', letterSpacing: '0.14em' }}
-                  >
-                    Maps ↗
-                  </span>
-              </a>
-            ))}
+      {/* ── Food — Eat like a local ── */}
+      <div className="border-t border-border">
+        {/* Header */}
+        <div className="px-8 md:px-14 pt-12 pb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <p
+              className="uppercase tracking-[0.24em] text-accent mb-3"
+              style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
+            >
+              FOOD
+            </p>
+            <h3
+              className="font-handwritten text-ink leading-none"
+              style={{ fontSize: 'clamp(52px, 7vw, 100px)', fontWeight: 400 }}
+            >
+              {t('restaurants.title')}
+            </h3>
           </div>
+          <p
+            className="text-muted max-w-xs leading-relaxed"
+            style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '13px' }}
+          >
+            Our shortlist. Every single one tested and approved. All walkable or a short Grab ride away.
+          </p>
         </div>
 
-        {/* Spas */}
-        <div>
+        {/* Restaurant cards — full-bleed grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          {siteConfig.restaurants.map((r, i) => (
+            <a
+              key={i}
+              href={r.mapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden block"
+              style={{ aspectRatio: '3/4' }}
+            >
+              <Image
+                src={r.photo ?? '/placeholder-hero.jpg'}
+                alt={r.name}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+              {/* Top label */}
+              <div className="absolute top-5 left-5">
+                <span
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 text-white/80 px-3 py-1 uppercase tracking-[0.2em]"
+                  style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px' }}
+                >
+                  {i === 0 ? 'Seafood' : i === 1 ? 'Italian' : 'French'}
+                </span>
+              </div>
+
+              {/* Bottom content */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <div className="w-6 h-px bg-[#1E7A8C] mb-4 transition-all duration-500 group-hover:w-12" />
+                <h4
+                  className="text-white mb-2 leading-tight"
+                  style={{ fontFamily: '"Ade Display", serif', fontWeight: 400, fontSize: 'clamp(22px, 2.5vw, 30px)' }}
+                >
+                  {r.name}
+                </h4>
+                <p
+                  className="text-white/0 group-hover:text-white/75 transition-all duration-500 leading-relaxed"
+                  style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '13px' }}
+                >
+                  {r.description}
+                </p>
+                <p
+                  className="text-white/40 group-hover:text-white/80 transition-colors duration-300 mt-4 uppercase tracking-[0.2em]"
+                  style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px' }}
+                >
+                  Open in Maps ↗
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Activities & Wellness ── */}
+      <div className="border-t border-border">
+
+        {/* Header */}
+        <div className="px-8 md:px-14 pt-12 pb-10">
           <p
-            className="uppercase tracking-[0.24em] text-accent mb-6"
+            className="uppercase tracking-[0.24em] text-accent mb-3"
             style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
           >
-            WELLNESS
+            ACTIVITIES & WELLNESS
           </p>
           <h3
-            className="text-ink mb-2"
-            style={{ fontFamily: '"Ade Display", serif', fontWeight: 400, fontSize: '22px' }}
+            className="font-handwritten text-ink leading-none"
+            style={{ fontSize: 'clamp(52px, 7vw, 100px)', fontWeight: 400 }}
           >
-            {t('spas.title')}
+            Things to do
           </h3>
-          <p className="text-muted text-[13px] mb-6" style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300 }}>{t('spas.bookingNote')}</p>
+        </div>
+
+        {/* Grid 2 col asymétrique — col gauche + col droite */}
+        <div className="grid md:grid-cols-2 border-t border-border divide-y md:divide-y-0 md:divide-x divide-border">
+
+          {/* ── Colonne gauche : SPORT + MARKET ── */}
           <div className="divide-y divide-border">
-            {siteConfig.spas.map((s, i) => (
-              <div key={i} className="py-4">
-                <p className="text-ink text-[14px]" style={{ fontFamily: '"Ade Display", serif', fontWeight: 400 }}>{s.name}</p>
-                <p className="text-muted text-[12px] mt-0.5" style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300 }}>{s.note}</p>
+            {(['sport', 'market'] as const).map((cat) => (
+              <div key={cat} className="px-8 md:px-14 py-10">
+                <div className="flex items-baseline gap-4 mb-8">
+                  <span className="text-accent uppercase tracking-[0.22em]"
+                    style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px' }}>
+                    {cat}
+                  </span>
+                  <div className="flex-1 h-px bg-accent/20" />
+                </div>
+                {siteConfig.activities.filter((a) => a.category === cat).map((a, i) => (
+                  <ActivityItem key={i} activity={a} index={i} />
+                ))}
               </div>
             ))}
           </div>
-        </div>
 
-      </div>
+          {/* ── Colonne droite : WELLNESS + SHOPPING ── */}
+          <div className="divide-y divide-border">
+            {(['wellness', 'shopping'] as const).map((cat) => (
+              <div key={cat} className="px-8 md:px-14 py-10">
+                <div className="flex items-baseline gap-4 mb-8">
+                  <span className="text-accent uppercase tracking-[0.22em]"
+                    style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '9px' }}>
+                    {cat}
+                  </span>
+                  <div className="flex-1 h-px bg-accent/20" />
+                </div>
+                {siteConfig.activities.filter((a) => a.category === cat).map((a, i) => (
+                  <ActivityItem key={i} activity={a} index={i} />
+                ))}
+              </div>
+            ))}
+          </div>
 
-      {/* ── Activities ── */}
-      <div className="border-t border-border px-8 md:px-14 py-10 md:py-12">
-        <p
-          className="uppercase tracking-[0.24em] text-accent mb-8"
-          style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
-        >
-          ACTIVITIES
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0 divide-y sm:divide-y-0 border-t border-border">
-          {siteConfig.activities.map((a, i) => (
-            <div key={i} className="py-5 pr-8 border-b border-border">
-              <p
-                className="uppercase tracking-[0.16em] text-accent mb-1"
-                style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '9px' }}
-              >
-                {a.category}
-              </p>
-              <p
-                className="text-ink mb-1"
-                style={{ fontFamily: '"Ade Display", serif', fontWeight: 400, fontSize: '18px' }}
-              >
-                {a.name}
-              </p>
-              <p
-                className="text-muted leading-[1.65]"
-                style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '12px' }}
-              >
-                {a.note}
-              </p>
-            </div>
-          ))}
         </div>
       </div>
 

@@ -4,18 +4,69 @@ import { useTranslations } from 'next-intl';
 import { Volume2 } from 'lucide-react';
 
 const thaiPhrases = [
-  { thai: 'สวัสดี',          phonetic: 'Sawadee',          english: 'Hello / Goodbye',              french: 'Bonjour / Au revoir' },
-  { thai: 'ขอบคุณ',          phonetic: 'Khop khun',         english: 'Thank you',                    french: 'Merci' },
-  { thai: 'ไม่เป็นไร',       phonetic: 'Mai pen rai',       english: "No problem / You're welcome",  french: 'Pas de problème / De rien' },
-  { thai: 'อร่อย',           phonetic: 'Aroi',              english: 'Delicious',                    french: 'Délicieux' },
-  { thai: 'เท่าไหร่',        phonetic: 'Tao rai?',          english: 'How much?',                    french: 'Combien?' },
-  { thai: 'แพงไป',           phonetic: 'Paeng pai',         english: 'Too expensive',                french: 'Trop cher' },
-  { thai: 'ไม่เอาเผ็ด',     phonetic: 'Mai ao phet',       english: 'Not spicy',                    french: 'Pas piquant' },
-  { thai: 'เบียร์เย็นๆ',    phonetic: 'Beer yen yen',      english: 'Cold beer',                    french: 'Bière fraîche' },
-  { thai: 'ที่นี่สวยมาก',   phonetic: 'Tee nee suay mak',  english: 'This place is beautiful',      french: 'Cet endroit est magnifique' },
-  { thai: 'ช่วยหน่อย',      phonetic: 'Chuay noi',         english: 'Help please',                  french: "Aidez-moi s'il vous plaît" },
-  { thai: 'ห้องน้ำอยู่ไหน', phonetic: 'Hong nam yu nai?',  english: 'Where is the bathroom?',       french: 'Où sont les toilettes?' },
-  { thai: 'ส่งคำนวณ',       phonetic: 'Song bin',          english: 'Check please',                 french: "L'addition s'il vous plaît" },
+  {
+    thai: 'สวัสดี',
+    phonetic: 'Sawadee kha / khrap',
+    english: 'Hello / Goodbye',
+    french: 'Bonjour / Au revoir',
+    context: 'Add kha (female) or khrap (male). Always smile.',
+  },
+  {
+    thai: 'ขอบคุณ',
+    phonetic: 'Khop khun',
+    english: 'Thank you',
+    french: 'Merci',
+    context: 'The single most useful word. Use it constantly.',
+  },
+  {
+    thai: 'ไม่เป็นไร',
+    phonetic: 'Mai pen rai',
+    english: "No worries",
+    french: 'Pas de problème',
+    context: 'The Thai philosophy in three words. Relax.',
+  },
+  {
+    thai: 'อร่อย',
+    phonetic: 'Aroi mak',
+    english: 'Very delicious',
+    french: 'Vraiment délicieux',
+    context: 'Say this after every meal. It will make someone\'s day.',
+  },
+  {
+    thai: 'เท่าไหร่',
+    phonetic: 'Tao rai?',
+    english: 'How much?',
+    french: 'Combien ?',
+    context: 'Essential at every market and tuk-tuk negotiation.',
+  },
+  {
+    thai: 'แพงไป',
+    phonetic: 'Paeng pai',
+    english: 'Too expensive',
+    french: 'Trop cher',
+    context: 'Smile when you say it. Always smile.',
+  },
+  {
+    thai: 'ไม่เอาเผ็ด',
+    phonetic: 'Mai ao phet',
+    english: 'Not spicy please',
+    french: 'Pas piquant s\'il vous plaît',
+    context: 'Thai "not spicy" is still spicy. Say it twice.',
+  },
+  {
+    thai: 'เบียร์เย็นๆ',
+    phonetic: 'Beer yen yen',
+    english: 'Very cold beer',
+    french: 'Bière bien fraîche',
+    context: 'Possibly the most important phrase on this list.',
+  },
+  {
+    thai: 'ส่งบิล',
+    phonetic: 'Song bin',
+    english: 'Check please',
+    french: "L'addition s'il vous plaît",
+    context: 'Don\'t wait — catching a waiter\'s eye can take a while.',
+  },
 ];
 
 export function ThaiLexicon() {

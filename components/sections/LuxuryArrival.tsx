@@ -54,12 +54,15 @@ export function LuxuryArrival() {
               {t('doorCode.title')}
             </p>
             <CopyField label={t('doorCode.label')} value={siteConfig.doorCode} />
-            <p
-              className="mt-3 text-muted leading-[1.7]"
-              style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '12px' }}
-            >
-              {t('doorCode.description')}
-            </p>
+            {/* Instructions — encadré accent */}
+            <div className="mt-3 border-l-2 border-accent/40 pl-4 py-1">
+              <p
+                className="text-accent/80 leading-[1.75]"
+                style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '11px', letterSpacing: '0.06em' }}
+              >
+                {t('doorCode.description')}
+              </p>
+            </div>
           </div>
 
           {/* ATM — encart sombre */}
@@ -77,11 +80,26 @@ export function LuxuryArrival() {
               {t('atm.highlight')}
             </p>
             <p
-              className="text-white/65 leading-[1.75]"
+              className="text-white/65 leading-[1.75] mb-5"
               style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '13px' }}
             >
               {t('atm.description')}
             </p>
+            {/* Farang Tip */}
+            <div className="border-l-2 border-[#C96F4A] pl-4 py-1">
+              <p
+                className="text-[#C96F4A] uppercase tracking-[0.2em] mb-2"
+                style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '9px' }}
+              >
+                ★ FARANG TIP
+              </p>
+              <p
+                className="text-white/70 leading-[1.8]"
+                style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '13px', fontStyle: 'italic' }}
+              >
+                {t('atm.farangTip')}
+              </p>
+            </div>
           </div>
         </div>
 

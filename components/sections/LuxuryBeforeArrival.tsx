@@ -29,7 +29,7 @@ export function LuxuryBeforeArrival() {
 
   return (
     <section id="before-arrival" className="border-t border-border bg-paper">
-      <div className="flex flex-col md:flex-row min-h-[600px]">
+      <div className="flex flex-col md:flex-row min-h-[480px]">
 
         {/* ── GAUCHE : vidéo verticale cadrée de blanc ── */}
         <div className="md:w-1/2 flex-shrink-0 flex items-center justify-center p-8 md:p-10">
@@ -47,33 +47,33 @@ export function LuxuryBeforeArrival() {
         </div>
 
         {/* ── DROITE : liste ── */}
-        <div className="flex-1 px-8 md:px-14 py-12 md:py-16 flex flex-col justify-center">
+        <div className="flex-1 px-8 md:px-14 py-8 md:py-10 flex flex-col justify-center">
           {/* Header */}
           <p
-            className="uppercase tracking-[0.24em] text-accent mb-6"
+            className="uppercase tracking-[0.24em] text-accent mb-4"
             style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '10px' }}
           >
             ESSENTIALS
           </p>
           <h2
-            className="font-handwritten text-ink mb-10"
+            className="font-handwritten text-ink mb-6"
             style={{ fontSize: 'clamp(64px, 9vw, 130px)', lineHeight: 1.0, fontWeight: 400 }}
           >
             {t('title')}
           </h2>
 
-          {/* Items */}
+          {/* Items — compacts */}
           <div className="divide-y divide-border">
             {items.map(({ key, cta }) => (
-              <div key={key} className="py-4 group">
+              <div key={key} className="py-3 group">
                 <h3
-                  className="text-ink mb-1"
-                  style={{ fontFamily: '"Ade Display", serif', fontWeight: 400, fontSize: '16px', lineHeight: 1.2 }}
+                  className="text-ink mb-0.5"
+                  style={{ fontFamily: '"Ade Display", serif', fontWeight: 400, fontSize: '15px', lineHeight: 1.2 }}
                 >
                   {t(`${key}.title`)}
                 </h3>
                 <p
-                  className="text-muted mb-2 leading-[1.65]"
+                  className="text-muted mb-1.5 leading-[1.6]"
                   style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '12px', maxWidth: '420px' }}
                 >
                   {t(`${key}.description`)}
@@ -106,7 +106,7 @@ export function LuxuryBeforeArrival() {
       </div>
 
       {/* ── Section immigration ── */}
-      <div className="bg-[#1A2E3D] px-8 md:px-14 pt-10 md:pt-14 pb-12 md:pb-16">
+      <div className="bg-[#1A2E3D] px-8 md:px-14 pt-8 md:pt-10 pb-10 md:pb-12">
         <div className="max-w-content mx-auto flex flex-col items-center text-center">
 
           {/* Titre script AU-DESSUS du cadre */}
@@ -127,11 +127,22 @@ export function LuxuryBeforeArrival() {
               {t('immigrationTip.highlight')}
             </p>
             <p
-              className="text-white/65 leading-[1.9] text-left"
+              className="text-white/65 leading-[1.9] text-left mb-6"
               style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '13px' }}
             >
               {t('immigrationTip.description')}
             </p>
+            {/* Farang Tip */}
+            <div className="border-l-2 border-[#C96F4A] pl-4 py-1">
+              <p className="text-[#C96F4A] uppercase tracking-[0.2em] mb-2"
+                 style={{ fontFamily: '"IBM Plex Mono", monospace', fontWeight: 300, fontSize: '9px' }}>
+                ★ FARANG TIP
+              </p>
+              <p className="text-white/70 leading-[1.8] italic"
+                 style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300, fontSize: '13px' }}>
+                {t('immigrationTip.farangTip')}
+              </p>
+            </div>
           </div>
 
         </div>

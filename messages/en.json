@@ -131,10 +131,21 @@
   },
   "dayPasses": {
     "title": "Hotel day passes",
-    "description": "Day passes give you access to hotel pools and facilities for the day, sometimes with food and drink credit.",
+    "intro": "One day, five-star access. No room required.",
+    "whatIsItLabel": "What's a day pass?",
+    "whatIsIt": "A day pass lets you access a luxury hotel — pool, beach club, restaurant — without booking a room. You pay a flat fee, usually 2,000–4,000 THB, and the day is yours.",
+    "whatIsItDetail": "Most passes include a food and drink credit that covers a good chunk of the fee. It's one of the best-value things you can do in Phuket.",
+    "typicallyIncludesLabel": "Typically included",
+    "includes": {
+      "poolAccess": { "label": "Pool access", "detail": "Infinity pools, beach clubs, rooftop" },
+      "sunbedsAndTowels": { "label": "Sunbeds & towels", "detail": "Reserved, no scrambling at dawn" },
+      "foodCredit": { "label": "Food & drink credit", "detail": "500–1,500 THB included" },
+      "facilities": { "label": "Spa & gym", "detail": "Often at day-pass rates" }
+    },
+    "ourPicksLabel": "Our picks",
     "cta": "Book",
-    "farangTip": "Paying to enter a 5★ hotel for just one day? In Thailand, totally normal. Infinity pool, bar, restaurant — without sleeping there. Thais find it strange. Farangs love it.",
-    "sevenEleven": "7-Eleven isn't just a convenience store. ATM, sim card, coffee, hot food, medicine, cold water — there's one every 200m. It's your best friend in Phuket."
+    "comingSoon": "Link coming soon",
+    "farangTip": "A day pass gives you access to a luxury hotel — pool, beach club, restaurant — without booking a room. You pay a flat fee, usually 2,000–4,000 THB, and the day is yours."
   },
   "atHome": {
     "title": "At home",
@@ -171,7 +182,7 @@
   "stickyBar": {
     "whatsapp": "WhatsApp",
     "directions": "Directions",
-    "wifi": "WiFi"
+    "door": "Door code"
   },
     "wifiModal": {
       "title": "WiFi",

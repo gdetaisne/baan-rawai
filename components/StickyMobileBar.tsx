@@ -1,14 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { MessageCircle, MapPin, Wifi } from 'lucide-react';
+import { MessageCircle, MapPin, KeyRound } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { siteConfig } from '@/config/site';
-import { WiFiModal } from './WiFiModal';
+import { DoorCodeModal } from './DoorCodeModal';
 
 export function StickyMobileBar() {
   const t = useTranslations('stickyBar');
-  const [showWiFi, setShowWiFi] = useState(false);
+  const [showDoor, setShowDoor] = useState(false);
 
   return (
     <>
@@ -24,14 +24,14 @@ export function StickyMobileBar() {
             <MapPin className="w-5 h-5 mb-1.5" />
             <span className="text-label tracking-[0.15em]">{t('directions')}</span>
           </a>
-          <button onClick={() => setShowWiFi(true)}
+          <button onClick={() => setShowDoor(true)}
                   className="flex-1 flex flex-col items-center justify-center py-4 text-muted hover:text-accent transition-colors duration-500">
-            <Wifi className="w-5 h-5 mb-1.5" />
-            <span className="text-label tracking-[0.15em]">{t('wifi')}</span>
+            <KeyRound className="w-5 h-5 mb-1.5" />
+            <span className="text-label tracking-[0.15em]">{t('door')}</span>
           </button>
         </div>
       </div>
-      {showWiFi && <WiFiModal onClose={() => setShowWiFi(false)} />}
+      {showDoor && <DoorCodeModal onClose={() => setShowDoor(false)} />}
     </>
   );
 }
