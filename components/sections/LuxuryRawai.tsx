@@ -138,10 +138,10 @@ export function LuxuryRawai() {
             {siteConfig.restaurants.map((r, i) => (
               <a
                 key={i}
-                href={r.mapsLink !== '#' ? r.mapsLink : undefined}
+                href={r.mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group py-4 flex items-center gap-5 ${r.mapsLink !== '#' ? 'cursor-pointer' : ''}`}
+                className="group py-4 flex items-center gap-5 cursor-pointer"
               >
                 {/* Photo */}
                 <div className="relative flex-shrink-0 w-16 h-16 overflow-hidden">
@@ -157,14 +157,12 @@ export function LuxuryRawai() {
                   <p className="text-ink text-[14px]" style={{ fontFamily: '"Ade Display", serif', fontWeight: 400 }}>{r.name}</p>
                   <p className="text-muted text-[12px] mt-0.5" style={{ fontFamily: '"DM Sans", sans-serif', fontWeight: 300 }}>{r.description}</p>
                 </div>
-                {r.mapsLink !== '#' && (
-                  <span
+                <span
                     className="text-accent group-hover:text-ink transition-colors flex-shrink-0"
                     style={{ fontFamily: '"IBM Plex Mono", monospace', fontSize: '10px', letterSpacing: '0.14em' }}
                   >
                     Maps ↗
                   </span>
-                )}
               </a>
             ))}
           </div>
