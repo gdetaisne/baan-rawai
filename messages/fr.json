@@ -15,7 +15,7 @@
   "welcome": {
     "label": "Bienvenue à la maison",
     "title": "Our home is your home",
-    "story1": "On a mis dans cette maison tout ce qu'on aime : bonne humeur, bières fraîches dans le frigo, et une piscine qui est clairement obligatoire. Nous sommes heureux de vous accueillir à Rawai.",
+    "story1": "Baan Rawai est notre maison — et pendant votre séjour, elle est la vôtre. Nous l'avons conçue pour que chaque moment soit simple, beau et sans effort. Profitez-en pleinement.",
     "story2": "Faites vraiment comme chez vous. Les serviettes sont dans la salle de bain, le WiFi est affiché sur le mur, et le meilleur spot coucher de soleil est à cinq minutes.",
     "signature": "Lucie & Guillaume"
   },
@@ -81,7 +81,8 @@
     "immigrationTip": {
       "label": "Important — Immigration",
       "highlight": "LE BON PLAN — PRIORITY LANE.",
-      "description": "Normalement réservée mais vous pouvez payer pour y accéder. Dites juste \"Priority lane, how much ?\" — c'est entre 500 et 1 000 bahts, c'est à la tête du client, et oui c'est du bakchich — mais vous n'attendrez pas une seule seconde. Ils n'acceptent que les bahts. Échangez des euros en France ou à l'aéroport (il y a un comptoir avant l'immigration). Ayez votre passeport et votre formulaire TDAC à portée de main."
+      "description": "Normalement réservée mais vous pouvez payer pour y accéder. Dites juste \"Priority lane, how much ?\" — c'est entre 500 et 1 000 bahts, c'est à la tête du client, et oui c'est du bakchich — mais vous n'attendrez pas une seule seconde. Ils n'acceptent que les bahts. Échangez des euros en France ou à l'aéroport (il y a un comptoir avant l'immigration). Ayez votre passeport et votre formulaire TDAC à portée de main.",
+      "farangTip": "Don't be that Farang qui attend 2h dans la mauvaise file. La priority lane ça se négocie, ça se paie, et ça change la vie."
     }
   },
   "arrival": {
@@ -101,11 +102,13 @@
     "atm": {
       "title": "Distributeurs en Thaïlande",
       "highlight": "L'ARGENT AVANT LA CARTE — NE L'OUBLIEZ PAS.",
-      "description": "Choisissez toujours 'Without conversion'. Il y en a un devant chaque 7-11."
+      "description": "Choisissez toujours 'Without conversion'. Il y en a un devant chaque 7-11.",
+      "farangTip": "Don't be that Farang qui repart avec son billet mais sans sa carte. L'ATM donne le cash EN PREMIER. Prenez l'argent, attendez, reprenez la carte. Je parie 100 bahts que ça arrivera à Pierre Rouzeau. Don't be like him."
     }
   },
   "rawai": {
     "title": "Notre Rawai",
+    "sevenEleven": "Le 7-Eleven c'est pas juste une épicerie. ATM, sim card, café, repas chaud, médicaments, eau fraîche — il y en a un tous les 200m. C'est votre meilleur ami à Phuket.",
     "beaches": {
       "title": "Plages"
     },
@@ -129,7 +132,9 @@
   "dayPasses": {
     "title": "Day pass hôtels",
     "description": "Les day pass donnent accès aux piscines et installations d'hôtels pour la journée, parfois avec crédit food/drinks.",
-    "cta": "Réserver"
+    "cta": "Réserver",
+    "farangTip": "Payer l'entrée d'un hôtel 5★ pour juste une journée ? En Thaïlande c'est parfaitement normal. Piscine à débordement sur la mer, bar, resto — sans dormir sur place. Les Thaïlandais trouvent ça bizarre. Les Farangs adorent.",
+    "sevenEleven": "Le 7-Eleven c'est pas juste une épicerie. ATM, sim card, café, repas chaud, médicaments, eau fraîche — il y en a un tous les 200m. C'est votre meilleur ami à Phuket."
   },
   "atHome": {
     "title": "À la maison",

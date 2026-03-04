@@ -15,7 +15,7 @@
   "welcome": {
     "label": "Welcome Home",
     "title": "Our home is your home",
-    "story1": "Lucie & Guillaume, Ezekiel & Henry — we packed this house with everything we love: good vibes, cold beers in the fridge, and a pool that's basically mandatory.",
+    "story1": "Baan Rawai is our home — and for the duration of your stay, it is yours. We designed it so that every moment feels effortless, beautiful, and simple. Enjoy it fully.",
     "story2": "Make yourself at home. Seriously. The towels are in the bathroom, the WiFi's on the wall, and the best sunset spot is five minutes away.",
     "signature": "Lucie & Guillaume"
   },
@@ -81,7 +81,8 @@
     "immigrationTip": {
       "label": "Important — Immigration",
       "highlight": "THE HACK — PRIORITY LANE.",
-      "description": "Normally reserved, but you can pay to access it. Just say \"Priority lane, how much?\" — it's between 500 and 1,000 baht, totally at their discretion, and yes, it's baksheesh — but you won't wait a single second. They only take Thai Baht. Exchange euros in France or at the airport (there's a counter before immigration). Have your passport and TDAC form ready."
+      "description": "Normally reserved, but you can pay to access it. Just say \"Priority lane, how much?\" — it's between 500 and 1,000 baht, totally at their discretion, and yes, it's baksheesh — but you won't wait a single second. They only take Thai Baht. Exchange euros in France or at the airport (there's a counter before immigration). Have your passport and TDAC form ready.",
+      "farangTip": "Don't be that Farang waiting 2 hours in the wrong queue. The priority lane is negotiable, payable, and life-changing."
     }
   },
   "arrival": {
@@ -101,11 +102,13 @@
     "atm": {
       "title": "ATMs in Thailand",
       "highlight": "CASH BEFORE CARD — DON'T FORGET IT.",
-      "description": "Always choose 'Without conversion'. There's one in front of every 7-11."
+      "description": "Always choose 'Without conversion'. There's one in front of every 7-11.",
+      "farangTip": "Don't be that Farang who leaves with the cash but not the card. The ATM gives you the money FIRST. Take the cash, wait, take the card. I bet 100 baht it'll happen to Pierre Rouzeau. Don't be like him."
     }
   },
   "rawai": {
     "title": "Our Rawai",
+    "sevenEleven": "7-Eleven isn't just a convenience store. ATM, sim card, coffee, hot food, medicine, cold water — there's one every 200m. It's your best friend in Phuket.",
     "beaches": {
       "title": "Beaches"
     },
@@ -129,7 +132,9 @@
   "dayPasses": {
     "title": "Hotel day passes",
     "description": "Day passes give you access to hotel pools and facilities for the day, sometimes with food and drink credit.",
-    "cta": "Book"
+    "cta": "Book",
+    "farangTip": "Paying to enter a 5★ hotel for just one day? In Thailand, totally normal. Infinity pool, bar, restaurant — without sleeping there. Thais find it strange. Farangs love it.",
+    "sevenEleven": "7-Eleven isn't just a convenience store. ATM, sim card, coffee, hot food, medicine, cold water — there's one every 200m. It's your best friend in Phuket."
   },
   "atHome": {
     "title": "At home",
