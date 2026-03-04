@@ -2,8 +2,6 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
-import { WarmHeader } from '@/components/WarmHeader';
-import { StickyMobileBar } from '@/components/StickyMobileBar';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -53,11 +51,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className="scroll-smooth">
       <body>
-        <NextIntlClientProvider messages={messages}>
-          <WarmHeader />
-          {children}
-          <StickyMobileBar />
-        </NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );
