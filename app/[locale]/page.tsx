@@ -400,10 +400,12 @@ export default function HomePage() {
     <main className="min-h-screen bg-[#efede8] text-[#1f1b18]">
       {/* Modal formulaire */}
       {formOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-[#13100e]/70 backdrop-blur-sm px-4 py-8 md:py-16" onClick={(e) => { if (e.target === e.currentTarget) setFormOpen(false); }}>
-          <div className="relative w-full max-w-[760px] shadow-2xl" style={{ background: '#fffdf0' }}>
-            <button onClick={() => setFormOpen(false)} className="absolute right-4 top-4 z-10 font-label text-[10px] uppercase tracking-[0.2em] opacity-50 hover:opacity-100">✕ {locale === 'fr' ? 'Fermer' : 'Close'}</button>
-            <div className="px-6 pb-10 pt-10 md:px-10">
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-[#13100e]/70 backdrop-blur-sm" onClick={(e) => { if (e.target === e.currentTarget) setFormOpen(false); }}>
+          <div className="relative mx-auto w-full max-w-[760px] min-h-full shadow-2xl md:my-16 md:min-h-0" style={{ background: '#fffdf0' }}>
+            <button onClick={() => setFormOpen(false)} className="sticky top-0 z-20 flex w-full items-center justify-end gap-2 border-b border-[#1f1b18]/10 bg-[#fffdf0] px-5 py-4 font-label text-[10px] uppercase tracking-[0.2em] opacity-70 hover:opacity-100">
+              ✕ {locale === 'fr' ? 'Fermer' : 'Close'}
+            </button>
+            <div className="px-5 pb-12 pt-6 md:px-10">
               <p className="section-kicker mb-3">Plan Your Stay</p>
               <p className="section-title">{t.formTitle}</p>
               {/* Post-it note towels */}
@@ -444,7 +446,7 @@ export default function HomePage() {
               <form onSubmit={async (e) => { await submitGuestForm(e); }} className="mt-8 space-y-8">
 
                 {/* Arrivée */}
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div>
                     <label className="font-label mb-2 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.arrivalTime}</label>
                     <input type="time" className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none" value={form.arrivalTime} onChange={(e) => setForm((prev) => ({ ...prev, arrivalTime: e.target.value }))} />
@@ -531,7 +533,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Enfants */}
-                <div className="grid gap-4 md:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div>
                     <label className="font-label mb-2 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.kidsCount}</label>
                     <input type="number" min="0" max="10" className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none" value={form.kidsCount} onChange={(e) => setForm((prev) => ({ ...prev, kidsCount: e.target.value }))} />
@@ -559,7 +561,7 @@ export default function HomePage() {
                 )}
 
                 {Number(form.kidsCount) > 0 && (
-                  <div className="grid gap-6 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
                       <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.diapersLabel}</label>
                       <div className="flex gap-3">
@@ -603,18 +605,19 @@ export default function HomePage() {
       )}
 
       <header className="fixed inset-x-0 top-0 z-40 border-b border-[#f6f2ec]/20 bg-[#13100e]/55 backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-[1160px] items-center justify-between px-4 md:px-8">
-          <p className="font-display text-lg uppercase tracking-[0.06em] text-[#f6f2ec]">{t.brand}</p>
-          <div className="flex items-center gap-4">
+        <div className="mx-auto flex h-12 max-w-[1160px] items-center justify-between px-4 md:h-14 md:px-8">
+          <p className="font-display text-base uppercase tracking-[0.06em] text-[#f6f2ec] md:text-lg">{t.brand}</p>
+          <div className="flex items-center gap-3">
             <button
               onClick={() => setFormOpen(true)}
-              className="font-label border border-[#f6f2ec]/40 px-4 py-2 text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec] transition-colors hover:bg-[#f6f2ec] hover:text-[#13100e]"
+              className="font-label border border-[#f6f2ec]/40 px-3 py-1.5 text-[9px] uppercase tracking-[0.18em] text-[#f6f2ec] transition-colors hover:bg-[#f6f2ec] hover:text-[#13100e] md:px-4 md:py-2 md:text-[10px] md:tracking-[0.22em]"
             >
-              {locale === 'fr' ? 'Vos préférences' : 'Plan Your Stay'}
+              <span className="md:hidden">{locale === 'fr' ? 'Préparer' : 'Book'}</span>
+              <span className="hidden md:inline">{locale === 'fr' ? 'Vos préférences' : 'Plan Your Stay'}</span>
             </button>
             <div className="flex items-center rounded-full border border-[#f6f2ec]/30 p-0.5">
-              <a href="/fr" className={`font-label rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] ${locale === 'fr' ? 'bg-[#f6f2ec] text-[#13100e]' : 'text-[#f6f2ec]/85'}`}>FR</a>
-              <a href="/en" className={`font-label rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] ${locale === 'en' ? 'bg-[#f6f2ec] text-[#13100e]' : 'text-[#f6f2ec]/85'}`}>EN</a>
+              <a href="/fr" className={`font-label rounded-full px-2 py-0.5 text-[9px] uppercase tracking-[0.18em] md:px-2.5 md:py-1 md:text-[10px] ${locale === 'fr' ? 'bg-[#f6f2ec] text-[#13100e]' : 'text-[#f6f2ec]/85'}`}>FR</a>
+              <a href="/en" className={`font-label rounded-full px-2 py-0.5 text-[9px] uppercase tracking-[0.18em] md:px-2.5 md:py-1 md:text-[10px] ${locale === 'en' ? 'bg-[#f6f2ec] text-[#13100e]' : 'text-[#f6f2ec]/85'}`}>EN</a>
             </div>
           </div>
         </div>
@@ -1092,7 +1095,7 @@ export default function HomePage() {
             <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{locale === 'fr' ? 'Les Plages' : 'The Beaches'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
-          <div className="mb-16 grid gap-6 md:grid-cols-3">
+          <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* Nai Harn */}
             <div className="relative">
@@ -1100,7 +1103,7 @@ export default function HomePage() {
               <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '220px', position: 'relative' }}>
                   <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.02)' }}>
-                    <source src="/IMG_0780.MOV" type="video/mp4" />
+                    <source src="/IMG_0780-web.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="p-4 pb-5">
@@ -1117,7 +1120,7 @@ export default function HomePage() {
               <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '220px', position: 'relative' }}>
                   <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.02)' }}>
-                    <source src="/IMG_0941.MOV" type="video/mp4" />
+                    <source src="/IMG_0941-web.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="p-4 pb-5">
@@ -1134,7 +1137,7 @@ export default function HomePage() {
               <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '220px', position: 'relative' }}>
                   <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.02)' }}>
-                    <source src="/IMG_0987.MOV" type="video/mp4" />
+                    <source src="/IMG_0987-web.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="p-4 pb-5">
@@ -1152,7 +1155,7 @@ export default function HomePage() {
             <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{locale === 'fr' ? 'Les Restos' : 'Restaurants'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
-          <div className="mb-16 grid gap-6 md:grid-cols-3">
+          <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {RESTAURANTS.map((r, i) => (
               <div key={r.name} className="relative">
@@ -1173,7 +1176,7 @@ export default function HomePage() {
             <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{locale === 'fr' ? 'Wellness & Activités' : 'Wellness & Activities'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* Liste wellness */}
             <div className="relative md:col-span-2">
@@ -1242,7 +1245,7 @@ export default function HomePage() {
           </div>
 
           {/* ── LONGTAIL vs SPEEDBOAT ──────────────────────────── */}
-          <div className="mb-12 grid gap-6 md:grid-cols-3">
+          <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* Longtail */}
             <div className="relative" style={{}}>
@@ -1250,7 +1253,7 @@ export default function HomePage() {
               <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '200px' }}>
                   <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.02)' }}>
-                    <source src="/IMG_2899.MOV" type="video/mp4" />
+                    <source src="/IMG_2899-web.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="p-4 pb-5">
@@ -1292,7 +1295,7 @@ export default function HomePage() {
               <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '200px' }}>
                   <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.02)' }}>
-                    <source src="/IMG_0769.MOV" type="video/mp4" />
+                    <source src="/IMG_0769-web.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="p-4 pb-5">
@@ -1310,7 +1313,7 @@ export default function HomePage() {
           </div>
 
           {/* ── DEUX CARTES : contact + daytrips lointains ─────── */}
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
             {/* Contact Boat Service */}
             <div className="relative" style={{}}>
@@ -1391,7 +1394,7 @@ export default function HomePage() {
             <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{locale === 'fr' ? 'Culture' : 'Culture'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
-          <div className="mb-16 grid gap-6 md:grid-cols-3">
+          <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* Big Buddha */}
             <div className="relative">
@@ -1445,7 +1448,7 @@ export default function HomePage() {
             <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{locale === 'fr' ? 'Nature & Aventure' : 'Nature & Adventure'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
-          <div className="mb-16 grid gap-6 md:grid-cols-3">
+          <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* Voile */}
             <div className="relative">
@@ -1502,7 +1505,7 @@ export default function HomePage() {
             <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>Shopping</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* Central Phuket Floresta */}
             <div className="relative">
@@ -1558,7 +1561,7 @@ export default function HomePage() {
           </div>
 
           {/* 3 hôtels */}
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* The Nai Harn */}
             <div className="relative">
