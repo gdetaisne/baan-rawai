@@ -6,27 +6,41 @@ export async function POST(request: Request) {
     const data = await request.json();
 
     const emailContent = `
-New Guest Form Submission - Baan Sayiuan
+New Guest Form Submission — Baan Sayiuan
+========================================
 
-Arrival: ${data.arrival || 'N/A'}
-Flight Number: ${data.flightNumber || 'N/A'}
-Airport Taxi: ${data.taxi || 'N/A'}
+ARRIVÉE
+-------
+Heure d'arrivée : ${data.arrivalTime || 'N/A'}
+Numéro de vol   : ${data.flightNumber || 'N/A'}
+Taxi aéroport   : ${data.taxi || 'N/A'}
 
-Preferences:
-- Breakfast: ${data.breakfast || 'N/A'}
-- Favorite Juice: ${data.juice || 'N/A'}
-- Favorite Cocktail: ${data.cocktail || 'N/A'}
-- Allergies/Intolerances: ${data.allergies || 'None'}
+PRÉFÉRENCES
+-----------
+Cocktails       : ${Array.isArray(data.cocktails) ? data.cocktails.join(', ') || 'Aucun' : data.cocktails || 'N/A'}
+Cocktail autre  : ${data.cocktailOther || '—'}
+Jus préféré     : ${data.juice || 'N/A'}
+Jus autre       : ${data.juiceOther || '—'}
+Allergies       : ${data.allergies || 'Aucune'}
+Petit-déj adultes : ${data.breakfastAdults || '—'}
+Petit-déj enfants : ${data.breakfastKids || '—'}
 
-Kids:
-- Number: ${data.kids || '0'}
-- Ages: ${data.kidsAges || 'N/A'}
+ENFANTS
+-------
+Nombre d'enfants : ${data.kidsCount || '0'}
+Âges             : ${data.kidsAges || 'N/A'}
+Couchage         : ${Array.isArray(data.kidsSleeping) ? data.kidsSleeping.join(', ') || 'N/A' : data.kidsSleeping || 'N/A'}
+Couchage autre   : ${data.kidsSleepingOther || '—'}
+Couches          : ${data.diapers || 'N/A'}
+Taille couches   : ${data.diapersSize || '—'}
+Repas bébé       : ${data.babyFood || 'N/A'}
 
-Other Notes:
-${data.other || 'None'}
+NOTES LIBRES
+------------
+${data.other || 'Aucune'}
 
 ---
-Submitted at: ${new Date().toISOString()}
+Soumis le : ${new Date().toISOString()}
     `.trim();
 
     const transporter = nodemailer.createTransport({
@@ -34,15 +48,15 @@ Submitted at: ${new Date().toISOString()}
       port: 465,
       secure: true,
       auth: {
-        user: process.env.SMTP_USER,   // ex: veltzlucie@gmail.com
-        pass: process.env.SMTP_PASS,   // App Password Gmail (16 caractères)
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
     await transporter.sendMail({
       from: `Baan Sayiuan <${process.env.SMTP_USER}>`,
       to: process.env.SMTP_TO || 'veltzlucie@gmail.com',
-      subject: `🏝️ New Guest Form - ${data.arrival || 'Arrival TBD'}`,
+      subject: `🏝️ Nouveau formulaire invité — arrivée ${data.arrivalTime || 'à confirmer'}`,
       text: emailContent,
     });
 
