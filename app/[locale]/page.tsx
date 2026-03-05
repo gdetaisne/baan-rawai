@@ -10,10 +10,12 @@ const CONTENT = {
     brand: 'BAAN SAYIUAN',
     chapter: 'Chapter',
     nav: ['Welcome', 'Before Arrival', 'At The Villa', 'Curated Rawai', 'Day Passes', 'Guest Form'],
-    heroTitle1: 'THE RAWAI',
-    heroTitle2: 'HOUSE MANUAL',
-    heroLabel: 'A private luxury editorial by Lucie and Guillaume',
-    heroScript: 'slow living notes',
+    heroTitle1: 'BAAN SAYIUAN',
+    heroTitle2: '',
+    heroScript: 'Welcome home',
+    heroAddress: '59/45 Soi Sayiuan 13 Rawai Phuket',
+    heroWhatsappLucie: 'WhatsApp Lucie',
+    heroWhatsappGuillaume: 'WhatsApp Guillaume',
     postcardLine: 'chasing a soft lemon breeze for the day',
     welcomeTitle: 'WELCOME HOME',
     welcomeStory1:
@@ -26,13 +28,11 @@ const CONTENT = {
     rawaiTitle: 'CURATED RAWAI',
     passesTitle: 'DAY PASSES',
     formTitle: 'GUEST PREFERENCES',
-    editorNote: "Editor's note",
     slowGuideLine1: 'A SLOW GUIDE',
     slowGuideLine2: 'TO RAWAI',
     beachesLabel: 'Beaches',
     restaurantsLabel: 'Restaurants',
     activitiesLabel: 'Activities',
-    issueLabel: 'Issue 01 / 2026',
     arrivalDate: 'Arrival date & time',
     flightNumber: 'Flight number',
     breakfast: 'Breakfast preferences',
@@ -65,10 +65,12 @@ const CONTENT = {
     brand: 'BAAN SAYIUAN',
     chapter: 'Chapitre',
     nav: ['Bienvenue', "Avant l'arrivée", 'À la villa', 'Rawai', 'Day pass', 'Formulaire'],
-    heroTitle1: 'RAWAI',
-    heroTitle2: 'HOUSE MANUAL',
-    heroLabel: 'Un guide éditorial privé par Lucie & Guillaume',
-    heroScript: 'notes de vie lente',
+    heroTitle1: 'BAAN SAYIUAN',
+    heroTitle2: '',
+    heroScript: 'Welcome home',
+    heroAddress: '59/45 Soi Sayiuan 13 Rawai Phuket',
+    heroWhatsappLucie: 'WhatsApp Lucie',
+    heroWhatsappGuillaume: 'WhatsApp Guillaume',
     postcardLine: 'a la poursuite d une brise doree pour la journee',
     welcomeTitle: 'BIENVENUE',
     welcomeStory1:
@@ -81,13 +83,11 @@ const CONTENT = {
     rawaiTitle: 'CURATED RAWAI',
     passesTitle: 'DAY PASS',
     formTitle: 'PREFERENCES INVITES',
-    editorNote: "Note d'edition",
     slowGuideLine1: 'UN GUIDE LENT',
     slowGuideLine2: 'DE RAWAI',
     beachesLabel: 'Plages',
     restaurantsLabel: 'Restaurants',
     activitiesLabel: 'Activites',
-    issueLabel: 'Edition 01 / 2026',
     arrivalDate: "Date et heure d'arrivee",
     flightNumber: 'Numero de vol',
     breakfast: 'Preferences petit-dejeuner',
@@ -304,35 +304,48 @@ export default function HomePage() {
           className="absolute inset-0 h-full w-full object-cover"
           data-cinematic-video
           data-rate="0.8"
+          preload="metadata"
           autoPlay
           muted
           loop
           playsInline
           poster="/placeholder-hero.jpg"
         >
-          <source src="/IMG_2903.MOV" type="video/mp4" />
+          <source src="/IMG_2903-web.mp4" type="video/mp4" />
         </video>
 
         <div className="absolute inset-0 bg-[#1f1b18]/34" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.14),transparent_42%)]" />
 
-        <div className="relative z-10 flex h-full flex-col justify-between px-6 pb-10 pt-24 md:px-10 md:pb-14 md:pt-24">
-          <div>
-            <p className="font-label text-[10px] uppercase tracking-[0.35em] text-[#f6f2ec]/90">
-              {t.chapter} 01 - The House Guide
-            </p>
-          </div>
-
-          <div className="max-w-[900px]">
+        <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-10 pt-24 md:px-10 md:pb-14 md:pt-24">
+          <div className="max-w-[920px]">
             <h1 className="font-display text-[#f6f2ec] uppercase leading-[0.9] tracking-[0.018em] text-[13.5vw] md:text-[110px]">
               {t.heroTitle1}
-              <br />
-              {t.heroTitle2}
             </h1>
-            <p className="font-script mt-2 text-5xl leading-none text-[#f6f2ec]/92 md:text-7xl">{t.heroScript}</p>
-            <p className="font-label mt-4 text-[10px] uppercase tracking-[0.33em] text-[#f6f2ec]/80 md:text-[11px]">
-              {t.heroLabel}
-            </p>
+            <p className="font-script mt-3 text-5xl leading-none text-[#f6f2ec]/95 md:text-7xl">{t.heroScript}</p>
+
+            <div className="mt-6 max-w-[520px] rounded-[2px] border border-[#f6f2ec]/35 bg-[#13100e]/32 p-4 backdrop-blur-sm md:p-5">
+              <p className="font-label text-[9px] uppercase tracking-[0.26em] text-[#f6f2ec]/72">Address</p>
+              <p className="mt-2 text-[15px] text-[#f6f2ec] md:text-[16px]">{t.heroAddress}</p>
+              <div className="mt-4 grid gap-2 md:grid-cols-2">
+                <a
+                  href="https://wa.me/66952824035"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-label rounded border border-[#f6f2ec]/28 px-3 py-2 text-[9px] uppercase tracking-[0.2em] text-[#f6f2ec]"
+                >
+                  {t.heroWhatsappLucie}
+                </a>
+                <a
+                  href="https://wa.me/33633046059"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-label rounded border border-[#f6f2ec]/28 px-3 py-2 text-[9px] uppercase tracking-[0.2em] text-[#f6f2ec]"
+                >
+                  {t.heroWhatsappGuillaume}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -348,12 +361,13 @@ export default function HomePage() {
                     className="h-[220px] w-full object-cover md:h-[280px]"
                     data-cinematic-video
                     data-rate="0.9"
+                    preload="metadata"
                     autoPlay
                     muted
                     loop
                     playsInline
                   >
-                    <source src="/IMG_2901.MOV" type="video/mp4" />
+                    <source src="/IMG_2901-web.mp4" type="video/mp4" />
                   </video>
                 </div>
               </div>
@@ -391,7 +405,6 @@ export default function HomePage() {
             </article>
 
             <article className="paper-card p-5 md:col-span-4 md:p-7">
-              <p className="section-kicker">{t.editorNote}</p>
               <p className="section-title mt-5">
                 {t.slowGuideLine1}
                 <br />
@@ -409,16 +422,15 @@ export default function HomePage() {
                 className="cinematic-video h-[220px] w-full object-cover md:h-[260px]"
                 data-cinematic-video
                 data-rate="0.9"
+                preload="metadata"
                 autoPlay
                 muted
                 loop
                 playsInline
               >
-                <source src="/IMG_2902.MOV" type="video/mp4" />
+                <source src="/IMG_2902-web.mp4" type="video/mp4" />
               </video>
-              <div className="mt-4 border-t border-[#1f1b18]/20 pt-3">
-                <p className="font-label text-[9px] uppercase tracking-[0.24em] text-[#1f1b18]/65">{t.issueLabel}</p>
-              </div>
+              <div className="mt-4 border-t border-[#1f1b18]/20 pt-3" />
             </article>
           </div>
         </div>
@@ -538,12 +550,13 @@ export default function HomePage() {
               className="cinematic-video h-[260px] w-full object-cover md:h-[420px]"
               data-cinematic-video
               data-rate="0.9"
+              preload="metadata"
               autoPlay
               muted
               loop
               playsInline
             >
-              <source src="/IMG_2900.MOV" type="video/mp4" />
+              <source src="/IMG_2900-web.mp4" type="video/mp4" />
             </video>
           </article>
         </div>
