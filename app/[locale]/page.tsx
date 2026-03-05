@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useEffect, useMemo, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 
 type Locale = 'fr' | 'en';
@@ -13,6 +13,8 @@ const CONTENT = {
     heroTitle1: 'THE RAWAI',
     heroTitle2: 'HOUSE MANUAL',
     heroLabel: 'A private luxury editorial by Lucie and Guillaume',
+    heroScript: 'slow living notes',
+    postcardLine: 'chasing a soft lemon breeze for the day',
     welcomeTitle: 'WELCOME HOME',
     welcomeStory1:
       'Baan Sayiuan is our home and, during your stay, it is yours. We designed every detail to feel calm, effortless and beautiful.',
@@ -24,6 +26,22 @@ const CONTENT = {
     rawaiTitle: 'CURATED RAWAI',
     passesTitle: 'DAY PASSES',
     formTitle: 'GUEST PREFERENCES',
+    editorNote: "Editor's note",
+    slowGuideLine1: 'A SLOW GUIDE',
+    slowGuideLine2: 'TO RAWAI',
+    beachesLabel: 'Beaches',
+    restaurantsLabel: 'Restaurants',
+    activitiesLabel: 'Activities',
+    issueLabel: 'Issue 01 / 2026',
+    arrivalDate: 'Arrival date & time',
+    flightNumber: 'Flight number',
+    breakfast: 'Breakfast preferences',
+    juice: 'Favorite juice',
+    cocktail: 'Favorite cocktail',
+    allergies: 'Allergies',
+    kids: 'Kids',
+    kidsAges: 'Kids ages',
+    otherNotes: 'Other notes',
     unlockPrivate: 'Unlock private mode',
     passcodePlaceholder: 'Enter passcode',
     unlock: 'Unlock',
@@ -46,21 +64,39 @@ const CONTENT = {
   fr: {
     brand: 'BAAN SAYIUAN',
     chapter: 'Chapitre',
-    nav: ['Welcome', 'Avant arrivée', 'À la villa', 'Rawai', 'Day Pass', 'Formulaire'],
-    heroTitle1: 'THE RAWAI',
+    nav: ['Bienvenue', "Avant l'arrivée", 'À la villa', 'Rawai', 'Day pass', 'Formulaire'],
+    heroTitle1: 'RAWAI',
     heroTitle2: 'HOUSE MANUAL',
     heroLabel: 'Un guide éditorial privé par Lucie & Guillaume',
-    welcomeTitle: 'WELCOME HOME',
+    heroScript: 'notes de vie lente',
+    postcardLine: 'a la poursuite d une brise doree pour la journee',
+    welcomeTitle: 'BIENVENUE',
     welcomeStory1:
       'Baan Sayiuan est notre maison, et pendant votre séjour elle devient la vôtre. Chaque détail est pensé pour être simple, calme et beau.',
     welcomeStory2:
       'Les serviettes sont dans la salle de bain, les infos WiFi sont en mode privé, et le meilleur coucher de soleil est à cinq minutes.',
     welcomeSignature: 'Lucie & Guillaume',
-    beforeTitle: 'BEFORE ARRIVAL',
-    arrivalTitle: 'AT THE VILLA',
+    beforeTitle: "AVANT L'ARRIVEE",
+    arrivalTitle: 'A LA VILLA',
     rawaiTitle: 'CURATED RAWAI',
-    passesTitle: 'DAY PASSES',
-    formTitle: 'GUEST PREFERENCES',
+    passesTitle: 'DAY PASS',
+    formTitle: 'PREFERENCES INVITES',
+    editorNote: "Note d'edition",
+    slowGuideLine1: 'UN GUIDE LENT',
+    slowGuideLine2: 'DE RAWAI',
+    beachesLabel: 'Plages',
+    restaurantsLabel: 'Restaurants',
+    activitiesLabel: 'Activites',
+    issueLabel: 'Edition 01 / 2026',
+    arrivalDate: "Date et heure d'arrivee",
+    flightNumber: 'Numero de vol',
+    breakfast: 'Preferences petit-dejeuner',
+    juice: 'Jus prefere',
+    cocktail: 'Cocktail prefere',
+    allergies: 'Allergies',
+    kids: 'Enfants',
+    kidsAges: 'Ages des enfants',
+    otherNotes: 'Autres notes',
     unlockPrivate: 'Déverrouiller le mode privé',
     passcodePlaceholder: 'Entrer le code',
     unlock: 'Déverrouiller',
@@ -138,16 +174,17 @@ const DAY_PASSES = [
   { name: 'Sri Panwa', price: 'from 3,000 THB', detail: 'Multiple pools, beach club, food credit, tuk-tuk shuttle' },
 ];
 
+const ACCESS = {
+  wifiNetwork: 'Minou_5G',
+  wifiPassword: process.env.NEXT_PUBLIC_WIFI_PASSWORD || '',
+  doorCode: process.env.NEXT_PUBLIC_DOOR_CODE || '',
+};
+
 export default function HomePage() {
   const params = useParams<{ locale: string }>();
   const locale = (params?.locale === 'fr' ? 'fr' : 'en') as Locale;
   const t = CONTENT[locale];
 
-  const [privateOpen, setPrivateOpen] = useState(false);
-  const [passcode, setPasscode] = useState('');
-  const [unlockLoading, setUnlockLoading] = useState(false);
-  const [unlockError, setUnlockError] = useState('');
-  const [secrets, setSecrets] = useState<{ doorCode: string; wifiPassword: string } | null>(null);
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({
     arrival: '',
@@ -161,8 +198,6 @@ export default function HomePage() {
     kidsAges: '',
     other: '',
   });
-
-  const unlocked = useMemo(() => Boolean(secrets), [secrets]);
 
   useEffect(() => {
     const videos = document.querySelectorAll<HTMLVideoElement>('[data-cinematic-video]');
@@ -187,41 +222,6 @@ export default function HomePage() {
     };
   }, []);
 
-  useEffect(() => {
-    const raw = sessionStorage.getItem('private_secrets');
-    if (!raw) return;
-    try {
-      setSecrets(JSON.parse(raw));
-    } catch {
-      sessionStorage.removeItem('private_secrets');
-    }
-  }, []);
-
-  const unlockPrivate = async () => {
-    setUnlockLoading(true);
-    setUnlockError('');
-    try {
-      const res = await fetch('/api/private', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ passcode }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        setUnlockError(data?.error || 'Failed');
-        return;
-      }
-      setSecrets({ doorCode: data.doorCode, wifiPassword: data.wifiPassword });
-      sessionStorage.setItem('private_secrets', JSON.stringify({ doorCode: data.doorCode, wifiPassword: data.wifiPassword }));
-      setPrivateOpen(false);
-      setPasscode('');
-    } catch {
-      setUnlockError('Network error');
-    } finally {
-      setUnlockLoading(false);
-    }
-  };
-
   const submitGuestForm = async (e: FormEvent) => {
     e.preventDefault();
     setSent(false);
@@ -235,23 +235,67 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-[#efede8] text-[#1f1b18]">
-      <header className="fixed inset-x-0 top-0 z-40 border-b border-[#f6f2ec]/20 bg-[#13100e]/50 backdrop-blur-md">
+      <header className="fixed inset-x-0 top-0 z-40 border-b border-[#f6f2ec]/20 bg-[#13100e]/55 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-[1160px] items-center justify-between px-4 md:px-8">
           <p className="font-display text-lg uppercase tracking-[0.06em] text-[#f6f2ec]">{t.brand}</p>
-          <nav className="hidden gap-6 md:flex">
-            <a href="#welcome" className="font-label text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/85">
-              {t.nav[0]}
+          <div className="hidden items-center gap-5 md:flex">
+            <nav className="flex gap-5">
+              <a href="#welcome" className="font-label text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/85">
+                {t.nav[0]}
+              </a>
+              <a href="#before-arrival" className="font-label text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/85">
+                {t.nav[1]}
+              </a>
+              <a href="#arrival" className="font-label text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/85">
+                {t.nav[2]}
+              </a>
+              <a href="#rawai" className="font-label text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/85">
+                {t.nav[3]}
+              </a>
+              <a href="#day-passes" className="font-label text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/85">
+                {t.nav[4]}
+              </a>
+              <a href="#guest-form" className="font-label text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/85">
+                {t.nav[5]}
+              </a>
+            </nav>
+            <div className="flex items-center rounded-full border border-[#f6f2ec]/30 p-0.5">
+              <a
+                href="/fr"
+                className={`font-label rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] ${
+                  locale === 'fr' ? 'bg-[#f6f2ec] text-[#13100e]' : 'text-[#f6f2ec]/85'
+                }`}
+              >
+                FR
+              </a>
+              <a
+                href="/en"
+                className={`font-label rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] ${
+                  locale === 'en' ? 'bg-[#f6f2ec] text-[#13100e]' : 'text-[#f6f2ec]/85'
+                }`}
+              >
+                EN
+              </a>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 md:hidden">
+            <a
+              href="/fr"
+              className={`font-label rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] ${
+                locale === 'fr' ? 'border-[#f6f2ec] bg-[#f6f2ec] text-[#13100e]' : 'border-[#f6f2ec]/40 text-[#f6f2ec]'
+              }`}
+            >
+              FR
             </a>
-            <a href="#before-arrival" className="font-label text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/85">
-              {t.nav[1]}
+            <a
+              href="/en"
+              className={`font-label rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] ${
+                locale === 'en' ? 'border-[#f6f2ec] bg-[#f6f2ec] text-[#13100e]' : 'border-[#f6f2ec]/40 text-[#f6f2ec]'
+              }`}
+            >
+              EN
             </a>
-            <a href="#arrival" className="font-label text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/85">
-              {t.nav[2]}
-            </a>
-            <a href="#rawai" className="font-label text-[10px] uppercase tracking-[0.22em] text-[#f6f2ec]/85">
-              {t.nav[3]}
-            </a>
-          </nav>
+          </div>
         </div>
       </header>
 
@@ -269,7 +313,8 @@ export default function HomePage() {
           <source src="/IMG_2903.MOV" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-[#1f1b18]/28" />
+        <div className="absolute inset-0 bg-[#1f1b18]/34" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.14),transparent_42%)]" />
 
         <div className="relative z-10 flex h-full flex-col justify-between px-6 pb-10 pt-24 md:px-10 md:pb-14 md:pt-24">
           <div>
@@ -279,12 +324,12 @@ export default function HomePage() {
           </div>
 
           <div className="max-w-[900px]">
-            <h1 className="font-display text-[#f6f2ec] uppercase leading-[0.92] tracking-[-0.01em] text-[13.5vw] md:text-[96px]">
+            <h1 className="font-display text-[#f6f2ec] uppercase leading-[0.9] tracking-[0.018em] text-[13.5vw] md:text-[110px]">
               {t.heroTitle1}
               <br />
               {t.heroTitle2}
             </h1>
-            <p className="font-script mt-2 text-5xl leading-none text-[#f6f2ec]/95 md:text-7xl">slow living notes</p>
+            <p className="font-script mt-2 text-5xl leading-none text-[#f6f2ec]/92 md:text-7xl">{t.heroScript}</p>
             <p className="font-label mt-4 text-[10px] uppercase tracking-[0.33em] text-[#f6f2ec]/80 md:text-[11px]">
               {t.heroLabel}
             </p>
@@ -292,35 +337,65 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="welcome" className="relative overflow-hidden px-5 py-14 md:px-10 md:py-20">
-        <div className="mx-auto max-w-[1160px]">
-          <p className="font-label mb-4 text-[10px] uppercase tracking-[0.26em] text-[#1f1b18]/60">{t.welcomeTitle}</p>
+      <section id="welcome" className="premium-section relative overflow-hidden px-5 py-16 md:px-10 md:py-24">
+        <div className="section-shell">
+          <p className="section-kicker mb-4">{t.welcomeTitle}</p>
           <div className="grid gap-6 md:grid-cols-12 md:gap-8">
-            <article className="paper-card cinematic-frame p-3 md:col-span-5 md:p-4">
-              <video
-                className="cinematic-video h-[260px] w-full object-cover md:h-[360px]"
-                data-cinematic-video
-                data-rate="0.9"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source src="/IMG_2901.MOV" type="video/mp4" />
-              </video>
-              <p className="font-label mt-4 text-[10px] uppercase tracking-[0.28em] text-[#1f1b18]/62">
-                Seaside chapter / curated mood
-              </p>
+            <article className="md:col-span-5">
+              <div className="paper-card p-3 md:p-4">
+                <div className="border border-[#1f1b18]/18 bg-[#fbf8f2] p-2">
+                  <video
+                    className="h-[220px] w-full object-cover md:h-[280px]"
+                    data-cinematic-video
+                    data-rate="0.9"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src="/IMG_2901.MOV" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+
+              <div className="paper-card mt-4 p-4 md:p-5">
+                <div className="grid grid-cols-[1fr_auto] gap-4 border border-[#1f1b18]/18 bg-[#f8f4ed] p-4 md:p-5">
+                  <div>
+                    <p className="font-display text-[28px] uppercase leading-[0.9] tracking-[0.02em] md:text-[34px]">POSTCARD</p>
+                    <p className="font-label mt-1 text-[8px] uppercase tracking-[0.24em] text-[#1f1b18]/55">
+                      this space for writing messages
+                    </p>
+
+                    <p className="font-script mt-8 max-w-[290px] text-[42px] leading-[0.82] text-[#1f1b18]/92">
+                      {t.postcardLine}
+                    </p>
+                  </div>
+
+                  <div className="w-[94px] md:w-[110px]">
+                    <div className="h-[70px] border border-[#1f1b18]/22 md:h-[82px]" />
+                    <p className="font-label mt-2 text-[7px] uppercase tracking-[0.22em] text-[#1f1b18]/55">place stamp here</p>
+                  </div>
+
+                  <div className="col-span-2 mt-4 grid gap-3 md:grid-cols-[1fr_1fr]">
+                    <div className="border-t border-[#1f1b18]/20 pt-2">
+                      <p className="font-label text-[8px] uppercase tracking-[0.22em] text-[#1f1b18]/52">to</p>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="border-b border-[#1f1b18]/28" />
+                      <div className="border-b border-[#1f1b18]/28" />
+                      <div className="border-b border-[#1f1b18]/28" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </article>
 
             <article className="paper-card p-5 md:col-span-4 md:p-7">
-              <p className="font-label text-[10px] uppercase tracking-[0.28em] text-[#1f1b18]/70">
-                Editor's note
-              </p>
-              <p className="font-display mt-5 text-[34px] uppercase leading-[0.95] tracking-[-0.01em] md:text-[48px]">
-                A SLOW GUIDE
+              <p className="section-kicker">{t.editorNote}</p>
+              <p className="section-title mt-5">
+                {t.slowGuideLine1}
                 <br />
-                TO RAWAI
+                {t.slowGuideLine2}
               </p>
               <div className="mt-6 border-t border-[#1f1b18]/25 pt-4">
                 <p className="text-[14px] leading-[1.75] text-[#1f1b18]/78 md:text-[15px]">{t.welcomeStory1}</p>
@@ -342,16 +417,17 @@ export default function HomePage() {
                 <source src="/IMG_2902.MOV" type="video/mp4" />
               </video>
               <div className="mt-4 border-t border-[#1f1b18]/20 pt-3">
-                <p className="font-label text-[9px] uppercase tracking-[0.24em] text-[#1f1b18]/65">Issue 01 / 2026</p>
+                <p className="font-label text-[9px] uppercase tracking-[0.24em] text-[#1f1b18]/65">{t.issueLabel}</p>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="before-arrival" className="px-5 py-14 md:px-10 md:py-20">
-        <div className="mx-auto max-w-[1160px]">
-          <p className="font-display text-[34px] uppercase md:text-[48px]">{t.beforeTitle}</p>
+      <section id="before-arrival" className="premium-section px-5 py-16 md:px-10 md:py-24">
+        <div className="section-shell">
+          <p className="section-kicker mb-3">{t.chapter} 02</p>
+          <p className="section-title">{t.beforeTitle}</p>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {BEFORE_ARRIVAL.map((item) => (
               <article key={item.title} className="paper-card p-5 md:p-7">
@@ -371,35 +447,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="arrival" className="px-5 py-14 md:px-10 md:py-20">
-        <div className="mx-auto max-w-[1160px]">
-          <p className="font-display text-[34px] uppercase md:text-[48px]">{t.arrivalTitle}</p>
+      <section id="arrival" className="premium-section px-5 py-16 md:px-10 md:py-24">
+        <div className="section-shell">
+          <p className="section-kicker mb-3">{t.chapter} 03</p>
+          <p className="section-title">{t.arrivalTitle}</p>
           <div className="mt-8 grid gap-6 md:grid-cols-12">
             <article className="paper-card p-6 md:col-span-8">
               <p className="font-label text-[10px] uppercase tracking-[0.26em] text-[#1f1b18]/65">{t.privateHint}</p>
               <div className="mt-5 grid gap-4 md:grid-cols-2">
                 <div className="rounded-md border border-[#1f1b18]/14 p-4">
                   <p className="font-label text-[10px] uppercase tracking-[0.2em]">{t.wifiNetwork}</p>
-                  <p className="mt-2 text-lg">Minou_5G</p>
+                  <p className="mt-2 text-lg">{ACCESS.wifiNetwork}</p>
                 </div>
                 <div className="rounded-md border border-[#1f1b18]/14 p-4">
                   <p className="font-label text-[10px] uppercase tracking-[0.2em]">{t.wifiPassword}</p>
-                  <p className="mt-2 text-lg">{unlocked ? secrets?.wifiPassword : t.lockedLabel}</p>
+                  <p className="mt-2 text-lg">{ACCESS.wifiPassword || '-'}</p>
                 </div>
                 <div className="rounded-md border border-[#1f1b18]/14 p-4 md:col-span-2">
                   <p className="font-label text-[10px] uppercase tracking-[0.2em]">{t.doorCode}</p>
-                  <p className="mt-2 text-lg">{unlocked ? secrets?.doorCode : t.lockedLabel}</p>
+                  <p className="mt-2 text-lg">{ACCESS.doorCode || '-'}</p>
                 </div>
               </div>
-              {!unlocked && (
-                <button
-                  type="button"
-                  onClick={() => setPrivateOpen(true)}
-                  className="font-label mt-6 rounded-md border border-[#1f1b18]/25 px-4 py-3 text-[10px] uppercase tracking-[0.2em]"
-                >
-                  {t.unlockPrivate}
-                </button>
-              )}
             </article>
             <article className="paper-card p-6 md:col-span-4">
               <p className="font-display text-[28px] uppercase">{t.atmTitle}</p>
@@ -409,12 +477,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="rawai" className="px-5 py-14 md:px-10 md:py-20">
-        <div className="mx-auto max-w-[1160px]">
-          <p className="font-display text-[34px] uppercase md:text-[48px]">{t.rawaiTitle}</p>
+      <section id="rawai" className="premium-section px-5 py-16 md:px-10 md:py-24">
+        <div className="section-shell">
+          <p className="section-kicker mb-3">{t.chapter} 04</p>
+          <p className="section-title">{t.rawaiTitle}</p>
           <div className="mt-8 grid gap-6 md:grid-cols-12">
             <article className="paper-card p-6 md:col-span-5">
-              <p className="font-label text-[10px] uppercase tracking-[0.24em] text-[#1f1b18]/65">Beaches</p>
+              <p className="font-label text-[10px] uppercase tracking-[0.24em] text-[#1f1b18]/65">{t.beachesLabel}</p>
               <ul className="mt-4 space-y-3">
                 {BEACHES.map((beach) => (
                   <li key={beach} className="text-[15px] leading-[1.7] text-[#1f1b18]/78">
@@ -424,7 +493,7 @@ export default function HomePage() {
               </ul>
             </article>
             <article className="paper-card p-6 md:col-span-4">
-              <p className="font-label text-[10px] uppercase tracking-[0.24em] text-[#1f1b18]/65">Restaurants</p>
+              <p className="font-label text-[10px] uppercase tracking-[0.24em] text-[#1f1b18]/65">{t.restaurantsLabel}</p>
               <ul className="mt-4 space-y-3">
                 {RESTAURANTS.map((restaurant) => (
                   <li key={restaurant.name} className="text-[15px] leading-[1.7] text-[#1f1b18]/78">
@@ -437,7 +506,7 @@ export default function HomePage() {
               </ul>
             </article>
             <article className="paper-card p-6 md:col-span-3">
-              <p className="font-label text-[10px] uppercase tracking-[0.24em] text-[#1f1b18]/65">Activities</p>
+              <p className="font-label text-[10px] uppercase tracking-[0.24em] text-[#1f1b18]/65">{t.activitiesLabel}</p>
               <ul className="mt-4 space-y-3">
                 {ACTIVITIES.map((activity) => (
                   <li key={activity} className="text-[14px] leading-[1.65] text-[#1f1b18]/78">
@@ -450,9 +519,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="day-passes" className="px-5 py-14 md:px-10 md:py-20">
-        <div className="mx-auto max-w-[1160px]">
-          <p className="font-display text-[34px] uppercase md:text-[48px]">{t.passesTitle}</p>
+      <section id="day-passes" className="premium-section px-5 py-16 md:px-10 md:py-24">
+        <div className="section-shell">
+          <p className="section-kicker mb-3">{t.chapter} 05</p>
+          <p className="section-title">{t.passesTitle}</p>
           <p className="mt-5 max-w-3xl text-[16px] leading-[1.8] text-[#1f1b18]/78">{t.dayPassIntro}</p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {DAY_PASSES.map((pass) => (
@@ -479,62 +549,63 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="guest-form" className="px-5 pb-28 pt-14 md:px-10 md:py-20">
+      <section id="guest-form" className="premium-section px-5 pb-28 pt-16 md:px-10 md:py-24">
         <div className="mx-auto max-w-[920px]">
-          <p className="font-display text-[34px] uppercase md:text-[48px]">{t.formTitle}</p>
-          <form onSubmit={submitGuestForm} className="paper-card mt-8 grid gap-4 p-6 md:grid-cols-2">
+          <p className="section-kicker mb-3">{t.chapter} 06</p>
+          <p className="section-title">{t.formTitle}</p>
+          <form onSubmit={submitGuestForm} className="paper-card mt-8 grid gap-4 p-6 md:grid-cols-2 md:p-8">
             <input
               className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none"
-              placeholder="Arrival date & time"
+              placeholder={t.arrivalDate}
               value={form.arrival}
               onChange={(e) => setForm((prev) => ({ ...prev, arrival: e.target.value }))}
             />
             <input
               className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none"
-              placeholder="Flight number"
+              placeholder={t.flightNumber}
               value={form.flightNumber}
               onChange={(e) => setForm((prev) => ({ ...prev, flightNumber: e.target.value }))}
             />
             <input
               className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none"
-              placeholder="Breakfast preferences"
+              placeholder={t.breakfast}
               value={form.breakfast}
               onChange={(e) => setForm((prev) => ({ ...prev, breakfast: e.target.value }))}
             />
             <input
               className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none"
-              placeholder="Favorite juice"
+              placeholder={t.juice}
               value={form.juice}
               onChange={(e) => setForm((prev) => ({ ...prev, juice: e.target.value }))}
             />
             <input
               className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none"
-              placeholder="Favorite cocktail"
+              placeholder={t.cocktail}
               value={form.cocktail}
               onChange={(e) => setForm((prev) => ({ ...prev, cocktail: e.target.value }))}
             />
             <input
               className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none"
-              placeholder="Allergies"
+              placeholder={t.allergies}
               value={form.allergies}
               onChange={(e) => setForm((prev) => ({ ...prev, allergies: e.target.value }))}
             />
             <input
               className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none"
-              placeholder="Kids"
+              placeholder={t.kids}
               value={form.kids}
               onChange={(e) => setForm((prev) => ({ ...prev, kids: e.target.value }))}
             />
             <input
               className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none"
-              placeholder="Kids ages"
+              placeholder={t.kidsAges}
               value={form.kidsAges}
               onChange={(e) => setForm((prev) => ({ ...prev, kidsAges: e.target.value }))}
             />
             <textarea
               className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none md:col-span-2"
               rows={4}
-              placeholder="Other notes"
+              placeholder={t.otherNotes}
               value={form.other}
               onChange={(e) => setForm((prev) => ({ ...prev, other: e.target.value }))}
             />
@@ -564,48 +635,14 @@ export default function HomePage() {
           >
             {t.directions}
           </a>
-          <button
-            type="button"
-            onClick={() => setPrivateOpen(true)}
+          <a
+            href="#arrival"
             className="font-label flex-1 rounded-md border border-[#1f1b18]/20 px-3 py-2 text-center text-[10px] uppercase tracking-[0.18em]"
           >
             Door
-          </button>
+          </a>
         </div>
       </div>
-
-      {privateOpen && (
-        <div className="fixed inset-0 z-50 grid place-items-center bg-[#14110f]/50 p-5">
-          <div className="paper-card w-full max-w-[420px] p-6">
-            <p className="font-display text-[30px] uppercase">Private Access</p>
-            <input
-              type="password"
-              className="mt-4 w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none"
-              placeholder={t.passcodePlaceholder}
-              value={passcode}
-              onChange={(e) => setPasscode(e.target.value)}
-            />
-            {unlockError && <p className="mt-2 text-sm text-red-700">{unlockError}</p>}
-            <div className="mt-5 flex gap-2">
-              <button
-                type="button"
-                onClick={unlockPrivate}
-                disabled={unlockLoading}
-                className="font-label flex-1 rounded-md border border-[#1f1b18]/25 px-4 py-3 text-[10px] uppercase tracking-[0.2em]"
-              >
-                {unlockLoading ? '...' : t.unlock}
-              </button>
-              <button
-                type="button"
-                onClick={() => setPrivateOpen(false)}
-                className="font-label flex-1 rounded-md border border-[#1f1b18]/25 px-4 py-3 text-[10px] uppercase tracking-[0.2em]"
-              >
-                {t.close}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </main>
   );
 }

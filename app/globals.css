@@ -10,7 +10,7 @@
     src: url('/honera-font-duo/HONERA-Regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
   }
 
   @font-face {
@@ -18,7 +18,7 @@
     src: url('/honera-font-duo/Honera-Script.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
   }
 
   :root {
@@ -28,6 +28,7 @@
     --font-sans: 'Montserrat', sans-serif;
     --paper: #efede8;
     --paper-soft: #f6f2ec;
+    --paper-deep: #e8e2d8;
     --ink: #1f1b18;
   }
 
@@ -47,6 +48,7 @@
     font-family: var(--font-sans);
     color: var(--ink);
     background: var(--paper);
+    line-height: 1.65;
   }
 
   h1,
@@ -55,12 +57,14 @@
   h4 {
     margin: 0;
     font-family: var(--font-display);
+    font-weight: 400;
   }
 }
 
 @layer components {
   .font-display {
     font-family: var(--font-display);
+    font-weight: 400;
   }
 
   .font-script {
@@ -75,6 +79,35 @@
     background: var(--paper-soft);
     border: 1px solid rgba(31, 27, 24, 0.14);
     box-shadow: 0 18px 42px rgba(31, 27, 24, 0.09);
+  }
+
+  .premium-section {
+    position: relative;
+    border-top: 1px solid rgba(31, 27, 24, 0.1);
+    background: linear-gradient(180deg, rgba(246, 242, 236, 0.35) 0%, rgba(239, 237, 232, 0) 100%);
+  }
+
+  .section-shell {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1160px;
+  }
+
+  .section-kicker {
+    font-family: var(--font-label);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(31, 27, 24, 0.58);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(34px, 4.4vw, 58px);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
   }
 
   .cinematic-frame {
