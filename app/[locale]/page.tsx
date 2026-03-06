@@ -789,7 +789,7 @@ export default function HomePage() {
           <div className="reveal w-full" style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.50)', padding: '6px', background: '#f8f4eb' }}>
             <div className="relative overflow-hidden w-full" style={{ aspectRatio: '3/2' }}>
               <img
-                src="/IMG_1697.jpg"
+                src="/IMG_3948-web.jpg"
                 alt="Baan Sayiuan"
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ filter: 'sepia(0.06) contrast(1.04) brightness(1.02)' }}
@@ -947,7 +947,7 @@ export default function HomePage() {
               <div className="absolute" style={{ left: '750px', top: '270px', width: '200px', zIndex: 2 }}>
                 <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
                 <div className="paper-aged p-2 pb-7 shadow-[0_6px_24px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.08)' }}>
-                  <img src="/IMG_3948b.jpg" alt="" className="h-[220px] w-full object-cover" style={{ filter: 'sepia(0.08) contrast(1.02) brightness(1.02)', objectPosition: 'top' }} />
+                  <img src="/IMG_7234b-web.jpg" alt="" className="h-[220px] w-full object-cover" style={{ filter: 'sepia(0.08) contrast(1.02) brightness(1.02)', objectPosition: 'top' }} />
                 </div>
               </div>
 
@@ -1149,7 +1149,7 @@ export default function HomePage() {
         {/* ── Décos scrapbook tropicales ── */}
         <img src="/collage/lotus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '220px', top: '-30px', left: '-55px', transform: 'rotate(-10deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '2350px', right: '-60px', transform: 'rotate(18deg)', opacity: 0.75, zIndex: 0 }} />
-        <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '320px', left: '-60px', transform: 'rotate(-12deg)', opacity: 0.60, zIndex: 0 }} />
+        <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '320px', right: '-60px', transform: 'rotate(12deg)', opacity: 0.60, zIndex: 0 }} />
         <img src="/collage/mango-sticky-rice.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1050px', right: '-80px', transform: 'rotate(10deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
         <img src="/collage/tom-yum-bowl-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '1280px', right: '-90px', transform: 'rotate(-8deg)', opacity: 0.85, zIndex: 0 }} />
         <img src="/collage/coconut-cocktail-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '2050px', left: '-55px', transform: 'rotate(8deg)', opacity: 0.82, zIndex: 0 }} />
