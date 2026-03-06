@@ -539,7 +539,7 @@ export default function HomePage() {
                   <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.taxiLabel}</label>
                   <div className="flex gap-3">
                     {(['yes', 'no'] as const).map((v) => (
-                      <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, taxi: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.taxi === v ? '#e8e0d0' : 'transparent', color: form.taxi === v ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.taxi === v ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
+                      <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, taxi: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.taxi === v ? '#f5e9c0' : 'transparent', color: form.taxi === v ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.taxi === v ? '#c8a84b' : 'rgba(31,27,24,0.20)' }}>
                         {v === 'yes' ? t.taxiYes : t.taxiNo}
                       </button>
                     ))}
@@ -551,7 +551,7 @@ export default function HomePage() {
                   <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.cocktailLabel}</label>
                   <div className="flex flex-wrap gap-2">
                     {t.cocktailOpts.map((c) => (
-                      <button key={c} type="button" onClick={() => setForm((prev) => ({ ...prev, cocktails: prev.cocktails.includes(c) ? prev.cocktails.filter((x) => x !== c) : [...prev.cocktails, c] }))} className="font-label border px-4 py-2 text-[9px] uppercase tracking-[0.16em] transition-colors" style={{ background: form.cocktails.includes(c) ? '#e8e0d0' : 'transparent', color: form.cocktails.includes(c) ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.cocktails.includes(c) ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
+                      <button key={c} type="button" onClick={() => setForm((prev) => ({ ...prev, cocktails: prev.cocktails.includes(c) ? prev.cocktails.filter((x) => x !== c) : [...prev.cocktails, c] }))} className="font-label border px-4 py-2 text-[9px] uppercase tracking-[0.16em] transition-colors" style={{ background: form.cocktails.includes(c) ? '#f5e9c0' : 'transparent', color: form.cocktails.includes(c) ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.cocktails.includes(c) ? '#c8a84b' : 'rgba(31,27,24,0.20)' }}>
                         {c}
                       </button>
                     ))}
@@ -564,7 +564,7 @@ export default function HomePage() {
                   <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.juiceLabel}</label>
                   <div className="flex flex-wrap gap-2">
                     {t.juiceOpts.map((j) => (
-                      <button key={j.value} type="button" onClick={() => setForm((prev) => ({ ...prev, juice: j.value as typeof prev.juice }))} className="font-label border px-4 py-2 text-[9px] uppercase tracking-[0.16em] transition-colors" style={{ background: form.juice === j.value ? '#e8e0d0' : 'transparent', color: form.juice === j.value ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.juice === j.value ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
+                      <button key={j.value} type="button" onClick={() => setForm((prev) => ({ ...prev, juice: j.value as typeof prev.juice }))} className="font-label border px-4 py-2 text-[9px] uppercase tracking-[0.16em] transition-colors" style={{ background: form.juice === j.value ? '#f5e9c0' : 'transparent', color: form.juice === j.value ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.juice === j.value ? '#c8a84b' : 'rgba(31,27,24,0.20)' }}>
                         {j.label}
                       </button>
                     ))}
@@ -575,14 +575,14 @@ export default function HomePage() {
                 </div>
 
                 {/* Breakfast */}
-                <div className="rounded-sm border border-[rgba(31,27,24,0.55)]/30 bg-[#f5f0e8] p-5 space-y-5">
+                <div className="rounded-sm border border-[#c8a84b]/30 bg-[#fffbeb] p-5 space-y-5">
                   <p className="font-label text-[8px] uppercase tracking-[0.28em]" style={{ color: '#1a1714' }}>
                     {locale === 'fr' ? 'Petit-déjeuner' : 'Breakfast'}
                   </p>
                   <div>
                     <label className="font-label mb-2 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.breakfastAdultsLabel}</label>
                     <textarea
-                      className="w-full border border-[#1f1b18]/15 bg-transparent px-3 py-3 text-sm outline-none resize-none"
+                      className="w-full border border-[#c8a84b]/30 bg-transparent px-3 py-3 text-sm outline-none resize-none"
                       rows={3}
                       placeholder={t.breakfastAdultsPlaceholder}
                       value={form.breakfastAdults}
@@ -592,7 +592,7 @@ export default function HomePage() {
                   <div>
                     <label className="font-label mb-2 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.breakfastKidsLabel}</label>
                     <textarea
-                      className="w-full border border-[#1f1b18]/15 bg-transparent px-3 py-3 text-sm outline-none resize-none"
+                      className="w-full border border-[#c8a84b]/30 bg-transparent px-3 py-3 text-sm outline-none resize-none"
                       rows={2}
                       placeholder={t.breakfastKidsPlaceholder}
                       value={form.breakfastKids}
@@ -624,7 +624,7 @@ export default function HomePage() {
                     <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.kidsSleepingLabel}</label>
                     <div className="flex flex-col gap-2">
                       {t.kidsSleepingOpts.map((opt) => (
-                        <button key={opt.value} type="button" onClick={() => setForm((prev) => ({ ...prev, kidsSleeping: prev.kidsSleeping.includes(opt.value) ? prev.kidsSleeping.filter((x) => x !== opt.value) : [...prev.kidsSleeping, opt.value] }))} className="font-label border px-4 py-2.5 text-left text-[9px] uppercase tracking-[0.14em] transition-colors" style={{ background: form.kidsSleeping.includes(opt.value) ? '#e8e0d0' : 'transparent', color: form.kidsSleeping.includes(opt.value) ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.kidsSleeping.includes(opt.value) ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
+                        <button key={opt.value} type="button" onClick={() => setForm((prev) => ({ ...prev, kidsSleeping: prev.kidsSleeping.includes(opt.value) ? prev.kidsSleeping.filter((x) => x !== opt.value) : [...prev.kidsSleeping, opt.value] }))} className="font-label border px-4 py-2.5 text-left text-[9px] uppercase tracking-[0.14em] transition-colors" style={{ background: form.kidsSleeping.includes(opt.value) ? '#f5e9c0' : 'transparent', color: form.kidsSleeping.includes(opt.value) ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.kidsSleeping.includes(opt.value) ? '#c8a84b' : 'rgba(31,27,24,0.20)' }}>
                           {opt.label}
                         </button>
                       ))}
@@ -641,7 +641,7 @@ export default function HomePage() {
                       <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.diapersLabel}</label>
                       <div className="flex gap-3">
                         {(['yes', 'no'] as const).map((v) => (
-                          <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, diapers: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.diapers === v ? '#e8e0d0' : 'transparent', color: form.diapers === v ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.diapers === v ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
+                          <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, diapers: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.diapers === v ? '#f5e9c0' : 'transparent', color: form.diapers === v ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.diapers === v ? '#c8a84b' : 'rgba(31,27,24,0.20)' }}>
                             {v === 'yes' ? t.diapersYes : t.diapersNo}
                           </button>
                         ))}
@@ -654,7 +654,7 @@ export default function HomePage() {
                       <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.babyFoodLabel}</label>
                       <div className="flex gap-3">
                         {(['yes', 'no'] as const).map((v) => (
-                          <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, babyFood: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.babyFood === v ? '#e8e0d0' : 'transparent', color: form.babyFood === v ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.babyFood === v ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
+                          <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, babyFood: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.babyFood === v ? '#f5e9c0' : 'transparent', color: form.babyFood === v ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.babyFood === v ? '#c8a84b' : 'rgba(31,27,24,0.20)' }}>
                             {v === 'yes' ? t.babyFoodYes : t.babyFoodNo}
                           </button>
                         ))}
@@ -669,7 +669,7 @@ export default function HomePage() {
                   <textarea className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none" rows={4} value={form.other} onChange={(e) => setForm((prev) => ({ ...prev, other: e.target.value }))} />
                 </div>
 
-                <button type="submit" className="font-label w-full border px-4 py-4 text-[10px] uppercase tracking-[0.2em] transition-colors hover:opacity-80" style={{ borderColor: 'rgba(31,27,24,0.55)', color: '#1a1714', background: '#e8e0d0' }}>
+                <button type="submit" className="font-label w-full border px-4 py-4 text-[10px] uppercase tracking-[0.2em] transition-colors hover:opacity-80" style={{ borderColor: '#c8a84b', color: '#1a1714', background: '#f5e9c0' }}>
                   {t.submit}
                 </button>
                 {sent && <p className="font-script text-4xl">{t.thankYou}</p>}
@@ -907,7 +907,7 @@ export default function HomePage() {
 
             {/* version desktop — collage overlap */}
             <div className="hidden sm:block">
-              <div className="relative mx-auto" style={{ width: '980px', height: '860px' }}>
+              <div className="relative mx-auto" style={{ width: '980px', height: '490px' }}>
 
               {/* GRANDE PHOTO GAUCHE — balade père fils vers la mer */}
               <div className="absolute" style={{ left: '0px', top: '20px', width: '230px', zIndex: 1 }}>
@@ -983,9 +983,7 @@ export default function HomePage() {
           </div>
 
           {/* PRIORITY LANE — encart pleine largeur */}
-          <div className="relative mt-10 md:mt-14" style={{ borderRadius: '2px' }}>
-            {/* fond papier quadrillé pleine image, pas de crop */}
-            <img src="/collage/grid-paper.png" alt="" className="absolute inset-0 w-full h-full" style={{ objectFit: 'fill', opacity: 0.60 }} />
+          <div className="relative mt-6 md:mt-8" style={{ borderRadius: '2px', backgroundImage: 'url(/collage/grid-paper.png)', backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat' }}>
             <div className="absolute inset-0" style={{ background: 'rgba(248,244,235,0.55)' }} />
             <div className="relative z-10 flex flex-col md:flex-row items-start gap-6 md:gap-16 px-8 py-8 md:px-14 md:py-10">
               {/* Gauche : label + titre + stamps */}
@@ -1137,14 +1135,10 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Receipt — desktop */}
-            <div className="hidden md:block flex-shrink-0" style={{ transform: 'rotate(-1.5deg)' }}>
+            {/* Receipt + Tiger Balm superposé — desktop */}
+            <div className="hidden md:flex flex-shrink-0 relative" style={{ transform: 'rotate(-1.5deg)' }}>
               <SevenElevenReceipt locale={locale} />
-            </div>
-
-            {/* Tiger Balm — desktop */}
-            <div className="hidden md:block flex-shrink-0" style={{ transform: 'rotate(7deg)' }}>
-              <img src="/collage/tiger-balm-nobg.png" alt="" style={{ width: '110px', opacity: 0.88 }} />
+              <img src="/collage/tiger-balm-nobg.png" alt="" style={{ position: 'absolute', bottom: '-30px', right: '-40px', width: '100px', opacity: 0.90, transform: 'rotate(12deg)', zIndex: 10 }} />
             </div>
 
           </div>
@@ -1159,11 +1153,12 @@ export default function HomePage() {
         <img src="/collage/lotus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '220px', top: '-30px', left: '-55px', transform: 'rotate(-10deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '320px', right: '-60px', transform: 'rotate(12deg)', opacity: 0.60, zIndex: 0 }} />
         <img src="/collage/mango-sticky-rice.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1050px', right: '-80px', transform: 'rotate(10deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/hibiscus2-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '850px', left: '-70px', transform: 'rotate(-12deg)', opacity: 0.85, zIndex: 0 }} />
         <img src="/collage/tom-yum-bowl-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '1280px', right: '-90px', transform: 'rotate(-8deg)', opacity: 0.85, zIndex: 0 }} />
         <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '150px', top: '1500px', left: '-65px', transform: 'rotate(10deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
         {/* Wellness stickers — distribués de ~1800px à ~2900px */}
         <img src="/collage/pad-thai.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1700px', right: '-75px', transform: 'rotate(-6deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
-        <img src="/collage/coconut-cocktail-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '140px', top: '1950px', left: '-65px', transform: 'rotate(8deg)', opacity: 0.82, zIndex: 0 }} />
+        <img src="/collage/coconut-cocktail-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '140px', top: '2100px', right: '-65px', transform: 'rotate(-8deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '165px', top: '2200px', right: '-75px', transform: 'rotate(15deg)', opacity: 0.75, zIndex: 0 }} />
         <img src="/collage/mangosteen-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '2500px', left: '-60px', transform: 'rotate(-7deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', bottom: '80px', right: '-70px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
@@ -1420,6 +1415,11 @@ export default function HomePage() {
 
         {/* Timbre Muay Thai — déco desktop */}
         <img src="/collage/muay-thai-stamp-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '280px', top: '60px', right: '-40px', transform: 'rotate(6deg)', opacity: 0.75, zIndex: 0 }} />
+        {/* Nouveaux stickers Phuket */}
+        <img src="/collage/monk-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '120px', left: '-50px', transform: 'rotate(4deg)', opacity: 0.88, zIndex: 0 }} />
+        <img src="/collage/palm-tree-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '200px', top: '500px', right: '-60px', transform: 'rotate(-5deg)', opacity: 0.80, zIndex: 0 }} />
+        <img src="/collage/longtail-boat-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '220px', top: '900px', left: '-65px', transform: 'rotate(8deg)', opacity: 0.82, zIndex: 0 }} />
+        <img src="/collage/monkeys-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '200px', top: '1300px', right: '-55px', transform: 'rotate(-6deg)', opacity: 0.85, zIndex: 0 }} />
 
         <div className="relative mx-auto max-w-6xl">
 
