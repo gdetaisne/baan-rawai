@@ -34,12 +34,13 @@ const CONTENT = {
     restaurantsLabel: 'Restaurants',
     activitiesLabel: 'Activities',
     arrivalTime: 'Arrival time (e.g. 14:30)',
+    firstName: 'First name(s)',
     flightNumber: 'Flight number (optional)',
     taxiLabel: 'Airport taxi — we\'ll book it for you. Your driver will be waiting with a sign (700 THB)',
     taxiYes: 'Yes please',
     taxiNo: 'No thanks, I\'ll sort it',
     cocktailLabel: 'Favourite cocktail(s) — we\'ll have them ready',
-    cocktailOpts: ['Gin & Tonic', 'Mojito', 'Spritz', 'Margarita', 'Rum & Coke', 'Whisky Soda'],
+    cocktailOpts: ['Gin & Tonic', 'Mojito', 'Spritz', 'Margarita'],
     cocktailOther: 'Other cocktail',
     juiceLabel: 'Morning juice preference',
     juiceOpts: [
@@ -124,12 +125,13 @@ const CONTENT = {
     restaurantsLabel: 'Restaurants',
     activitiesLabel: 'Activités',
     arrivalTime: 'Heure d\'arrivée (ex. 14:30)',
+    firstName: 'Prénom(s)',
     flightNumber: 'Numéro de vol (optionnel)',
     taxiLabel: 'Taxi aéroport — on s\'occupe de le réserver pour vous, il vous attendra avec un panneau nominatif (700 THB)',
     taxiYes: 'Oui, avec plaisir',
     taxiNo: 'Non merci, je gère',
     cocktailLabel: 'Cocktail(s) préféré(s) — on les prépare',
-    cocktailOpts: ['Gin & Tonic', 'Mojito', 'Spritz', 'Margarita', 'Rhum Coca', 'Whisky Soda'],
+    cocktailOpts: ['Gin & Tonic', 'Mojito', 'Spritz', 'Margarita'],
     cocktailOther: 'Autre cocktail',
     juiceLabel: 'Jus du matin',
     juiceOpts: [
@@ -351,6 +353,7 @@ export default function HomePage() {
   const [sent, setSent] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
   const [form, setForm] = useState({
+    firstName: '',
     arrivalTime: '',
     flightNumber: '',
     taxi: '' as '' | 'yes' | 'no',
@@ -463,42 +466,61 @@ export default function HomePage() {
             <div className="px-5 pb-12 pt-6 md:px-10">
               <p className="section-kicker mb-3">{locale === 'fr' ? 'Préparez votre séjour' : 'Plan Your Stay'}</p>
               <p className="section-title">{t.formTitle}</p>
-              {/* Post-it note towels */}
-              <div className="relative mt-6 inline-block max-w-xs">
-                {/* scotch en haut */}
-                <div className="tape-vintage absolute -top-3 left-1/2 z-20 h-5 w-14 -translate-x-1/2" />
-                {/* post-it jaune */}
-                <div style={{
-                  background: '#fef6c7',
-                  padding: '14px 18px 18px',
-                  boxShadow: '2px 4px 12px rgba(31,27,24,0.15), inset 0 -1px 0 rgba(31,27,24,0.05)',
-                  fontFamily: "'Courier New', Courier, monospace",
-                  fontSize: '11px',
-                  lineHeight: 1.65,
-                  color: '#3a2f1a',
-                  transform: 'rotate(-1.2deg)',
-                }}>
-                  {t.towelNote}
-                </div>
-              </div>
+              {/* Post-its côte à côte : serviettes + règles */}
+              <div className="mt-6 flex flex-col sm:flex-row gap-6 items-start">
 
-              {/* Post-it house rules */}
-              <div className="relative mt-4 inline-block max-w-xs">
-                <div style={{
-                  background: '#fde9a2',
-                  padding: '12px 14px 14px',
-                  boxShadow: '2px 3px 8px rgba(0,0,0,0.13)',
-                  fontFamily: "'Courier New', Courier, monospace",
-                  fontSize: '11px',
-                  lineHeight: 1.65,
-                  color: '#3a2f1a',
-                  transform: 'rotate(0.8deg)',
-                }}>
-                  {t.houseRules}
+                {/* Post-it serviettes */}
+                <div className="relative flex-shrink-0" style={{ maxWidth: '240px' }}>
+                  <div className="tape-vintage absolute -top-3 left-1/2 z-20 h-5 w-14 -translate-x-1/2" />
+                  <div style={{
+                    background: '#fef6c7',
+                    padding: '14px 18px 18px',
+                    boxShadow: '2px 4px 12px rgba(31,27,24,0.15)',
+                    fontFamily: "'Courier New', Courier, monospace",
+                    fontSize: '11px',
+                    lineHeight: 1.65,
+                    color: '#3a2f1a',
+                    transform: 'rotate(-1.2deg)',
+                  }}>
+                    {t.towelNote}
+                  </div>
                 </div>
-              </div>
 
+                {/* Post-it house rules — fond papier quadrillé */}
+                <div className="relative flex-1" style={{ minWidth: '220px' }}>
+                  <div className="tape-vintage absolute -top-3 left-6 z-10 h-6 w-16" />
+                  <div className="tape-vintage absolute -top-3 right-6 z-10 h-6 w-16" />
+                  <div className="relative overflow-hidden" style={{ borderRadius: '1px' }}>
+                    <img src="/collage/grid-paper.png" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ opacity: 0.50 }} />
+                    <div className="absolute inset-0" style={{ background: 'rgba(254,246,199,0.70)' }} />
+                    <div className="relative z-10 px-5 py-5" style={{ fontFamily: "'Courier New', Courier, monospace", fontSize: '11.5px', lineHeight: 1.8, color: '#3a2f1a' }}>
+                      <p className="font-label mb-3 text-[7px] uppercase tracking-[0.22em]" style={{ color: 'rgba(58,47,26,0.50)' }}>{locale === 'fr' ? 'Règles de la maison' : 'House rules'}</p>
+                      {(locale === 'fr' ? [
+                        'Chaussures à la porte (style thaï)',
+                        'Éteignez la clim en quittant votre chambre',
+                        'Fermez bien les portes pour les moustiques',
+                      ] : [
+                        'Shoes off at the door (Thai style)',
+                        'Turn off the A/C when leaving your room',
+                        'Keep doors closed to keep mosquitoes out',
+                      ]).map((rule, i) => (
+                        <p key={i} style={{ display: 'flex', gap: '8px' }}>
+                          <span style={{ opacity: 0.40, flexShrink: 0 }}>{i + 1}.</span>
+                          <span>{rule}</span>
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+              </div>
               <form onSubmit={async (e) => { await submitGuestForm(e); }} className="mt-8 space-y-8">
+
+                {/* Prénom */}
+                <div>
+                  <label className="font-label mb-2 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.firstName}</label>
+                  <input type="text" className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none" placeholder={locale === 'fr' ? 'ex. Lucie & Guillaume' : 'e.g. Lucie & Guillaume'} value={form.firstName} onChange={(e) => setForm((prev) => ({ ...prev, firstName: e.target.value }))} />
+                </div>
 
                 {/* Arrivée */}
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -517,7 +539,7 @@ export default function HomePage() {
                   <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.taxiLabel}</label>
                   <div className="flex gap-3">
                     {(['yes', 'no'] as const).map((v) => (
-                      <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, taxi: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.taxi === v ? '#fef3c7' : 'transparent', color: form.taxi === v ? '#78450f' : 'rgba(31,27,24,0.65)', borderColor: form.taxi === v ? '#d4a017' : 'rgba(31,27,24,0.20)' }}>
+                      <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, taxi: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.taxi === v ? '#e8e0d0' : 'transparent', color: form.taxi === v ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.taxi === v ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
                         {v === 'yes' ? t.taxiYes : t.taxiNo}
                       </button>
                     ))}
@@ -529,7 +551,7 @@ export default function HomePage() {
                   <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.cocktailLabel}</label>
                   <div className="flex flex-wrap gap-2">
                     {t.cocktailOpts.map((c) => (
-                      <button key={c} type="button" onClick={() => setForm((prev) => ({ ...prev, cocktails: prev.cocktails.includes(c) ? prev.cocktails.filter((x) => x !== c) : [...prev.cocktails, c] }))} className="font-label border px-4 py-2 text-[9px] uppercase tracking-[0.16em] transition-colors" style={{ background: form.cocktails.includes(c) ? '#fef3c7' : 'transparent', color: form.cocktails.includes(c) ? '#78450f' : 'rgba(31,27,24,0.65)', borderColor: form.cocktails.includes(c) ? '#d4a017' : 'rgba(31,27,24,0.20)' }}>
+                      <button key={c} type="button" onClick={() => setForm((prev) => ({ ...prev, cocktails: prev.cocktails.includes(c) ? prev.cocktails.filter((x) => x !== c) : [...prev.cocktails, c] }))} className="font-label border px-4 py-2 text-[9px] uppercase tracking-[0.16em] transition-colors" style={{ background: form.cocktails.includes(c) ? '#e8e0d0' : 'transparent', color: form.cocktails.includes(c) ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.cocktails.includes(c) ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
                         {c}
                       </button>
                     ))}
@@ -542,7 +564,7 @@ export default function HomePage() {
                   <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.juiceLabel}</label>
                   <div className="flex flex-wrap gap-2">
                     {t.juiceOpts.map((j) => (
-                      <button key={j.value} type="button" onClick={() => setForm((prev) => ({ ...prev, juice: j.value as typeof prev.juice }))} className="font-label border px-4 py-2 text-[9px] uppercase tracking-[0.16em] transition-colors" style={{ background: form.juice === j.value ? '#fef3c7' : 'transparent', color: form.juice === j.value ? '#78450f' : 'rgba(31,27,24,0.65)', borderColor: form.juice === j.value ? '#d4a017' : 'rgba(31,27,24,0.20)' }}>
+                      <button key={j.value} type="button" onClick={() => setForm((prev) => ({ ...prev, juice: j.value as typeof prev.juice }))} className="font-label border px-4 py-2 text-[9px] uppercase tracking-[0.16em] transition-colors" style={{ background: form.juice === j.value ? '#e8e0d0' : 'transparent', color: form.juice === j.value ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.juice === j.value ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
                         {j.label}
                       </button>
                     ))}
@@ -553,8 +575,8 @@ export default function HomePage() {
                 </div>
 
                 {/* Breakfast */}
-                <div className="rounded-sm border border-[#d4a017]/30 bg-[#fffbeb] p-5 space-y-5">
-                  <p className="font-label text-[8px] uppercase tracking-[0.28em]" style={{ color: '#78450f' }}>
+                <div className="rounded-sm border border-[rgba(31,27,24,0.55)]/30 bg-[#f5f0e8] p-5 space-y-5">
+                  <p className="font-label text-[8px] uppercase tracking-[0.28em]" style={{ color: '#1a1714' }}>
                     {locale === 'fr' ? 'Petit-déjeuner' : 'Breakfast'}
                   </p>
                   <div>
@@ -602,7 +624,7 @@ export default function HomePage() {
                     <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.kidsSleepingLabel}</label>
                     <div className="flex flex-col gap-2">
                       {t.kidsSleepingOpts.map((opt) => (
-                        <button key={opt.value} type="button" onClick={() => setForm((prev) => ({ ...prev, kidsSleeping: prev.kidsSleeping.includes(opt.value) ? prev.kidsSleeping.filter((x) => x !== opt.value) : [...prev.kidsSleeping, opt.value] }))} className="font-label border px-4 py-2.5 text-left text-[9px] uppercase tracking-[0.14em] transition-colors" style={{ background: form.kidsSleeping.includes(opt.value) ? '#fef3c7' : 'transparent', color: form.kidsSleeping.includes(opt.value) ? '#78450f' : 'rgba(31,27,24,0.65)', borderColor: form.kidsSleeping.includes(opt.value) ? '#d4a017' : 'rgba(31,27,24,0.20)' }}>
+                        <button key={opt.value} type="button" onClick={() => setForm((prev) => ({ ...prev, kidsSleeping: prev.kidsSleeping.includes(opt.value) ? prev.kidsSleeping.filter((x) => x !== opt.value) : [...prev.kidsSleeping, opt.value] }))} className="font-label border px-4 py-2.5 text-left text-[9px] uppercase tracking-[0.14em] transition-colors" style={{ background: form.kidsSleeping.includes(opt.value) ? '#e8e0d0' : 'transparent', color: form.kidsSleeping.includes(opt.value) ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.kidsSleeping.includes(opt.value) ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
                           {opt.label}
                         </button>
                       ))}
@@ -619,7 +641,7 @@ export default function HomePage() {
                       <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.diapersLabel}</label>
                       <div className="flex gap-3">
                         {(['yes', 'no'] as const).map((v) => (
-                          <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, diapers: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.diapers === v ? '#fef3c7' : 'transparent', color: form.diapers === v ? '#78450f' : 'rgba(31,27,24,0.65)', borderColor: form.diapers === v ? '#d4a017' : 'rgba(31,27,24,0.20)' }}>
+                          <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, diapers: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.diapers === v ? '#e8e0d0' : 'transparent', color: form.diapers === v ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.diapers === v ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
                             {v === 'yes' ? t.diapersYes : t.diapersNo}
                           </button>
                         ))}
@@ -632,7 +654,7 @@ export default function HomePage() {
                       <label className="font-label mb-3 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.babyFoodLabel}</label>
                       <div className="flex gap-3">
                         {(['yes', 'no'] as const).map((v) => (
-                          <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, babyFood: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.babyFood === v ? '#fef3c7' : 'transparent', color: form.babyFood === v ? '#78450f' : 'rgba(31,27,24,0.65)', borderColor: form.babyFood === v ? '#d4a017' : 'rgba(31,27,24,0.20)' }}>
+                          <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, babyFood: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.babyFood === v ? '#e8e0d0' : 'transparent', color: form.babyFood === v ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.babyFood === v ? 'rgba(31,27,24,0.55)' : 'rgba(31,27,24,0.20)' }}>
                             {v === 'yes' ? t.babyFoodYes : t.babyFoodNo}
                           </button>
                         ))}
@@ -647,7 +669,7 @@ export default function HomePage() {
                   <textarea className="w-full border border-[#1f1b18]/20 bg-transparent px-3 py-3 text-sm outline-none" rows={4} value={form.other} onChange={(e) => setForm((prev) => ({ ...prev, other: e.target.value }))} />
                 </div>
 
-                <button type="submit" className="font-label w-full border px-4 py-4 text-[10px] uppercase tracking-[0.2em] transition-colors hover:opacity-80" style={{ borderColor: '#d4a017', color: '#78450f', background: '#fef3c7' }}>
+                <button type="submit" className="font-label w-full border px-4 py-4 text-[10px] uppercase tracking-[0.2em] transition-colors hover:opacity-80" style={{ borderColor: 'rgba(31,27,24,0.55)', color: '#1a1714', background: '#e8e0d0' }}>
                   {t.submit}
                 </button>
                 {sent && <p className="font-script text-4xl">{t.thankYou}</p>}
@@ -776,7 +798,7 @@ export default function HomePage() {
                 src="/IMG_1707-web.jpg"
                 alt="Baan Sayiuan"
                 className="absolute inset-0 h-full w-full object-cover"
-                style={{ filter: 'sepia(0.06) contrast(1.04) brightness(1.02)' }}
+                style={{ filter: 'sepia(0.18) contrast(1.08) brightness(1.04) saturate(1.15) hue-rotate(-5deg)' }}
               />
               <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 50px rgba(0,0,0,0.22)' }} />
               <p
@@ -799,19 +821,21 @@ export default function HomePage() {
                   <p className="font-display text-[9px] md:text-[11px] uppercase tracking-[0.10em] text-[#1f1b18]/35 mb-2">Postcard</p>
                   <div style={{ height: '1px', background: 'rgba(31,27,24,0.14)' }} />
                 </div>
-                <div style={{ width: '120px', height: '120px', flexShrink: 0, marginTop: '-6px' }}>
-                  <img
-                    src="/collage/ed314742de5bf7445488ba1b5414ac6c.jpg"
-                    alt="Thailand stamp"
-                    style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.92 }}
-                  />
+                <div className="md:hidden" style={{ width: '64px', height: '64px', flexShrink: 0, marginTop: '-4px' }}>
+                  <img src="/collage/ed314742de5bf7445488ba1b5414ac6c.jpg" alt="Thailand stamp" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.92 }} />
+                </div>
+                <div className="hidden md:block" style={{ width: '120px', height: '120px', flexShrink: 0, marginTop: '-6px' }}>
+                  <img src="/collage/ed314742de5bf7445488ba1b5414ac6c.jpg" alt="Thailand stamp" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.92 }} />
                 </div>
               </div>
 
               {/* Milieu : texte message */}
-              <p className="font-script whitespace-pre-line leading-[1.4] text-[#1f1b18]/68" style={{ fontSize: 'clamp(11px, 1.8vw, 18px)' }}>
-                {t.welcomeStory1}
-              </p>
+              <div>
+                <p className="font-display mb-2" style={{ fontSize: 'clamp(13px, 2vw, 20px)', color: 'rgba(31,27,24,0.30)', letterSpacing: '0.06em' }}>บ้านไซยวน</p>
+                <p className="font-script whitespace-pre-line leading-[1.4] text-[#1f1b18]/68" style={{ fontSize: 'clamp(11px, 1.8vw, 18px)' }}>
+                  {t.welcomeStory1}
+                </p>
+              </div>
 
               {/* Bas : adresse */}
               <p className="font-label text-[6px] md:text-[7px] uppercase tracking-[0.18em] text-[#1f1b18]/22">
@@ -879,28 +903,6 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* PRIORITY LANE — encart pleine largeur mobile */}
-              <div className="relative mt-4 overflow-hidden">
-                <img src="/collage/grid-paper.png" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ opacity: 0.45 }} />
-                <div className="absolute inset-0" style={{ background: 'rgba(248,244,235,0.78)' }} />
-                <div className="tape-vintage absolute -top-3 left-8 z-10 h-6 w-16" />
-                <div className="tape-vintage absolute -top-3 right-8 z-10 h-6 w-16" />
-                <div className="relative z-10 p-6">
-                  <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.40)' }}>Pro tip</p>
-                  <div className="mt-1 flex items-center gap-3">
-                    <p className="font-display leading-none uppercase" style={{ fontSize: '32px', color: '#1a1714' }}>Priority Lane</p>
-                    <span className="stamp-important flex-shrink-0" style={{ width: '52px', height: '52px', transform: 'rotate(-4deg)' }}>
-                      <span style={{ fontSize: '8px' }}>ด่วน</span>
-                      <span style={{ fontSize: '6px' }}>priority</span>
-                    </span>
-                  </div>
-                  <p className="mt-3 text-[12px] leading-[1.8]" style={{ color: 'rgba(31,27,24,0.70)' }}>
-                    {locale === 'fr'
-                      ? "Au passport control, approchez l'agent et dites juste « priority lane — how much ? ». Il annonce un prix entre 500 et 1000 bahts — c'est du bakchich, cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : 30 min à 2h dans la queue."
-                      : 'At passport control, say "priority lane — how much?" to the agent. They\'ll quote 500–1000 baht — cash in baht only. Exchange desk right before if needed. Passports, TDAC and cash ready. Through in 2 minutes. Without it: 30 min to 2 hours in line.'}
-                  </p>
-                </div>
-              </div>
             </div>
 
             {/* version desktop — collage overlap */}
@@ -955,8 +957,7 @@ export default function HomePage() {
               {/* eSIM */}
               <div className="absolute" style={{ left: '748px', top: '10px', width: '195px', zIndex: 2 }}>
                 <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-                <div className="paper-aged relative overflow-visible p-5 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                  <img src="/collage/138b0b0bd528ce0fd7eb2fbc548ae461.png" alt="" className="pointer-events-none absolute" style={{ width: '80px', bottom: '-22px', right: '-22px', zIndex: 10, opacity: 1, transform: 'rotate(20deg)' }} />
+                <div className="paper-aged relative p-5 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                   <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Connexion' : 'Data'}</p>
                   <p className="font-display mt-1 text-[28px] uppercase leading-none" style={{ color: '#1a1714' }}>eSIM</p>
                   <p className="mt-2 text-[12px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.72)' }}>{locale === 'fr' ? "À installer avant de décoller — connecté dès l'atterrissage." : 'Install before takeoff — connected straight from landing.'}</p>
@@ -982,13 +983,10 @@ export default function HomePage() {
           </div>
 
           {/* PRIORITY LANE — encart pleine largeur */}
-          <div className="relative mt-10 md:mt-14 overflow-hidden" style={{ borderRadius: '2px' }}>
-            {/* fond papier quadrillé */}
-            <img src="/collage/grid-paper.png" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ opacity: 0.55 }} />
-            <div className="absolute inset-0" style={{ background: 'rgba(248,244,235,0.72)' }} />
-            {/* tape gauche + droite */}
-            <div className="tape-vintage absolute -top-3 left-12 z-10 h-7 w-20" />
-            <div className="tape-vintage absolute -top-3 right-12 z-10 h-7 w-20" />
+          <div className="relative mt-10 md:mt-14" style={{ borderRadius: '2px' }}>
+            {/* fond papier quadrillé pleine image, pas de crop */}
+            <img src="/collage/grid-paper.png" alt="" className="absolute inset-0 w-full h-full" style={{ objectFit: 'fill', opacity: 0.60 }} />
+            <div className="absolute inset-0" style={{ background: 'rgba(248,244,235,0.55)' }} />
             <div className="relative z-10 flex flex-col md:flex-row items-start gap-6 md:gap-16 px-8 py-8 md:px-14 md:py-10">
               {/* Gauche : label + titre + stamps */}
               <div className="flex-shrink-0">
@@ -1009,8 +1007,8 @@ export default function HomePage() {
               <div className="flex-1">
                 <p className="text-[13px] leading-[1.85]" style={{ color: 'rgba(31,27,24,0.72)' }}>
                   {locale === 'fr'
-                    ? "Au passport control, approchez l'agent et dites juste « priority lane — how much ? ». Il annonce un prix entre 500 et 1000 bahts — c'est du bakchich, cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : comptez entre 30 min et 2h dans la queue."
-                    : 'At passport control, walk up to the agent and say "priority lane — how much?" They\'ll quote you 500–1000 baht — it\'s a bribe, cash in baht only. Exchange desk right before if needed. Passports, TDAC forms and cash ready. You\'re through in 2 minutes. Without it: queue for 30 min to 2 hours.'}
+                    ? "Au passport control, approchez l'agent et dites juste « priority lane — how much ? ». Il annonce un prix entre 500 et 1000 bahts — cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : comptez entre 30 min et 2h dans la queue."
+                    : 'At passport control, walk up to the agent and say "priority lane — how much?" They\'ll quote you 500–1000 baht — cash in baht only. Exchange desk right before if needed. Passports, TDAC forms and cash ready. You\'re through in 2 minutes. Without it: queue for 30 min to 2 hours.'}
                 </p>
               </div>
             </div>
@@ -1162,13 +1160,13 @@ export default function HomePage() {
         <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '320px', right: '-60px', transform: 'rotate(12deg)', opacity: 0.60, zIndex: 0 }} />
         <img src="/collage/mango-sticky-rice.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1050px', right: '-80px', transform: 'rotate(10deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
         <img src="/collage/tom-yum-bowl-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '1280px', right: '-90px', transform: 'rotate(-8deg)', opacity: 0.85, zIndex: 0 }} />
-        <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '1500px', left: '-65px', transform: 'rotate(10deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '150px', top: '1500px', left: '-65px', transform: 'rotate(10deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
         {/* Wellness stickers — distribués de ~1800px à ~2900px */}
-        <img src="/collage/coconut-cocktail-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1820px', right: '-55px', transform: 'rotate(-8deg)', opacity: 0.82, zIndex: 0 }} />
-        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '2150px', left: '-60px', transform: 'rotate(15deg)', opacity: 0.75, zIndex: 0 }} />
-        <img src="/collage/mangosteen-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '190px', top: '2500px', right: '-65px', transform: 'rotate(-7deg)', opacity: 0.82, zIndex: 0 }} />
-        <img src="/collage/pad-thai.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '1700px', right: '-60px', transform: 'rotate(-6deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
-        <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '190px', bottom: '120px', right: '-65px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
+        <img src="/collage/pad-thai.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1700px', right: '-75px', transform: 'rotate(-6deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/coconut-cocktail-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '140px', top: '1950px', left: '-65px', transform: 'rotate(8deg)', opacity: 0.82, zIndex: 0 }} />
+        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '165px', top: '2200px', right: '-75px', transform: 'rotate(15deg)', opacity: 0.75, zIndex: 0 }} />
+        <img src="/collage/mangosteen-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '2500px', left: '-60px', transform: 'rotate(-7deg)', opacity: 0.82, zIndex: 0 }} />
+        <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', bottom: '80px', right: '-70px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
 
         <div className="relative mx-auto max-w-5xl">
 
