@@ -410,6 +410,34 @@ export default function HomePage() {
     return () => observer.disconnect();
   }, []);
 
+  // Force autoplay sur mobile (iOS Safari bloque parfois l'autoplay)
+  useEffect(() => {
+    const tryPlay = (video: HTMLVideoElement) => {
+      if (video.paused) {
+        video.play().catch(() => {/* silencieux si bloqué par le navigateur */});
+      }
+    };
+
+    const videos = document.querySelectorAll<HTMLVideoElement>('video[autoplay], video[autoPlay]');
+    videos.forEach(tryPlay);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            tryPlay(video);
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    videos.forEach((v) => observer.observe(v));
+    return () => observer.disconnect();
+  }, []);
+
   const submitGuestForm = async (e: FormEvent) => {
     e.preventDefault();
     setSent(false);
