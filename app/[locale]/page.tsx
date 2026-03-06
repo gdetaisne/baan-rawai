@@ -782,55 +782,62 @@ export default function HomePage() {
         </video>
         <div className="absolute inset-0 bg-[#1a1410]/45" />
 
-        {/* Carte postale — format paysage 3:2, recto | verso */}
-        <div className="relative mx-auto shadow-[0_12px_60px_rgba(0,0,0,0.50)]" style={{ maxWidth: '680px' }}>
-          <div className="reveal grid grid-cols-2 bg-[#f8f4eb]" style={{ aspectRatio: '3/1' }}>
+        {/* Carte postale — recto + verso empilés, même taille exacte */}
+        <div className="relative mx-auto flex flex-col items-center" style={{ maxWidth: '520px', gap: '10px' }}>
 
-            {/* RECTO — photo */}
-            <div className="relative overflow-hidden" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
+          {/* RECTO — photo */}
+          <div className="reveal w-full" style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.50)', padding: '6px', background: '#f8f4eb' }}>
+            <div className="relative overflow-hidden w-full" style={{ aspectRatio: '3/2' }}>
               <img
                 src="/IMG_1697.jpg"
                 alt="Baan Sayiuan"
-                className="h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover"
                 style={{ filter: 'sepia(0.06) contrast(1.04) brightness(1.02)' }}
               />
-              <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 40px rgba(0,0,0,0.18)' }} />
+              <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 50px rgba(0,0,0,0.22)' }} />
               <p
-                className="font-script absolute bottom-3 left-3 whitespace-pre-line leading-none text-white"
-                style={{ fontSize: 'clamp(14px, 2.2vw, 30px)', textShadow: '0 2px 8px rgba(0,0,0,0.65)', transform: 'rotate(-3deg)', transformOrigin: 'left bottom' }}
+                className="font-script absolute bottom-4 left-4 whitespace-pre-line leading-none text-white"
+                style={{ fontSize: 'clamp(16px, 3vw, 28px)', textShadow: '0 2px 10px rgba(0,0,0,0.70)', transform: 'rotate(-2.5deg)', transformOrigin: 'left bottom' }}
               >
                 {t.postcardLine}
               </p>
             </div>
+          </div>
 
-            {/* VERSO — texte */}
-            <div className="flex flex-col justify-between p-3 md:p-5">
-              {/* haut : label + stamp */}
-              <div className="flex items-start justify-between">
-                <p className="font-display text-[9px] md:text-[11px] uppercase tracking-[0.08em] text-[#1f1b18]/40">Postcard</p>
-                <div style={{ width: '64px', height: '64px', flexShrink: 0 }}>
+          {/* VERSO — même structure */}
+          <div className="reveal w-full bg-[#f8f4eb]" style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.45)', padding: '6px' }}>
+            <div className="w-full" style={{ aspectRatio: '3/2' }}>
+            <div className="flex flex-col justify-between w-full h-full p-4 md:p-6">
+
+              {/* Haut : label + ligne + timbre */}
+              <div className="flex items-start gap-3">
+                <div className="flex-1 flex flex-col" style={{ paddingTop: '2px' }}>
+                  <p className="font-display text-[9px] md:text-[11px] uppercase tracking-[0.10em] text-[#1f1b18]/35 mb-2">Postcard</p>
+                  <div style={{ height: '1px', background: 'rgba(31,27,24,0.14)' }} />
+                </div>
+                <div style={{ width: '72px', height: '72px', flexShrink: 0, marginTop: '-6px' }}>
                   <img
                     src="/collage/ed314742de5bf7445488ba1b5414ac6c.jpg"
                     alt="Thailand stamp"
-                    style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.90 }}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', opacity: 0.92 }}
                   />
                 </div>
               </div>
 
-              {/* milieu : trait de séparation + texte */}
-              <div style={{ borderTop: '1px solid rgba(31,27,24,0.10)', paddingTop: '6px' }}>
-                <p className="font-script whitespace-pre-line leading-[1.3] text-[#1f1b18]/70" style={{ fontSize: 'clamp(10px, 1.6vw, 16px)' }}>
-                  {t.welcomeStory1}
-                </p>
-              </div>
+              {/* Milieu : texte message */}
+              <p className="font-script whitespace-pre-line leading-[1.4] text-[#1f1b18]/68" style={{ fontSize: 'clamp(11px, 1.8vw, 18px)' }}>
+                {t.welcomeStory1}
+              </p>
 
-              {/* bas : adresse */}
-              <p className="font-label text-[6px] md:text-[7px] uppercase tracking-[0.18em] text-[#1f1b18]/25">
+              {/* Bas : adresse */}
+              <p className="font-label text-[6px] md:text-[7px] uppercase tracking-[0.18em] text-[#1f1b18]/22">
                 baan Sayiuan · 59/45 Soi Sayiuan 13 · Rawai · Phuket
               </p>
-            </div>
 
+            </div>
+            </div>
           </div>
+
         </div>
 
       </section>
@@ -997,124 +1004,141 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── AT THE VILLA – editorial sombre ──────────────────────── */}
+      {/* ── AT THE VILLA ──────────────────────────────────────── */}
       <section id="arrival" className="relative overflow-hidden" style={{ background: '#1f1b18' }}>
 
-        {/* Header — fond crème séparé */}
-        <div className="px-5 pt-20 pb-12 md:px-10 md:pt-28 md:pb-16 text-center" style={{ background: '#f8f4eb' }}>
+        {/* Header — fond crème */}
+        <div className="px-5 pt-10 pb-8 md:px-10 md:pt-20 md:pb-14 text-center" style={{ background: '#f8f4eb' }}>
           <p className="reveal font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>At The Villa</p>
           <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.arrivalTitle}</h2>
         </div>
 
-        {/* Grid principale — 3 colonnes sur fond sombre */}
-        <div className="grid grid-cols-1 md:grid-cols-3" style={{ borderTop: '1px solid rgba(255,248,236,0.08)' }}>
+        {/* Bloc pleine largeur — fond océan */}
+        <div className="relative overflow-hidden min-h-[500px] md:min-h-[560px] flex items-center justify-center px-6 py-14 md:px-16 md:py-20">
 
-          {/* ── COL 1 — Photo piscine ── */}
-          <div className="relative overflow-hidden h-[220px] md:h-auto md:min-h-[480px]" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
-            <img src="/IMG_pool_evening.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'sepia(0.12) contrast(1.06) brightness(0.80)' }} />
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(31,27,24,0.70) 0%, transparent 60%)' }} />
-          </div>
+          {/* Fond océan */}
+          <img src="/IMG_2278.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center top', filter: 'brightness(0.45) saturate(1.1)' }} />
+          <div className="absolute inset-0" style={{ background: 'rgba(15,12,10,0.30)' }} />
 
-          {/* ── COL 2 — Codes accès ── */}
-          <div className="flex flex-col justify-center px-8 py-12 md:py-16" style={{ borderRight: '1px solid rgba(255,248,236,0.08)', borderTop: '1px solid rgba(255,248,236,0.08)' }}>
-            <p className="reveal font-label text-[7px] uppercase tracking-[0.32em] mb-10" style={{ color: 'rgba(255,248,236,0.30)' }}>{locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}</p>
+          {/* Contenu : polaroid + post-it codes */}
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-14 w-full max-w-4xl">
 
-            {/* WiFi réseau */}
-            <div className="reveal mb-7" style={{ borderBottom: '1px solid rgba(255,248,236,0.07)', paddingBottom: '20px' }}>
-              <p className="font-label text-[7px] uppercase tracking-[0.22em] mb-2" style={{ color: 'rgba(255,248,236,0.30)' }}>{t.wifiNetwork}</p>
-              <p style={{ fontFamily: 'monospace', fontSize: '20px', color: '#fff8ec', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.wifiNetwork}</p>
-            </div>
-
-            {/* WiFi password */}
-            <div className="reveal reveal-delay-1 mb-7" style={{ borderBottom: '1px solid rgba(255,248,236,0.07)', paddingBottom: '20px' }}>
-              <p className="font-label text-[7px] uppercase tracking-[0.22em] mb-2" style={{ color: 'rgba(255,248,236,0.30)' }}>{t.wifiPassword}</p>
-              <p style={{ fontFamily: 'monospace', fontSize: '20px', color: '#fff8ec', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.wifiPassword}</p>
-            </div>
-
-            {/* Code porte — mis en avant */}
-            <div className="reveal reveal-delay-2">
-              <p className="font-label text-[7px] uppercase tracking-[0.22em] mb-3" style={{ color: 'rgba(255,248,236,0.30)' }}>{t.doorCode}</p>
-              <p style={{ fontFamily: 'monospace', fontSize: '36px', color: '#fff8ec', letterSpacing: '0.10em', lineHeight: 1 }}>{ACCESS.doorCode}</p>
-              <div className="mt-5" style={{ borderLeft: '1px solid rgba(255,248,236,0.15)', paddingLeft: '12px' }}>
-                <p className="font-label text-[11px] leading-[2.2]" style={{ color: 'rgba(255,248,236,0.55)' }}>
-                  {locale === 'fr'
-                    ? <><span style={{ display: 'block' }}>1. Paume entière sur le capteur</span><span style={{ display: 'block' }}>2. Tapez le code</span><span style={{ display: 'block' }}>3. Paume entière sur le capteur</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(255,248,236,0.20)' }}>"door unlocked" ✓</span></>
-                    : <><span style={{ display: 'block' }}>1. Full palm on the sensor</span><span style={{ display: 'block' }}>2. Tap the code</span><span style={{ display: 'block' }}>3. Full palm on the sensor</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(255,248,236,0.20)' }}>"door unlocked" ✓</span></>}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* ── COL 3 — Important ATM + photo mugs ── */}
-          <div className="flex flex-col">
-
-            {/* Photo mugs */}
-            <div className="relative overflow-hidden h-[220px] md:h-[260px]" style={{ borderBottom: '1px solid rgba(255,248,236,0.08)' }}>
-              <img src="/IMG_pool_mugs.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', filter: 'sepia(0.12) contrast(1.06) brightness(0.80)' }} />
-            </div>
-
-            {/* Important ATM — post-it */}
-            <div className="reveal flex-1 flex items-center justify-center px-6 py-10 md:py-12">
-              <div className="relative w-full max-w-[280px]" style={{
-                background: '#f5e642',
-                padding: '24px 22px 28px',
-                transform: 'rotate(-1.5deg)',
-                boxShadow: '3px 5px 18px rgba(0,0,0,0.35), inset 0 -3px 6px rgba(0,0,0,0.06)',
-                fontFamily: 'sans-serif',
-              }}>
-                {/* Liseré haut façon scotch */}
-                <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '48px', height: '10px', background: 'rgba(255,255,255,0.45)', borderRadius: '0 0 2px 2px' }} />
-                {/* Billet 100 baht en déco — bas droite */}
-                <img src="/collage/thai-baht-100-nobg.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '160px', bottom: '-20px', right: '-45px', transform: 'rotate(10deg)', opacity: 0.30, zIndex: 0 }} />
-                <p style={{ fontSize: '8px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.45)', marginBottom: '8px' }}>
-                  {locale === 'fr' ? 'Conseil · Argent' : 'Tip · Money'}
-                </p>
-                <p style={{ fontFamily: 'var(--font-display)', fontSize: '22px', textTransform: 'uppercase', lineHeight: 1, color: '#1a1714', marginBottom: '12px', letterSpacing: '0.02em' }}>
-                  Important ATM
-                </p>
-                <p style={{ fontSize: '11.5px', lineHeight: 1.75, color: 'rgba(31,27,24,0.72)' }}>
-                  {t.atmText}
-                </p>
+            {/* Polaroid — photo piscine */}
+            <div className="flex-shrink-0" style={{
+              background: '#f8f4eb',
+              padding: '10px 10px 36px',
+              boxShadow: '0 12px 50px rgba(0,0,0,0.70)',
+              width: '240px',
+              transform: 'rotate(-2deg)',
+            }}>
+              <div style={{ width: '100%', aspectRatio: '4/3', overflow: 'hidden' }}>
+                <img src="/IMG_pool_evening.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'sepia(0.08) contrast(1.05) brightness(0.95)' }} />
               </div>
             </div>
 
-          </div>
+            {/* Post-it codes — WiFi + porte */}
+            <div className="relative flex-shrink-0" style={{
+              background: '#f8f4eb',
+              padding: '28px 24px 28px',
+              boxShadow: '2px 8px 40px rgba(0,0,0,0.60)',
+              width: '280px',
+              transform: 'rotate(1.5deg)',
+            }}>
+              {/* Tape */}
+              <div style={{ position: 'absolute', top: '-8px', left: '50%', transform: 'translateX(-50%)', width: '80px', height: '18px', background: 'rgba(210,200,170,0.50)', borderRadius: '1px', boxShadow: 'inset 0 0 0 1px rgba(180,165,130,0.30)' }} />
 
+              <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.35)', marginBottom: '16px' }}>
+                {locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}
+              </p>
+
+              {/* WiFi réseau */}
+              <div style={{ borderBottom: '1px solid rgba(31,27,24,0.10)', paddingBottom: '12px', marginBottom: '12px' }}>
+                <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.20em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.35)', marginBottom: '4px' }}>{t.wifiNetwork}</p>
+                <p style={{ fontFamily: 'monospace', fontSize: '18px', color: '#1a1714', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.wifiNetwork}</p>
+              </div>
+
+              {/* WiFi password */}
+              <div style={{ borderBottom: '1px solid rgba(31,27,24,0.10)', paddingBottom: '12px', marginBottom: '12px' }}>
+                <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.20em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.35)', marginBottom: '4px' }}>{t.wifiPassword}</p>
+                <p style={{ fontFamily: 'monospace', fontSize: '18px', color: '#1a1714', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.wifiPassword}</p>
+              </div>
+
+              {/* Code porte */}
+              <div>
+                <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.20em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.35)', marginBottom: '4px' }}>{t.doorCode}</p>
+                <p style={{ fontFamily: 'monospace', fontSize: '18px', color: '#1a1714', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.doorCode}</p>
+                <div style={{ borderLeft: '2px solid rgba(31,27,24,0.12)', paddingLeft: '10px', marginTop: '10px' }}>
+                  <p className="font-label" style={{ fontSize: '10px', lineHeight: 2, color: 'rgba(31,27,24,0.55)' }}>
+                    {locale === 'fr'
+                      ? <><span style={{ display: 'block' }}>1. Paume entière sur le capteur</span><span style={{ display: 'block' }}>2. Tapez le code</span><span style={{ display: 'block' }}>3. Paume entière sur le capteur</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(31,27,24,0.25)' }}>"door unlocked" ✓</span></>
+                      : <><span style={{ display: 'block' }}>1. Full palm on the sensor</span><span style={{ display: 'block' }}>2. Tap the code</span><span style={{ display: 'block' }}>3. Full palm on the sensor</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(31,27,24,0.25)' }}>"door unlocked" ✓</span></>}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Post-it ATM */}
+            <div className="relative flex-shrink-0" style={{
+              background: '#f8f4eb',
+              padding: '28px 20px 24px',
+              boxShadow: '2px 8px 40px rgba(0,0,0,0.60)',
+              width: '240px',
+              transform: 'rotate(-1deg)',
+            }}>
+              {/* Tape */}
+              <div style={{ position: 'absolute', top: '-8px', left: '50%', transform: 'translateX(-50%)', width: '72px', height: '18px', background: 'rgba(210,200,170,0.50)', borderRadius: '1px', boxShadow: 'inset 0 0 0 1px rgba(180,165,130,0.30)' }} />
+              <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.35)', marginBottom: '8px' }}>
+                {locale === 'fr' ? 'Conseil · Argent' : 'Tip · Money'}
+              </p>
+              <p className="font-display" style={{ fontSize: '18px', textTransform: 'uppercase', lineHeight: 1, color: '#1a1714', marginBottom: '10px', letterSpacing: '0.02em' }}>
+                Important ATM
+              </p>
+              <p style={{ fontSize: '10.5px', lineHeight: 1.75, color: 'rgba(31,27,24,0.65)' }}>
+                {t.atmText}
+              </p>
+            </div>
+
+          </div>
         </div>
 
       </section>
 
       {/* ── 7-ELEVEN ──────────────────────────────────────────────── */}
-      <section id="seven-eleven" className="relative overflow-hidden" style={{ background: '#2a1f14' }}>
+      <section id="seven-eleven" className="relative overflow-hidden py-10 md:py-14" style={{ background: '#2a1f14' }}>
 
-        {/* Tiger Balm — déco desktop */}
-        <img src="/collage/tiger-balm-nobg.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '160px', top: '-20px', right: '30px', transform: 'rotate(8deg)', opacity: 0.88, zIndex: 1 }} />
+        <div className="relative mx-auto max-w-5xl px-8 md:px-12">
 
-        <div className="grid grid-cols-1 md:grid-cols-2">
+          {/* Layout : titres à gauche + receipt + Tiger Balm */}
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14">
 
-          {/* Texte gauche */}
-          <div className="flex flex-col justify-center px-8 py-14 md:px-14 md:py-20" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
-            <p className="font-label text-[7px] uppercase tracking-[0.32em] mb-4" style={{ color: 'rgba(255,248,236,0.35)' }}>7-Eleven · une institution</p>
-            <p className="font-script leading-tight mb-4" style={{ fontSize: 'clamp(32px,4vw,52px)', color: '#fff8ec' }}>
-              {locale === 'fr' ? 'Le meilleur voisin du monde' : 'The world\'s best neighbour'}
-            </p>
-            <p className="text-[12px] leading-[1.9]" style={{ color: 'rgba(255,248,236,0.52)', maxWidth: '380px' }}>
-              {locale === 'fr'
-                ? <>À 200m à pied. Chang Beer bien froide, eau, glaces, SIM cards, crème solaire oubliée, snacks de minuit. <span style={{ color: 'rgba(255,248,236,0.75)' }}>Ouvert 24h/24, 7j/7</span> — y compris à 3h du mat quand l&apos;envie prend. L&apos;ATM juste devant accepte les cartes étrangères.</>
-                : <>A 2-minute walk. Ice-cold Chang Beer, water, ice cream, SIM cards, forgotten sunscreen, midnight snacks. <span style={{ color: 'rgba(255,248,236,0.75)' }}>Open 24/7</span> — including at 3am when the mood strikes. The ATM out front takes foreign cards.</>}
-            </p>
-            <p className="mt-6 text-[10px]" style={{ color: 'rgba(255,248,236,0.28)', fontFamily: 'monospace', letterSpacing: '0.08em' }}>
-              Soi Sairaan 11, Rawai · Phuket 83130
-            </p>
-          </div>
+            {/* Titres */}
+            <div className="flex-1 text-left">
+              <p className="font-label text-[7px] uppercase tracking-[0.32em] mb-3" style={{ color: 'rgba(255,248,236,0.35)' }}>une institution</p>
+              <p className="font-script leading-none mb-2" style={{ fontSize: 'clamp(48px,7vw,96px)', color: '#fff8ec' }}>7-Eleven</p>
+              <p className="font-display uppercase leading-none mb-6" style={{ fontSize: 'clamp(16px,2.2vw,28px)', color: 'rgba(255,248,236,0.65)', letterSpacing: '0.04em' }}>
+                {locale === 'fr' ? 'Le meilleur voisin du monde' : 'The world\'s best neighbour'}
+              </p>
+              <p className="text-[12px] leading-[1.85]" style={{ color: 'rgba(255,248,236,0.50)', maxWidth: '340px' }}>
+                {locale === 'fr'
+                  ? <>À 200m à pied. Chang Beer bien froide, eau, glaces, SIM cards, crème solaire oubliée, snacks de minuit. <span style={{ color: 'rgba(255,248,236,0.80)' }}>Ouvert 24h/24, 7j/7</span> — y compris à 3h du mat quand l&apos;envie prend. L&apos;ATM juste devant accepte les cartes étrangères.</>
+                  : <>A 2-minute walk. Ice-cold Chang Beer, water, ice cream, SIM cards, forgotten sunscreen, midnight snacks. <span style={{ color: 'rgba(255,248,236,0.80)' }}>Open 24/7</span> — including at 3am when the mood strikes. The ATM out front takes foreign cards.</>}
+              </p>
+              <p className="mt-4 text-[10px]" style={{ color: 'rgba(255,248,236,0.22)', fontFamily: 'monospace', letterSpacing: '0.08em' }}>
+                Soi Sairaan 11, Rawai · Phuket 83130
+              </p>
+            </div>
 
-          {/* Receipt droite — desktop seulement */}
-          <div className="hidden md:flex items-center justify-center px-8 py-14" style={{ paddingRight: '260px' }}>
-            <div style={{ transform: 'rotate(-1.5deg)', maxWidth: '200px', width: '100%' }}>
+            {/* Receipt — desktop */}
+            <div className="hidden md:block flex-shrink-0" style={{ transform: 'rotate(-1.5deg)' }}>
               <SevenElevenReceipt locale={locale} />
             </div>
-          </div>
 
+            {/* Tiger Balm — desktop */}
+            <div className="hidden md:block flex-shrink-0" style={{ transform: 'rotate(7deg)' }}>
+              <img src="/collage/tiger-balm-nobg.png" alt="" style={{ width: '110px', opacity: 0.88 }} />
+            </div>
+
+          </div>
         </div>
       </section>
 
@@ -1124,11 +1148,12 @@ export default function HomePage() {
 
         {/* ── Décos scrapbook tropicales ── */}
         <img src="/collage/lotus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '220px', top: '-30px', left: '-55px', transform: 'rotate(-10deg)', opacity: 0.82, zIndex: 0 }} />
-        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '40px', right: '-60px', transform: 'rotate(18deg)', opacity: 0.75, zIndex: 0 }} />
+        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '2350px', right: '-60px', transform: 'rotate(18deg)', opacity: 0.75, zIndex: 0 }} />
         <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '320px', left: '-60px', transform: 'rotate(-12deg)', opacity: 0.60, zIndex: 0 }} />
-        <img src="/collage/mango-sticky-rice.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '620px', right: '-55px', transform: 'rotate(10deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
-        <img src="/collage/tom-yum-bowl-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '200px', top: '900px', right: '-70px', transform: 'rotate(-8deg)', opacity: 0.85, zIndex: 0 }} />
-        <img src="/collage/coconut-drink.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1950px', left: '-55px', transform: 'rotate(8deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/mango-sticky-rice.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1050px', right: '-80px', transform: 'rotate(10deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/tom-yum-bowl-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '1280px', right: '-90px', transform: 'rotate(-8deg)', opacity: 0.85, zIndex: 0 }} />
+        <img src="/collage/coconut-cocktail-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '2050px', left: '-55px', transform: 'rotate(8deg)', opacity: 0.82, zIndex: 0 }} />
+        <img src="/collage/mangosteen-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '190px', top: '2650px', right: '-65px', transform: 'rotate(-7deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '1400px', left: '-65px', transform: 'rotate(10deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
         <img src="/collage/pad-thai.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '1700px', right: '-60px', transform: 'rotate(-6deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
         <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '190px', bottom: '120px', right: '-65px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
