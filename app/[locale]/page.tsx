@@ -244,7 +244,7 @@ const WELLNESS = [
   { name: 'Jungala', detail: 'Yoga · Breathwork · Sound healing', detailEn: 'Yoga · Breathwork · Sound healing', note: 'Le genre d\'endroit où on arrive stressé et on repart comme si on avait dormi 12h.', noteEn: 'The kind of place you arrive stressed and leave feeling like you slept for 12 hours.', maps: 'https://maps.google.com/?q=Jungala+Phuket' },
   { name: 'Action Point', detail: 'Hot Yoga', detailEn: 'Hot Yoga', note: 'Yoga dans une salle chauffée à 38°C. Oui, il fait déjà 33°C dehors. Oui, c\'est quand même mieux.', noteEn: 'Yoga in a room heated to 38°C. Yes, it\'s already 33°C outside. Yes, it\'s still better.', maps: 'https://maps.google.com/?q=Action+Point+Phuket' },
   { name: 'Elite Atoll Fitness', detail: 'Reformer Pilates', detailEn: 'Reformer Pilates', note: 'Pilates sur reformer, cours en petit groupe. Le genre de workout qui fait mal le lendemain mais dont on est fier.', noteEn: 'Reformer Pilates in small groups. The kind of workout that hurts the next day but you\'re proud of.', maps: 'https://maps.google.com/?q=Elite+Atoll+Fitness+Phuket' },
-  { name: 'Green Sport Massage', detail: 'Massage thaï · Saiuan 10 · 400 THB / h', detailEn: 'Thai massage · Saiuan 10 · 400 THB / h', note: 'Massage thaï traditionnel à 5 min à pied. Demandez "soft" si vous êtes un peu douillet — et ils comprendront.', noteEn: 'Traditional Thai massage 5 min walk away. Ask for "soft" if you\'re a bit of a wimp — they\'ll understand.', maps: 'https://maps.google.com/?q=Green+Sport+Massage+Rawai+Phuket' },
+  { name: 'Green Sport Massage', detail: 'Massage thaï · Saiuan 10 · 400 THB / h', detailEn: 'Thai massage · Saiuan 10 · 400 THB / h', note: 'Massage thaï traditionnel à 5 min à pied. Demandez "soft" si vous êtes un peu douillet — et ils comprendront. Si vous cherchez des massages différents, c\'est pas compliqué. Sauf si vous êtes aveugles.', noteEn: 'Traditional Thai massage 5 min walk away. Ask for "soft" if you\'re a bit of a wimp — they\'ll understand. If you\'re looking for something different, it\'s not complicated. Unless you\'re blind.', maps: 'https://maps.google.com/?q=Green+Sport+Massage+Rawai+Phuket' },
   { name: 'Chivitr', detail: 'Massages haut de gamme', detailEn: 'Premium massages', note: 'Pour un vrai moment de luxe. Ambiance spa, protocoles sérieux, à réserver à l\'avance.', noteEn: 'For a proper luxury experience. Spa atmosphere, serious protocols — book ahead.', maps: 'https://maps.google.com/?q=Chivitr+Phuket' },
   { name: 'Promthep Cape', detail: null, detailEn: null, note: null, noteEn: null, maps: 'https://maps.google.com/?q=Promthep+Cape+Phuket' },
   { name: 'Shark Bites', detail: 'Padel · Piscine · Bar', detailEn: 'Padel · Pool · Bar', note: 'Courts de padel, piscine avec plongeoire et mur d\'escalade — et un bar au milieu. La journée parfaite pour ne pas rentrer à la villa.', noteEn: 'Padel courts, pool with diving board and climbing wall — and a bar in the middle. The perfect excuse not to go home.', maps: 'https://maps.google.com/?q=Shark+Bites+Rawai+Phuket' },
@@ -812,8 +812,8 @@ export default function HomePage() {
 
           {/* VERSO — même structure */}
           <div className="reveal w-full bg-[#f8f4eb]" style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.45)', padding: '6px' }}>
-            <div className="w-full" style={{ aspectRatio: '3/2' }}>
-            <div className="flex flex-col justify-start gap-4 w-full h-full p-4 md:p-6">
+            <div className="w-full min-h-[240px] md:min-h-[280px]">
+            <div className="flex flex-col justify-start gap-3 w-full h-full p-4 md:p-6">
 
               {/* Haut : label + ligne + timbre */}
               <div className="flex items-start gap-3">
@@ -832,7 +832,7 @@ export default function HomePage() {
               {/* Milieu : texte message */}
               <div>
                 <p className="font-display mb-2" style={{ fontSize: 'clamp(13px, 2vw, 20px)', color: 'rgba(31,27,24,0.30)', letterSpacing: '0.06em' }}>บ้านไซยวน</p>
-                <p className="font-script whitespace-pre-line leading-[1.4] text-[#1f1b18]/68" style={{ fontSize: 'clamp(11px, 1.8vw, 18px)' }}>
+                <p className="font-script whitespace-pre-line leading-[1.4] text-[#1f1b18]/68" style={{ fontSize: 'clamp(13px, 1.8vw, 18px)' }}>
                   {t.welcomeStory1}
                 </p>
               </div>
@@ -983,11 +983,11 @@ export default function HomePage() {
           </div>
 
           {/* PRIORITY LANE — encart pleine largeur */}
-          <div className="relative mt-6 md:mt-8" style={{ borderRadius: '2px', backgroundImage: 'url(/collage/grid-paper.png)', backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat' }}>
+          <div className="relative mt-6 md:mt-8 overflow-hidden" style={{ borderRadius: '2px', backgroundImage: 'url(/collage/grid-paper.png)', backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat' }}>
             <div className="absolute inset-0" style={{ background: 'rgba(248,244,235,0.55)' }} />
-            <div className="relative z-10 flex flex-col md:flex-row items-start gap-6 md:gap-16 px-8 py-8 md:px-14 md:py-10">
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-12 px-8 py-8 md:px-14 md:py-10">
               {/* Gauche : label + titre + stamps */}
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 md:w-[220px]">
                 <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.40)' }}>Pro tip</p>
                 <p className="font-display mt-1 leading-none uppercase" style={{ fontSize: 'clamp(32px,4vw,56px)', color: '#1a1714' }}>Priority<br/>Lane</p>
                 <div className="mt-4 flex items-center gap-3 flex-wrap">
@@ -1002,8 +1002,8 @@ export default function HomePage() {
                 </div>
               </div>
               {/* Droite : texte */}
-              <div className="flex-1">
-                <p className="text-[13px] leading-[1.85]" style={{ color: 'rgba(31,27,24,0.72)' }}>
+              <div className="flex-1 min-w-0">
+                <p className="text-[12px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.72)' }}>
                   {locale === 'fr'
                     ? "Au passport control, approchez l'agent et dites juste « priority lane — how much ? ». Il annonce un prix entre 500 et 1000 bahts — cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : comptez entre 30 min et 2h dans la queue."
                     : 'At passport control, walk up to the agent and say "priority lane — how much?" They\'ll quote you 500–1000 baht — cash in baht only. Exchange desk right before if needed. Passports, TDAC forms and cash ready. You\'re through in 2 minutes. Without it: queue for 30 min to 2 hours.'}
@@ -1416,10 +1416,11 @@ export default function HomePage() {
         {/* Timbre Muay Thai — déco desktop */}
         <img src="/collage/muay-thai-stamp-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '280px', top: '60px', right: '-40px', transform: 'rotate(6deg)', opacity: 0.75, zIndex: 0 }} />
         {/* Nouveaux stickers Phuket */}
-        <img src="/collage/monk-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '120px', left: '-50px', transform: 'rotate(4deg)', opacity: 0.88, zIndex: 0 }} />
-        <img src="/collage/palm-tree-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '200px', top: '500px', right: '-60px', transform: 'rotate(-5deg)', opacity: 0.80, zIndex: 0 }} />
-        <img src="/collage/longtail-boat-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '220px', top: '900px', left: '-65px', transform: 'rotate(8deg)', opacity: 0.82, zIndex: 0 }} />
-        <img src="/collage/monkeys-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '200px', top: '1300px', right: '-55px', transform: 'rotate(-6deg)', opacity: 0.85, zIndex: 0 }} />
+        {/* Nouveaux stickers Phuket */}
+        <img src="/collage/monk-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '150px', top: '120px', left: '-55px', transform: 'rotate(4deg)', opacity: 0.88, zIndex: 0 }} />
+        <img src="/collage/palm-tree-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '480px', left: '-65px', transform: 'rotate(-5deg)', opacity: 0.80, zIndex: 0 }} />
+        <img src="/collage/longtail-boat-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '210px', top: '850px', right: '-70px', transform: 'rotate(-6deg)', opacity: 0.82, zIndex: 0 }} />
+        <img src="/collage/monkeys-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '190px', top: '1280px', right: '-60px', transform: 'rotate(-6deg)', opacity: 0.85, zIndex: 0 }} />
 
         <div className="relative mx-auto max-w-6xl">
 
