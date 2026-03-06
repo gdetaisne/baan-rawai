@@ -385,6 +385,24 @@ export default function HomePage() {
     };
   }, []);
 
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>('.reveal');
+    if (!els.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   const submitGuestForm = async (e: FormEvent) => {
     e.preventDefault();
     setSent(false);
@@ -693,7 +711,7 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-[420px]">
 
           {/* CARTE 1 — recto photo */}
-          <div className="bg-[#f8f4eb] p-3 pb-10 shadow-[0_8px_40px_rgba(0,0,0,0.40)]">
+          <div className="reveal bg-[#f8f4eb] p-3 pb-10 shadow-[0_8px_40px_rgba(0,0,0,0.40)]">
             <div className="relative overflow-hidden">
               <img
                 src="/IMG_1697.jpg"
@@ -714,7 +732,7 @@ export default function HomePage() {
           <div className="h-5" />
 
           {/* CARTE 2 — verso texte */}
-          <div className="bg-[#f8f4eb] px-6 py-5 shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
+          <div className="reveal reveal-delay-2 bg-[#f8f4eb] px-6 py-5 shadow-[0_8px_40px_rgba(0,0,0,0.35)]">
 
             {/* header + stamp */}
             <div className="flex items-start justify-between border-b border-[#1f1b18]/12 pb-3">
@@ -771,8 +789,8 @@ export default function HomePage() {
         <div className="relative">
           {/* TITRE SECTION — massif pleine largeur comme le screenshot */}
           <div className="mx-auto max-w-[1160px] px-2 text-center">
-            <p className="section-kicker mb-4">Before You Land</p>
-            <h2 className="font-display text-[clamp(34px,5vw,72px)] uppercase leading-[0.92] tracking-[0.01em] text-[#1f1b18]">
+            <p className="reveal section-kicker mb-4">Before You Land</p>
+            <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-[0.92] tracking-[0.01em] text-[#1f1b18]">
               {t.beforeTitle}
             </h2>
           </div>
@@ -781,7 +799,7 @@ export default function HomePage() {
           <div className="relative mx-auto mt-14 max-w-[1160px]">
 
             {/* version mobile — stack simple */}
-            <div className="flex flex-col gap-10 px-4 md:hidden">
+            <div className="flex flex-col gap-10 px-4 sm:hidden">
               {(locale === 'fr' ? [
                 { label: 'Aéroport · Transfert', title: 'Taxi Aéroport', desc: 'Votre chauffeur vous attendra à la sortie avec un panneau à votre nom. 700 THB, de l\'aéroport de Phuket jusqu\'à la villa. Signalez-le dans le formulaire et on s\'occupe de tout.', cta: 'Formulaire', href: '#guest-form' },
                 { label: 'Connexion', title: 'eSIM', desc: 'À installer avant de décoller — connecté dès l\'atterrissage.', cta: 'Holafly', href: 'https://esim.holafly.com/fr/esim-thailande/' },
@@ -794,8 +812,8 @@ export default function HomePage() {
                 { label: '✈ Pro tip', title: 'Priority Lane', desc: 'At passport control, use the Priority Lane. Just say "priority lane — how much?" to the agent — expect 500 to 1000 baht, it\'s up to them. Cash in baht only (exchange desk just before immigration). Have passports, TDAC forms and cash ready. Without it: 30 min to 2 hours in line.', cta: null, href: null },
                 { label: 'Immigration', title: 'TDAC', desc: 'Fill the arrival card online before your flight. Takes 2 minutes.', cta: 'Official site', href: 'https://tdac.immigration.go.th/arrival-card/#/tac/arrival-card/add' },
                 { label: 'Transport & Food', title: 'Grab', desc: 'The Uber of Southeast Asia. Taxis, scooters, delivery. Essential in Thailand.', cta: 'Download', href: 'https://www.grab.com/th/en/download/' },
-              ]).map((item) => (
-                <div key={item.title} className="relative">
+              ]).map((item, i) => (
+                <div key={item.title} className={`reveal reveal-delay-${Math.min(i + 1, 5)} relative`}>
                   <div className="tape-vintage absolute -top-3 left-6 z-10 h-6 w-16" />
                   <div className="bg-[#faf7f2] p-5 shadow-[0_4px_20px_rgba(31,27,24,0.12)]">
                     <p className="font-label text-[8px] uppercase tracking-[0.26em] text-[#1f1b18]/40">{item.label}</p>
@@ -805,7 +823,7 @@ export default function HomePage() {
                   </div>
                 </div>
               ))}
-              <div className="relative" style={{}}>
+              <div className="reveal reveal-delay-1 relative" style={{}}>
                 <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-18 -translate-x-1/2" />
                 <div className="bg-[#f8f4eb] p-3 pb-8 shadow-[0_6px_24px_rgba(31,27,24,0.14)]">
                   <img src="/IMG_7234.jpeg" alt="" className="h-[200px] w-full object-cover" />
@@ -814,7 +832,7 @@ export default function HomePage() {
             </div>
 
             {/* version desktop — collage overlap */}
-            <div className="relative hidden md:block" style={{ height: '820px' }}>
+            <div className="relative hidden sm:block" style={{ height: '820px' }}>
 
               {/* GRANDE PHOTO GAUCHE */}
               <div className="absolute left-[10px] top-[30px] w-[310px]" style={{ zIndex: 1 }}>
@@ -932,15 +950,15 @@ export default function HomePage() {
 
           {/* Header */}
           <div className="mb-14 text-center">
-            <p className="font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>At The Villa</p>
-            <h2 className="font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.arrivalTitle}</h2>
+            <p className="reveal font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>At The Villa</p>
+            <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.arrivalTitle}</h2>
           </div>
 
           {/* ── MOBILE layout ────────────────────────────────────── */}
-          <div className="flex flex-col gap-6 md:hidden">
+          <div className="flex flex-col gap-6 sm:hidden">
 
             {/* WiFi + Door code card */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged p-5 shadow-[0_3px_16px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}</p>
@@ -963,7 +981,7 @@ export default function HomePage() {
             </div>
 
             {/* ATM card */}
-            <div className="relative">
+            <div className="reveal reveal-delay-2 relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged p-5 shadow-[0_3px_16px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Conseil · Argent' : 'Tip · Money'}</p>
@@ -973,7 +991,7 @@ export default function HomePage() {
             </div>
 
             {/* 7-Eleven receipt */}
-            <div className="relative">
+            <div className="reveal reveal-delay-3 relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <SevenElevenReceipt locale={locale} />
             </div>
@@ -981,7 +999,7 @@ export default function HomePage() {
           </div>
 
           {/* ── DESKTOP collage ──────────────────────────────────── */}
-          <div className="relative hidden md:block" style={{ height: '680px' }}>
+          <div className="relative hidden sm:block" style={{ height: '680px' }}>
 
             {/* Photo 1 – villa pool */}
             <div className="absolute" style={{ left: '18px', top: '30px', width: '260px', zIndex: 1 }}>
@@ -1086,8 +1104,8 @@ export default function HomePage() {
 
           {/* Header */}
           <div className="mb-16 text-center">
-            <p className="font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>Out &amp; About</p>
-            <h2 className="font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.rawaiTitle}</h2>
+            <p className="reveal font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>Out &amp; About</p>
+            <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.rawaiTitle}</h2>
           </div>
 
           {/* ── LES PLAGES ─────────────────────────────────────────── */}
@@ -1098,7 +1116,7 @@ export default function HomePage() {
           <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* Nai Harn */}
-            <div className="relative">
+            <div className="reveal reveal-delay-1 relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '220px', position: 'relative' }}>
@@ -1115,7 +1133,7 @@ export default function HomePage() {
             </div>
 
             {/* Ya Nui */}
-            <div className="relative">
+            <div className="reveal reveal-delay-1 relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '220px', position: 'relative' }}>
@@ -1132,7 +1150,7 @@ export default function HomePage() {
             </div>
 
             {/* Rawai */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '220px', position: 'relative' }}>
@@ -1158,7 +1176,7 @@ export default function HomePage() {
           <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {RESTAURANTS.map((r, i) => (
-              <div key={r.name} className="relative">
+              <div key={r.name} className="reveal relative">
                 <div className={`tape-vintage absolute -top-4 z-10 h-7 w-16 ${i === 0 ? 'left-8' : i === 1 ? 'left-1/2 -translate-x-1/2' : 'right-8'}`} />
                 <div className="paper-aged h-full p-6 shadow-[0_3px_16px_rgba(31,27,24,0.12)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                   <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Restaurant' : 'Restaurant'}</p>
@@ -1211,7 +1229,7 @@ export default function HomePage() {
             </div>
 
             {/* Sharkbait */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged p-6 shadow-[0_3px_16px_rgba(31,27,24,0.12)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Padel · Piscine · Bar' : 'Padel · Pool · Bar'}</p>
@@ -1238,8 +1256,8 @@ export default function HomePage() {
 
           {/* Header */}
           <div className="mb-14 text-center">
-            <p className="font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Au départ de Rawai' : 'Departing from Rawai'}</p>
-            <h2 className="font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>
+            <p className="reveal font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Au départ de Rawai' : 'Departing from Rawai'}</p>
+            <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>
               {locale === 'fr' ? 'Day Trip\npar Bateau' : 'Day Trip\nby Boat'}
             </h2>
           </div>
@@ -1248,7 +1266,7 @@ export default function HomePage() {
           <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* Longtail */}
-            <div className="relative" style={{}}>
+            <div className="reveal relative" style={{}}>
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '200px' }}>
@@ -1269,7 +1287,7 @@ export default function HomePage() {
             </div>
 
             {/* Speedboat */}
-            <div className="relative" style={{}}>
+            <div className="reveal relative" style={{}}>
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '200px' }}>
@@ -1290,7 +1308,7 @@ export default function HomePage() {
             </div>
 
             {/* Carte des îles + contact bateau */}
-            <div className="relative" style={{}}>
+            <div className="reveal relative" style={{}}>
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '200px' }}>
@@ -1316,7 +1334,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
             {/* Contact Boat Service */}
-            <div className="relative" style={{}}>
+            <div className="reveal relative" style={{}}>
               <div className="tape-vintage absolute -top-4 left-8 z-10 h-7 w-16" />
               <div className="paper-aged overflow-hidden shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                 {/* photo pancarte boat service — entière */}
@@ -1344,7 +1362,7 @@ export default function HomePage() {
             </div>
 
             {/* Daytrips lointains */}
-            <div className="relative" style={{}}>
+            <div className="reveal relative" style={{}}>
               <div className="tape-vintage absolute -top-4 right-8 z-10 h-7 w-16" />
               <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <span className="stamp-important absolute -right-4 -top-5 z-20" style={{ width: '68px', height: '68px', transform: 'rotate(6deg)', fontSize: '7px' }}>
@@ -1383,8 +1401,8 @@ export default function HomePage() {
 
           {/* Header */}
           <div className="mb-16 text-center">
-            <p className="font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? "Au-delà de Rawai" : "Beyond Rawai"}</p>
-            <h2 className="font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>
+            <p className="reveal font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? "Au-delà de Rawai" : "Beyond Rawai"}</p>
+            <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>
               {locale === 'fr' ? 'Phuket' : 'Phuket'}
             </h2>
           </div>
@@ -1397,7 +1415,7 @@ export default function HomePage() {
           <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* Big Buddha */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Monument · 45 min' : 'Landmark · 45 min'}</p>
@@ -1412,7 +1430,7 @@ export default function HomePage() {
             </div>
 
             {/* Old Town */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 left-8 z-10 h-7 w-16" />
               <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Vieille ville · 30 min' : 'Old Town · 30 min'}</p>
@@ -1427,7 +1445,7 @@ export default function HomePage() {
             </div>
 
             {/* Wat Chalong */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 right-8 z-10 h-7 w-16" />
               <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Temple · 20 min' : 'Temple · 20 min'}</p>
@@ -1451,7 +1469,7 @@ export default function HomePage() {
           <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* Voile */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Voile · Ao Po Marina' : 'Sailing · Ao Po Marina'}</p>
@@ -1466,7 +1484,7 @@ export default function HomePage() {
             </div>
 
             {/* Elephant Sanctuary */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 left-8 z-10 h-7 w-16" />
               <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Sanctuaire · Éthique' : 'Sanctuary · Ethical'}</p>
@@ -1481,7 +1499,7 @@ export default function HomePage() {
             </div>
 
             {/* Golf + Dino */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 right-8 z-10 h-7 w-16" />
               <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Golf · 15 min' : 'Golf · 15 min'}</p>
@@ -1508,7 +1526,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* Central Phuket Floresta */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Mall luxe · 35 min' : 'Luxury mall · 35 min'}</p>
@@ -1535,8 +1553,8 @@ export default function HomePage() {
 
           {/* Header */}
           <div className="mb-14 text-center">
-            <p className="font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>Upgrade Your Day</p>
-            <h2 className="font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.passesTitle}</h2>
+            <p className="reveal font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>Upgrade Your Day</p>
+            <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.passesTitle}</h2>
           </div>
 
           {/* Grande vidéo intro avec scotch */}
@@ -1564,7 +1582,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
 
             {/* The Nai Harn */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '160px', background: '#c8bfaf' }}>
@@ -1585,7 +1603,7 @@ export default function HomePage() {
             </div>
 
             {/* SAii Laguna */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '160px', background: '#c8bfaf' }}>
@@ -1606,7 +1624,7 @@ export default function HomePage() {
             </div>
 
             {/* Sri Panwa */}
-            <div className="relative">
+            <div className="reveal relative">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '160px', background: '#c8bfaf' }}>
@@ -1629,6 +1647,94 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── FOOTER ─────────────────────────────────────────────────── */}
+      <footer className="relative overflow-hidden bg-[#1a1410] px-6 py-16 md:px-10 md:py-20">
+        {/* grain */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12]"
+          style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'1\'/%3E%3C/svg%3E")', backgroundSize: '160px 160px' }} />
+
+        <div className="relative mx-auto max-w-6xl">
+
+          {/* Top row: signature + links */}
+          <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+
+            {/* Signature */}
+            <div className="reveal flex-shrink-0">
+              <p className="font-script text-[clamp(36px,5vw,56px)] leading-none text-[#f8f4eb]">
+                Lucie &amp;<br />Guillaume
+              </p>
+              <p className="font-label mt-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(248,244,235,0.40)' }}>
+                Baan Sayiuan — Rawai, Phuket
+              </p>
+            </div>
+
+            {/* Address + contact */}
+            <div className="reveal reveal-delay-1 flex flex-col gap-6 md:flex-row md:gap-16">
+
+              <div>
+                <p className="font-label mb-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(248,244,235,0.35)' }}>
+                  {locale === 'fr' ? 'Adresse' : 'Address'}
+                </p>
+                <a
+                  href="https://maps.google.com/?q=59/45+Soi+Sayiuan+13+Rawai+Phuket"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[13px] leading-[1.8]"
+                  style={{ color: 'rgba(248,244,235,0.70)' }}
+                >
+                  59/45 Soi Sayiuan 13<br />
+                  Rawai, Mueang Phuket<br />
+                  83130 Thailand
+                </a>
+              </div>
+
+              <div>
+                <p className="font-label mb-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(248,244,235,0.35)' }}>
+                  Contact
+                </p>
+                <a
+                  href="https://wa.me/66952824035"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-label text-[10px] uppercase tracking-[0.20em] hover:opacity-100 transition-opacity"
+                  style={{ color: 'rgba(248,244,235,0.60)' }}
+                >
+                  WhatsApp →
+                </a>
+              </div>
+
+              <div>
+                <p className="font-label mb-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(248,244,235,0.35)' }}>
+                  {locale === 'fr' ? 'Votre séjour' : 'Your stay'}
+                </p>
+                <button
+                  onClick={() => setFormOpen(true)}
+                  className="font-label text-[10px] uppercase tracking-[0.20em] hover:opacity-100 transition-opacity"
+                  style={{ color: 'rgba(248,244,235,0.60)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                >
+                  {locale === 'fr' ? 'Vos préférences →' : 'Plan Your Stay →'}
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="my-10 border-t" style={{ borderColor: 'rgba(248,244,235,0.10)' }} />
+
+          {/* Bottom row: copyright */}
+          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <p className="font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(248,244,235,0.28)' }}>
+              © 2025 Baan Sayiuan — Rawai, Phuket, Thailand
+            </p>
+            <p className="font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(248,244,235,0.20)' }}>
+              Made with love for our guests
+            </p>
+          </div>
+
+        </div>
+      </footer>
 
       <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[#1f1b18]/10 bg-[#f6f2ec]/95 p-3 backdrop-blur md:hidden">
         <div className="mx-auto flex max-w-[520px] gap-2">
