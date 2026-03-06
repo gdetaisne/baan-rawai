@@ -1020,16 +1020,27 @@ export default function HomePage() {
           <img src="/IMG_2278.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center top', filter: 'brightness(0.45) saturate(1.1)' }} />
           <div className="absolute inset-0" style={{ background: 'rgba(15,12,10,0.30)' }} />
 
-          {/* Contenu : polaroid + post-it codes */}
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-14 w-full max-w-4xl">
+          {/* Contenu : polaroid maison + polaroid piscine + post-it codes + post-it ATM */}
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 w-full max-w-5xl">
+
+            {/* Polaroid — photo maison */}
+            <div className="flex-shrink-0" style={{
+              background: '#f8f4eb',
+              padding: '10px 10px 36px',
+              boxShadow: '0 12px 50px rgba(0,0,0,0.70)',
+              width: '200px',
+            }}>
+              <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden' }}>
+                <img src="/IMG_7234b-web.jpg" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', filter: 'sepia(0.06) contrast(1.04) brightness(0.97)' }} />
+              </div>
+            </div>
 
             {/* Polaroid — photo piscine */}
             <div className="flex-shrink-0" style={{
               background: '#f8f4eb',
               padding: '10px 10px 36px',
               boxShadow: '0 12px 50px rgba(0,0,0,0.70)',
-              width: '240px',
-              transform: 'rotate(-2deg)',
+              width: '220px',
             }}>
               <div style={{ width: '100%', aspectRatio: '4/3', overflow: 'hidden' }}>
                 <img src="/IMG_pool_evening.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'sepia(0.08) contrast(1.05) brightness(0.95)' }} />
@@ -1042,12 +1053,11 @@ export default function HomePage() {
               padding: '28px 24px 28px',
               boxShadow: '2px 8px 40px rgba(0,0,0,0.60)',
               width: '280px',
-              transform: 'rotate(1.5deg)',
             }}>
               {/* Tape */}
               <div style={{ position: 'absolute', top: '-8px', left: '50%', transform: 'translateX(-50%)', width: '80px', height: '18px', background: 'rgba(210,200,170,0.50)', borderRadius: '1px', boxShadow: 'inset 0 0 0 1px rgba(180,165,130,0.30)' }} />
 
-              <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.35)', marginBottom: '16px' }}>
+              <p className="font-script" style={{ fontSize: '18px', color: 'rgba(31,27,24,0.50)', marginBottom: '14px', lineHeight: 1 }}>
                 {locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}
               </p>
 
@@ -1083,11 +1093,10 @@ export default function HomePage() {
               padding: '28px 20px 24px',
               boxShadow: '2px 8px 40px rgba(0,0,0,0.60)',
               width: '240px',
-              transform: 'rotate(-1deg)',
             }}>
               {/* Tape */}
               <div style={{ position: 'absolute', top: '-8px', left: '50%', transform: 'translateX(-50%)', width: '72px', height: '18px', background: 'rgba(210,200,170,0.50)', borderRadius: '1px', boxShadow: 'inset 0 0 0 1px rgba(180,165,130,0.30)' }} />
-              <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.35)', marginBottom: '8px' }}>
+              <p className="font-script" style={{ fontSize: '18px', color: 'rgba(31,27,24,0.50)', marginBottom: '8px', lineHeight: 1 }}>
                 {locale === 'fr' ? 'Conseil · Argent' : 'Tip · Money'}
               </p>
               <p className="font-display" style={{ fontSize: '18px', textTransform: 'uppercase', lineHeight: 1, color: '#1a1714', marginBottom: '10px', letterSpacing: '0.02em' }}>
