@@ -768,17 +768,17 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-[420px]">
 
           {/* CARTE 1 — recto photo */}
-          <div className="reveal bg-[#f8f4eb] p-2 pb-7 shadow-[0_8px_40px_rgba(0,0,0,0.40)]">
+          <div className="reveal bg-[#f8f4eb] p-2 pb-6 shadow-[0_8px_40px_rgba(0,0,0,0.40)]">
             <div className="relative overflow-hidden">
               <img
                 src="/IMG_1697.jpg"
                 alt="Baan Sayiuan"
-                className="h-[180px] md:h-[260px] w-full object-cover"
+                className="h-[140px] md:h-[260px] w-full object-cover"
               />
               <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 30px rgba(0,0,0,0.15)' }} />
               <p
                 className="font-script absolute bottom-3 left-3 whitespace-pre-line leading-none text-white"
-                style={{ fontSize: 'clamp(22px, 3vw, 42px)', textShadow: '0 2px 8px rgba(0,0,0,0.60)', transform: 'rotate(-4deg)', transformOrigin: 'left bottom' }}
+                style={{ fontSize: 'clamp(18px, 3vw, 42px)', textShadow: '0 2px 8px rgba(0,0,0,0.60)', transform: 'rotate(-4deg)', transformOrigin: 'left bottom' }}
               >
                 {t.postcardLine}
               </p>
@@ -786,15 +786,15 @@ export default function HomePage() {
           </div>
 
           {/* espace entre les deux cartes */}
-          <div className="h-4" />
+          <div className="h-3" />
 
           {/* CARTE 2 — verso texte */}
-          <div className="reveal reveal-delay-2 bg-[#f8f4eb] px-5 py-4 shadow-[0_8px_40px_rgba(0,0,0,0.35)] flex flex-col">
+          <div className="reveal reveal-delay-2 bg-[#f8f4eb] px-4 py-3 shadow-[0_8px_40px_rgba(0,0,0,0.35)] flex flex-col">
 
             {/* header + stamp */}
             <div className="flex items-start justify-between border-b border-[#1f1b18]/12 pb-2">
-              <p className="font-display text-[16px] uppercase tracking-[0.06em] text-[#1f1b18]/80">POSTCARD</p>
-              <div style={{ width: '64px', height: '64px', flexShrink: 0 }}>
+              <p className="font-display text-[14px] uppercase tracking-[0.06em] text-[#1f1b18]/80">POSTCARD</p>
+              <div style={{ width: '48px', height: '48px', flexShrink: 0 }}>
                 <img
                   src="/collage/ed314742de5bf7445488ba1b5414ac6c.jpg"
                   alt="Thailand stamp"
@@ -804,14 +804,14 @@ export default function HomePage() {
             </div>
 
             {/* corps : texte pleine largeur */}
-            <div className="mt-3 flex-1">
-              <p className="font-script whitespace-pre-line text-[17px] leading-[1.3] text-[#1f1b18]/70">
+            <div className="mt-2 flex-1">
+              <p className="font-script whitespace-pre-line text-[14px] md:text-[17px] leading-[1.3] text-[#1f1b18]/70">
                 {t.welcomeStory1}
               </p>
             </div>
 
             {/* pied */}
-            <p className="font-label mt-3 pt-3 border-t border-[#1f1b18]/10 text-[7px] uppercase tracking-[0.22em] text-[#1f1b18]/32">
+            <p className="font-label mt-3 pt-2 border-t border-[#1f1b18]/10 text-[6.5px] uppercase tracking-[0.22em] text-[#1f1b18]/32">
               baan Sayiuan · 59/45 Soi Sayiuan 13 · Rawai · Phuket · Thailand
             </p>
           </div>
@@ -853,6 +853,12 @@ export default function HomePage() {
               ]).map((item, i) => (
                 <div key={item.title} className={`reveal reveal-delay-${Math.min(i + 1, 5)} relative`}>
                   <div className="tape-vintage absolute -top-3 left-6 z-10 h-6 w-16" />
+                  {item.title === 'TDAC' && (
+                    <span className="stamp-mandatory absolute -right-2 -top-5 z-20" style={{ fontSize: '9px', padding: '5px 10px 4px', transform: 'rotate(5deg)' }}>
+                      {locale === 'fr' ? 'Obligatoire' : 'Required'}<br/>
+                      <span style={{ fontSize: '7px', letterSpacing: '0.05em' }}>บังคับ</span>
+                    </span>
+                  )}
                   <div className="bg-[#faf7f2] p-5 shadow-[0_4px_20px_rgba(31,27,24,0.12)]">
                     <p className="font-label text-[8px] uppercase tracking-[0.26em] text-[#1f1b18]/40">{item.label}</p>
                     <p className="font-display mt-1 text-[26px] uppercase leading-none">{item.title}</p>
@@ -1047,10 +1053,10 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2" style={{ borderTop: '1px solid rgba(255,248,236,0.08)' }}>
 
           {/* Texte gauche */}
-          <div className="flex flex-col justify-center px-8 py-12 md:px-14 md:py-14" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
-            <p className="font-label text-[7px] uppercase tracking-[0.32em] mb-5" style={{ color: 'rgba(255,248,236,0.35)' }}>7-Eleven · une institution</p>
-            <p className="font-display text-[clamp(28px,3vw,42px)] uppercase leading-none mb-5" style={{ color: '#fff8ec' }}>
-              {locale === 'fr' ? 'Le meilleur voisin\u00a0du monde' : 'The world\'s best\u00a0neighbour'}
+          <div className="flex flex-col justify-center px-8 py-10 md:px-14 md:py-14" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
+            <p className="font-label text-[7px] uppercase tracking-[0.32em] mb-4" style={{ color: 'rgba(255,248,236,0.35)' }}>7-Eleven · une institution</p>
+            <p className="font-script leading-tight mb-4" style={{ fontSize: 'clamp(32px,4vw,52px)', color: '#fff8ec' }}>
+              {locale === 'fr' ? 'Le meilleur voisin du monde' : 'The world\'s best neighbour'}
             </p>
             <p className="text-[12px] leading-[1.9]" style={{ color: 'rgba(255,248,236,0.52)', maxWidth: '380px' }}>
               {locale === 'fr'
@@ -1062,8 +1068,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Receipt droite */}
-          <div className="flex items-center justify-center px-8 py-12 md:py-14">
+          {/* Receipt droite — desktop seulement */}
+          <div className="hidden md:flex items-center justify-center px-8 py-14">
             <div style={{ transform: 'rotate(-1.5deg)', maxWidth: '200px', width: '100%' }}>
               <SevenElevenReceipt locale={locale} />
             </div>
@@ -1209,7 +1215,7 @@ export default function HomePage() {
                       {item.desc && <p className="mt-2 text-[11.5px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.52)', maxWidth: '560px' }}>{item.desc}</p>}
                     </div>
                   </div>
-                  <a href={item.maps} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity mt-1" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>Maps →</a>
+                  <a href={item.maps ?? undefined} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity mt-1" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>Maps →</a>
                 </div>
               </div>
             ))}
@@ -1365,7 +1371,7 @@ export default function HomePage() {
                       <p className="mt-2 text-[11.5px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.52)', maxWidth: '560px' }}>{item.desc}</p>
                     </div>
                   </div>
-                  <a href={item.maps} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity mt-1" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>Maps →</a>
+                  <a href={item.maps ?? undefined} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity mt-1" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>Maps →</a>
                 </div>
               </div>
             ))}
@@ -1422,7 +1428,7 @@ export default function HomePage() {
                       <p className="mt-2 text-[11.5px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.52)', maxWidth: '560px' }}>{item.desc}</p>
                     </div>
                   </div>
-                  <a href={item.maps} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity mt-1" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>Maps →</a>
+                  <a href={item.maps ?? undefined} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity mt-1" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>Maps →</a>
                 </div>
               </div>
             ))}
