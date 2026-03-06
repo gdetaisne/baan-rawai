@@ -75,6 +75,7 @@ const CONTENT = {
     babyFoodYes: 'Yes',
     babyFoodNo: 'No',
     towelNote: 'No need to bring beach or pool towels — we have everything. We also have a stroller available.',
+    houseRules: 'House rules: shoes off at the door (Thai style) · turn off the A/C when leaving your room · keep doors closed to keep mosquitoes out.',
     other: 'Anything else we should know?',
     unlockPrivate: 'Unlock private mode',
     passcodePlaceholder: 'Enter passcode',
@@ -164,6 +165,7 @@ const CONTENT = {
     babyFoodYes: 'Oui',
     babyFoodNo: 'Non',
     towelNote: 'Pas besoin d\'apporter des serviettes de bain ou de plage — on a tout sur place. Une poussette est également disponible.',
+    houseRules: 'Les règles de la maison : chaussures à la porte (style thaï) · éteignez la clim en quittant votre chambre · fermez bien les portes pour les moustiques.',
     other: 'Autre chose qu\'on devrait savoir ?',
     unlockPrivate: 'Mode privé',
     passcodePlaceholder: 'Code d\'accès',
@@ -230,7 +232,6 @@ const RESTAURANTS = [
   { name: 'Elyseum Bathhouse', detail: 'Breakfast & café', note: 'Décor soigné, excellent café de spécialité, idéal pour travailler en remote. Wifi solide, prises partout, personne ne vous regarde de travers si vous restez 4h.', maps: 'https://maps.google.com/?q=Elyseum+Bathhouse+Phuket' },
   { name: 'We Café', detail: 'Breakfast & coffee shop', note: 'Sympa, sans prétention. Bon café, smoothies frais, portions généreuses. Le breakfast local pour bien commencer la journée — c\'est aussi le point de départ de ma rando quotidienne.', maps: 'https://maps.google.com/?q=We+Cafe+Rawai+Phuket' },
   { name: 'Wine Connection', detail: 'Cave à vin & bistrot', note: 'La meilleure sélection de vins importés du coin, à des prix corrects pour la Thaïlande. On peut boire sur place ou emporter — pratique pour ramener une bonne bouteille à la villa.', maps: 'https://maps.google.com/?q=Wine+Connection+Rawai+Phuket' },
-  { name: 'The Cove', detail: 'Seafood · Cap Panwa · 25 min', note: 'Le restaurant de Sri Panwa, perché sur la colline avec vue à 180° sur l\'Andaman. Cadre spectaculaire, cuisine soignée. Prévoir un taxi — ça vaut le détour pour une grande occasion.', maps: 'https://maps.google.com/?q=The+Cove+Sri+Panwa+Phuket' },
 ];
 
 const WELLNESS = [
@@ -245,7 +246,7 @@ const WELLNESS = [
   { name: 'Chivitr', detail: 'Massages haut de gamme', detailEn: 'Premium massages', note: 'Pour un vrai moment de luxe. Ambiance spa, protocoles sérieux, à réserver à l\'avance.', noteEn: 'For a proper luxury experience. Spa atmosphere, serious protocols — book ahead.', maps: 'https://maps.google.com/?q=Chivitr+Phuket' },
   { name: 'Promthep Cape', detail: null, detailEn: null, note: null, noteEn: null, maps: 'https://maps.google.com/?q=Promthep+Cape+Phuket' },
   { name: 'Shark Bites', detail: 'Padel · Piscine · Bar', detailEn: 'Padel · Pool · Bar', note: 'Courts de padel, piscine avec plongeoire et mur d\'escalade — et un bar au milieu. La journée parfaite pour ne pas rentrer à la villa.', noteEn: 'Padel courts, pool with diving board and climbing wall — and a bar in the middle. The perfect excuse not to go home.', maps: 'https://maps.google.com/?q=Shark+Bites+Rawai+Phuket' },
-  { name: 'Pétanque', detail: 'Secret spot · Demandez-nous', detailEn: 'Secret spot · Ask us', note: 'On vous dit où quand vous arrivez.', noteEn: 'We\'ll tell you where when you arrive.', maps: null },
+  { name: 'Pétanque', detail: 'Secret spot · Demandez-nous', detailEn: 'Secret spot · Ask us', note: 'On cherche encore le perfect spot, mais on a une petite idée.', noteEn: 'Still hunting for the perfect spot — but we have a lead.', maps: null },
 ];
 
 const DAY_PASSES = [
@@ -497,6 +498,22 @@ export default function HomePage() {
                 </div>
               </div>
 
+              {/* Post-it house rules */}
+              <div className="relative mt-4 inline-block max-w-xs">
+                <div style={{
+                  background: '#fde9a2',
+                  padding: '12px 14px 14px',
+                  boxShadow: '2px 3px 8px rgba(0,0,0,0.13)',
+                  fontFamily: "'Courier New', Courier, monospace",
+                  fontSize: '11px',
+                  lineHeight: 1.65,
+                  color: '#3a2f1a',
+                  transform: 'rotate(0.8deg)',
+                }}>
+                  {t.houseRules}
+                </div>
+              </div>
+
               <form onSubmit={async (e) => { await submitGuestForm(e); }} className="mt-8 space-y-8">
 
                 {/* Arrivée */}
@@ -664,7 +681,7 @@ export default function HomePage() {
               onClick={() => setFormOpen(true)}
               className="font-label border border-[#f6f2ec]/40 px-3 py-1.5 text-[9px] uppercase tracking-[0.18em] text-[#f6f2ec] transition-colors hover:bg-[#f6f2ec] hover:text-[#13100e] md:px-4 md:py-2 md:text-[10px] md:tracking-[0.22em]"
             >
-              <span className="md:hidden">{locale === 'fr' ? 'Préparer' : 'Book'}</span>
+              <span className="md:hidden">{locale === 'fr' ? 'Questionnaire' : 'Questionnaire'}</span>
               <span className="hidden md:inline">{locale === 'fr' ? 'Préparez votre séjour' : 'Plan Your Stay'}</span>
             </button>
             <div className="flex items-center rounded-full border border-[#f6f2ec]/30 p-0.5">
@@ -769,11 +786,11 @@ export default function HomePage() {
 
           {/* CARTE 1 — recto photo */}
           <div className="reveal bg-[#f8f4eb] p-2 pb-6 shadow-[0_8px_40px_rgba(0,0,0,0.40)]">
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden" style={{ height: '160px' }}>
               <img
                 src="/IMG_1697.jpg"
                 alt="Baan Sayiuan"
-                className="h-[140px] md:h-[260px] w-full object-cover"
+                className="h-full w-full object-cover"
               />
               <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 30px rgba(0,0,0,0.15)' }} />
               <p
@@ -789,12 +806,12 @@ export default function HomePage() {
           <div className="h-3" />
 
           {/* CARTE 2 — verso texte */}
-          <div className="reveal reveal-delay-2 bg-[#f8f4eb] px-4 py-3 shadow-[0_8px_40px_rgba(0,0,0,0.35)] flex flex-col">
+          <div className="reveal reveal-delay-2 bg-[#f8f4eb] px-4 py-3 shadow-[0_8px_40px_rgba(0,0,0,0.35)]" style={{ minHeight: '172px', display: 'flex', flexDirection: 'column' }}>
 
-            {/* header + stamp */}
-            <div className="flex items-start justify-between border-b border-[#1f1b18]/12 pb-2">
-              <p className="font-display text-[14px] uppercase tracking-[0.06em] text-[#1f1b18]/80">POSTCARD</p>
-              <div style={{ width: '48px', height: '48px', flexShrink: 0 }}>
+            {/* header + stamp — sans trait */}
+            <div className="flex items-start justify-between mb-2">
+              <p className="font-display text-[14px] uppercase tracking-[0.06em] text-[#1f1b18]/50">POSTCARD</p>
+              <div style={{ width: '44px', height: '44px', flexShrink: 0 }}>
                 <img
                   src="/collage/ed314742de5bf7445488ba1b5414ac6c.jpg"
                   alt="Thailand stamp"
@@ -804,14 +821,14 @@ export default function HomePage() {
             </div>
 
             {/* corps : texte pleine largeur */}
-            <div className="mt-2 flex-1">
-              <p className="font-script whitespace-pre-line text-[14px] md:text-[17px] leading-[1.3] text-[#1f1b18]/70">
+            <div className="flex-1">
+              <p className="font-script whitespace-pre-line text-[15px] md:text-[17px] leading-[1.35] text-[#1f1b18]/70">
                 {t.welcomeStory1}
               </p>
             </div>
 
             {/* pied */}
-            <p className="font-label mt-3 pt-2 border-t border-[#1f1b18]/10 text-[6.5px] uppercase tracking-[0.22em] text-[#1f1b18]/32">
+            <p className="font-label mt-2 text-[6px] uppercase tracking-[0.20em] text-[#1f1b18]/25">
               baan Sayiuan · 59/45 Soi Sayiuan 13 · Rawai · Phuket · Thailand
             </p>
           </div>
@@ -1018,7 +1035,7 @@ export default function HomePage() {
             {/* Code porte — mis en avant */}
             <div className="reveal reveal-delay-2">
               <p className="font-label text-[7px] uppercase tracking-[0.22em] mb-3" style={{ color: 'rgba(255,248,236,0.30)' }}>{t.doorCode}</p>
-              <p style={{ fontFamily: 'monospace', fontSize: '36px', fontWeight: '700', color: '#fff8ec', letterSpacing: '0.10em', lineHeight: 1 }}>{ACCESS.doorCode}</p>
+              <p style={{ fontFamily: 'monospace', fontSize: '36px', color: '#fff8ec', letterSpacing: '0.10em', lineHeight: 1 }}>{ACCESS.doorCode}</p>
               <div className="mt-5" style={{ borderLeft: '1px solid rgba(255,248,236,0.15)', paddingLeft: '12px' }}>
                 <p className="font-label text-[11px] leading-[2.2]" style={{ color: 'rgba(255,248,236,0.55)' }}>
                   {locale === 'fr'
@@ -1084,11 +1101,14 @@ export default function HomePage() {
           style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'1\'/%3E%3C/svg%3E")', backgroundSize: '160px 160px' }} />
 
         {/* ── Décos scrapbook tropicales ── */}
-        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '180px', top: '40px', right: '-30px', transform: 'rotate(18deg)', opacity: 0.75, zIndex: 0 }} />
-        <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '160px', top: '320px', left: '-40px', transform: 'rotate(-12deg)', opacity: 0.60, zIndex: 0 }} />
-        <img src="/collage/tom-yum-bowl.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '200px', top: '900px', right: '-20px', transform: 'rotate(-8deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
-        <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '170px', top: '1400px', left: '-30px', transform: 'rotate(10deg)', opacity: 0.85, mixBlendMode: 'multiply', zIndex: 0 }} />
-        <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '190px', bottom: '120px', right: '-10px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
+        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '180px', top: '40px', right: '-60px', transform: 'rotate(18deg)', opacity: 0.75, zIndex: 0 }} />
+        <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '160px', top: '320px', left: '-60px', transform: 'rotate(-12deg)', opacity: 0.60, zIndex: 0 }} />
+        <img src="/collage/mango-sticky-rice.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '160px', top: '620px', right: '-55px', transform: 'rotate(10deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/tom-yum-bowl.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '200px', top: '900px', right: '-70px', transform: 'rotate(-8deg)', opacity: 0.70, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/coconut-drink.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '160px', top: '1150px', left: '-55px', transform: 'rotate(8deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '170px', top: '1400px', left: '-65px', transform: 'rotate(10deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/pad-thai.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '180px', top: '1700px', right: '-60px', transform: 'rotate(-6deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '190px', bottom: '120px', right: '-65px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
 
         <div className="relative mx-auto max-w-5xl">
 
