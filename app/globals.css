@@ -21,9 +21,25 @@
     font-display: block;
   }
 
+  @font-face {
+    font-family: 'Dialtones';
+    src: url('/dialtones-casual-handwritten-font/Dialtones-BF6988579fbe4cb.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+  }
+
+  @font-face {
+    font-family: 'ADE Display';
+    src: url('/ade-display/Ade-Display.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+  }
+
   :root {
-    --font-display: 'Honera Regular', 'Montserrat', sans-serif;
-    --font-script: 'Honera Script', 'Montserrat', sans-serif;
+    --font-display: 'ADE Display', 'Honera Regular', 'Montserrat', sans-serif;
+    --font-script: 'Dialtones', 'Honera Script', cursive;
     --font-label: 'Montserrat', sans-serif;
     --font-sans: 'Montserrat', sans-serif;
     --paper: #efede8;
