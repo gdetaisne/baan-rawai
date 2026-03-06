@@ -60,9 +60,10 @@ const CONTENT = {
     kidsAges: 'Their ages (e.g. 2 and 5)',
     kidsSleepingLabel: 'Sleeping arrangements for the kids',
     kidsSleepingOpts: [
-      { value: 'bunk-top', label: "Top bunk in Ezekiel's room" },
-      { value: 'mattress-ez', label: "Floor mattress in Ez's room" },
-      { value: 'crib-parents', label: 'Crib in parents\' room' },
+      { value: 'crib-parents', label: 'Crib in parents\' bedroom' },
+      { value: 'mattress-ez', label: 'Floor mattress in Ez\'s room' },
+      { value: 'bunk-top', label: 'Bunk bed — top bunk' },
+      { value: 'mattress-parents', label: 'Floor mattress in parents\' room' },
       { value: 'other', label: 'Other' },
     ],
     kidsSleepingOther: 'Describe the arrangement',
@@ -148,9 +149,10 @@ const CONTENT = {
     kidsAges: 'Leurs âges (ex. 2 et 5 ans)',
     kidsSleepingLabel: 'Couchage pour les enfants',
     kidsSleepingOpts: [
-      { value: 'bunk-top', label: 'Lit du haut dans la chambre d\'Ezekiel' },
-      { value: 'mattress-ez', label: 'Matelas au sol dans la chambre d\'Ez' },
       { value: 'crib-parents', label: 'Lit bébé dans la chambre des parents' },
+      { value: 'mattress-ez', label: 'Matelas au sol dans la chambre d\'Ez' },
+      { value: 'bunk-top', label: 'Lits superposés — lit du haut' },
+      { value: 'mattress-parents', label: 'Matelas au sol dans la chambre des parents' },
       { value: 'other', label: 'Autre' },
     ],
     kidsSleepingOther: 'Décrivez l\'arrangement',
@@ -218,18 +220,31 @@ const BEACHES = [
 ];
 
 const RESTAURANTS = [
-  { name: "Nikita's", detail: 'Seafood & cocktails, pieds dans l\'eau', maps: 'https://maps.google.com/?q=Nikita%27s+Restaurant+Rawai+Phuket' },
-  { name: 'Locanda del Pescatore', detail: 'Cuisine italienne face à la mer', maps: 'https://maps.google.com/?q=Locanda+del+Pescatore+Rawai+Phuket' },
-  { name: 'Le Celtique', detail: 'Breton à Rawai — galettes & moules', maps: 'https://maps.google.com/?q=Le+Celtique+Rawai+Phuket' },
+  { name: "Nikita's", detail: 'Seafood & cocktails', note: 'Les pieds dans l\'eau, vue sur la mer, Chang bien froide. L\'endroit où on commande "juste un verre" et on finit à dîner au coucher du soleil.', maps: 'https://maps.google.com/?q=Nikita%27s+Restaurant+Rawai+Phuket' },
+  { name: 'Pure Vegan Heaven', detail: 'Végétalien · 5 min à pied', note: 'Healthy sans être austère. Jardin ombragé très agréable — parfait pour un déjeuner après le yoga. Même les non-vegans en ressortent contents.', maps: 'https://maps.google.com/?q=Pure+Vegan+Heaven+Rawai+Phuket' },
+  { name: 'Locanda del Pescatore', detail: 'Italien face à la mer', note: 'Notre cantine pour notre date hebdo. Pâtes faites maison, vin correct, service sans chichi. On y revient chaque semaine depuis des années.', maps: 'https://maps.google.com/?q=Locanda+del+Pescatore+Rawai+Phuket' },
+  { name: 'Nibe', detail: 'Italien · gastronomique', note: 'Probablement le meilleur restaurant italien de Phuket. Pas donné, mais chaque bouchée le justifie. Réservation recommandée.', maps: 'https://maps.google.com/?q=Nibe+Restaurant+Phuket' },
+  { name: 'Groov Gastrobar', detail: 'Gastrobar · cocktails', note: 'Ambiance bar, musique, DJ certains soirs. Pas vraiment kids-friendly après 20h — mais parfait pour une soirée entre adultes.', maps: 'https://maps.google.com/?q=Groov+Gastrobar+Rawai+Phuket' },
+  { name: 'Le Celtique', detail: 'Breton à Rawai', note: 'Marié à une Thaï, le patron propose un double menu. Les galettes sont honnêtes, le menu thaï vaut vraiment le détour. Institution chez les expats français de Rawai depuis 15 ans.', maps: 'https://maps.google.com/?q=Le+Celtique+Rawai+Phuket' },
+  { name: 'Vida Nova Phuket', detail: 'Breakfast & coffee shop', note: 'Beau cadre, bon café, brunchs soignés. Le genre d\'endroit où on arrive pour un café et on reste deux heures.', maps: 'https://maps.google.com/?q=Vida+Nova+Phuket' },
+  { name: 'Elyseum Bathhouse', detail: 'Breakfast & café', note: 'Décor soigné, excellent café de spécialité, idéal pour travailler en remote. Wifi solide, prises partout, personne ne vous regarde de travers si vous restez 4h.', maps: 'https://maps.google.com/?q=Elyseum+Bathhouse+Phuket' },
+  { name: 'We Café', detail: 'Breakfast & coffee shop', note: 'Petit, sympa, sans prétention. Bon café, smoothies frais, portions généreuses. Le breakfast local pour bien commencer la journée.', maps: 'https://maps.google.com/?q=We+Cafe+Rawai+Phuket' },
+  { name: 'Wine Connection', detail: 'Cave à vin & bistrot', note: 'La meilleure sélection de vins importés du coin, à des prix corrects pour la Thaïlande. On peut boire sur place ou emporter — pratique pour ramener une bonne bouteille à la villa.', maps: 'https://maps.google.com/?q=Wine+Connection+Rawai+Phuket' },
+  { name: 'The Cove', detail: 'Seafood · Cap Panwa · 25 min', note: 'Le restaurant de Sri Panwa, perché sur la colline avec vue à 180° sur l\'Andaman. Cadre spectaculaire, cuisine soignée. Prévoir un taxi — ça vaut le détour pour une grande occasion.', maps: 'https://maps.google.com/?q=The+Cove+Sri+Panwa+Phuket' },
 ];
 
 const WELLNESS = [
-  { name: 'Tiger Muay Thai', detail: 'Muay Thai & MMA', maps: 'https://maps.google.com/?q=Tiger+Muay+Thai+Phuket' },
-  { name: 'Naga Ayurveda', detail: 'Ayurveda & soins', maps: 'https://maps.google.com/?q=Naga+Ayurveda+Rawai+Phuket' },
-  { name: 'Prana Yoga', detail: 'Yoga', maps: 'https://maps.google.com/?q=Prana+Yoga+Rawai+Phuket' },
-  { name: 'Studio 36', detail: 'Pilates', maps: 'https://maps.google.com/?q=Studio+36+Rawai+Phuket' },
-  { name: 'Massages thaï', detail: '~250 THB / h', maps: 'https://maps.google.com/?q=massage+Rawai+Phuket' },
-  { name: 'Promthep Cape', detail: null, maps: 'https://maps.google.com/?q=Promthep+Cape+Phuket' },
+  { name: 'Sinbi Muay Thai', detail: 'Muay Thai · 5 min à pied', detailEn: 'Muay Thai · 5 min walk', note: 'Le plus proche — ambiance usine et gros muscles, plutôt pour les confirmés.', noteEn: 'Closest — factory vibe and big muscles, better for experienced fighters.', maps: 'https://maps.google.com/?q=Sinbi+Muay+Thai+Rawai+Phuket' },
+  { name: 'Shark Muay Thai', detail: 'Muay Thai · 10 min à pied', detailEn: 'Muay Thai · 10 min walk', note: 'Plus familial, mon préféré (Lucie). Cours à 10h (les autres sont à 8h). Vous pouvez aussi prendre un cours privé pour moins de 1000 baht.', noteEn: 'More family-friendly, my favourite (Lucie). Class at 10am (others start at 8am). Private lessons also available for under 1,000 baht.', maps: 'https://maps.google.com/?q=Shark+Muay+Thai+Rawai+Phuket' },
+  { name: 'Phuket Muay Thai', detail: 'Muay Thai · vue mer', detailEn: 'Muay Thai · sea view', note: 'Vue mer, très sympa.', noteEn: 'Sea view, great atmosphere.', maps: 'https://maps.google.com/?q=Phuket+Muay+Thai+Phuket' },
+  { name: 'Mangosteen Ayurveda', detail: 'Ayurveda & soins', detailEn: 'Ayurveda & treatments', note: 'Massages ayurvédiques, soins du corps, bains de vapeur aux herbes. Pour se remettre des excès de Chang Beer.', noteEn: 'Ayurvedic massages, body treatments, herbal steam baths. Perfect recovery after too many Chang Beers.', maps: 'https://maps.google.com/?q=Mangosteen+Ayurveda+Phuket' },
+  { name: 'Jungala', detail: 'Yoga · Breathwork · Sound healing', detailEn: 'Yoga · Breathwork · Sound healing', note: 'Le genre d\'endroit où on arrive stressé et on repart comme si on avait dormi 12h.', noteEn: 'The kind of place you arrive stressed and leave feeling like you slept for 12 hours.', maps: 'https://maps.google.com/?q=Jungala+Phuket' },
+  { name: 'Action Point', detail: 'Hot Yoga', detailEn: 'Hot Yoga', note: 'Yoga dans une salle chauffée à 38°C. Oui, il fait déjà 33°C dehors. Oui, c\'est quand même mieux.', noteEn: 'Yoga in a room heated to 38°C. Yes, it\'s already 33°C outside. Yes, it\'s still better.', maps: 'https://maps.google.com/?q=Action+Point+Phuket' },
+  { name: 'Elite Atoll Fitness', detail: 'Reformer Pilates', detailEn: 'Reformer Pilates', note: 'Pilates sur reformer, cours en petit groupe. Le genre de workout qui fait mal le lendemain mais dont on est fier.', noteEn: 'Reformer Pilates in small groups. The kind of workout that hurts the next day but you\'re proud of.', maps: 'https://maps.google.com/?q=Elite+Atoll+Fitness+Phuket' },
+  { name: 'Green Sport Massage', detail: 'Massage thaï · Saiuan 10 · 400 THB / h', detailEn: 'Thai massage · Saiuan 10 · 400 THB / h', note: 'Massage thaï traditionnel à 5 min à pied. Demandez "soft" si vous êtes un peu douillet — et ils comprendront.', noteEn: 'Traditional Thai massage 5 min walk away. Ask for "soft" if you\'re a bit of a wimp — they\'ll understand.', maps: 'https://maps.google.com/?q=Green+Sport+Massage+Rawai+Phuket' },
+  { name: 'Chivitr', detail: 'Massages haut de gamme', detailEn: 'Premium massages', note: 'Pour un vrai moment de luxe. Ambiance spa, protocoles sérieux, à réserver à l\'avance.', noteEn: 'For a proper luxury experience. Spa atmosphere, serious protocols — book ahead.', maps: 'https://maps.google.com/?q=Chivitr+Phuket' },
+  { name: 'Promthep Cape', detail: null, detailEn: null, note: null, noteEn: null, maps: 'https://maps.google.com/?q=Promthep+Cape+Phuket' },
+  { name: 'Shark Bites', detail: 'Padel · Piscine · Bar', detailEn: 'Padel · Pool · Bar', note: 'Courts de padel, piscine avec plongeoire et mur d\'escalade — et un bar au milieu. La journée parfaite pour ne pas rentrer à la villa.', noteEn: 'Padel courts, pool with diving board and climbing wall — and a bar in the middle. The perfect excuse not to go home.', maps: 'https://maps.google.com/?q=Shark+Bites+Rawai+Phuket' },
 ];
 
 const DAY_PASSES = [
@@ -247,78 +262,81 @@ const ACCESS = {
 
 function SevenElevenReceipt({ locale }: { locale: string }) {
   const items = [
-    { name: 'Chang Beer (640ml)', price: '฿ 65' },
-    { name: 'Singha Water x2', price: '฿ 20' },
-    { name: 'Lay\'s (75g)', price: '฿ 28' },
-    { name: 'SIM True Move H', price: '฿ 299' },
-    { name: 'Sunscreen SPF 50', price: '฿ 189' },
-    { name: 'Ice cream bar', price: '฿ 35' },
+    { name: 'Chang Beer 640ml', price: '65' },
+    { name: 'Singha Water x2', price: '20' },
+    { name: "Lay's BBQ 75g", price: '28' },
+    { name: 'SIM True Move H', price: '299' },
+    { name: 'Sunscreen SPF50', price: '189' },
+    { name: 'Ice Cream Bar', price: '35' },
   ];
-  const total = 636;
+  const subtotal = 636;
+  const cash = 700;
   return (
-    <div
-      className="paper-aged shadow-[0_5px_22px_rgba(31,27,24,0.20)]"
-      style={{
-        background: '#faf8f2',
-        border: '1px solid rgba(31,27,24,0.10)',
-        fontFamily: "'Courier New', Courier, monospace",
-        padding: '0 0 0 0',
-        position: 'relative',
-        clipPath: 'polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 8px) 100%,calc(100% - 16px) calc(100% - 6px),calc(100% - 24px) 100%,calc(100% - 32px) calc(100% - 5px),calc(100% - 40px) 100%,calc(100% - 48px) calc(100% - 7px),calc(100% - 56px) 100%,calc(100% - 64px) calc(100% - 5px),calc(100% - 72px) 100%,calc(100% - 80px) calc(100% - 6px),calc(100% - 88px) 100%,0 calc(100% - 4px))',
-      }}
-    >
-      {/* Logo strip */}
-      <div style={{ background: '#fff', padding: '10px 14px 8px', borderBottom: '1px dashed rgba(31,27,24,0.18)' }}>
-        <img src="/collage/7eleven-logo.png" alt="7-Eleven" style={{ width: '100%', display: 'block', mixBlendMode: 'multiply' }} />
-      </div>
+    <div style={{
+      fontFamily: "'Courier New', Courier, monospace",
+      width: '168px',
+      background: '#fdfbf6',
+      boxShadow: '0 3px 14px rgba(31,27,24,0.22)',
+      position: 'relative',
+      clipPath: 'polygon(0 0,100% 0,100% calc(100% - 8px),calc(100% - 5px) 100%,calc(100% - 11px) calc(100% - 5px),calc(100% - 17px) 100%,calc(100% - 23px) calc(100% - 4px),calc(100% - 29px) 100%,calc(100% - 35px) calc(100% - 6px),calc(100% - 41px) 100%,calc(100% - 47px) calc(100% - 4px),calc(100% - 53px) 100%,calc(100% - 59px) calc(100% - 5px),calc(100% - 65px) 100%,calc(100% - 71px) calc(100% - 4px),calc(100% - 77px) 100%,0 calc(100% - 3px))',
+    }}>
 
-      {/* Store info */}
-      <div style={{ padding: '8px 14px 0', textAlign: 'center', borderBottom: '1px dashed rgba(31,27,24,0.15)', paddingBottom: '7px' }}>
-        <a href="https://share.google/dzSNztRG5borA1tmw" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-          <p style={{ fontSize: '8px', fontWeight: '700', color: '#1a1714', letterSpacing: '0.06em', lineHeight: 1.4 }}>SOI SAIUAN 11 · RAWAI</p>
-          <p style={{ fontSize: '7px', color: 'rgba(31,27,24,0.45)', letterSpacing: '0.08em', marginTop: '1px' }}>PHUKET  84130</p>
-          <p style={{ fontSize: '7px', color: '#c0392b', letterSpacing: '0.14em', marginTop: '3px', textTransform: 'uppercase', textDecoration: 'underline', textDecorationColor: 'rgba(192,57,43,0.35)' }}>📍 Maps →</p>
-        </a>
-        <p style={{ fontSize: '6.5px', color: 'rgba(31,27,24,0.28)', marginTop: '5px', letterSpacing: '0.05em' }}>STORE #08412 · CASHIER: NUI · REG: 02</p>
+      {/* Header — logo inline + infos magasin */}
+      <div style={{ padding: '9px 12px 8px', borderBottom: '1px dashed rgba(31,27,24,0.15)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '7px', marginBottom: '6px' }}>
+          <img src="/collage/7eleven-logo-new.png" alt="7-Eleven" style={{ width: '28px', flexShrink: 0, mixBlendMode: 'multiply', borderRadius: '4px' }} />
+          <div>
+            <p style={{ fontSize: '7px', fontWeight: '700', color: '#1a1714', letterSpacing: '0.07em', lineHeight: 1.2 }}>7-ELEVEN #08412</p>
+            <p style={{ fontSize: '5.5px', color: 'rgba(31,27,24,0.35)', letterSpacing: '0.04em', marginTop: '1px' }}>CASHIER: NUI  REG:02</p>
+          </div>
+        </div>
+        <div style={{ borderTop: '1px solid rgba(31,27,24,0.08)', paddingTop: '5px', textAlign: 'center' }}>
+          <a href="https://share.google/dzSNztRG5borA1tmw" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+            <p style={{ fontSize: '6.5px', color: 'rgba(31,27,24,0.65)', letterSpacing: '0.03em', lineHeight: 1.45 }}>Soi Saiuan 11, Rawai<br/>Phuket 83130</p>
+            <p style={{ fontSize: '6.5px', fontWeight: '600', color: '#b03020', marginTop: '3px', letterSpacing: '0.05em' }}>📍 Voir sur Maps →</p>
+          </a>
+        </div>
       </div>
 
       {/* Items */}
-      <div style={{ padding: '8px 14px 4px' }}>
+      <div style={{ padding: '5px 10px 3px' }}>
         {items.map((item, i) => (
-          <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '7.5px', color: 'rgba(31,27,24,0.70)', lineHeight: 1.85 }}>
-            <span>{item.name}</span><span style={{ fontVariantNumeric: 'tabular-nums' }}>{item.price}</span>
+          <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '6.5px', color: 'rgba(31,27,24,0.72)', lineHeight: 1.75 }}>
+            <span>{item.name}</span>
+            <span style={{ fontVariantNumeric: 'tabular-nums', minWidth: '24px', textAlign: 'right' }}>฿{item.price}</span>
           </div>
         ))}
       </div>
 
       {/* Total */}
-      <div style={{ padding: '0 14px 6px', borderTop: '1px dashed rgba(31,27,24,0.20)', marginTop: '4px', paddingTop: '6px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9.5px', fontWeight: '700', color: '#1a1714', letterSpacing: '0.04em' }}>
-          <span>TOTAL</span><span>฿ {total}</span>
+      <div style={{ padding: '4px 10px 4px', borderTop: '1px dashed rgba(31,27,24,0.18)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '8px', fontWeight: '700', color: '#1a1714' }}>
+          <span>TOTAL</span><span>฿{subtotal}</span>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '7px', color: 'rgba(31,27,24,0.40)', marginTop: '2px' }}>
-          <span>CASH</span><span>฿ 700</span>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '6px', color: 'rgba(31,27,24,0.38)', marginTop: '1px' }}>
+          <span>CASH</span><span>฿{cash}</span>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '7px', color: 'rgba(31,27,24,0.40)' }}>
-          <span>CHANGE</span><span>฿ {700 - total}</span>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '6px', color: 'rgba(31,27,24,0.38)' }}>
+          <span>CHANGE</span><span>฿{cash - subtotal}</span>
         </div>
       </div>
 
       {/* Barcode */}
-      <div style={{ padding: '8px 14px 4px', borderTop: '1px dashed rgba(31,27,24,0.15)', textAlign: 'center' }}>
-        <div style={{ display: 'inline-flex', gap: '1.5px', alignItems: 'flex-end', height: '22px' }}>
-          {[3,1,2,3,1,1,2,3,2,1,3,2,1,2,3,1,2,1,3,2,1,3,1,2,2,3,1,2,1,3].map((h, i) => (
-            <div key={i} style={{ width: i % 3 === 0 ? '2px' : '1px', height: `${h * 6}px`, background: 'rgba(31,27,24,0.75)', borderRadius: '0.5px' }} />
+      <div style={{ padding: '5px 10px 3px', borderTop: '1px dashed rgba(31,27,24,0.12)', textAlign: 'center' }}>
+        <div style={{ display: 'inline-flex', gap: '1px', alignItems: 'flex-end' }}>
+          {[2,1,3,1,2,1,3,2,1,2,3,1,3,1,2,1,2,3,1,2,1,3,2,1,2,1,3,2,1,2,3,1,2,3,1,2,1,3,2,1].map((h, i) => (
+            <div key={i} style={{ width: i % 4 === 0 ? '2px' : '1px', height: `${h * 4 + 6}px`, background: 'rgba(31,27,24,0.80)' }} />
           ))}
         </div>
-        <p style={{ fontSize: '6px', color: 'rgba(31,27,24,0.28)', letterSpacing: '0.14em', marginTop: '3px' }}>8 85580 08412 6</p>
+        <p style={{ fontSize: '5.5px', color: 'rgba(31,27,24,0.25)', letterSpacing: '0.12em', marginTop: '2px' }}>8 85580 08412 6</p>
       </div>
 
       {/* Footer */}
-      <div style={{ padding: '4px 14px 14px', textAlign: 'center' }}>
-        <p style={{ fontSize: '7px', color: 'rgba(31,27,24,0.28)', letterSpacing: '0.10em' }}>ขอบคุณที่ใช้บริการ</p>
-        <p style={{ fontSize: '6.5px', color: 'rgba(31,27,24,0.20)', letterSpacing: '0.08em', marginTop: '1px' }}>THANK YOU · COME AGAIN</p>
+      <div style={{ padding: '3px 10px 12px', textAlign: 'center' }}>
+        <p style={{ fontSize: '6px', color: 'rgba(31,27,24,0.30)', letterSpacing: '0.06em' }}>ขอบคุณที่ใช้บริการ</p>
+        <p style={{ fontSize: '5.5px', color: 'rgba(31,27,24,0.18)', letterSpacing: '0.08em', marginTop: '1px' }}>THANK YOU · COME AGAIN</p>
       </div>
+
     </div>
   );
 }
@@ -519,18 +537,16 @@ export default function HomePage() {
                       onChange={(e) => setForm((prev) => ({ ...prev, breakfastAdults: e.target.value }))}
                     />
                   </div>
-                  {Number(form.kidsCount) > 0 && (
-                    <div>
-                      <label className="font-label mb-2 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.breakfastKidsLabel}</label>
-                      <textarea
-                        className="w-full border border-[#1f1b18]/15 bg-transparent px-3 py-3 text-sm outline-none resize-none"
-                        rows={2}
-                        placeholder={t.breakfastKidsPlaceholder}
-                        value={form.breakfastKids}
-                        onChange={(e) => setForm((prev) => ({ ...prev, breakfastKids: e.target.value }))}
-                      />
-                    </div>
-                  )}
+                  <div>
+                    <label className="font-label mb-2 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.breakfastKidsLabel}</label>
+                    <textarea
+                      className="w-full border border-[#1f1b18]/15 bg-transparent px-3 py-3 text-sm outline-none resize-none"
+                      rows={2}
+                      placeholder={t.breakfastKidsPlaceholder}
+                      value={form.breakfastKids}
+                      onChange={(e) => setForm((prev) => ({ ...prev, breakfastKids: e.target.value }))}
+                    />
+                  </div>
                 </div>
 
                 {/* Allergies */}
@@ -824,8 +840,8 @@ export default function HomePage() {
             </div>
 
             {/* version desktop — collage overlap */}
-            {/* Layout: 4 colonnes sur ~1000px, centré dans max-w-[1160px] via mx-auto px-20 */}
-            <div className="relative hidden sm:block px-16" style={{ height: '820px' }}>
+            <div className="hidden sm:block">
+              <div className="relative mx-auto" style={{ width: '980px', height: '820px' }}>
 
               {/* GRANDE PHOTO GAUCHE — balade père fils vers la mer */}
               <div className="absolute" style={{ left: '0px', top: '20px', width: '230px', zIndex: 1 }}>
@@ -891,7 +907,7 @@ export default function HomePage() {
                   </span>
                   <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>✈ Pro tip</p>
                   <p className="font-display mt-1 text-[26px] uppercase leading-none" style={{ color: '#1a1714' }}>Priority<br/>Lane</p>
-                  <img src="/garuda-stamp.png" alt="" className="absolute bottom-4 left-4 w-[64px] opacity-[0.08]" style={{ filter: 'grayscale(1)', mixBlendMode: 'multiply', transform: 'rotate(-8deg)' }} />
+                  <img src="/collage/garuda-stamp.png" alt="" className="absolute bottom-4 left-4 w-[64px] opacity-[0.08]" style={{ filter: 'grayscale(1)', mixBlendMode: 'multiply', transform: 'rotate(-8deg)' }} />
                   <p className="mt-3 text-[12px] leading-[1.7]" style={{ color: 'rgba(31,27,24,0.72)' }}>{locale === 'fr' ? "Au passport control, approchez l'agent et dites juste \"priority lane — how much ?\". Il annonce un prix entre 500 et 1000 bahts — c'est du bakchich, cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : 30 min à 2h dans la queue." : 'At passport control, walk up to the agent and say "priority lane — how much?" They\'ll quote you 500–1000 baht — it\'s a bribe, cash in baht only. Exchange desk right before if needed. Passports, TDAC forms and cash out and ready. You\'re through in 2 minutes. Without it: queue for 30 min to 2 hours.'}</p>
                 </div>
               </div>
@@ -900,7 +916,7 @@ export default function HomePage() {
               <div className="absolute" style={{ left: '300px', top: '440px', width: '205px', zIndex: 3 }}>
                 <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
                 <div className="paper-aged relative p-4 shadow-[0_3px_16px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                  <span className="stamp-mandatory absolute -right-5 -top-5 z-20" style={{ fontSize: '10px', padding: '6px 12px 5px', transform: 'rotate(6deg)' }}>
+                  <span className="stamp-mandatory absolute -right-8 -top-10 z-20" style={{ fontSize: '10px', padding: '6px 12px 5px', transform: 'rotate(6deg)' }}>
                     {locale === 'fr' ? 'Obligatoire' : 'Required'}<br/>
                     <span style={{ fontSize: '8px', letterSpacing: '0.05em' }}>บังคับ</span>
                   </span>
@@ -923,7 +939,8 @@ export default function HomePage() {
                 </div>
               </div>
 
-            </div>
+              </div>{/* fin mx-auto 980px */}
+            </div>{/* fin hidden sm:block */}
           </div>
         </div>
       </section>
@@ -938,59 +955,63 @@ export default function HomePage() {
             <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.arrivalTitle}</h2>
           </div>
 
-          {/* ── MOBILE layout ────────────────────────────────────── */}
           {/* ── MOBILE ──────────────────────────────────────────── */}
           <div className="flex flex-col gap-6 sm:hidden">
 
-            {/* Photo piscine soir */}
-            <div className="reveal relative">
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged shadow-[0_4px_20px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 28px 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <div style={{ overflow: 'hidden', height: '200px' }}>
-                  <img src="/IMG_pool_evening.png" alt="Villa pool evening" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.04) brightness(1.02)' }} />
+            {/* 2 photos côte à côte */}
+            <div className="reveal grid grid-cols-2 gap-3">
+              <div className="relative">
+                <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-6 w-14 -translate-x-1/2" />
+                <div className="paper-aged shadow-[0_4px_16px_rgba(31,27,24,0.16)]" style={{ background: '#f0ece3', padding: '7px 7px 22px 7px', border: '1px solid rgba(31,27,24,0.10)', transform: 'rotate(-1.5deg)' }}>
+                  <div style={{ overflow: 'hidden', height: '160px' }}>
+                    <img src="/IMG_pool_evening.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.04) brightness(1.02)' }} />
+                  </div>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-6 w-14 -translate-x-1/2" />
+                <div className="paper-aged shadow-[0_4px_16px_rgba(31,27,24,0.16)]" style={{ background: '#f0ece3', padding: '7px 7px 22px 7px', border: '1px solid rgba(31,27,24,0.10)', transform: 'rotate(1.5deg)' }}>
+                  <div style={{ overflow: 'hidden', height: '160px' }}>
+                    <img src="/IMG_pool_mugs.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', filter: 'sepia(0.08) contrast(1.04) brightness(1.02)' }} />
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Codes WiFi + Porte */}
-            <div className="reveal reveal-delay-1 relative" style={{ paddingTop: '32px' }}>
-              <img src="/collage/penco-clip.png" alt="" className="pointer-events-none absolute" style={{ width: '72px', left: '50%', top: '-8px', transform: 'translateX(-50%)', zIndex: 10, mixBlendMode: 'multiply' }} />
-              <div className="paper-aged p-6 shadow-[0_3px_16px_rgba(31,27,24,0.14)]" style={{ background: '#f5f0e8', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}</p>
-                <div className="mt-4" style={{ borderTop: '1px solid rgba(31,27,24,0.10)', paddingTop: '16px' }}>
-                  <div className="mb-4">
-                    <p className="font-label text-[7px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{t.wifiNetwork}</p>
-                    <p className="mt-1 text-[17px]" style={{ color: '#1a1714', letterSpacing: '0.04em' }}>{ACCESS.wifiNetwork}</p>
-                  </div>
-                  <div className="mb-4" style={{ borderTop: '1px dashed rgba(31,27,24,0.12)', paddingTop: '12px' }}>
-                    <p className="font-label text-[7px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{t.wifiPassword}</p>
-                    <p className="mt-1 text-[17px]" style={{ color: '#1a1714', letterSpacing: '0.04em' }}>{ACCESS.wifiPassword || '—'}</p>
-                  </div>
-                  <div style={{ borderTop: '1px dashed rgba(31,27,24,0.12)', paddingTop: '12px' }}>
-                    <p className="font-label text-[7px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{t.doorCode}</p>
-                    <p className="font-display mt-1 text-[38px] leading-none" style={{ color: '#1a1714', letterSpacing: '0.12em' }}>{ACCESS.doorCode || '—'}</p>
-                    <p className="mt-2 text-[10px] leading-[1.6]" style={{ color: 'rgba(31,27,24,0.55)' }}>
+            <div className="reveal reveal-delay-1 relative" style={{ paddingTop: '36px' }}>
+              <img src="/collage/binder-clip.png" alt="" className="pointer-events-none absolute" style={{ width: '48px', left: '50%', top: '-6px', transform: 'translateX(-50%)', zIndex: 10, mixBlendMode: 'multiply', opacity: 0.88 }} />
+              <div className="paper-aged shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#f5f0e8', border: '1px solid rgba(31,27,24,0.10)' }}>
+                {/* Header strip */}
+                <div style={{ borderBottom: '1px solid rgba(31,27,24,0.08)', padding: '14px 20px 10px' }}>
+                  <p className="font-label text-[7px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.38)' }}>{locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}</p>
+                </div>
+                {/* WiFi */}
+                <div style={{ padding: '14px 20px', borderBottom: '1px dashed rgba(31,27,24,0.10)' }}>
+                  <p className="font-label text-[6.5px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{t.wifiNetwork}</p>
+                  <p className="mt-1 text-[15px] font-medium" style={{ color: '#1a1714', letterSpacing: '0.03em', lineHeight: 1.2 }}>{ACCESS.wifiNetwork}</p>
+                  <p className="font-label mt-2 text-[6.5px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{t.wifiPassword}</p>
+                  <p className="mt-1 text-[15px] font-medium" style={{ color: '#1a1714', letterSpacing: '0.03em', lineHeight: 1.2 }}>{ACCESS.wifiPassword}</p>
+                </div>
+                {/* Code porte — mis en avant */}
+                <div style={{ padding: '16px 20px 18px', background: 'rgba(31,27,24,0.04)' }}>
+                  <p className="font-label text-[6.5px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{t.doorCode}</p>
+                  <p className="mt-1" style={{ fontFamily: 'monospace', fontSize: '40px', fontWeight: '700', color: '#1a1714', letterSpacing: '0.18em', lineHeight: 1, background: 'rgba(31,27,24,0.06)', display: 'inline-block', padding: '4px 10px', borderRadius: '3px' }}>{ACCESS.doorCode}</p>
+                  <div className="mt-3" style={{ borderLeft: '2px solid rgba(31,27,24,0.12)', paddingLeft: '10px' }}>
+                    <p className="text-[9.5px] leading-[1.9]" style={{ color: 'rgba(31,27,24,0.58)' }}>
                       {locale === 'fr'
-                        ? <><span style={{ display: 'block' }}>① Paume entière sur le capteur</span><span style={{ display: 'block' }}>② Tapez le code</span><span style={{ display: 'block' }}>③ Paume entière sur le capteur</span><span style={{ display: 'block', fontStyle: 'italic' }}>④ "door unlocked" ✓</span></>
-                        : <><span style={{ display: 'block' }}>① Full palm on the sensor</span><span style={{ display: 'block' }}>② Tap the code</span><span style={{ display: 'block' }}>③ Full palm on the sensor</span><span style={{ display: 'block', fontStyle: 'italic' }}>④ "door unlocked" ✓</span></>}
+                        ? <><span style={{ display: 'block' }}>① Paume entière sur le capteur</span><span style={{ display: 'block' }}>② Tapez le code</span><span style={{ display: 'block' }}>③ Paume entière sur le capteur</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(31,27,24,0.40)' }}>④ "door unlocked" ✓</span></>
+                        : <><span style={{ display: 'block' }}>① Full palm on the sensor</span><span style={{ display: 'block' }}>② Tap the code</span><span style={{ display: 'block' }}>③ Full palm on the sensor</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(31,27,24,0.40)' }}>④ "door unlocked" ✓</span></>}
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Photo mugs bord piscine */}
-            <div className="reveal reveal-delay-2 relative">
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged shadow-[0_4px_20px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 28px 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <div style={{ overflow: 'hidden', height: '180px' }}>
-                  <img src="/IMG_pool_mugs.png" alt="Pool side" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.04) brightness(1.02)' }} />
-                </div>
-              </div>
-            </div>
+
 
             {/* 7-Eleven ticket */}
-            <div className="reveal reveal-delay-3 relative">
+            <div className="reveal reveal-delay-3 relative" style={{ transform: 'rotate(1.5deg)', transformOrigin: 'top center' }}>
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <SevenElevenReceipt locale={locale} />
             </div>
@@ -999,21 +1020,21 @@ export default function HomePage() {
             <div className="reveal reveal-delay-3 relative overflow-visible">
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged relative overflow-visible p-5 shadow-[0_3px_16px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <img src="/collage/paper-clip-note.png" alt="" className="pointer-events-none absolute inset-0 w-full h-full" style={{ objectFit: 'cover', opacity: 0.18, mixBlendMode: 'multiply' }} />
                 <span className="stamp-price absolute -right-3 -top-4 z-20" style={{ fontSize: '8px', transform: 'rotate(8deg)' }}>without<br/>conversion</span>
                 <p className="font-label relative text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Conseil · Argent' : 'Tip · Money'}</p>
                 <p className="font-display relative mt-1 text-[26px] uppercase leading-none" style={{ color: '#1a1714' }}>{locale === 'fr' ? 'Conseil ATM' : 'ATM Tip'}</p>
                 <p className="mt-2 relative text-[12px] leading-[1.7]" style={{ color: 'rgba(31,27,24,0.70)' }}>{t.atmText}</p>
-                <img src="/collage/thai-baht-bill.png" alt="" className="pointer-events-none absolute" style={{ width: '120px', bottom: '-18px', right: '-22px', transform: 'rotate(6deg)', opacity: 0.70, mixBlendMode: 'multiply', filter: 'sepia(0.10)' }} />
+                <img src="/collage/thai-baht-bill.png" alt="" className="pointer-events-none absolute" style={{ width: '110px', right: '-18px', bottom: '-18px', zIndex: 5, transform: 'rotate(-5deg)', opacity: 0.65, mixBlendMode: 'multiply', filter: 'sepia(0.08)' }} />
               </div>
             </div>
 
           </div>
 
           {/* ── DESKTOP — 3 colonnes alignées, décos ancrées ── */}
-          <div className="relative hidden sm:block" style={{ height: '680px' }}>
+          <div className="hidden sm:block">
+            <div className="relative mx-auto" style={{ width: '800px', height: '680px' }}>
 
-            {/* ══ COL 1 — Photos ══════════════════════════════════════ */}
+            {/* ══ COL 1 — Photo gauche ══════════════════════════════════ */}
 
             {/* Grande photo piscine */}
             <div className="absolute" style={{ left: '0px', top: '0px', width: '248px', zIndex: 3 }}>
@@ -1025,8 +1046,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Petite photo mugs — légèrement décalée à droite, chevauchement */}
-            <div className="absolute" style={{ left: '30px', top: '400px', width: '210px', zIndex: 4, transform: 'rotate(-1.5deg)' }}>
+            {/* Petite photo mugs — légèrement décalée, chevauchement bas */}
+            <div className="absolute" style={{ left: '30px', top: '380px', width: '210px', zIndex: 4, transform: 'rotate(-1.5deg)' }}>
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <div className="paper-aged shadow-[0_5px_20px_rgba(31,27,24,0.16)]" style={{ background: '#f0ece3', padding: '7px 7px 26px 7px', border: '1px solid rgba(31,27,24,0.10)' }}>
                 <div style={{ overflow: 'hidden', height: '148px' }}>
@@ -1034,9 +1055,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-
-            {/* Fun Pass — déco ancrée bas col 1 */}
-            <img src="/collage/ticket-fun-pass.png" alt="" className="pointer-events-none absolute" style={{ width: '130px', left: '0px', bottom: '0px', zIndex: 2, transform: 'rotate(4deg)', opacity: 0.55, mixBlendMode: 'multiply' }} />
 
             {/* ══ COL 2 — Codes WiFi + Porte ══════════════════════════ */}
 
@@ -1068,20 +1086,17 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Tiger Balm vintage — déco bas col 2, décalée sur col 3 */}
-            <img src="/collage/tiger-balm-vintage.png" alt="" className="pointer-events-none absolute" style={{ width: '140px', left: '370px', bottom: '0px', zIndex: 2, transform: 'rotate(3deg)', opacity: 0.50, mixBlendMode: 'multiply' }} />
+            {/* ══ COL 3 — 7-Eleven + photo droite ══════════════════════ */}
 
-            {/* ══ COL 3 — 7-Eleven uniquement ══════════════════════════ */}
-
-            {/* Receipt 7-Eleven — centré col droite */}
-            <div className="absolute" style={{ left: '572px', top: '0px', width: '210px', zIndex: 4 }}>
+            {/* Receipt 7-Eleven */}
+            <div className="absolute" style={{ left: '572px', top: '0px', width: '210px', zIndex: 4, transform: 'rotate(2deg)', transformOrigin: 'top center' }}>
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
               <SevenElevenReceipt locale={locale} />
             </div>
 
             {/* ══ BAS PAGE — ATM + Billet thai ════════════════════════ */}
 
-            {/* Carte ATM — sous les codes, débordant sur col 3, légère rotation */}
+            {/* Carte ATM — sous les codes */}
             <div className="absolute" style={{ left: '295px', bottom: '0px', width: '240px', zIndex: 6, transform: 'rotate(-1.5deg)' }}>
               <span className="stamp-price absolute -right-4 -top-4 z-20" style={{ fontSize: '8px', transform: 'rotate(10deg)' }}>without<br/>conversion</span>
               <div className="paper-aged p-5 shadow-[0_6px_24px_rgba(31,27,24,0.20)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)', position: 'relative', overflow: 'visible' }}>
@@ -1089,12 +1104,12 @@ export default function HomePage() {
                 <p className="font-display mt-1 text-[26px] uppercase leading-none" style={{ color: '#1a1714' }}>{locale === 'fr' ? 'Conseil ATM' : 'ATM Tip'}</p>
                 <p className="mt-2 text-[11px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.68)', paddingRight: '16px' }}>{t.atmText}</p>
               </div>
+              {/* Billet thai — chevauche le coin bas-droite */}
+              <img src="/collage/thai-baht-bill.png" alt="" className="pointer-events-none absolute" style={{ width: '160px', right: '-70px', bottom: '-20px', zIndex: 3, transform: 'rotate(-5deg)', opacity: 0.65, mixBlendMode: 'multiply', filter: 'sepia(0.08)' }} />
             </div>
 
-            {/* Billet thai — extrême droite, ancoré au bas */}
-            <img src="/collage/thai-baht-bill.png" alt="" className="pointer-events-none absolute" style={{ width: '155px', right: '-10px', bottom: '0px', zIndex: 3, transform: 'rotate(-4deg)', opacity: 0.60, mixBlendMode: 'multiply', filter: 'sepia(0.08)' }} />
-
-          </div>
+            </div>{/* fin mx-auto 800px */}
+          </div>{/* fin hidden sm:block */}
         </div>
       </section>
 
@@ -1112,123 +1127,120 @@ export default function HomePage() {
 
           {/* ── PLAGES ─────────────────────────────── */}
           <div className="mb-2 flex items-center gap-4">
-            <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{locale === 'fr' ? 'Les Plages' : 'The Beaches'}</p>
+            <p className="font-script text-[22px]" style={{ color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Les Plages' : 'The Beaches'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
 
-          {/* Nai Harn — photo gauche */}
-          <div className="reveal mb-px flex min-h-[320px] overflow-hidden" style={{ borderBottom: '1px solid rgba(31,27,24,0.07)' }}>
-            <div className="w-[44%] shrink-0" style={{ overflow: 'hidden' }}>
-              <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.06) contrast(1.02)' }}>
-                <source src="/IMG_0780-web.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div className="flex flex-col justify-center px-10 py-8" style={{ borderLeft: '1px solid rgba(31,27,24,0.08)' }}>
-              <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.38)' }}>{locale === 'fr' ? 'Plage · 10 min' : 'Beach · 10 min'}</p>
-              <h3 className="font-display mt-2 text-[clamp(32px,4vw,56px)] uppercase leading-none" style={{ color: '#1a1714' }}>Nai Harn</h3>
-              <p className="mt-4 text-[13px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.65)', maxWidth: '360px' }}>{locale === 'fr' ? 'Meilleure baignade, massages sur la plage et restaus en bord de mer. La plage préférée des locaux.' : 'Best swimming, beach massages and restaurants right on the sand. The favourite beach of locals.'}</p>
-            </div>
-          </div>
+          {/* 3 plages côte à côte — vidéo + overlay texte */}
+          <div className="reveal mb-16 grid grid-cols-3 gap-0 overflow-hidden" style={{ height: '480px', border: '1px solid rgba(31,27,24,0.08)' }}>
 
-          {/* Ya Nui — photo droite */}
-          <div className="reveal mb-px flex min-h-[280px] flex-row-reverse overflow-hidden" style={{ borderBottom: '1px solid rgba(31,27,24,0.07)' }}>
-            <div className="w-[40%] shrink-0" style={{ overflow: 'hidden' }}>
-              <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.06) contrast(1.02)' }}>
-                <source src="/IMG_0941-web.mp4" type="video/mp4" />
+            {/* Nai Harn */}
+            <div className="relative overflow-hidden group" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
+              <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
+                <source src="/IMG_2573-web.mp4" type="video/mp4" />
               </video>
+              {/* Gradient overlay */}
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.78) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
+              {/* Texte bas */}
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.60)' }}>{locale === 'fr' ? 'Plage' : 'Beach'}</p>
+                <h3 className="font-display mt-1 text-[32px] uppercase leading-none" style={{ color: '#fff8ec' }}>Nai Harn</h3>
+                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.72)', maxWidth: '220px' }}>{locale === 'fr' ? 'Massages sur la plage et restos en bord de mer. La plage préférée des locaux. Transats à louer.' : 'Beach massages and restaurants on the sand. The locals\' favourite. Sun loungers for hire.'}</p>
+              </div>
+              {/* Numéro coin haut */}
+              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.35)' }}>01</p>
             </div>
-            <div className="flex flex-col justify-center px-10 py-8" style={{ borderRight: '1px solid rgba(31,27,24,0.08)' }}>
-              <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.38)' }}>{locale === 'fr' ? 'Crique secrète · 12 min' : 'Secret cove · 12 min'}</p>
-              <h3 className="font-display mt-2 text-[clamp(32px,4vw,56px)] uppercase leading-none" style={{ color: '#1a1714' }}>Ya Nui</h3>
-              <p className="mt-4 text-[13px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.65)', maxWidth: '360px' }}>{locale === 'fr' ? 'Snorkeling, kayak et le meilleur smoothie mangue passion de Thaïlande.' : 'Snorkeling, kayak and the best mango passion fruit shake in Thailand.'}</p>
-            </div>
-          </div>
 
-          {/* Rawai — photo gauche */}
-          <div className="reveal mb-16 flex min-h-[280px] overflow-hidden">
-            <div className="w-[40%] shrink-0" style={{ overflow: 'hidden' }}>
-              <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.06) contrast(1.02)' }}>
+            {/* Ya Nui */}
+            <div className="relative overflow-hidden group" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
+              <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
+                <source src="/IMG_5636-web.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.78) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.60)' }}>{locale === 'fr' ? 'Crique secrète' : 'Secret cove'}</p>
+                <h3 className="font-display mt-1 text-[32px] uppercase leading-none" style={{ color: '#fff8ec' }}>Ya Nui</h3>
+                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.72)', maxWidth: '220px' }}>{locale === 'fr' ? 'Notre préférée. Snorkeling, kayak et le meilleur smoothie mangue passion de Thaïlande. Kayaks à louer pour rejoindre la petite île en face.' : 'Our favourite. Snorkeling, kayak and the best mango passion fruit shake in Thailand. Rent a kayak to reach the small island just opposite.'}</p>
+              </div>
+              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.35)' }}>02</p>
+            </div>
+
+            {/* Rawai */}
+            <div className="relative overflow-hidden group">
+              <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
                 <source src="/IMG_0987-web.mp4" type="video/mp4" />
               </video>
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.78) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.60)' }}>{locale === 'fr' ? 'Front de mer' : 'Seafront'}</p>
+                <h3 className="font-display mt-1 text-[32px] uppercase leading-none" style={{ color: '#fff8ec' }}>Rawai</h3>
+                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.72)', maxWidth: '220px' }}>{locale === 'fr' ? 'Couchers de soleil, restos face à la mer, départ bateaux longue queue et speedboats. Pas de baignade mais très agréable. Ne pas louper le marché aux poissons à gauche du pier.' : 'Sunset restaurants, longtail boats and speedboats to the islands. No swimming but lovely atmosphere. Don\'t miss the fish market just left of the pier.'}</p>
+              </div>
+              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.35)' }}>03</p>
             </div>
-            <div className="flex flex-col justify-center px-10 py-8" style={{ borderLeft: '1px solid rgba(31,27,24,0.08)' }}>
-              <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.38)' }}>{locale === 'fr' ? 'Front de mer · 5 min' : 'Seafront · 5 min'}</p>
-              <h3 className="font-display mt-2 text-[clamp(32px,4vw,56px)] uppercase leading-none" style={{ color: '#1a1714' }}>Rawai</h3>
-              <p className="mt-4 text-[13px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.65)', maxWidth: '360px' }}>{locale === 'fr' ? 'Couchers de soleil, restaus face à la mer, départ bateaux longue queue et speedboats.' : 'Sunset restaurants, longtail boats and speedboats to the islands.'}</p>
-            </div>
+
           </div>
 
           {/* ── RESTAURANTS ─────────────────────────── */}
           <div className="mb-2 flex items-center gap-4">
-            <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{locale === 'fr' ? 'Les Restos' : 'Restaurants'}</p>
+            <p className="font-script text-[22px]" style={{ color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Les Restos' : 'Restaurants'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
 
           {RESTAURANTS.map((r, i) => (
-            <div key={r.name} className="reveal flex items-center justify-between py-5" style={{ borderBottom: '1px solid rgba(31,27,24,0.08)' }}>
-              <div className="flex items-baseline gap-6">
-                <span className="font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.35)' }}>0{i + 1}</span>
-                <div>
-                  <p className="font-display text-[clamp(20px,2.5vw,32px)] uppercase leading-none" style={{ color: '#1a1714' }}>{r.name}</p>
-                  {r.detail && <p className="mt-1 text-[12px]" style={{ color: 'rgba(31,27,24,0.55)' }}>{r.detail}</p>}
+            <div key={r.name} className="reveal group py-5" style={{ borderBottom: '1px solid rgba(31,27,24,0.08)' }}>
+              <div className="flex items-start justify-between gap-8">
+                <div className="flex gap-5 items-start">
+                  <span className="font-label text-[7.5px] uppercase tracking-[0.18em] mt-1.5 w-5 shrink-0" style={{ color: 'rgba(31,27,24,0.25)' }}>{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <p className="font-display text-[clamp(17px,1.8vw,24px)] uppercase leading-none" style={{ color: '#1a1714' }}>{r.name}</p>
+                    {r.detail && <p className="font-label mt-1 text-[7px] uppercase tracking-[0.20em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{r.detail}</p>}
+                    {r.note && <p className="mt-2 text-[11.5px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.52)', maxWidth: '560px' }}>{r.note}</p>}
+                  </div>
                 </div>
+                <a href={r.maps} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity mt-1" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>Maps →</a>
               </div>
-              <a href={r.maps} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[8px] uppercase tracking-[0.22em] hover:opacity-100" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.50)' }}>Maps →</a>
             </div>
           ))}
 
           {/* ── WELLNESS & ACTIVITÉS ─────────────────── */}
           <div className="mb-2 mt-16 flex items-center gap-4">
-            <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{locale === 'fr' ? 'Wellness & Activités' : 'Wellness & Activities'}</p>
+            <p className="font-script text-[22px]" style={{ color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Wellness & Activités' : 'Wellness & Activities'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
 
-          {/* Sharkbait — hero item */}
-          <div className="reveal mb-px flex min-h-[260px] flex-row-reverse overflow-hidden" style={{ borderBottom: '1px solid rgba(31,27,24,0.07)' }}>
-            <div className="w-[38%] shrink-0 flex items-center justify-center" style={{ background: '#e8dfd0', overflow: 'hidden' }}>
-              <p className="font-display text-[clamp(28px,4vw,48px)] uppercase leading-none text-center px-6" style={{ color: 'rgba(31,27,24,0.15)' }}>PADEL<br/>POOL<br/>BAR</p>
-            </div>
-            <div className="flex flex-col justify-center px-10 py-8" style={{ borderRight: '1px solid rgba(31,27,24,0.08)' }}>
-              <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.38)' }}>{locale === 'fr' ? 'Padel · Piscine · Bar' : 'Padel · Pool · Bar'}</p>
-              <h3 className="font-display mt-2 text-[clamp(28px,3.5vw,48px)] uppercase leading-none" style={{ color: '#1a1714' }}>Sharkbait</h3>
-              <p className="mt-4 text-[13px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.65)', maxWidth: '380px' }}>
-                {locale === 'fr'
-                  ? 'Courts de padel, piscine avec plongeoire et mur d\'escalade — et entre les deux, un bar. Le spot parfait pour une journée complète.'
-                  : 'Padel courts, a pool with a diving board and climbing wall — and a bar right in between. The perfect full day out.'}
-              </p>
-              <a href="https://maps.google.com/?q=Sharkbait+Rawai+Phuket" target="_blank" rel="noopener noreferrer" className="font-label mt-4 inline-block border-b pb-px text-[8px] uppercase tracking-[0.22em] hover:opacity-100 w-fit" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.50)' }}>Maps →</a>
-            </div>
-          </div>
-
-          {/* Promthep Cape */}
-          <div className="reveal mb-px flex min-h-[220px] overflow-hidden" style={{ borderBottom: '1px solid rgba(31,27,24,0.07)' }}>
-            <div className="w-[38%] shrink-0 flex items-center justify-center" style={{ background: '#1a1714', overflow: 'hidden' }}>
-              <p className="font-display text-[clamp(18px,2.5vw,32px)] uppercase leading-none text-center px-6" style={{ color: 'rgba(246,242,236,0.12)' }}>SUNRISE<br/>WORKOUT</p>
-            </div>
-            <div className="flex flex-col justify-center px-10 py-8" style={{ borderLeft: '1px solid rgba(31,27,24,0.08)' }}>
-              <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.38)' }}>{locale === 'fr' ? 'Vue panoramique · Workout' : 'Panoramic view · Workout'}</p>
-              <h3 className="font-display mt-2 text-[clamp(24px,3vw,40px)] uppercase leading-none" style={{ color: '#1a1714' }}>Promthep Cape</h3>
-              <p className="mt-3 text-[13px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.65)', maxWidth: '380px' }}>
-                {locale === 'fr'
-                  ? 'La plus belle vue de Phuket — et le meilleur workout gratuit. Lucie y va tous les matins de 8h à 9h après l\'école. Rejoignez-la si vous voulez.'
-                  : 'Best view in Phuket — best free workout. Lucie goes every morning 8–9am after school drop-off. You\'re welcome to join.'}
-              </p>
-              <a href="https://maps.google.com/?q=Promthep+Cape+Phuket" target="_blank" rel="noopener noreferrer" className="font-label mt-4 inline-block border-b pb-px text-[8px] uppercase tracking-[0.22em] hover:opacity-100 w-fit" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.50)' }}>Maps →</a>
-            </div>
-          </div>
-
-          {/* Liste wellness — ligne par ligne */}
+          {/* Wellness — liste avec description + Maps */}
           <div className="mb-16">
-            {WELLNESS.filter(w => w.name !== 'Promthep Cape').map((w, i) => (
-              <div key={w.name} className="reveal flex items-center justify-between py-4" style={{ borderBottom: '1px solid rgba(31,27,24,0.08)' }}>
-                <div className="flex items-baseline gap-6">
-                  <span className="font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.30)' }}>0{i + 1}</span>
-                  <div>
-                    <p className="text-[16px]" style={{ color: '#1a1714' }}>{w.name}</p>
-                    {w.detail && <p className="text-[11px]" style={{ color: 'rgba(31,27,24,0.50)' }}>{w.detail}</p>}
+            {[
+              {
+                num: '01',
+                label: locale === 'fr' ? 'Vue panoramique · Workout' : 'Panoramic view · Workout',
+                name: 'Promthep Cape',
+                desc: locale === 'fr'
+                  ? 'La plus belle vue de Phuket — et le meilleur workout. Je vais faire cette rando tous les matins de 8h à 9h après l\'école. Rejoignez-moi si vous voulez.'
+                  : 'Best view in Phuket — and the best workout. I go on this hike every morning 8–9am after school drop-off. Join me if you want.',
+                maps: 'https://maps.google.com/?q=Promthep+Cape+Phuket',
+              },
+              ...WELLNESS.filter(w => w.name !== 'Promthep Cape').map((w, i) => ({
+                num: `0${i + 2}`,
+                label: (locale === 'fr' ? w.detail : w.detailEn) || '',
+                name: w.name,
+                desc: locale === 'fr' ? (w.note || null) : (w.noteEn || null),
+                maps: w.maps,
+              })),
+            ].map((item) => (
+              <div key={item.name} className="reveal" style={{ borderBottom: '1px solid rgba(31,27,24,0.08)' }}>
+                <div className="flex items-start justify-between py-5 gap-8">
+                  <div className="flex gap-5 items-start flex-1">
+                    <span className="font-label text-[7.5px] uppercase tracking-[0.18em] mt-1.5 w-5 shrink-0" style={{ color: 'rgba(31,27,24,0.25)' }}>{item.num}</span>
+                    <div>
+                      <p className="font-display text-[clamp(17px,1.8vw,24px)] uppercase leading-none" style={{ color: '#1a1714' }}>{item.name}</p>
+                      {item.label && <p className="font-label mt-1 text-[7px] uppercase tracking-[0.20em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{item.label}</p>}
+                      {item.desc && <p className="mt-2 text-[11.5px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.52)', maxWidth: '560px' }}>{item.desc}</p>}
+                    </div>
                   </div>
+                  <a href={item.maps} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity mt-1" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>Maps →</a>
                 </div>
-                <a href={w.maps} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[8px] uppercase tracking-[0.22em] hover:opacity-100" style={{ borderColor: 'rgba(31,27,24,0.22)', color: 'rgba(31,27,24,0.45)' }}>Maps →</a>
               </div>
             ))}
           </div>
@@ -1251,129 +1263,100 @@ export default function HomePage() {
             </h2>
           </div>
 
-          {/* ── LONGTAIL vs SPEEDBOAT ──────────────────────────── */}
-          <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-
-            {/* Longtail */}
-            <div className="reveal relative" style={{}}>
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <div style={{ overflow: 'hidden', height: '200px' }}>
-                  <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.02)' }}>
-                    <source src="/IMG_2899-web.mp4" type="video/mp4" />
-                  </video>
-                </div>
-                <div className="p-4 pb-5">
-                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Bateau traditionnel' : 'Traditional boat'}</p>
-                  <p className="font-display mt-1 text-[22px] uppercase leading-none" style={{ color: '#1a1714' }}>Longtail</p>
-                  <p className="mt-2 text-[11px] leading-[1.6]" style={{ color: 'rgba(31,27,24,0.68)' }}>
-                    {locale === 'fr'
-                      ? 'Le bateau local par excellence. Parfait pour Lon Island, Bon Island ou Coral Island. Lent, authentique, économique. On les trouve à 5 min à pied de la maison.'
-                      : 'The local classic. Perfect for Lon, Bon or Coral Island. Slow, authentic, cheap. You can book them 5 min walk from the villa.'}
-                  </p>
-                </div>
-              </div>
+          {/* ── GRAND PANNEAU VIDÉO ─────────────────────────────── */}
+          <div className="reveal relative mb-0 overflow-hidden" style={{ height: '520px' }}>
+            <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.12) contrast(1.05) brightness(0.85)' }}>
+              <source src="/IMG_2900-web.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.90) 0%, rgba(26,23,20,0.30) 45%, rgba(26,23,20,0.10) 100%)' }} />
+            {/* Longtail — info bas gauche */}
+            <div className="absolute bottom-0 left-0 p-8 md:p-12" style={{ maxWidth: '420px' }}>
+              <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.50)' }}>{locale === 'fr' ? 'Au départ de Rawai Beach' : 'Departing from Rawai Beach'}</p>
+              <h3 className="font-display mt-2 text-[clamp(28px,4vw,52px)] uppercase leading-none" style={{ color: '#fff8ec' }}>{locale === 'fr' ? 'Îles &\nDaytrips' : 'Islands &\nDay Trips'}</h3>
+              <p className="mt-3 text-[12px] leading-[1.75]" style={{ color: 'rgba(255,248,236,0.68)', maxWidth: '340px' }}>
+                {locale === 'fr'
+                  ? 'Lon, Bon, Coral, Racha, Koh Phi Phi — tout est accessible depuis le pier de Rawai, à 5 min à pied. En longtail pour les îles proches, en speedboat pour aller plus loin.'
+                  : 'Lon, Bon, Coral, Racha, Koh Phi Phi — all reachable from Rawai pier, 5 min walk away. Longtail for nearby islands, speedboat for further adventures.'}
+              </p>
             </div>
-
-            {/* Speedboat */}
-            <div className="reveal relative" style={{}}>
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <div style={{ overflow: 'hidden', height: '200px' }}>
-                  <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.02)' }}>
-                    <source src="/IMG_2900-web.mp4" type="video/mp4" />
-                  </video>
-                </div>
-                <div className="p-4 pb-5">
-                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Pour aller plus loin' : 'For longer rides'}</p>
-                  <p className="font-display mt-1 text-[22px] uppercase leading-none" style={{ color: '#1a1714' }}>Speedboat</p>
-                  <p className="mt-2 text-[11px] leading-[1.6]" style={{ color: 'rgba(31,27,24,0.68)' }}>
-                    {locale === 'fr'
-                      ? 'Pour Racha Island, Koh Phi Phi ou James Bond Island. Plus cher mais on couvre beaucoup plus de terrain. À réserver à l\'avance.'
-                      : 'For Racha Island, Koh Phi Phi or James Bond Island. More expensive but covers far more ground. Book in advance.'}
-                  </p>
-                </div>
+            {/* Photo longtail — vignette bas droite */}
+            <div className="absolute bottom-8 right-8 hidden md:block" style={{ width: '160px', transform: 'rotate(1.5deg)' }}>
+              <div style={{ background: '#f0ece3', padding: '5px 5px 18px 5px', boxShadow: '0 4px 16px rgba(0,0,0,0.35)' }}>
+                <img src="/IMG_0990.jpeg" alt="Longtail boats" style={{ width: '100%', height: '100px', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
               </div>
+              <p style={{ textAlign: 'center', fontSize: '7px', color: 'rgba(255,248,236,0.40)', letterSpacing: '0.18em', textTransform: 'uppercase', marginTop: '6px', fontFamily: 'var(--font-label)' }}>Rawai Beach</p>
             </div>
-
-            {/* Carte des îles + contact bateau */}
-            <div className="reveal relative" style={{}}>
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged shadow-[0_6px_28px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <div style={{ overflow: 'hidden', height: '200px' }}>
-                  <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.02)' }}>
-                    <source src="/IMG_0769-web.mp4" type="video/mp4" />
-                  </video>
-                </div>
-                <div className="p-4 pb-5">
-                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Les îles proches' : 'Nearby islands'}</p>
-                  <p className="font-display mt-1 text-[22px] uppercase leading-none" style={{ color: '#1a1714' }}>{locale === 'fr' ? 'Les Îles' : 'The Islands'}</p>
-                  <p className="mt-2 text-[11px] leading-[1.6]" style={{ color: 'rgba(31,27,24,0.68)' }}>
-                    {locale === 'fr'
-                      ? 'Lon, Bon, Coral, Buddha, Potato, Racha — toutes accessibles depuis Rawai Beach en 10 à 40 minutes.'
-                      : 'Lon, Bon, Coral, Buddha, Potato, Racha — all reachable from Rawai Beach in 10 to 40 minutes.'}
-                  </p>
-                </div>
-              </div>
-            </div>
-
           </div>
 
-          {/* ── DEUX CARTES : contact + daytrips lointains ─────── */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {/* ── BANDE INFO ──────────────────────────────────────── */}
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ background: '#2a2420', borderTop: '1px solid rgba(255,248,236,0.06)' }}>
 
-            {/* Contact Boat Service */}
-            <div className="reveal relative" style={{}}>
-              <div className="tape-vintage absolute -top-4 left-8 z-10 h-7 w-16" />
-              <div className="paper-aged overflow-hidden shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                {/* photo pancarte boat service — entière */}
-                <div style={{ background: '#1a1714', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '220px' }}>
-                  <img
-                    src="/IMG_2981.jpeg"
-                    alt="Boat service Rawai"
-                    style={{ width: '100%', height: 'auto', objectFit: 'contain', filter: 'contrast(1.05) brightness(0.98)' }}
-                  />
-                </div>
-                <div className="p-5">
-                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Réservation · Rawai Beach' : 'Booking · Rawai Beach'}</p>
-                  <p className="font-display mt-1 text-[22px] uppercase leading-none" style={{ color: '#1a1714' }}>Boat Service</p>
-                  <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.72)' }}>
-                    {locale === 'fr'
-                      ? 'Sur place à Rawai Beach ou par téléphone. Les prix varient selon la destination et la saison — négocier est normal.'
-                      : 'On site at Rawai Beach or by phone. Prices vary by destination and season — bargaining is expected.'}
-                  </p>
-                  <div className="mt-3 space-y-1">
-                    <a href="tel:+66814526859" className="font-label block text-[9px] uppercase tracking-[0.20em]" style={{ color: 'rgba(31,27,24,0.65)' }}>Ar-non · 081-452-6859</a>
-                    <a href="tel:+66824573860" className="font-label block text-[9px] uppercase tracking-[0.20em]" style={{ color: 'rgba(31,27,24,0.65)' }}>Poo · 082-457-3860</a>
+            {/* Longtail */}
+            <div className="p-8 md:p-10" style={{ borderRight: '1px solid rgba(255,248,236,0.07)' }}>
+              <p className="font-label text-[7px] uppercase tracking-[0.26em]" style={{ color: 'rgba(255,248,236,0.35)' }}>{locale === 'fr' ? 'Bateau traditionnel' : 'Traditional boat'}</p>
+              <p className="font-display mt-2 text-[22px] uppercase leading-none" style={{ color: '#fff8ec' }}>Longtail</p>
+              <p className="mt-3 text-[11.5px] leading-[1.75]" style={{ color: 'rgba(255,248,236,0.58)' }}>
+                {locale === 'fr'
+                  ? 'Le bateau local par excellence. Lent, authentique, économique. Parfait pour Lon, Bon ou Coral Island — à négocier directement sur la plage.'
+                  : 'The local classic. Slow, authentic, cheap. Perfect for Lon, Bon or Coral Island — negotiate directly on the beach.'}
+              </p>
+              <div className="mt-5 space-y-1.5">
+                {[
+                  { label: locale === 'fr' ? 'Lon Island' : 'Lon Island', time: '10 min' },
+                  { label: locale === 'fr' ? 'Bon Island' : 'Bon Island', time: '15 min' },
+                  { label: locale === 'fr' ? 'Coral Island' : 'Coral Island', time: '30 min' },
+                ].map(item => (
+                  <div key={item.label} className="flex items-center justify-between">
+                    <span className="font-label text-[8px] uppercase tracking-[0.16em]" style={{ color: 'rgba(255,248,236,0.40)' }}>{item.label}</span>
+                    <span className="font-label text-[8px] uppercase tracking-[0.12em]" style={{ color: 'rgba(255,248,236,0.25)' }}>{item.time}</span>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            {/* Daytrips lointains */}
-            <div className="reveal relative" style={{}}>
-              <div className="tape-vintage absolute -top-4 right-8 z-10 h-7 w-16" />
-              <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <span className="stamp-important absolute -right-4 -top-5 z-20" style={{ width: '68px', height: '68px', transform: 'rotate(6deg)', fontSize: '7px' }}>
-                  <span style={{ fontSize: '8px' }}>réveil</span>
-                  <span>4h00</span>
-                </span>
-                <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Pour les courageux' : 'For the brave'}</p>
-                <p className="font-display mt-1 text-[22px] uppercase leading-none" style={{ color: '#1a1714' }}>{locale === 'fr' ? 'Plus\nLoin' : 'Further\nAway'}</p>
-                <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.72)' }}>
-                  {locale === 'fr'
-                    ? 'Koh Phi Phi et James Bond Island sont faisables en daytrip depuis Phuket — mais il faut se lever TRÈS tôt (départ 4h–5h) pour éviter les hordes de touristes et profiter des spots. Réservation organisée en tour ou en bateau privé.'
-                    : 'Koh Phi Phi and James Bond Island are doable as day trips from Phuket — but you need to be up VERY early (4–5am departure) to beat the crowds and actually enjoy the spots. Book as a tour or a private boat.'}
-                </p>
-                <ul className="mt-4 space-y-1">
-                  {[
-                    locale === 'fr' ? 'Koh Phi Phi — 1h30 en speedboat' : 'Koh Phi Phi — 1.5h by speedboat',
-                    locale === 'fr' ? 'James Bond Island — 2h en bateau' : 'James Bond Island — 2h by boat',
-                    locale === 'fr' ? 'Racha Island — 45 min en speedboat' : 'Racha Island — 45 min by speedboat',
-                  ].map((item) => (
-                    <li key={item} className="text-[11px] leading-[1.6]" style={{ color: 'rgba(31,27,24,0.72)' }}>{item}</li>
-                  ))}
-                </ul>
+            {/* Boat Service */}
+            <div className="p-8 md:p-10" style={{ borderRight: '1px solid rgba(255,248,236,0.07)' }}>
+              <p className="font-label text-[7px] uppercase tracking-[0.26em]" style={{ color: 'rgba(255,248,236,0.35)' }}>{locale === 'fr' ? 'Réservation · Rawai Beach' : 'Booking · Rawai Beach'}</p>
+              <p className="font-display mt-2 text-[22px] uppercase leading-none" style={{ color: '#fff8ec' }}>Boat Service</p>
+              <p className="mt-3 text-[11.5px] leading-[1.75]" style={{ color: 'rgba(255,248,236,0.58)' }}>
+                {locale === 'fr'
+                  ? 'Sur place à Rawai Beach ou directement par téléphone. Les prix varient selon la destination et la saison — négocier est normal et attendu.'
+                  : 'On site at Rawai Beach or by phone. Prices vary by destination and season — bargaining is expected and normal.'}
+              </p>
+              <div className="mt-5 space-y-2">
+                <a href="tel:+66814526859" className="font-label flex items-center gap-2 text-[9px] uppercase tracking-[0.18em] opacity-60 hover:opacity-100 transition-opacity" style={{ color: '#fff8ec' }}>
+                  <span style={{ opacity: 0.4 }}>→</span> Ar-non · 081-452-6859
+                </a>
+                <a href="tel:+66824573860" className="font-label flex items-center gap-2 text-[9px] uppercase tracking-[0.18em] opacity-60 hover:opacity-100 transition-opacity" style={{ color: '#fff8ec' }}>
+                  <span style={{ opacity: 0.4 }}>→</span> Poo · 082-457-3860
+                </a>
+              </div>
+            </div>
+
+            {/* Plus Loin */}
+            <div className="p-8 md:p-10 relative">
+              <span className="stamp-important absolute right-6 top-6 z-10" style={{ width: '58px', height: '58px', transform: 'rotate(6deg)', fontSize: '6.5px' }}>
+                <span style={{ fontSize: '7.5px' }}>réveil</span>
+                <span>4h00</span>
+              </span>
+              <p className="font-label text-[7px] uppercase tracking-[0.26em]" style={{ color: 'rgba(255,248,236,0.35)' }}>{locale === 'fr' ? 'Pour les courageux' : 'For the brave'}</p>
+              <p className="font-display mt-2 text-[22px] uppercase leading-none" style={{ color: '#fff8ec' }}>{locale === 'fr' ? 'Plus Loin' : 'Further Away'}</p>
+              <p className="mt-3 text-[11.5px] leading-[1.75]" style={{ color: 'rgba(255,248,236,0.58)' }}>
+                {locale === 'fr'
+                  ? 'Koh Phi Phi et James Bond Island sont faisables en daytrip — mais il faut se lever TRÈS tôt (départ 4h–5h) pour profiter des spots avant les foules.'
+                  : 'Koh Phi Phi and James Bond Island are doable as day trips — but you need to leave VERY early (4–5am) to enjoy the spots before the crowds arrive.'}
+              </p>
+              <div className="mt-5 space-y-1.5">
+                {[
+                  { label: 'Koh Phi Phi', time: locale === 'fr' ? '1h30 speedboat' : '1.5h speedboat' },
+                  { label: 'James Bond Island', time: locale === 'fr' ? '2h bateau' : '2h by boat' },
+                  { label: 'Racha Island', time: '45 min speedboat' },
+                ].map(item => (
+                  <div key={item.label} className="flex items-center justify-between">
+                    <span className="font-label text-[8px] uppercase tracking-[0.16em]" style={{ color: 'rgba(255,248,236,0.40)' }}>{item.label}</span>
+                    <span className="font-label text-[8px] uppercase tracking-[0.12em]" style={{ color: 'rgba(255,248,236,0.25)' }}>{item.time}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -1397,138 +1380,87 @@ export default function HomePage() {
           </div>
 
           {/* ── CULTURE ───────────────────────────────────────── */}
-          <div className="mb-6 flex items-center gap-4">
-            <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{locale === 'fr' ? 'Culture' : 'Culture'}</p>
+          <div className="mb-2 flex items-center gap-4">
+            <p className="font-script text-[22px]" style={{ color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Culture' : 'Culture'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
-          <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-
-            {/* Big Buddha */}
-            <div className="reveal relative">
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Monument · 45 min' : 'Landmark · 45 min'}</p>
-                <p className="font-display mt-1 text-[24px] uppercase leading-none" style={{ color: '#1a1714' }}>Big Buddha</p>
-                <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.68)' }}>
-                  {locale === 'fr'
-                    ? '45 mètres de marbre blanc, vue panoramique sur toute l\'île. Coucher de soleil ici, c\'est quelque chose.'
-                    : '45 meters of white marble, panoramic view over the whole island. Catch the sunset — it\'s something else.'}
-                </p>
-                <a href="https://maps.google.com/?q=Big+Buddha+Phuket" target="_blank" rel="noopener noreferrer" className="font-label mt-4 inline-block border-b pb-px text-[8px] uppercase tracking-[0.20em]" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>Maps →</a>
+          <div className="mb-16">
+            {[
+              { num: '01', name: 'Big Buddha', label: locale === 'fr' ? 'Monument' : 'Landmark', desc: locale === 'fr' ? '45 mètres de marbre blanc, vue panoramique sur toute l\'île. Coucher de soleil ici, c\'est quelque chose.' : '45 meters of white marble, panoramic view over the whole island. Catch the sunset — it\'s something else.', maps: 'https://maps.google.com/?q=Big+Buddha+Phuket' },
+              { num: '02', name: 'Phuket Town', label: locale === 'fr' ? 'Vieille ville · 30 min' : 'Old Town · 30 min', desc: locale === 'fr' ? 'Architecture sino-portugaise, coffee shops dans des shophouses centenaires et street food de qualité. Le samedi soir, le marché de nuit envahit les rues — local et pas touristique.' : 'Sino-Portuguese architecture, specialty coffee in century-old shophouses and great street food. Saturday night, the walking street market takes over — local, not touristy.', maps: 'https://maps.google.com/?q=Phuket+Old+Town' },
+              { num: '03', name: 'Wat Chalong', label: locale === 'fr' ? 'Temple · 20 min' : 'Temple · 20 min', desc: locale === 'fr' ? 'Le temple le plus vénéré de Phuket. Dorures, encens et calme — à faire le matin de préférence.' : 'The most revered temple in Phuket. Gold, incense and quiet — go in the morning.', maps: 'https://maps.google.com/?q=Wat+Chalong+Phuket' },
+            ].map((item) => (
+              <div key={item.name} className="reveal group py-5" style={{ borderBottom: '1px solid rgba(31,27,24,0.08)' }}>
+                <div className="flex items-start justify-between gap-8">
+                  <div className="flex gap-5 items-start">
+                    <span className="font-label text-[7.5px] uppercase tracking-[0.18em] mt-1.5 w-5 shrink-0" style={{ color: 'rgba(31,27,24,0.25)' }}>{item.num}</span>
+                    <div>
+                      <p className="font-display text-[clamp(17px,1.8vw,24px)] uppercase leading-none" style={{ color: '#1a1714' }}>{item.name}</p>
+                      <p className="font-label mt-1 text-[7px] uppercase tracking-[0.20em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{item.label}</p>
+                      <p className="mt-2 text-[11.5px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.52)', maxWidth: '560px' }}>{item.desc}</p>
+                    </div>
+                  </div>
+                  <a href={item.maps} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity mt-1" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>Maps →</a>
+                </div>
               </div>
-            </div>
-
-            {/* Old Town */}
-            <div className="reveal relative">
-              <div className="tape-vintage absolute -top-4 left-8 z-10 h-7 w-16" />
-              <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Vieille ville · 30 min' : 'Old Town · 30 min'}</p>
-                <p className="font-display mt-1 text-[24px] uppercase leading-none" style={{ color: '#1a1714' }}>Phuket Town</p>
-                <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.68)' }}>
-                  {locale === 'fr'
-                    ? 'Architecture sino-portugaise, coffee shops dans des shophouses centenaires et street food de qualité. Le samedi soir, le marché de nuit envahit les rues — local et pas touristique.'
-                    : 'Sino-Portuguese architecture, specialty coffee in century-old shophouses and great street food. Saturday night, the walking street market takes over — local, not touristy.'}
-                </p>
-                <a href="https://maps.google.com/?q=Phuket+Old+Town" target="_blank" rel="noopener noreferrer" className="font-label mt-4 inline-block border-b pb-px text-[8px] uppercase tracking-[0.20em]" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>Maps →</a>
-              </div>
-            </div>
-
-            {/* Wat Chalong */}
-            <div className="reveal relative">
-              <div className="tape-vintage absolute -top-4 right-8 z-10 h-7 w-16" />
-              <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Temple · 20 min' : 'Temple · 20 min'}</p>
-                <p className="font-display mt-1 text-[24px] uppercase leading-none" style={{ color: '#1a1714' }}>Wat Chalong</p>
-                <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.68)' }}>
-                  {locale === 'fr'
-                    ? 'Le temple le plus vénéré de Phuket. Dorures, encens et calme — à faire le matin de préférence.'
-                    : 'The most revered temple in Phuket. Gold, incense and quiet — go in the morning.'}
-                </p>
-                <a href="https://maps.google.com/?q=Wat+Chalong+Phuket" target="_blank" rel="noopener noreferrer" className="font-label mt-4 inline-block border-b pb-px text-[8px] uppercase tracking-[0.20em]" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>Maps →</a>
-              </div>
-            </div>
-
+            ))}
           </div>
 
           {/* ── NATURE & AVENTURE ─────────────────────────────── */}
-          <div className="mb-6 flex items-center gap-4">
-            <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{locale === 'fr' ? 'Nature & Aventure' : 'Nature & Adventure'}</p>
+          <div className="mb-2 flex items-center gap-4">
+            <p className="font-script text-[22px]" style={{ color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Nature & Aventure' : 'Nature & Adventure'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
-          <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-
-            {/* Voile */}
-            <div className="reveal relative">
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Voile · Ao Po Marina' : 'Sailing · Ao Po Marina'}</p>
-                <p className="font-display mt-1 text-[24px] uppercase leading-none" style={{ color: '#1a1714' }}>{locale === 'fr' ? 'Day Sail' : 'Day Sail'}</p>
-                <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.68)' }}>
-                  {locale === 'fr'
-                    ? 'Location de voilier pour la journée ou sunset cruise depuis Ao Po marina. La façon la plus belle de voir les îles.'
-                    : 'Charter a sailboat for the day or join a sunset cruise from Ao Po marina. The most beautiful way to see the islands.'}
-                </p>
-                <a href="https://maps.google.com/?q=Ao+Po+Grand+Marina+Phuket" target="_blank" rel="noopener noreferrer" className="font-label mt-4 inline-block border-b pb-px text-[8px] uppercase tracking-[0.20em]" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>Maps →</a>
-              </div>
-            </div>
-
-            {/* Elephant Sanctuary */}
-            <div className="reveal relative">
-              <div className="tape-vintage absolute -top-4 left-8 z-10 h-7 w-16" />
-              <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Sanctuaire · Éthique' : 'Sanctuary · Ethical'}</p>
-                <p className="font-display mt-1 text-[24px] uppercase leading-none" style={{ color: '#1a1714' }}>Elephant Hills</p>
-                <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.68)' }}>
-                  {locale === 'fr'
-                    ? 'Pour voir des éléphants sans les monter. Sanctuaire éthique — on les observe, on les nourrit, on les respecte.'
-                    : 'See elephants without riding them. An ethical sanctuary — observe, feed and respect them.'}
-                </p>
-                <a href="https://maps.google.com/?q=Elephant+Hills+Phuket" target="_blank" rel="noopener noreferrer" className="font-label mt-4 inline-block border-b pb-px text-[8px] uppercase tracking-[0.20em]" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>Maps →</a>
-              </div>
-            </div>
-
-            {/* Golf + Dino */}
-            <div className="reveal relative">
-              <div className="tape-vintage absolute -top-4 right-8 z-10 h-7 w-16" />
-              <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Golf · 15 min' : 'Golf · 15 min'}</p>
-                <p className="font-display mt-1 text-[24px] uppercase leading-none" style={{ color: '#1a1714' }}>Red Mountain</p>
-                <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.68)' }}>
-                  {locale === 'fr'
-                    ? 'Le meilleur parcours de Phuket, green fees raisonnables. Pour les golfeurs sérieux — et pour les autres, il y a Dino Golf juste à côté (mini-golf kitsch avec des dinosaures géants, incontournable).'
-                    : 'Best course in Phuket, reasonable green fees. For serious golfers — and for everyone else, Dino Golf is right there (kitsch mini-golf with giant dinosaurs, a must).'}
-                </p>
-                <div className="mt-4 flex gap-4">
-                  <a href="https://maps.google.com/?q=Red+Mountain+Golf+Club+Phuket" target="_blank" rel="noopener noreferrer" className="font-label border-b pb-px text-[8px] uppercase tracking-[0.20em]" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>Golf →</a>
-                  <a href="https://maps.google.com/?q=Dino+Golf+Phuket" target="_blank" rel="noopener noreferrer" className="font-label border-b pb-px text-[8px] uppercase tracking-[0.20em]" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>Dino Golf →</a>
+          <div className="mb-16">
+            {[
+              { num: '01', name: 'Day Sail', label: locale === 'fr' ? 'Voile · Ao Po Marina' : 'Sailing · Ao Po Marina', desc: locale === 'fr' ? 'Location de voilier pour la journée ou sunset cruise depuis Ao Po marina. La façon la plus belle de voir les îles.' : 'Charter a sailboat for the day or join a sunset cruise from Ao Po marina. The most beautiful way to see the islands.', maps: 'https://maps.google.com/?q=Ao+Po+Grand+Marina+Phuket', maps2: null, maps2label: null },
+              { num: '02', name: 'Elephant Hills', label: locale === 'fr' ? 'Sanctuaire éthique' : 'Ethical sanctuary', desc: locale === 'fr' ? 'Pour voir des éléphants sans les monter. On les observe, on les nourrit, on les respecte. L\'une des rares expériences vraiment éthiques de Thaïlande.' : 'See elephants without riding them. Observe, feed and respect them. One of the few genuinely ethical experiences in Thailand.', maps: 'https://maps.google.com/?q=Elephant+Hills+Phuket', maps2: null, maps2label: null },
+              { num: '03', name: 'Red Mountain', label: locale === 'fr' ? 'Golf · 15 min' : 'Golf · 15 min', desc: locale === 'fr' ? 'Le meilleur parcours de Phuket, green fees raisonnables. Pour les golfeurs sérieux — et pour les autres, Dino Golf juste à côté (mini-golf kitsch avec des dinosaures géants, incontournable).' : 'Best course in Phuket, reasonable green fees. For serious golfers — and for everyone else, Dino Golf right next door (kitsch mini-golf with giant dinosaurs, a must).', maps: 'https://maps.google.com/?q=Red+Mountain+Golf+Club+Phuket', maps2: 'https://maps.google.com/?q=Dino+Golf+Phuket', maps2label: 'Dino Golf →' },
+            ].map((item) => (
+              <div key={item.name} className="reveal group py-5" style={{ borderBottom: '1px solid rgba(31,27,24,0.08)' }}>
+                <div className="flex items-start justify-between gap-8">
+                  <div className="flex gap-5 items-start">
+                    <span className="font-label text-[7.5px] uppercase tracking-[0.18em] mt-1.5 w-5 shrink-0" style={{ color: 'rgba(31,27,24,0.25)' }}>{item.num}</span>
+                    <div>
+                      <p className="font-display text-[clamp(17px,1.8vw,24px)] uppercase leading-none" style={{ color: '#1a1714' }}>{item.name}</p>
+                      <p className="font-label mt-1 text-[7px] uppercase tracking-[0.20em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{item.label}</p>
+                      <p className="mt-2 text-[11.5px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.52)', maxWidth: '560px' }}>{item.desc}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 shrink-0 mt-1">
+                    <a href={item.maps} target="_blank" rel="noopener noreferrer" className="font-label border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>Maps →</a>
+                    {item.maps2 && <a href={item.maps2} target="_blank" rel="noopener noreferrer" className="font-label border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>{item.maps2label}</a>}
+                  </div>
                 </div>
               </div>
-            </div>
-
+            ))}
           </div>
 
           {/* ── SHOPPING ──────────────────────────────────────── */}
-          <div className="mb-6 mt-16 flex items-center gap-4">
-            <p className="font-label text-[8px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.35)' }}>Shopping</p>
+          <div className="mb-2 flex items-center gap-4">
+            <p className="font-script text-[22px]" style={{ color: 'rgba(31,27,24,0.55)' }}>Shopping</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
           </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-
-            {/* Central Phuket Floresta */}
-            <div className="reveal relative">
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged p-6 shadow-[0_4px_20px_rgba(31,27,24,0.14)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{locale === 'fr' ? 'Mall luxe · 35 min' : 'Luxury mall · 35 min'}</p>
-                <p className="font-display mt-1 text-[24px] uppercase leading-none" style={{ color: '#1a1714' }}>Central Floresta</p>
-                <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.68)' }}>
-                  {locale === 'fr'
-                    ? 'Le mall premium de Phuket — Hermès, Louis Vuitton, Rolex, et toutes les grandes enseignes sous un même toit. Climatisation bienvenue après une journée au soleil. Juste à côté de Central Festival pour les marques plus accessibles.'
-                    : 'Phuket\'s premium mall — Hermès, Louis Vuitton, Rolex and all the big names under one roof. Welcome air-con after a day in the sun. Right next to Central Festival for more accessible brands.'}
-                </p>
-                <a href="https://maps.google.com/?q=Central+Phuket+Floresta" target="_blank" rel="noopener noreferrer" className="font-label mt-4 inline-block border-b pb-px text-[8px] uppercase tracking-[0.20em]" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>Maps →</a>
+          <div>
+            {[
+              { num: '01', name: 'Rawai Plaza', label: locale === 'fr' ? 'Mall local · 2 min à pied' : 'Local mall · 2 min walk', desc: locale === 'fr' ? 'Le petit mall du quartier, juste au bout de la rue. Tops Market au rez-de-chaussée — le meilleur endroit pour acheter du bon vin et des fromages importés à prix raisonnable. Pratique pour les courses du quotidien.' : 'The neighbourhood mall, just down the street. Tops Market on the ground floor — best place to find decent wine and imported cheese at reasonable prices. Handy for everyday shopping.', maps: 'https://maps.google.com/?q=Rawai+Plaza+Phuket' },
+              { num: '02', name: 'Robinson Lifestyle', label: locale === 'fr' ? 'Mall · Cinéma · 20 min' : 'Mall · Cinema · 20 min', desc: locale === 'fr' ? 'Le mall familial de Chalong. Cinéma MX4D au dernier étage, OYO (genre Chuck E. Cheese thaïlandais) idéal pour les kids quand il pleut, et plein de boutiques classiques. Le plan B parfait en journée de mousson.' : 'The family mall in Chalong. MX4D cinema on the top floor, OYO (think Thai Chuck E. Cheese) perfect for kids on a rainy day, plus all the usual shops. The perfect plan B on a monsoon day.', maps: 'https://maps.google.com/?q=Robinson+Lifestyle+Chalong+Phuket' },
+              { num: '03', name: 'Central Floresta', label: locale === 'fr' ? 'Mall luxe · 35 min' : 'Luxury mall · 35 min', desc: locale === 'fr' ? 'Hermès, Louis Vuitton, Rolex sous un même toit — et une clim à 18°C qui fait du bien après une journée à 34°C. Le food court au sous-sol est une vraie bonne surprise : cheap, varié, bondé de Thaïlandais (bon signe). Juste à côté de Central Festival pour les marques plus accessibles.' : 'Hermès, Louis Vuitton, Rolex under one roof — and 18°C air-con that feels amazing after a day in 34°C heat. The basement food court is a genuine hidden gem: cheap, varied, packed with locals (always a good sign). Right next to Central Festival for more accessible brands.', maps: 'https://maps.google.com/?q=Central+Phuket+Floresta' },
+            ].map((item) => (
+              <div key={item.name} className="reveal group py-5" style={{ borderBottom: '1px solid rgba(31,27,24,0.08)' }}>
+                <div className="flex items-start justify-between gap-8">
+                  <div className="flex gap-5 items-start">
+                    <span className="font-label text-[7.5px] uppercase tracking-[0.18em] mt-1.5 w-5 shrink-0" style={{ color: 'rgba(31,27,24,0.25)' }}>{item.num}</span>
+                    <div>
+                      <p className="font-display text-[clamp(17px,1.8vw,24px)] uppercase leading-none" style={{ color: '#1a1714' }}>{item.name}</p>
+                      <p className="font-label mt-1 text-[7px] uppercase tracking-[0.20em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{item.label}</p>
+                      <p className="mt-2 text-[11.5px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.52)', maxWidth: '560px' }}>{item.desc}</p>
+                    </div>
+                  </div>
+                  <a href={item.maps} target="_blank" rel="noopener noreferrer" className="font-label shrink-0 border-b pb-px text-[7.5px] uppercase tracking-[0.20em] opacity-40 hover:opacity-80 transition-opacity mt-1" style={{ borderColor: 'rgba(31,27,24,0.20)', color: '#1a1714' }}>Maps →</a>
+                </div>
               </div>
-            </div>
-
+            ))}
           </div>
 
         </div>
@@ -1546,99 +1478,104 @@ export default function HomePage() {
             <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.passesTitle}</h2>
           </div>
 
-          {/* Grande vidéo intro avec scotch */}
-          <div className="relative mb-12">
-            <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-24 -translate-x-1/2" />
-            <div className="paper-aged overflow-hidden shadow-[0_8px_40px_rgba(31,27,24,0.20)]" style={{ background: '#f0ece3', padding: '10px 10px 0 10px', border: '1px solid rgba(31,27,24,0.10)' }}>
-              <video
-                className="h-[280px] w-full object-cover md:h-[420px]"
-                preload="metadata"
-                autoPlay
-                muted
-                loop
-                playsInline
-                style={{ filter: 'sepia(0.06) contrast(1.02)' }}
-              >
-                <source src="/IMG_2900-web.mp4" type="video/mp4" />
-              </video>
-              <div className="p-5 pb-6">
-                <p className="text-[13px] leading-[1.8]" style={{ color: 'rgba(31,27,24,0.72)' }}>{t.dayPassIntro}</p>
-              </div>
+          {/* Grande vidéo intro avec texte overlay */}
+          <div className="reveal relative mb-12 overflow-hidden" style={{ height: '480px', border: '1px solid rgba(31,27,24,0.08)' }}>
+            <video
+              className="h-full w-full object-cover"
+              preload="metadata"
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ filter: 'sepia(0.08) contrast(1.05) brightness(0.82)' }}
+            >
+              <source src="/IMG_2903-web.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(26,23,20,0.15) 0%, transparent 35%, rgba(26,23,20,0.75) 75%, rgba(26,23,20,0.92) 100%)' }} />
+            {/* Label haut gauche */}
+            <p className="absolute top-8 left-8 md:top-10 md:left-12 font-label text-[7px] uppercase tracking-[0.32em]" style={{ color: 'rgba(255,248,236,0.45)' }}>Upgrade Your Day</p>
+            {/* Texte bas */}
+            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+              <h3 className="font-display text-[clamp(28px,4vw,52px)] uppercase leading-none" style={{ color: '#fff8ec' }}>{t.passesTitle}</h3>
+              <p className="mt-4 text-[12px] leading-[1.8]" style={{ color: 'rgba(255,248,236,0.65)', maxWidth: '560px' }}>{t.dayPassIntro}</p>
             </div>
           </div>
 
           {/* 3 hôtels */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="reveal grid grid-cols-3 gap-0 overflow-hidden" style={{ height: '480px', border: '1px solid rgba(31,27,24,0.08)' }}>
 
             {/* The Nai Harn */}
-            <div className="reveal relative">
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <div style={{ overflow: 'hidden', height: '160px', background: '#c8bfaf' }}>
-                  <img src="https://www.thenaiharn.com/wp-content/uploads/2023/06/infinity-pool-naiharn-phuket.jpg" alt="The Nai Harn pool" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.02) brightness(1.02)' }} />
-                </div>
-                <div className="p-5">
-                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Hôtel 5★ · Nai Harn · 10 min' : '5★ Hotel · Nai Harn · 10 min'}</p>
-                  <p className="font-display mt-1 text-[24px] uppercase leading-none" style={{ color: '#1a1714' }}>The Nai Harn</p>
-                  <p className="font-label mt-2 text-[9px] uppercase tracking-[0.18em]" style={{ color: 'rgba(31,27,24,0.55)' }}>from 2,500 THB</p>
-                  <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.72)' }}>
-                    {locale === 'fr'
-                      ? 'Piscine à débordement face à la mer, transats, serviettes, crédit restaurant et accès gym. Vue imprenable sur la baie de Nai Harn.'
-                      : 'Infinity pool facing the sea, sunbeds, towels, restaurant credit and gym access. Stunning view over Nai Harn bay.'}
-                  </p>
-                  <a href="https://www.thenaiharn.com/offers/day-pass/" target="_blank" rel="noopener noreferrer" className="font-label mt-4 inline-block border-b pb-px text-[8px] uppercase tracking-[0.20em] hover:opacity-100" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
-                </div>
+            <div className="relative overflow-hidden group" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
+              <img src="/nai-harn-pool.jpeg" alt="The Nai Harn pool" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.88)' }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.82) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.60)' }}>{locale === 'fr' ? 'Hôtel 5★ · Nai Harn · 10 min' : '5★ Hotel · Nai Harn · 10 min'}</p>
+                <h3 className="font-display mt-1 text-[28px] uppercase leading-none" style={{ color: '#fff8ec' }}>The Nai Harn</h3>
+                <p className="font-label mt-1.5 text-[8px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,248,236,0.50)' }}>from 2,500 THB</p>
+                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.72)', maxWidth: '220px' }}>{locale === 'fr' ? 'Piscine à débordement face à la mer, transats, serviettes, crédit restaurant et accès gym. Vue imprenable sur la baie de Nai Harn.' : 'Infinity pool facing the sea, sunbeds, towels, restaurant credit and gym access. Stunning view over Nai Harn bay.'}</p>
+                <a href="https://www.thenaiharn.com/offers/day-pass/" target="_blank" rel="noopener noreferrer" className="font-label mt-3 inline-block border-b pb-px text-[7.5px] uppercase tracking-[0.18em] opacity-60 hover:opacity-100 transition-opacity" style={{ borderColor: 'rgba(255,248,236,0.35)', color: '#fff8ec' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
               </div>
+              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.35)' }}>01</p>
             </div>
 
             {/* SAii Laguna */}
-            <div className="reveal relative">
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <div style={{ overflow: 'hidden', height: '160px', background: '#c8bfaf' }}>
-                  <img src="https://www.saiihotels.com/wp-content/uploads/2023/08/SAii-Laguna-Phuket-Pool-Slide.jpg" alt="SAii Laguna Phuket" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.02) brightness(1.02)' }} />
-                </div>
-                <div className="p-5">
-                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Hôtel 5★ · Bangtao · 30 min' : '5★ Hotel · Bangtao · 30 min'}</p>
-                  <p className="font-display mt-1 text-[24px] uppercase leading-none" style={{ color: '#1a1714' }}>SAii Laguna</p>
-                  <p className="font-label mt-2 text-[9px] uppercase tracking-[0.18em]" style={{ color: 'rgba(31,27,24,0.55)' }}>from 800 THB</p>
-                  <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.72)' }}>
-                    {locale === 'fr'
-                      ? 'Un peu plus loin mais idéal en famille — toboggan de 55m, piscine adultes, accès plage, crédit restaurant. Bonne excuse pour découvrir le nord de l\'île.'
-                      : 'A bit further but perfect with kids — 55m waterslide, adults-only pool, beach access, dining credit. Great excuse to discover the north of the island.'}
-                  </p>
-                  <a href="https://www.saiihotels.com/laguna-phuket/things-to-do/resort-daypass/" target="_blank" rel="noopener noreferrer" className="font-label mt-4 inline-block border-b pb-px text-[8px] uppercase tracking-[0.20em] hover:opacity-100" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
-                </div>
+            <div className="relative overflow-hidden group" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
+              <img src="/saii-laguna.jpeg" alt="SAii Laguna Phuket" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.88)' }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.82) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.60)' }}>{locale === 'fr' ? 'Hôtel 5★ · Bangtao · 30 min' : '5★ Hotel · Bangtao · 30 min'}</p>
+                <h3 className="font-display mt-1 text-[28px] uppercase leading-none" style={{ color: '#fff8ec' }}>SAii Laguna</h3>
+                <p className="font-label mt-1.5 text-[8px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,248,236,0.50)' }}>from 800 THB</p>
+                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.72)', maxWidth: '220px' }}>{locale === 'fr' ? 'Toboggan de 55m, piscine adultes, accès plage, crédit restaurant. Idéal en famille et bonne excuse pour découvrir le nord de l\'île.' : 'A bit further but perfect with kids — 55m waterslide, adults-only pool, beach access, dining credit. Great excuse to discover the north of the island.'}</p>
+                <a href="https://www.saiihotels.com/laguna-phuket/things-to-do/resort-daypass/" target="_blank" rel="noopener noreferrer" className="font-label mt-3 inline-block border-b pb-px text-[7.5px] uppercase tracking-[0.18em] opacity-60 hover:opacity-100 transition-opacity" style={{ borderColor: 'rgba(255,248,236,0.35)', color: '#fff8ec' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
               </div>
+              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.35)' }}>02</p>
             </div>
 
             {/* Sri Panwa */}
-            <div className="reveal relative">
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <div style={{ overflow: 'hidden', height: '160px', background: '#c8bfaf' }}>
-                  <img src="https://www.sripanwa.com/wp-content/uploads/2022/03/sri-panwa-pool-panoramic.jpg" alt="Sri Panwa pool" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.02) brightness(1.02)' }} />
-                </div>
-                <div className="p-5">
-                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Hôtel 5★ · Cap Panwa · 25 min' : '5★ Hotel · Cape Panwa · 25 min'}</p>
-                  <p className="font-display mt-1 text-[24px] uppercase leading-none" style={{ color: '#1a1714' }}>Sri Panwa</p>
-                  <p className="font-label mt-2 text-[9px] uppercase tracking-[0.18em]" style={{ color: 'rgba(31,27,24,0.55)' }}>from 1,888 THB</p>
-                  <p className="mt-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.72)' }}>
-                    {locale === 'fr'
-                      ? 'Piscine forêt panoramique de 48m, vue sur l\'Andaman, daybed réservé, crédit repas chez Baba Chino. Le plus spectaculaire des trois.'
-                      : '48m forest pool with panoramic Andaman views, reserved daybed, dining credit at Baba Chino. The most spectacular of the three.'}
-                  </p>
-                  <a href="https://www.sripanwa.com/phuket-day-pass/" target="_blank" rel="noopener noreferrer" className="font-label mt-4 inline-block border-b pb-px text-[8px] uppercase tracking-[0.20em] hover:opacity-100" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
-                </div>
+            <div className="relative overflow-hidden group">
+              <img src="/sri-panwa-pool.jpeg" alt="Sri Panwa pool" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.88)' }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.82) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.60)' }}>{locale === 'fr' ? 'Hôtel 5★ · Cap Panwa · 25 min' : '5★ Hotel · Cape Panwa · 25 min'}</p>
+                <h3 className="font-display mt-1 text-[28px] uppercase leading-none" style={{ color: '#fff8ec' }}>Sri Panwa</h3>
+                <p className="font-label mt-1.5 text-[8px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,248,236,0.50)' }}>from 1,888 THB</p>
+                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.72)', maxWidth: '220px' }}>{locale === 'fr' ? 'Piscine forêt panoramique de 48m, vue sur l\'Andaman, daybed réservé, crédit repas chez Baba Chino. Le plus spectaculaire des trois.' : '48m forest pool with panoramic Andaman views, reserved daybed, dining credit at Baba Chino. The most spectacular of the three.'}</p>
+                <a href="https://www.sripanwa.com/phuket-day-pass/" target="_blank" rel="noopener noreferrer" className="font-label mt-3 inline-block border-b pb-px text-[7.5px] uppercase tracking-[0.18em] opacity-60 hover:opacity-100 transition-opacity" style={{ borderColor: 'rgba(255,248,236,0.35)', color: '#fff8ec' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
               </div>
+              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.35)' }}>03</p>
             </div>
 
           </div>
         </div>
       </section>
 
+      {/* ── QUESTIONNAIRE ──────────────────────────────────────────── */}
+      <section id="guest-form" className="relative overflow-hidden px-5 py-20 md:px-10 md:py-32" style={{ background: '#1a1714' }}>
+        <div className="pointer-events-none absolute inset-0 opacity-[0.10]"
+          style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'1\'/%3E%3C/svg%3E")', backgroundSize: '160px 160px' }} />
+        <div className="relative mx-auto max-w-2xl text-center">
+          <p className="reveal font-label mb-4 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(248,244,235,0.35)' }}>{locale === 'fr' ? 'Avant votre arrivée' : 'Before you arrive'}</p>
+          <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,64px)] uppercase leading-none" style={{ color: '#f8f4eb' }}>
+            {locale === 'fr' ? 'Préparez\nvotre séjour' : 'Plan\nyour stay'}
+          </h2>
+          <p className="reveal reveal-delay-2 mt-6 text-[13px] leading-[1.8]" style={{ color: 'rgba(248,244,235,0.55)', maxWidth: '480px', margin: '24px auto 0' }}>
+            {locale === 'fr'
+              ? 'Cocktails de bienvenue, transfert aéroport, préférences petit-déjeuner, couchage enfants — remplissez le formulaire et on prépare tout avant votre arrivée.'
+              : 'Welcome cocktails, airport transfer, breakfast preferences, kids\' sleeping arrangements — fill in the form and we\'ll have everything ready before you arrive.'}
+          </p>
+          <button
+            onClick={() => setFormOpen(true)}
+            className="reveal reveal-delay-3 font-label mt-10 inline-block border px-8 py-4 text-[10px] uppercase tracking-[0.26em] transition-colors hover:bg-[#f8f4eb] hover:text-[#1a1714]"
+            style={{ borderColor: 'rgba(248,244,235,0.35)', color: '#f8f4eb' }}
+          >
+            {locale === 'fr' ? 'Remplir le formulaire →' : 'Fill in the form →'}
+          </button>
+        </div>
+      </section>
+
       {/* ── FOOTER ─────────────────────────────────────────────────── */}
-      <footer className="relative overflow-hidden bg-[#1a1410] px-6 py-16 md:px-10 md:py-20">
+      <footer className="relative overflow-hidden bg-[#f8f4eb] px-6 py-16 md:px-10 md:py-20" style={{ borderTop: '1px solid rgba(31,27,24,0.10)' }}>
         {/* grain */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.12]"
           style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'1\'/%3E%3C/svg%3E")', backgroundSize: '160px 160px' }} />
@@ -1650,10 +1587,10 @@ export default function HomePage() {
 
             {/* Signature */}
             <div className="reveal flex-shrink-0">
-              <p className="font-script text-[clamp(36px,5vw,56px)] leading-none text-[#f8f4eb]">
+              <p className="font-script text-[clamp(24px,3vw,36px)] leading-none" style={{ color: '#1a1714' }}>
                 Lucie &amp;<br />Guillaume
               </p>
-              <p className="font-label mt-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(248,244,235,0.40)' }}>
+              <p className="font-label mt-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.40)' }}>
                 Baan Sayiuan — Rawai, Phuket
               </p>
             </div>
@@ -1662,7 +1599,7 @@ export default function HomePage() {
             <div className="reveal reveal-delay-1 flex flex-col gap-6 md:flex-row md:gap-16">
 
               <div>
-                <p className="font-label mb-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(248,244,235,0.35)' }}>
+                <p className="font-label mb-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.35)' }}>
                   {locale === 'fr' ? 'Adresse' : 'Address'}
                 </p>
                 <a
@@ -1670,7 +1607,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[13px] leading-[1.8]"
-                  style={{ color: 'rgba(248,244,235,0.70)' }}
+                  style={{ color: 'rgba(31,27,24,0.65)' }}
                 >
                   59/45 Soi Sayiuan 13<br />
                   Rawai, Mueang Phuket<br />
@@ -1679,7 +1616,7 @@ export default function HomePage() {
               </div>
 
               <div>
-                <p className="font-label mb-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(248,244,235,0.35)' }}>
+                <p className="font-label mb-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.35)' }}>
                   Contact
                 </p>
                 <a
@@ -1687,20 +1624,20 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-label text-[10px] uppercase tracking-[0.20em] hover:opacity-100 transition-opacity"
-                  style={{ color: 'rgba(248,244,235,0.60)' }}
+                  style={{ color: 'rgba(31,27,24,0.55)' }}
                 >
                   WhatsApp →
                 </a>
               </div>
 
               <div>
-                <p className="font-label mb-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(248,244,235,0.35)' }}>
+                <p className="font-label mb-3 text-[8px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.35)' }}>
                   {locale === 'fr' ? 'Votre séjour' : 'Your stay'}
                 </p>
                 <button
                   onClick={() => setFormOpen(true)}
                   className="font-label text-[10px] uppercase tracking-[0.20em] hover:opacity-100 transition-opacity"
-                  style={{ color: 'rgba(248,244,235,0.60)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+                  style={{ color: 'rgba(31,27,24,0.55)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                 >
                   {locale === 'fr' ? 'Préparez votre séjour →' : 'Plan Your Stay →'}
                 </button>
@@ -1710,14 +1647,14 @@ export default function HomePage() {
           </div>
 
           {/* Divider */}
-          <div className="my-10 border-t" style={{ borderColor: 'rgba(248,244,235,0.10)' }} />
+          <div className="my-10 border-t" style={{ borderColor: 'rgba(31,27,24,0.10)' }} />
 
           {/* Bottom row: copyright */}
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-            <p className="font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(248,244,235,0.28)' }}>
+            <p className="font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.28)' }}>
               © 2025 Baan Sayiuan — Rawai, Phuket, Thailand
             </p>
-            <p className="font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(248,244,235,0.20)' }}>
+            <p className="font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.20)' }}>
               Made with love for our guests
             </p>
           </div>
