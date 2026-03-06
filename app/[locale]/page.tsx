@@ -675,8 +675,9 @@ export default function HomePage() {
       </header>
 
       <section className="relative h-[75vh] min-h-[500px] overflow-hidden">
+        <img src="/poster-hero.jpg" alt="" className="absolute inset-0 h-full w-full object-cover object-top md:hidden" style={{ filter: 'brightness(1.10) contrast(1.03) saturate(1.1)' }} />
         <video
-          className="absolute inset-0 h-full w-full object-cover object-top"
+          className="absolute inset-0 h-full w-full object-cover object-top hidden md:block"
           style={{ filter: 'brightness(1.10) contrast(1.03) saturate(1.1)' }}
           data-cinematic-video
           data-rate="0.8"
@@ -754,8 +755,9 @@ export default function HomePage() {
       {/* POSTCARD SECTION */}
       <section id="welcome" className="relative overflow-hidden px-5 py-16 md:px-10 md:py-24">
         {/* background vidéo */}
+        <img src="/poster-welcome.jpg" alt="" className="absolute inset-0 h-full w-full object-cover md:hidden" />
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover hidden md:block"
           autoPlay muted loop playsInline preload="metadata"
         >
           <source src="/IMG_2901-web.mp4" type="video/mp4" />
@@ -933,7 +935,7 @@ export default function HomePage() {
                     cash baht only<br/>
                     <span style={{ fontSize: '7px', letterSpacing: '0.05em' }}>เงินสดเท่านั้น</span>
                   </span>
-                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>✈ Pro tip</p>
+                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>Pro tip</p>
                   <p className="font-display mt-1 text-[26px] uppercase leading-none" style={{ color: '#1a1714' }}>Priority<br/>Lane</p>
                   <img src="/collage/garuda-stamp.png" alt="" className="absolute bottom-4 left-4 w-[64px] opacity-[0.08]" style={{ filter: 'grayscale(1)', mixBlendMode: 'multiply', transform: 'rotate(-8deg)' }} />
                   <p className="mt-3 text-[12px] leading-[1.7]" style={{ color: 'rgba(31,27,24,0.72)' }}>{locale === 'fr' ? "Au passport control, approchez l'agent et dites juste \"priority lane — how much ?\". Il annonce un prix entre 500 et 1000 bahts — c'est du bakchich, cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : 30 min à 2h dans la queue." : 'At passport control, walk up to the agent and say "priority lane — how much?" They\'ll quote you 500–1000 baht — it\'s a bribe, cash in baht only. Exchange desk right before if needed. Passports, TDAC forms and cash out and ready. You\'re through in 2 minutes. Without it: queue for 30 min to 2 hours.'}</p>
@@ -985,8 +987,8 @@ export default function HomePage() {
         {/* Grid principale — 3 colonnes sur fond sombre */}
         <div className="grid grid-cols-1 md:grid-cols-3 overflow-hidden" style={{ borderTop: '1px solid rgba(255,248,236,0.08)' }}>
 
-          {/* ── COL 1 — Photo piscine + photo mugs ── */}
-          <div className="relative overflow-hidden h-[340px] md:h-auto" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
+          {/* ── COL 1 — Photo piscine ── */}
+          <div className="relative overflow-hidden h-[220px] md:h-auto md:min-h-[480px]" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
             <img src="/IMG_pool_evening.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'sepia(0.12) contrast(1.06) brightness(0.80)' }} />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(31,27,24,0.70) 0%, transparent 60%)' }} />
             <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -1014,7 +1016,7 @@ export default function HomePage() {
             {/* Code porte — mis en avant */}
             <div className="reveal reveal-delay-2">
               <p className="font-label text-[7px] uppercase tracking-[0.22em] mb-3" style={{ color: 'rgba(255,248,236,0.30)' }}>{t.doorCode}</p>
-              <p className="font-display leading-none" style={{ fontSize: '64px', color: '#fff8ec', letterSpacing: '0.12em' }}>{ACCESS.doorCode}</p>
+              <p className="font-display leading-none" style={{ fontSize: 'clamp(44px,8vw,64px)', color: '#fff8ec', letterSpacing: '0.12em' }}>{ACCESS.doorCode}</p>
               <div className="mt-5" style={{ borderLeft: '1px solid rgba(255,248,236,0.15)', paddingLeft: '12px' }}>
                 <p className="font-label text-[9px] leading-[2.2]" style={{ color: 'rgba(255,248,236,0.35)' }}>
                   {locale === 'fr'
@@ -1098,7 +1100,8 @@ export default function HomePage() {
 
             {/* Nai Harn */}
             <div className="relative overflow-hidden group h-[300px] md:h-[480px]" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
-              <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
+              <img src="/poster-nai-harn.jpg" alt="" className="md:hidden w-full h-full object-cover" style={{ filter: 'sepia(0.10) contrast(1.04) brightness(0.92)' }} />
+              <video autoPlay muted loop playsInline preload="metadata" className="hidden md:block" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
                 <source src="/IMG_2573-web.mp4" type="video/mp4" />
               </video>
               {/* Gradient overlay */}
@@ -1115,7 +1118,8 @@ export default function HomePage() {
 
             {/* Ya Nui */}
             <div className="relative overflow-hidden group h-[300px] md:h-[480px]" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
-              <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
+              <img src="/poster-ya-nui.jpg" alt="" className="md:hidden w-full h-full object-cover" style={{ filter: 'sepia(0.10) contrast(1.04) brightness(0.92)' }} />
+              <video autoPlay muted loop playsInline preload="metadata" className="hidden md:block" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
                 <source src="/IMG_5636-web.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.78) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
@@ -1129,7 +1133,8 @@ export default function HomePage() {
 
             {/* Rawai */}
             <div className="relative overflow-hidden group h-[300px] md:h-[480px]">
-              <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
+              <img src="/poster-rawai.jpg" alt="" className="md:hidden w-full h-full object-cover" style={{ filter: 'sepia(0.10) contrast(1.04) brightness(0.92)' }} />
+              <video autoPlay muted loop playsInline preload="metadata" className="hidden md:block" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
                 <source src="/IMG_0987-web.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.78) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
@@ -1227,7 +1232,8 @@ export default function HomePage() {
 
           {/* ── GRAND PANNEAU VIDÉO ─────────────────────────────── */}
           <div className="reveal relative mb-0 overflow-hidden h-[280px] md:h-[520px]">
-            <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.12) contrast(1.05) brightness(0.85)' }}>
+            <img src="/poster-daytrip.jpg" alt="" className="md:hidden w-full h-full object-cover" style={{ filter: 'sepia(0.12) contrast(1.05) brightness(0.85)' }} />
+            <video autoPlay muted loop playsInline preload="metadata" className="hidden md:block" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.12) contrast(1.05) brightness(0.85)' }}>
               <source src="/IMG_2900-web.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.90) 0%, rgba(26,23,20,0.30) 45%, rgba(26,23,20,0.10) 100%)' }} />
@@ -1436,8 +1442,9 @@ export default function HomePage() {
 
           {/* Grande vidéo intro avec texte overlay */}
           <div className="reveal relative mb-12 overflow-hidden h-[260px] md:h-[480px]" style={{ border: '1px solid rgba(31,27,24,0.08)' }}>
+            <img src="/poster-daypass.jpg" alt="" className="md:hidden h-full w-full object-cover" style={{ filter: 'sepia(0.08) contrast(1.05) brightness(0.82)' }} />
             <video
-              className="h-full w-full object-cover"
+              className="hidden md:block h-full w-full object-cover"
               preload="metadata"
               autoPlay
               muted
