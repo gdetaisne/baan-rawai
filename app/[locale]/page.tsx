@@ -986,7 +986,7 @@ export default function HomePage() {
         </div>
 
         {/* Grid principale — 3 colonnes sur fond sombre */}
-        <div className="grid grid-cols-1 md:grid-cols-3 overflow-hidden" style={{ borderTop: '1px solid rgba(255,248,236,0.08)' }}>
+        <div className="grid grid-cols-1 md:grid-cols-3" style={{ borderTop: '1px solid rgba(255,248,236,0.08)' }}>
 
           {/* ── COL 1 — Photo piscine ── */}
           <div className="relative overflow-hidden h-[220px] md:h-auto md:min-h-[480px]" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
@@ -995,7 +995,7 @@ export default function HomePage() {
           </div>
 
           {/* ── COL 2 — Codes accès ── */}
-          <div className="flex flex-col justify-center px-8 py-12 md:py-16" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
+          <div className="flex flex-col justify-center px-8 py-12 md:py-16" style={{ borderRight: '1px solid rgba(255,248,236,0.08)', borderTop: '1px solid rgba(255,248,236,0.08)' }}>
             <p className="reveal font-label text-[7px] uppercase tracking-[0.32em] mb-10" style={{ color: 'rgba(255,248,236,0.30)' }}>{locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}</p>
 
             {/* WiFi réseau */}
