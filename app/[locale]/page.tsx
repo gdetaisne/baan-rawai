@@ -798,9 +798,9 @@ export default function HomePage() {
                 src="/IMG_1707-web.jpg"
                 alt="Baan Sayiuan"
                 className="absolute inset-0 h-full w-full object-cover"
-                style={{ filter: 'sepia(0.18) contrast(1.08) brightness(1.04) saturate(1.15) hue-rotate(-5deg)' }}
+                style={{ filter: 'sepia(0.35) contrast(1.10) brightness(1.02) saturate(0.90) hue-rotate(-8deg)' }}
               />
-              <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 50px rgba(0,0,0,0.22)' }} />
+              <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 80px rgba(20,10,0,0.45)', background: 'linear-gradient(135deg, rgba(180,140,80,0.08) 0%, transparent 50%, rgba(80,40,0,0.12) 100%)' }} />
               <p
                 className="font-script absolute bottom-4 left-4 whitespace-pre-line leading-none text-white"
                 style={{ fontSize: 'clamp(16px, 3vw, 28px)', textShadow: '0 2px 10px rgba(0,0,0,0.70)', transform: 'rotate(-2.5deg)', transformOrigin: 'left bottom' }}
@@ -813,7 +813,7 @@ export default function HomePage() {
           {/* VERSO — même structure */}
           <div className="reveal w-full bg-[#f8f4eb]" style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.45)', padding: '6px' }}>
             <div className="w-full" style={{ aspectRatio: '3/2' }}>
-            <div className="flex flex-col justify-between w-full h-full p-4 md:p-6">
+            <div className="flex flex-col justify-start gap-4 w-full h-full p-4 md:p-6">
 
               {/* Haut : label + ligne + timbre */}
               <div className="flex items-start gap-3">
@@ -838,7 +838,7 @@ export default function HomePage() {
               </div>
 
               {/* Bas : adresse */}
-              <p className="font-label text-[6px] md:text-[7px] uppercase tracking-[0.18em] text-[#1f1b18]/22">
+              <p className="font-label mt-auto text-[6px] md:text-[7px] uppercase tracking-[0.18em] text-[#1f1b18]/22">
                 baan Sayiuan · 59/45 Soi Sayiuan 13 · Rawai · Phuket
               </p>
 
@@ -1019,8 +1019,8 @@ export default function HomePage() {
 
         {/* Header — fond crème */}
         <div className="px-5 pt-10 pb-8 md:px-10 md:pt-20 md:pb-14 text-center" style={{ background: '#f8f4eb' }}>
-          <p className="reveal font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>At The Villa</p>
-          <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.arrivalTitle}</h2>
+          <p className="reveal font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>{t.arrivalTitle}</p>
+          <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{locale === 'fr' ? 'À la villa' : 'At The Villa'}</h2>
         </div>
 
         {/* Bloc pleine largeur — fond océan */}
@@ -1111,21 +1111,21 @@ export default function HomePage() {
       </section>
 
       {/* ── 7-ELEVEN ──────────────────────────────────────────────── */}
-      <section id="seven-eleven" className="relative overflow-hidden py-10 md:py-14" style={{ background: '#2a1f14' }}>
+      <section id="seven-eleven" className="relative overflow-hidden py-6 md:py-8" style={{ background: '#2a1f14' }}>
 
         <div className="relative mx-auto max-w-5xl px-8 md:px-12">
 
           {/* Layout : titres à gauche + receipt + Tiger Balm */}
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-14">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12">
 
             {/* Titres */}
             <div className="flex-1 text-left">
               <p className="font-label text-[7px] uppercase tracking-[0.32em] mb-3" style={{ color: 'rgba(255,248,236,0.35)' }}>une institution</p>
               <p className="font-script leading-none mb-2" style={{ fontSize: 'clamp(48px,7vw,96px)', color: '#fff8ec' }}>7-Eleven</p>
-              <p className="font-display uppercase leading-none mb-6" style={{ fontSize: 'clamp(16px,2.2vw,28px)', color: 'rgba(255,248,236,0.65)', letterSpacing: '0.04em' }}>
+              <p className="font-display uppercase leading-none mb-4" style={{ fontSize: 'clamp(16px,2.2vw,28px)', color: 'rgba(255,248,236,0.65)', letterSpacing: '0.04em' }}>
                 {locale === 'fr' ? 'Le meilleur voisin du monde' : 'The world\'s best neighbour'}
               </p>
-              <p className="text-[12px] leading-[1.85]" style={{ color: 'rgba(255,248,236,0.50)', maxWidth: '340px' }}>
+              <p className="text-[12px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.50)', maxWidth: '520px' }}>
                 {locale === 'fr'
                   ? <>À 200m à pied. Chang Beer bien froide, eau, glaces, SIM cards, crème solaire oubliée, snacks de minuit. <span style={{ color: 'rgba(255,248,236,0.80)' }}>Ouvert 24h/24, 7j/7</span> — y compris à 3h du mat quand l&apos;envie prend. L&apos;ATM juste devant accepte les cartes étrangères.</>
                   : <>A 2-minute walk. Ice-cold Chang Beer, water, ice cream, SIM cards, forgotten sunscreen, midnight snacks. <span style={{ color: 'rgba(255,248,236,0.80)' }}>Open 24/7</span> — including at 3am when the mood strikes. The ATM out front takes foreign cards.</>}
@@ -1159,7 +1159,7 @@ export default function HomePage() {
         {/* Wellness stickers — distribués de ~1800px à ~2900px */}
         <img src="/collage/pad-thai.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1700px', right: '-75px', transform: 'rotate(-6deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
         <img src="/collage/coconut-cocktail-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '140px', top: '2100px', right: '-65px', transform: 'rotate(-8deg)', opacity: 0.82, zIndex: 0 }} />
-        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '165px', top: '2200px', right: '-75px', transform: 'rotate(15deg)', opacity: 0.75, zIndex: 0 }} />
+        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '165px', top: '2500px', right: '-75px', transform: 'rotate(15deg)', opacity: 0.75, zIndex: 0 }} />
         <img src="/collage/mangosteen-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '2500px', left: '-60px', transform: 'rotate(-7deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', bottom: '80px', right: '-70px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
 
