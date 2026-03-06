@@ -1153,7 +1153,7 @@ export default function HomePage() {
         <img src="/collage/lotus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '220px', top: '-30px', left: '-55px', transform: 'rotate(-10deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '320px', right: '-60px', transform: 'rotate(12deg)', opacity: 0.60, zIndex: 0 }} />
         <img src="/collage/mango-sticky-rice.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1050px', right: '-80px', transform: 'rotate(10deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
-        <img src="/collage/hibiscus2-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '850px', left: '-70px', transform: 'rotate(-12deg)', opacity: 0.85, zIndex: 0 }} />
+        <img src="/collage/hibiscus2-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '1050px', left: '-70px', transform: 'rotate(-12deg)', opacity: 0.85, zIndex: 0 }} />
         <img src="/collage/tom-yum-bowl-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '1280px', right: '-90px', transform: 'rotate(-8deg)', opacity: 0.85, zIndex: 0 }} />
         <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '150px', top: '1500px', left: '-65px', transform: 'rotate(10deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
         {/* Wellness stickers — distribués de ~1800px à ~2900px */}
