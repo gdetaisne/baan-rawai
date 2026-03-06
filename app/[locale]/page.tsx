@@ -465,22 +465,6 @@ export default function HomePage() {
               <p className="section-title">{t.formTitle}</p>
               {/* Post-it note towels */}
               <div className="relative mt-6 inline-block max-w-xs">
-                {/* fleur en collage qui déborde */}
-                <img
-                  src="/collage/138b0b0bd528ce0fd7eb2fbc548ae461.png"
-                  alt=""
-                  style={{
-                    position: 'absolute',
-                    bottom: '-18px',
-                    right: '-22px',
-                    width: '72px',
-                    opacity: 0.9,
-                    transform: 'rotate(20deg)',
-                    mixBlendMode: 'multiply',
-                    pointerEvents: 'none',
-                    zIndex: 10,
-                  }}
-                />
                 {/* scotch en haut */}
                 <div className="tape-vintage absolute -top-3 left-1/2 z-20 h-5 w-14 -translate-x-1/2" />
                 {/* post-it jaune */}
@@ -789,7 +773,7 @@ export default function HomePage() {
           <div className="reveal w-full" style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.50)', padding: '6px', background: '#f8f4eb' }}>
             <div className="relative overflow-hidden w-full" style={{ aspectRatio: '3/2' }}>
               <img
-                src="/IMG_3948-web.jpg"
+                src="/IMG_1707-web.jpg"
                 alt="Baan Sayiuan"
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ filter: 'sepia(0.06) contrast(1.04) brightness(1.02)' }}
@@ -815,7 +799,7 @@ export default function HomePage() {
                   <p className="font-display text-[9px] md:text-[11px] uppercase tracking-[0.10em] text-[#1f1b18]/35 mb-2">Postcard</p>
                   <div style={{ height: '1px', background: 'rgba(31,27,24,0.14)' }} />
                 </div>
-                <div style={{ width: '72px', height: '72px', flexShrink: 0, marginTop: '-6px' }}>
+                <div style={{ width: '120px', height: '120px', flexShrink: 0, marginTop: '-6px' }}>
                   <img
                     src="/collage/ed314742de5bf7445488ba1b5414ac6c.jpg"
                     alt="Thailand stamp"
@@ -864,13 +848,11 @@ export default function HomePage() {
               {(locale === 'fr' ? [
                 { label: 'Aéroport · Transfert', title: 'Taxi Aéroport', desc: 'Votre chauffeur vous attendra à la sortie avec un panneau à votre nom. 700 THB, de l\'aéroport de Phuket jusqu\'à la villa. Signalez-le dans le formulaire et on s\'occupe de tout.', cta: 'Formulaire', href: '#guest-form' },
                 { label: 'Connexion', title: 'eSIM', desc: 'À installer avant de décoller — connecté dès l\'atterrissage.', cta: 'Holafly', href: 'https://esim.holafly.com/fr/esim-thailande/' },
-                { label: 'Pro tip', title: 'Priority Lane', desc: 'Au passport control, approchez l\'agent et dites juste "priority lane — how much ?". Il annonce un prix entre 500 et 1000 bahts — c\'est du bakchich, cash bahts uniquement. Bureau de change juste avant l\'immigration si besoin. Passeports, TDAC et biftons sortis à l\'avance. Vous passerez en 2 minutes. Sans ça : comptez entre 30 min et 2h dans la queue.', cta: null, href: null },
                 { label: 'Immigration', title: 'TDAC', desc: 'Remplissez la carte d\'arrivée en ligne avant votre vol.', cta: 'Site officiel', href: 'https://tdac.immigration.go.th/arrival-card/#/tac/arrival-card/add' },
                 { label: 'Transport & Livraison', title: 'Grab', desc: 'Le Uber de l\'Asie du Sud-Est. Taxis, scooters, livraison. Indispensable en Thaïlande.', cta: 'Télécharger', href: 'https://www.grab.com/th/en/download/' },
               ] : [
                 { label: 'Airport · Transfer', title: 'Airport Taxi', desc: 'Your driver will be waiting at arrivals with a sign in your name. 700 THB, straight from Phuket airport to the villa. Just mention it in the guest form and we\'ll sort it.', cta: 'Guest form', href: '#guest-form' },
                 { label: 'Data', title: 'eSIM', desc: 'Install before takeoff — connected straight from landing.', cta: 'Holafly', href: 'https://esim.holafly.com/fr/esim-thailande/' },
-                { label: 'Pro tip', title: 'Priority Lane', desc: 'At passport control, use the Priority Lane. Just say "priority lane — how much?" to the agent — expect 500 to 1000 baht, it\'s up to them. Cash in baht only (exchange desk just before immigration). Have passports, TDAC forms and cash ready. Without it: 30 min to 2 hours in line.', cta: null, href: null },
                 { label: 'Immigration', title: 'TDAC', desc: 'Fill the arrival card online before your flight. Takes 2 minutes.', cta: 'Official site', href: 'https://tdac.immigration.go.th/arrival-card/#/tac/arrival-card/add' },
                 { label: 'Transport & Food', title: 'Grab', desc: 'The Uber of Southeast Asia. Taxis, scooters, delivery. Essential in Thailand.', cta: 'Download', href: 'https://www.grab.com/th/en/download/' },
               ]).map((item, i) => (
@@ -896,11 +878,34 @@ export default function HomePage() {
                   <img src="/IMG_1458b.jpg" alt="" className="h-[200px] w-full object-cover" />
                 </div>
               </div>
+
+              {/* PRIORITY LANE — encart pleine largeur mobile */}
+              <div className="relative mt-4 overflow-hidden">
+                <img src="/collage/grid-paper.png" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ opacity: 0.45 }} />
+                <div className="absolute inset-0" style={{ background: 'rgba(248,244,235,0.78)' }} />
+                <div className="tape-vintage absolute -top-3 left-8 z-10 h-6 w-16" />
+                <div className="tape-vintage absolute -top-3 right-8 z-10 h-6 w-16" />
+                <div className="relative z-10 p-6">
+                  <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.40)' }}>Pro tip</p>
+                  <div className="mt-1 flex items-center gap-3">
+                    <p className="font-display leading-none uppercase" style={{ fontSize: '32px', color: '#1a1714' }}>Priority Lane</p>
+                    <span className="stamp-important flex-shrink-0" style={{ width: '52px', height: '52px', transform: 'rotate(-4deg)' }}>
+                      <span style={{ fontSize: '8px' }}>ด่วน</span>
+                      <span style={{ fontSize: '6px' }}>priority</span>
+                    </span>
+                  </div>
+                  <p className="mt-3 text-[12px] leading-[1.8]" style={{ color: 'rgba(31,27,24,0.70)' }}>
+                    {locale === 'fr'
+                      ? "Au passport control, approchez l'agent et dites juste « priority lane — how much ? ». Il annonce un prix entre 500 et 1000 bahts — c'est du bakchich, cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : 30 min à 2h dans la queue."
+                      : 'At passport control, say "priority lane — how much?" to the agent. They\'ll quote 500–1000 baht — cash in baht only. Exchange desk right before if needed. Passports, TDAC and cash ready. Through in 2 minutes. Without it: 30 min to 2 hours in line.'}
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* version desktop — collage overlap */}
             <div className="hidden sm:block">
-              <div className="relative mx-auto" style={{ width: '980px', height: '820px' }}>
+              <div className="relative mx-auto" style={{ width: '980px', height: '860px' }}>
 
               {/* GRANDE PHOTO GAUCHE — balade père fils vers la mer */}
               <div className="absolute" style={{ left: '0px', top: '20px', width: '230px', zIndex: 1 }}>
@@ -910,8 +915,24 @@ export default function HomePage() {
                 </div>
               </div>
 
+              {/* TDAC */}
+              <div className="absolute" style={{ left: '252px', top: '15px', width: '205px', zIndex: 3 }}>
+                <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
+                <div className="paper-aged relative p-4 shadow-[0_3px_16px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
+                  <span className="stamp-mandatory absolute -right-8 -top-10 z-20" style={{ fontSize: '10px', padding: '6px 12px 5px', transform: 'rotate(6deg)' }}>
+                    {locale === 'fr' ? 'Obligatoire' : 'Required'}<br/>
+                    <span style={{ fontSize: '8px', letterSpacing: '0.05em' }}>บังคับ</span>
+                  </span>
+                  <img src="/collage/garuda-stamp.png" alt="" className="pointer-events-none absolute" style={{ width: '70px', bottom: '-12px', right: '-16px', transform: 'rotate(6deg)', opacity: 0.55, mixBlendMode: 'multiply' }} />
+                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>Immigration</p>
+                  <p className="font-display mt-1 text-[26px] uppercase leading-none" style={{ color: '#1a1714' }}>TDAC</p>
+                  <p className="mt-2 text-[12px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.72)' }}>{locale === 'fr' ? "Remplissez la carte d'arrivée en ligne avant votre vol." : 'Fill the arrival card online before your flight. Takes 2 minutes.'}</p>
+                  <a href="https://tdac.immigration.go.th/arrival-card/#/tac/arrival-card/add" target="_blank" rel="noopener noreferrer" className="font-label mt-3 inline-block border-b pb-px text-[8px] uppercase tracking-[0.20em] hover:opacity-100" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Site officiel →' : 'Official site →'}</a>
+                </div>
+              </div>
+
               {/* TAXI */}
-              <div className="absolute" style={{ left: '252px', top: '15px', width: '255px', zIndex: 3 }}>
+              <div className="absolute" style={{ left: '252px', top: '220px', width: '255px', zIndex: 3 }}>
                 <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
                 <div className="paper-aged relative px-6 py-6 shadow-[0_6px_28px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                   <span className="stamp-price absolute -right-4 -top-5 z-10" style={{ fontSize: '9px', transform: 'rotate(5deg)' }}>700 THB<br/>door to door</span>
@@ -943,52 +964,10 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* PHOTO BAS DROITE — Lucie et les enfants dans l'eau */}
-              <div className="absolute" style={{ left: '750px', top: '270px', width: '200px', zIndex: 2 }}>
-                <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-                <div className="paper-aged p-2 pb-7 shadow-[0_6px_24px_rgba(31,27,24,0.18)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.08)' }}>
-                  <img src="/IMG_7234b-web.jpg" alt="" className="h-[220px] w-full object-cover" style={{ filter: 'sepia(0.08) contrast(1.02) brightness(1.02)', objectPosition: 'top' }} />
-                </div>
-              </div>
-
-              {/* PRIORITY LANE */}
-              <div className="absolute" style={{ left: '0px', top: '430px', width: '280px', zIndex: 3 }}>
-                <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-                <div className="paper-aged relative p-5 shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                  <img src="/collage/d097cfd24072805eecf86a53c65db8a3.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" style={{ opacity: 0.07, mixBlendMode: 'multiply', objectPosition: 'center' }} />
-                  <span className="stamp-important absolute right-2 -top-4 z-20" style={{ width: '70px', height: '70px', transform: 'rotate(-6deg)' }}>
-                    <span style={{ fontSize: '9px' }}>ด่วน</span>
-                    <span style={{ fontSize: '7px' }}>priority</span>
-                  </span>
-                  <span className="stamp-price absolute right-6 top-[48px] z-10" style={{ transform: 'rotate(8deg)', fontSize: '7.5px' }}>
-                    cash baht only<br/>
-                    <span style={{ fontSize: '7px', letterSpacing: '0.05em' }}>เงินสดเท่านั้น</span>
-                  </span>
-                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>Pro tip</p>
-                  <p className="font-display mt-1 text-[26px] uppercase leading-none" style={{ color: '#1a1714' }}>Priority<br/>Lane</p>
-                  <img src="/collage/garuda-stamp.png" alt="" className="absolute bottom-4 left-4 w-[64px] opacity-[0.08]" style={{ filter: 'grayscale(1)', mixBlendMode: 'multiply', transform: 'rotate(-8deg)' }} />
-                  <p className="mt-3 text-[12px] leading-[1.7]" style={{ color: 'rgba(31,27,24,0.72)' }}>{locale === 'fr' ? "Au passport control, approchez l'agent et dites juste \"priority lane — how much ?\". Il annonce un prix entre 500 et 1000 bahts — c'est du bakchich, cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : 30 min à 2h dans la queue." : 'At passport control, walk up to the agent and say "priority lane — how much?" They\'ll quote you 500–1000 baht — it\'s a bribe, cash in baht only. Exchange desk right before if needed. Passports, TDAC forms and cash out and ready. You\'re through in 2 minutes. Without it: queue for 30 min to 2 hours.'}</p>
-                </div>
-              </div>
-
-              {/* TDAC */}
-              <div className="absolute" style={{ left: '300px', top: '440px', width: '205px', zIndex: 3 }}>
-                <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-                <div className="paper-aged relative p-4 shadow-[0_3px_16px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                  <span className="stamp-mandatory absolute -right-8 -top-10 z-20" style={{ fontSize: '10px', padding: '6px 12px 5px', transform: 'rotate(6deg)' }}>
-                    {locale === 'fr' ? 'Obligatoire' : 'Required'}<br/>
-                    <span style={{ fontSize: '8px', letterSpacing: '0.05em' }}>บังคับ</span>
-                  </span>
-                  <img src="/collage/garuda-stamp.png" alt="" className="pointer-events-none absolute" style={{ width: '70px', bottom: '-12px', right: '-16px', transform: 'rotate(6deg)', opacity: 0.55, mixBlendMode: 'multiply' }} />
-                  <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>Immigration</p>
-                  <p className="font-display mt-1 text-[26px] uppercase leading-none" style={{ color: '#1a1714' }}>TDAC</p>
-                  <p className="mt-2 text-[12px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.72)' }}>{locale === 'fr' ? "Remplissez la carte d'arrivée en ligne avant votre vol." : 'Fill the arrival card online before your flight. Takes 2 minutes.'}</p>
-                  <a href="https://tdac.immigration.go.th/arrival-card/#/tac/arrival-card/add" target="_blank" rel="noopener noreferrer" className="font-label mt-3 inline-block border-b pb-px text-[8px] uppercase tracking-[0.20em] hover:opacity-100" style={{ borderColor: 'rgba(31,27,24,0.25)', color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Site officiel →' : 'Official site →'}</a>
-                </div>
-              </div>
+              {/* PRIORITY LANE — retiré du collage, encart pleine largeur ci-dessous */}
 
               {/* GRAB */}
-              <div className="absolute" style={{ left: '526px', top: '440px', width: '195px', zIndex: 3 }}>
+              <div className="absolute" style={{ left: '748px', top: '230px', width: '195px', zIndex: 3 }}>
                 <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
                 <div className="paper-aged p-4 shadow-[0_3px_16px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
                   <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Transport & Livraison' : 'Transport & Food'}</p>
@@ -1000,6 +979,41 @@ export default function HomePage() {
 
               </div>{/* fin mx-auto 980px */}
             </div>{/* fin hidden sm:block */}
+          </div>
+
+          {/* PRIORITY LANE — encart pleine largeur */}
+          <div className="relative mt-10 md:mt-14 overflow-hidden" style={{ borderRadius: '2px' }}>
+            {/* fond papier quadrillé */}
+            <img src="/collage/grid-paper.png" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ opacity: 0.55 }} />
+            <div className="absolute inset-0" style={{ background: 'rgba(248,244,235,0.72)' }} />
+            {/* tape gauche + droite */}
+            <div className="tape-vintage absolute -top-3 left-12 z-10 h-7 w-20" />
+            <div className="tape-vintage absolute -top-3 right-12 z-10 h-7 w-20" />
+            <div className="relative z-10 flex flex-col md:flex-row items-start gap-6 md:gap-16 px-8 py-8 md:px-14 md:py-10">
+              {/* Gauche : label + titre + stamps */}
+              <div className="flex-shrink-0">
+                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.40)' }}>Pro tip</p>
+                <p className="font-display mt-1 leading-none uppercase" style={{ fontSize: 'clamp(32px,4vw,56px)', color: '#1a1714' }}>Priority<br/>Lane</p>
+                <div className="mt-4 flex items-center gap-3 flex-wrap">
+                  <span className="stamp-important" style={{ width: '64px', height: '64px', transform: 'rotate(-4deg)', flexShrink: 0 }}>
+                    <span style={{ fontSize: '9px' }}>ด่วน</span>
+                    <span style={{ fontSize: '7px' }}>priority</span>
+                  </span>
+                  <span className="stamp-price" style={{ transform: 'rotate(3deg)', fontSize: '7.5px', flexShrink: 0 }}>
+                    cash baht only<br/>
+                    <span style={{ fontSize: '7px', letterSpacing: '0.05em' }}>เงินสดเท่านั้น</span>
+                  </span>
+                </div>
+              </div>
+              {/* Droite : texte */}
+              <div className="flex-1">
+                <p className="text-[13px] leading-[1.85]" style={{ color: 'rgba(31,27,24,0.72)' }}>
+                  {locale === 'fr'
+                    ? "Au passport control, approchez l'agent et dites juste « priority lane — how much ? ». Il annonce un prix entre 500 et 1000 bahts — c'est du bakchich, cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : comptez entre 30 min et 2h dans la queue."
+                    : 'At passport control, walk up to the agent and say "priority lane — how much?" They\'ll quote you 500–1000 baht — it\'s a bribe, cash in baht only. Exchange desk right before if needed. Passports, TDAC forms and cash ready. You\'re through in 2 minutes. Without it: queue for 30 min to 2 hours.'}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1020,91 +1034,79 @@ export default function HomePage() {
           <img src="/IMG_2278.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center top', filter: 'brightness(0.45) saturate(1.1)' }} />
           <div className="absolute inset-0" style={{ background: 'rgba(15,12,10,0.30)' }} />
 
-          {/* Contenu : polaroid maison + polaroid piscine + post-it codes + post-it ATM */}
+          {/* Contenu : photo maison + codes + photo piscine + conseil ATM */}
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 w-full max-w-5xl">
 
             {/* Polaroid — photo maison */}
-            <div className="flex-shrink-0" style={{
-              background: '#f8f4eb',
-              padding: '10px 10px 36px',
-              boxShadow: '0 12px 50px rgba(0,0,0,0.70)',
-              width: '200px',
-            }}>
-              <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden' }}>
-                <img src="/IMG_7234b-web.jpg" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', filter: 'sepia(0.06) contrast(1.04) brightness(0.97)' }} />
-              </div>
-            </div>
-
-            {/* Polaroid — photo piscine */}
-            <div className="flex-shrink-0" style={{
-              background: '#f8f4eb',
-              padding: '10px 10px 36px',
-              boxShadow: '0 12px 50px rgba(0,0,0,0.70)',
-              width: '220px',
-            }}>
-              <div style={{ width: '100%', aspectRatio: '4/3', overflow: 'hidden' }}>
-                <img src="/IMG_pool_evening.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'sepia(0.08) contrast(1.05) brightness(0.95)' }} />
-              </div>
-            </div>
-
-            {/* Post-it codes — WiFi + porte */}
-            <div className="relative flex-shrink-0" style={{
-              background: '#f8f4eb',
-              padding: '28px 24px 28px',
-              boxShadow: '2px 8px 40px rgba(0,0,0,0.60)',
-              width: '280px',
-            }}>
-              {/* Tape */}
-              <div style={{ position: 'absolute', top: '-8px', left: '50%', transform: 'translateX(-50%)', width: '80px', height: '18px', background: 'rgba(210,200,170,0.50)', borderRadius: '1px', boxShadow: 'inset 0 0 0 1px rgba(180,165,130,0.30)' }} />
-
-              <p className="font-script" style={{ fontSize: '18px', color: 'rgba(31,27,24,0.50)', marginBottom: '14px', lineHeight: 1 }}>
-                {locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}
-              </p>
-
-              {/* WiFi réseau */}
-              <div style={{ borderBottom: '1px solid rgba(31,27,24,0.10)', paddingBottom: '12px', marginBottom: '12px' }}>
-                <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.20em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.35)', marginBottom: '4px' }}>{t.wifiNetwork}</p>
-                <p style={{ fontFamily: 'monospace', fontSize: '18px', color: '#1a1714', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.wifiNetwork}</p>
-              </div>
-
-              {/* WiFi password */}
-              <div style={{ borderBottom: '1px solid rgba(31,27,24,0.10)', paddingBottom: '12px', marginBottom: '12px' }}>
-                <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.20em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.35)', marginBottom: '4px' }}>{t.wifiPassword}</p>
-                <p style={{ fontFamily: 'monospace', fontSize: '18px', color: '#1a1714', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.wifiPassword}</p>
-              </div>
-
-              {/* Code porte */}
-              <div>
-                <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.20em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.35)', marginBottom: '4px' }}>{t.doorCode}</p>
-                <p style={{ fontFamily: 'monospace', fontSize: '18px', color: '#1a1714', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.doorCode}</p>
-                <div style={{ borderLeft: '2px solid rgba(31,27,24,0.12)', paddingLeft: '10px', marginTop: '10px' }}>
-                  <p className="font-label" style={{ fontSize: '10px', lineHeight: 2, color: 'rgba(31,27,24,0.55)' }}>
-                    {locale === 'fr'
-                      ? <><span style={{ display: 'block' }}>1. Paume entière sur le capteur</span><span style={{ display: 'block' }}>2. Tapez le code</span><span style={{ display: 'block' }}>3. Paume entière sur le capteur</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(31,27,24,0.25)' }}>"door unlocked" ✓</span></>
-                      : <><span style={{ display: 'block' }}>1. Full palm on the sensor</span><span style={{ display: 'block' }}>2. Tap the code</span><span style={{ display: 'block' }}>3. Full palm on the sensor</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(31,27,24,0.25)' }}>"door unlocked" ✓</span></>}
-                  </p>
+            <div className="relative flex-shrink-0" style={{ width: '200px' }}>
+              <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
+              <div className="paper-aged p-2 pb-8 shadow-[0_8px_36px_rgba(0,0,0,0.55)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.08)' }}>
+                <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden' }}>
+                  <img src="/IMG_7234b-web.jpg" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', filter: 'sepia(0.08) contrast(1.04) brightness(0.97)' }} />
                 </div>
               </div>
             </div>
 
-            {/* Post-it ATM */}
-            <div className="relative flex-shrink-0" style={{
-              background: '#f8f4eb',
-              padding: '28px 20px 24px',
-              boxShadow: '2px 8px 40px rgba(0,0,0,0.60)',
-              width: '240px',
-            }}>
-              {/* Tape */}
-              <div style={{ position: 'absolute', top: '-8px', left: '50%', transform: 'translateX(-50%)', width: '72px', height: '18px', background: 'rgba(210,200,170,0.50)', borderRadius: '1px', boxShadow: 'inset 0 0 0 1px rgba(180,165,130,0.30)' }} />
-              <p className="font-script" style={{ fontSize: '18px', color: 'rgba(31,27,24,0.50)', marginBottom: '8px', lineHeight: 1 }}>
-                {locale === 'fr' ? 'Conseil · Argent' : 'Tip · Money'}
-              </p>
-              <p className="font-display" style={{ fontSize: '18px', textTransform: 'uppercase', lineHeight: 1, color: '#1a1714', marginBottom: '10px', letterSpacing: '0.02em' }}>
-                Important ATM
-              </p>
-              <p style={{ fontSize: '10.5px', lineHeight: 1.75, color: 'rgba(31,27,24,0.65)' }}>
-                {t.atmText}
-              </p>
+            {/* Post-it codes — WiFi + porte */}
+            <div className="relative flex-shrink-0" style={{ width: '280px' }}>
+              <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
+              <div className="paper-aged relative px-6 py-6 shadow-[0_6px_28px_rgba(0,0,0,0.55)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
+
+                <p className="font-script" style={{ fontSize: '20px', color: 'rgba(31,27,24,0.55)', marginBottom: '16px', lineHeight: 1 }}>
+                  {locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}
+                </p>
+
+                {/* WiFi réseau */}
+                <div style={{ borderBottom: '1px solid rgba(31,27,24,0.12)', paddingBottom: '12px', marginBottom: '12px' }}>
+                  <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.20em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.40)', marginBottom: '4px' }}>{t.wifiNetwork}</p>
+                  <p style={{ fontFamily: 'monospace', fontSize: '18px', color: '#1a1714', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.wifiNetwork}</p>
+                </div>
+
+                {/* WiFi password */}
+                <div style={{ borderBottom: '1px solid rgba(31,27,24,0.12)', paddingBottom: '12px', marginBottom: '12px' }}>
+                  <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.20em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.40)', marginBottom: '4px' }}>{t.wifiPassword}</p>
+                  <p style={{ fontFamily: 'monospace', fontSize: '18px', color: '#1a1714', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.wifiPassword}</p>
+                </div>
+
+                {/* Code porte */}
+                <div>
+                  <p className="font-label" style={{ fontSize: '7px', letterSpacing: '0.20em', textTransform: 'uppercase', color: 'rgba(31,27,24,0.40)', marginBottom: '4px' }}>{t.doorCode}</p>
+                  <p style={{ fontFamily: 'monospace', fontSize: '18px', color: '#1a1714', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.doorCode}</p>
+                  <div style={{ borderLeft: '2px solid rgba(31,27,24,0.12)', paddingLeft: '10px', marginTop: '10px' }}>
+                    <p className="font-label" style={{ fontSize: '10px', lineHeight: 2, color: 'rgba(31,27,24,0.55)' }}>
+                      {locale === 'fr'
+                        ? <><span style={{ display: 'block' }}>1. Paume entière sur le capteur</span><span style={{ display: 'block' }}>2. Tapez le code</span><span style={{ display: 'block' }}>3. Paume entière sur le capteur</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(31,27,24,0.25)' }}>"door unlocked" ✓</span></>
+                        : <><span style={{ display: 'block' }}>1. Full palm on the sensor</span><span style={{ display: 'block' }}>2. Tap the code</span><span style={{ display: 'block' }}>3. Full palm on the sensor</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(31,27,24,0.25)' }}>"door unlocked" ✓</span></>}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Polaroid — photo piscine */}
+            <div className="relative flex-shrink-0" style={{ width: '220px' }}>
+              <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
+              <div className="paper-aged p-2 pb-8 shadow-[0_8px_36px_rgba(0,0,0,0.55)]" style={{ background: '#f0ece3', border: '1px solid rgba(31,27,24,0.08)' }}>
+                <div style={{ width: '100%', aspectRatio: '4/3', overflow: 'hidden' }}>
+                  <img src="/IMG_pool_evening.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'sepia(0.08) contrast(1.05) brightness(0.95)' }} />
+                </div>
+              </div>
+            </div>
+
+            {/* Post-it Conseil ATM */}
+            <div className="relative flex-shrink-0" style={{ width: '240px' }}>
+              <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
+              <div className="paper-aged relative px-5 py-6 shadow-[0_6px_28px_rgba(0,0,0,0.55)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
+                <p className="font-script" style={{ fontSize: '20px', color: 'rgba(31,27,24,0.55)', marginBottom: '6px', lineHeight: 1 }}>
+                  {locale === 'fr' ? 'Conseil' : 'Tip'}
+                </p>
+                <p className="font-display" style={{ fontSize: '22px', textTransform: 'uppercase', lineHeight: 1, color: '#1a1714', marginBottom: '12px', letterSpacing: '0.02em' }}>
+                  Important ATM
+                </p>
+                <p style={{ fontSize: '10.5px', lineHeight: 1.75, color: 'rgba(31,27,24,0.70)' }}>
+                  {t.atmText}
+                </p>
+              </div>
             </div>
 
           </div>
@@ -1157,13 +1159,14 @@ export default function HomePage() {
 
         {/* ── Décos scrapbook tropicales ── */}
         <img src="/collage/lotus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '220px', top: '-30px', left: '-55px', transform: 'rotate(-10deg)', opacity: 0.82, zIndex: 0 }} />
-        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '2350px', right: '-60px', transform: 'rotate(18deg)', opacity: 0.75, zIndex: 0 }} />
         <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '320px', right: '-60px', transform: 'rotate(12deg)', opacity: 0.60, zIndex: 0 }} />
         <img src="/collage/mango-sticky-rice.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1050px', right: '-80px', transform: 'rotate(10deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
         <img src="/collage/tom-yum-bowl-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '1280px', right: '-90px', transform: 'rotate(-8deg)', opacity: 0.85, zIndex: 0 }} />
-        <img src="/collage/coconut-cocktail-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '2050px', left: '-55px', transform: 'rotate(8deg)', opacity: 0.82, zIndex: 0 }} />
-        <img src="/collage/mangosteen-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '190px', top: '2650px', right: '-65px', transform: 'rotate(-7deg)', opacity: 0.82, zIndex: 0 }} />
-        <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '1400px', left: '-65px', transform: 'rotate(10deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '1500px', left: '-65px', transform: 'rotate(10deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
+        {/* Wellness stickers — distribués de ~1800px à ~2900px */}
+        <img src="/collage/coconut-cocktail-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1820px', right: '-55px', transform: 'rotate(-8deg)', opacity: 0.82, zIndex: 0 }} />
+        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '2150px', left: '-60px', transform: 'rotate(15deg)', opacity: 0.75, zIndex: 0 }} />
+        <img src="/collage/mangosteen-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '190px', top: '2500px', right: '-65px', transform: 'rotate(-7deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/pad-thai.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '1700px', right: '-60px', transform: 'rotate(-6deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
         <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '190px', bottom: '120px', right: '-65px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
 
