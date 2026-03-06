@@ -1086,8 +1086,8 @@ export default function HomePage() {
         {/* ── Décos scrapbook tropicales ── */}
         <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '180px', top: '40px', right: '-30px', transform: 'rotate(18deg)', opacity: 0.75, zIndex: 0 }} />
         <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '160px', top: '320px', left: '-40px', transform: 'rotate(-12deg)', opacity: 0.60, zIndex: 0 }} />
-        <img src="/collage/tom-yum-bowl-nobg.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '200px', top: '900px', right: '-20px', transform: 'rotate(-8deg)', opacity: 0.70, zIndex: 0 }} />
-        <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '170px', top: '1400px', left: '-30px', transform: 'rotate(10deg)', opacity: 0.65, zIndex: 0 }} />
+        <img src="/collage/tom-yum-bowl.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '200px', top: '900px', right: '-20px', transform: 'rotate(-8deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
+        <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '170px', top: '1400px', left: '-30px', transform: 'rotate(10deg)', opacity: 0.85, mixBlendMode: 'multiply', zIndex: 0 }} />
         <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '190px', bottom: '120px', right: '-10px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
 
         <div className="relative mx-auto max-w-5xl">
