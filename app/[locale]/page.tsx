@@ -987,10 +987,10 @@ export default function HomePage() {
             <div className="absolute inset-0" style={{ background: 'rgba(248,244,235,0.55)' }} />
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-12 px-8 py-8 md:px-14 md:py-10">
               {/* Gauche : label + titre + stamps */}
-              <div className="flex-shrink-0 md:w-[220px]">
+              <div className="flex-shrink-0 md:w-[220px] flex flex-col items-center md:items-start text-center md:text-left">
                 <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.40)' }}>Pro tip</p>
                 <p className="font-display mt-1 leading-none uppercase" style={{ fontSize: 'clamp(32px,4vw,56px)', color: '#1a1714' }}>Priority<br/>Lane</p>
-                <div className="mt-4 flex items-center gap-3 flex-wrap">
+                <div className="mt-4 flex items-center justify-center md:justify-start gap-3 flex-wrap">
                   <span className="stamp-important" style={{ width: '64px', height: '64px', transform: 'rotate(-4deg)', flexShrink: 0 }}>
                     <span style={{ fontSize: '9px' }}>ด่วน</span>
                     <span style={{ fontSize: '7px' }}>priority</span>
@@ -1002,7 +1002,7 @@ export default function HomePage() {
                 </div>
               </div>
               {/* Droite : texte */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 text-center md:text-left">
                 <p className="text-[12px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.72)' }}>
                   {locale === 'fr'
                     ? "Au passport control, approchez l'agent et dites juste « priority lane — how much ? ». Il annonce un prix entre 500 et 1000 bahts — cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : comptez entre 30 min et 2h dans la queue."
@@ -1417,7 +1417,7 @@ export default function HomePage() {
         <img src="/collage/muay-thai-stamp-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '280px', top: '60px', right: '-40px', transform: 'rotate(6deg)', opacity: 0.75, zIndex: 0 }} />
         {/* Nouveaux stickers Phuket */}
         {/* Nouveaux stickers Phuket */}
-        <img src="/collage/monk-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '150px', top: '120px', left: '-55px', transform: 'rotate(4deg)', opacity: 0.88, zIndex: 0 }} />
+        <img src="/collage/monk-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '150px', top: '120px', right: '-55px', transform: 'rotate(-4deg)', opacity: 0.88, zIndex: 0 }} />
         <img src="/collage/palm-tree-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '480px', left: '-65px', transform: 'rotate(-5deg)', opacity: 0.80, zIndex: 0 }} />
         <img src="/collage/longtail-boat-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '210px', top: '850px', right: '-70px', transform: 'rotate(-6deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/monkeys-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '190px', top: '1280px', right: '-60px', transform: 'rotate(-6deg)', opacity: 0.85, zIndex: 0 }} />
