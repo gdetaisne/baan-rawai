@@ -89,7 +89,7 @@ const CONTENT = {
     atmText:
       "ATMs here give the cash BEFORE returning your card. Many people forget their card. Don't be that person. (Pierre, if you leave your card in the ATM, we warned you — and you're buying the next round.) There's an ATM in front of every 7-Eleven.",
     dayPassIntro:
-      'A day pass gets you full access to a 5-star hotel — pool, beach club, food credit — no room booking needed. Best upgrade of your trip.',
+      'A day pass gets you full access to a 5-star hotel — pool, beach club, food credit — no room booking needed. Most hotels offer them. Our picks below, but we know plenty more — just ask.',
     submit: 'Send it',
     thankYou: 'Got it — we\'ll make sure everything is perfect.',
     whatsapp: 'WhatsApp',
@@ -178,7 +178,7 @@ const CONTENT = {
     atmText:
       "Ici les distributeurs donnent le cash AVANT de rendre la carte. Beaucoup de gens oublient leur carte. Ne soyez pas cette personne. (Pierre, si tu oublies ta carte dans l'ATM, on t'aura prévenu — et tu paies ta tournée.) Il y a un ATM devant chaque 7-Eleven.",
     dayPassIntro:
-      "Un day pass, c'est l'accès complet à un hôtel 5 étoiles — piscine, beach club, crédit resto — sans réserver de chambre. Le meilleur upgrade de votre séjour.",
+      "Un day pass, c'est l'accès complet à un hôtel 5 étoiles — piscine, beach club, crédit resto — sans réserver de chambre. La plupart des hôtels le proposent. Notre sélection ci-dessous, mais on en connaît plein d'autres — demandez-nous.",
     submit: 'Envoyer',
     thankYou: 'Reçu — on s\'occupe de tout.',
     whatsapp: 'WhatsApp',
@@ -754,7 +754,7 @@ export default function HomePage() {
       </section>
 
       {/* POSTCARD SECTION */}
-      <section id="welcome" className="relative overflow-hidden px-5 py-16 md:px-10 md:py-24">
+      <section id="welcome" className="relative overflow-hidden px-5 py-8 md:px-10 md:py-24">
         {/* background vidéo */}
         <img src="/poster-welcome.jpg" alt="" className="absolute inset-0 h-full w-full object-cover md:hidden" />
         <video
@@ -768,17 +768,17 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-[420px]">
 
           {/* CARTE 1 — recto photo */}
-          <div className="reveal bg-[#f8f4eb] p-3 pb-10 shadow-[0_8px_40px_rgba(0,0,0,0.40)]">
+          <div className="reveal bg-[#f8f4eb] p-2 pb-7 shadow-[0_8px_40px_rgba(0,0,0,0.40)]">
             <div className="relative overflow-hidden">
               <img
                 src="/IMG_1697.jpg"
                 alt="Baan Sayiuan"
-                className="h-[260px] w-full object-cover"
+                className="h-[180px] md:h-[260px] w-full object-cover"
               />
               <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 30px rgba(0,0,0,0.15)' }} />
               <p
                 className="font-script absolute bottom-3 left-3 whitespace-pre-line leading-none text-white"
-                style={{ fontSize: 'clamp(26px, 3vw, 42px)', textShadow: '0 2px 8px rgba(0,0,0,0.60)', transform: 'rotate(-4deg)', transformOrigin: 'left bottom' }}
+                style={{ fontSize: 'clamp(22px, 3vw, 42px)', textShadow: '0 2px 8px rgba(0,0,0,0.60)', transform: 'rotate(-4deg)', transformOrigin: 'left bottom' }}
               >
                 {t.postcardLine}
               </p>
@@ -786,16 +786,15 @@ export default function HomePage() {
           </div>
 
           {/* espace entre les deux cartes */}
-          <div className="h-5" />
+          <div className="h-4" />
 
           {/* CARTE 2 — verso texte */}
-          <div className="reveal reveal-delay-2 bg-[#f8f4eb] px-6 py-5 shadow-[0_8px_40px_rgba(0,0,0,0.35)] flex flex-col" style={{ height: '324px' }}>
+          <div className="reveal reveal-delay-2 bg-[#f8f4eb] px-5 py-4 shadow-[0_8px_40px_rgba(0,0,0,0.35)] flex flex-col">
 
             {/* header + stamp */}
-            <div className="flex items-start justify-between border-b border-[#1f1b18]/12 pb-3">
-              <p className="font-display text-[18px] uppercase tracking-[0.06em] text-[#1f1b18]/80">POSTCARD</p>
-              {/* Un seul timbre — le rouge, plus grand */}
-              <div style={{ width: '88px', height: '88px', flexShrink: 0 }}>
+            <div className="flex items-start justify-between border-b border-[#1f1b18]/12 pb-2">
+              <p className="font-display text-[16px] uppercase tracking-[0.06em] text-[#1f1b18]/80">POSTCARD</p>
+              <div style={{ width: '64px', height: '64px', flexShrink: 0 }}>
                 <img
                   src="/collage/ed314742de5bf7445488ba1b5414ac6c.jpg"
                   alt="Thailand stamp"
@@ -805,14 +804,14 @@ export default function HomePage() {
             </div>
 
             {/* corps : texte pleine largeur */}
-            <div className="mt-4 flex-1">
-              <p className="font-script whitespace-pre-line text-[20px] leading-[1.3] text-[#1f1b18]/70">
+            <div className="mt-3 flex-1">
+              <p className="font-script whitespace-pre-line text-[17px] leading-[1.3] text-[#1f1b18]/70">
                 {t.welcomeStory1}
               </p>
             </div>
 
             {/* pied */}
-            <p className="font-label mt-auto pt-4 border-t border-[#1f1b18]/10 text-[7px] uppercase tracking-[0.22em] text-[#1f1b18]/32">
+            <p className="font-label mt-3 pt-3 border-t border-[#1f1b18]/10 text-[7px] uppercase tracking-[0.22em] text-[#1f1b18]/32">
               baan Sayiuan · 59/45 Soi Sayiuan 13 · Rawai · Phuket · Thailand
             </p>
           </div>
@@ -1077,6 +1076,13 @@ export default function HomePage() {
       <section id="rawai" className="relative overflow-hidden px-5 py-20 md:px-10 md:py-32" style={{ background: '#f8f4eb' }}>
         <div className="pointer-events-none absolute inset-0 opacity-[0.18]"
           style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'1\'/%3E%3C/svg%3E")', backgroundSize: '160px 160px' }} />
+
+        {/* ── Décos scrapbook tropicales ── */}
+        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '180px', top: '40px', right: '-30px', transform: 'rotate(18deg)', opacity: 0.75, zIndex: 0 }} />
+        <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '160px', top: '320px', left: '-40px', transform: 'rotate(-12deg)', opacity: 0.60, zIndex: 0 }} />
+        <img src="/collage/tom-yum-bowl-nobg.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '200px', top: '900px', right: '-20px', transform: 'rotate(-8deg)', opacity: 0.70, zIndex: 0 }} />
+        <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '170px', top: '1400px', left: '-30px', transform: 'rotate(10deg)', opacity: 0.65, zIndex: 0 }} />
+        <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden md:block" style={{ width: '190px', bottom: '120px', right: '-10px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
 
         <div className="relative mx-auto max-w-5xl">
 
