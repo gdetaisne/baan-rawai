@@ -973,172 +973,106 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── AT THE VILLA – scrapbook ─────────────────────────────── */}
-      <section id="arrival" className="relative overflow-hidden px-5 py-20 md:px-10 md:py-32" style={{ background: '#f8f4eb' }}>
-        <div className="mx-auto max-w-6xl">
+      {/* ── AT THE VILLA – editorial sombre ──────────────────────── */}
+      <section id="arrival" className="relative overflow-hidden" style={{ background: '#1f1b18' }}>
 
-          {/* Header */}
-          <div className="mb-14 text-center">
-            <p className="reveal font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>At The Villa</p>
-            <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.arrivalTitle}</h2>
-          </div>
-
-          {/* ── MOBILE ──────────────────────────────────────────── */}
-          <div className="flex flex-col gap-6 sm:hidden">
-
-            {/* 2 photos côte à côte */}
-            <div className="reveal grid grid-cols-2 gap-3">
-              <div className="relative">
-                <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-6 w-14 -translate-x-1/2" />
-                <div className="paper-aged shadow-[0_4px_16px_rgba(31,27,24,0.16)]" style={{ background: '#f0ece3', padding: '7px 7px 22px 7px', border: '1px solid rgba(31,27,24,0.10)', transform: 'rotate(-1.5deg)' }}>
-                  <div style={{ overflow: 'hidden', height: '160px' }}>
-                    <img src="/IMG_pool_evening.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.08) contrast(1.04) brightness(1.02)' }} />
-                  </div>
-                </div>
-              </div>
-              <div className="relative">
-                <div className="tape-vintage absolute -top-3 left-1/2 z-10 h-6 w-14 -translate-x-1/2" />
-                <div className="paper-aged shadow-[0_4px_16px_rgba(31,27,24,0.16)]" style={{ background: '#f0ece3', padding: '7px 7px 22px 7px', border: '1px solid rgba(31,27,24,0.10)', transform: 'rotate(1.5deg)' }}>
-                  <div style={{ overflow: 'hidden', height: '160px' }}>
-                    <img src="/IMG_pool_mugs.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', filter: 'sepia(0.08) contrast(1.04) brightness(1.02)' }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Codes WiFi + Porte */}
-            <div className="reveal reveal-delay-1 relative" style={{ paddingTop: '36px' }}>
-              <img src="/collage/binder-clip.png" alt="" className="pointer-events-none absolute" style={{ width: '48px', left: '50%', top: '-6px', transform: 'translateX(-50%)', zIndex: 10, mixBlendMode: 'multiply', opacity: 0.88 }} />
-              <div className="paper-aged shadow-[0_4px_20px_rgba(31,27,24,0.16)]" style={{ background: '#f5f0e8', border: '1px solid rgba(31,27,24,0.10)' }}>
-                {/* Header strip */}
-                <div style={{ borderBottom: '1px solid rgba(31,27,24,0.08)', padding: '14px 20px 10px' }}>
-                  <p className="font-label text-[7px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.38)' }}>{locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}</p>
-                </div>
-                {/* WiFi */}
-                <div style={{ padding: '14px 20px', borderBottom: '1px dashed rgba(31,27,24,0.10)' }}>
-                  <p className="font-label text-[6.5px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{t.wifiNetwork}</p>
-                  <p className="mt-1 text-[15px] font-medium" style={{ color: '#1a1714', letterSpacing: '0.03em', lineHeight: 1.2 }}>{ACCESS.wifiNetwork}</p>
-                  <p className="font-label mt-2 text-[6.5px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{t.wifiPassword}</p>
-                  <p className="mt-1 text-[15px] font-medium" style={{ color: '#1a1714', letterSpacing: '0.03em', lineHeight: 1.2 }}>{ACCESS.wifiPassword}</p>
-                </div>
-                {/* Code porte — mis en avant */}
-                <div style={{ padding: '16px 20px 18px', background: 'rgba(31,27,24,0.04)' }}>
-                  <p className="font-label text-[6.5px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.35)' }}>{t.doorCode}</p>
-                  <p className="mt-1" style={{ fontFamily: 'monospace', fontSize: '40px', fontWeight: '700', color: '#1a1714', letterSpacing: '0.18em', lineHeight: 1, background: 'rgba(31,27,24,0.06)', display: 'inline-block', padding: '4px 10px', borderRadius: '3px' }}>{ACCESS.doorCode}</p>
-                  <div className="mt-3" style={{ borderLeft: '2px solid rgba(31,27,24,0.12)', paddingLeft: '10px' }}>
-                    <p className="text-[9.5px] leading-[1.9]" style={{ color: 'rgba(31,27,24,0.58)' }}>
-                      {locale === 'fr'
-                        ? <><span style={{ display: 'block' }}>① Paume entière sur le capteur</span><span style={{ display: 'block' }}>② Tapez le code</span><span style={{ display: 'block' }}>③ Paume entière sur le capteur</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(31,27,24,0.40)' }}>④ "door unlocked" ✓</span></>
-                        : <><span style={{ display: 'block' }}>① Full palm on the sensor</span><span style={{ display: 'block' }}>② Tap the code</span><span style={{ display: 'block' }}>③ Full palm on the sensor</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(31,27,24,0.40)' }}>④ "door unlocked" ✓</span></>}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
-            {/* 7-Eleven ticket */}
-            <div className="reveal reveal-delay-3 relative" style={{ transform: 'rotate(1.5deg)', transformOrigin: 'top center' }}>
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <SevenElevenReceipt locale={locale} />
-            </div>
-
-            {/* ATM */}
-            <div className="reveal reveal-delay-3 relative overflow-visible">
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged relative overflow-visible p-5 shadow-[0_3px_16px_rgba(31,27,24,0.14)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <span className="stamp-price absolute -right-3 -top-4 z-20" style={{ fontSize: '8px', transform: 'rotate(8deg)' }}>without<br/>conversion</span>
-                <p className="font-label relative text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Conseil · Argent' : 'Tip · Money'}</p>
-                <p className="font-display relative mt-1 text-[26px] uppercase leading-none" style={{ color: '#1a1714' }}>{locale === 'fr' ? 'Conseil ATM' : 'ATM Tip'}</p>
-                <p className="mt-2 relative text-[12px] leading-[1.7]" style={{ color: 'rgba(31,27,24,0.70)' }}>{t.atmText}</p>
-                <img src="/collage/thai-baht-bill.png" alt="" className="pointer-events-none absolute" style={{ width: '110px', right: '-18px', bottom: '-18px', zIndex: 5, transform: 'rotate(-5deg)', opacity: 0.65, mixBlendMode: 'multiply', filter: 'sepia(0.08)' }} />
-              </div>
-            </div>
-
-          </div>
-
-          {/* ── DESKTOP — 3 colonnes alignées, décos ancrées ── */}
-          <div className="hidden sm:block">
-            <div className="relative mx-auto" style={{ width: '800px', height: '760px' }}>
-
-            {/* ══ COL 1 — Grande photo + ATM ══════════════════════════════ */}
-
-            {/* Grande photo piscine */}
-            <div className="absolute" style={{ left: '0px', top: '0px', width: '248px', zIndex: 3 }}>
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged shadow-[0_8px_28px_rgba(31,27,24,0.20)]" style={{ background: '#f0ece3', padding: '9px 9px 9px 9px', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <div style={{ overflow: 'hidden', height: '310px' }}>
-                  <img src="/IMG_pool_evening.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'sepia(0.08) contrast(1.04) brightness(1.02)' }} />
-                </div>
-              </div>
-            </div>
-
-            {/* Carte ATM — col 1, sous la grande photo */}
-            <div className="absolute" style={{ left: '0px', top: '368px', width: '230px', zIndex: 6, transform: 'rotate(-1deg)' }}>
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <span className="stamp-price absolute -right-4 -top-4 z-20" style={{ fontSize: '8px', transform: 'rotate(10deg)' }}>without<br/>conversion</span>
-              <div className="paper-aged p-5 shadow-[0_6px_24px_rgba(31,27,24,0.20)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Conseil · Argent' : 'Tip · Money'}</p>
-                <p className="font-display mt-1 text-[26px] uppercase leading-none" style={{ color: '#1a1714' }}>{locale === 'fr' ? 'Conseil ATM' : 'ATM Tip'}</p>
-                <p className="mt-2 text-[11px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.68)' }}>{t.atmText}</p>
-              </div>
-            </div>
-
-            {/* ══ COL 2 — Codes WiFi + Porte ══════════════════════════ */}
-
-            {/* Carte codes — binder clip métal centré */}
-            <div className="absolute" style={{ left: '272px', top: '0px', width: '268px', zIndex: 5 }}>
-              {/* Binder clip métal */}
-              <img src="/collage/binder-clip.png" alt="" className="pointer-events-none absolute" style={{ width: '54px', left: '50%', top: '-30px', transform: 'translateX(-50%)', zIndex: 9, mixBlendMode: 'multiply', opacity: 0.90 }} />
-              <div className="paper-aged shadow-[0_8px_32px_rgba(31,27,24,0.18)]" style={{ background: '#f5f0e8', border: '1px solid rgba(31,27,24,0.10)', padding: '28px 24px 28px 24px' }}>
-                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.38)' }}>{locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}</p>
-                <div className="mt-4" style={{ borderTop: '1px solid rgba(31,27,24,0.10)', paddingTop: '16px' }}>
-                  <div className="mb-4">
-                    <p className="font-label text-[7px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.38)' }}>{t.wifiNetwork}</p>
-                    <p className="mt-1.5 text-[17px]" style={{ color: '#1a1714', letterSpacing: '0.04em' }}>{ACCESS.wifiNetwork}</p>
-                  </div>
-                  <div className="mb-4" style={{ borderTop: '1px dashed rgba(31,27,24,0.12)', paddingTop: '12px' }}>
-                    <p className="font-label text-[7px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.38)' }}>{t.wifiPassword}</p>
-                    <p className="mt-1.5 text-[17px]" style={{ color: '#1a1714', letterSpacing: '0.04em' }}>{ACCESS.wifiPassword}</p>
-                  </div>
-                  <div style={{ borderTop: '1px dashed rgba(31,27,24,0.12)', paddingTop: '12px' }}>
-                    <p className="font-label text-[7px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.38)' }}>{t.doorCode}</p>
-                    <p className="font-display mt-2 text-[44px] leading-none" style={{ color: '#1a1714', letterSpacing: '0.14em' }}>{ACCESS.doorCode}</p>
-                    <p className="mt-2 text-[10px] leading-[1.7]" style={{ color: 'rgba(31,27,24,0.52)' }}>
-                      {locale === 'fr'
-                        ? <><span style={{ display: 'block' }}>① Paume entière sur le capteur</span><span style={{ display: 'block' }}>② Tapez le code</span><span style={{ display: 'block' }}>③ Paume entière sur le capteur</span><span style={{ display: 'block', fontStyle: 'italic' }}>④ "door unlocked" ✓</span></>
-                        : <><span style={{ display: 'block' }}>① Full palm on the sensor</span><span style={{ display: 'block' }}>② Tap the code</span><span style={{ display: 'block' }}>③ Full palm on the sensor</span><span style={{ display: 'block', fontStyle: 'italic' }}>④ "door unlocked" ✓</span></>}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ══ COL 3 — Receipt + photo mugs + billet ════════════════ */}
-
-            {/* Receipt 7-Eleven */}
-            <div className="absolute" style={{ left: '572px', top: '0px', width: '210px', zIndex: 4, transform: 'rotate(2deg)', transformOrigin: 'top center' }}>
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <SevenElevenReceipt locale={locale} />
-            </div>
-
-            {/* Petite photo mugs — sous le receipt */}
-            <div className="absolute" style={{ left: '565px', top: '400px', width: '210px', zIndex: 4, transform: 'rotate(1.5deg)' }}>
-              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged shadow-[0_5px_20px_rgba(31,27,24,0.16)]" style={{ background: '#f0ece3', padding: '7px 7px 26px 7px', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <div style={{ overflow: 'hidden', height: '148px' }}>
-                  <img src="/IMG_pool_mugs.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', filter: 'sepia(0.08) contrast(1.04) brightness(1.02)' }} />
-                </div>
-              </div>
-            </div>
-
-            {/* Billet thai — bas col 3, sous la photo mugs */}
-            <img src="/collage/thai-baht-bill.png" alt="" className="pointer-events-none absolute" style={{ width: '160px', right: '-10px', bottom: '0px', zIndex: 3, transform: 'rotate(-4deg)', opacity: 0.65, mixBlendMode: 'multiply', filter: 'sepia(0.08)' }} />
-
-            </div>{/* fin mx-auto 800px */}
-          </div>{/* fin hidden sm:block */}
+        {/* Header — fond crème séparé */}
+        <div className="px-5 pt-20 pb-12 md:px-10 md:pt-28 md:pb-16 text-center" style={{ background: '#f8f4eb' }}>
+          <p className="reveal font-label mb-3 text-[9px] uppercase tracking-[0.32em]" style={{ color: 'rgba(31,27,24,0.40)' }}>At The Villa</p>
+          <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>{t.arrivalTitle}</h2>
         </div>
+
+        {/* Grid principale — 3 colonnes sur fond sombre */}
+        <div className="grid grid-cols-1 md:grid-cols-3 overflow-hidden" style={{ borderTop: '1px solid rgba(255,248,236,0.08)' }}>
+
+          {/* ── COL 1 — Photo piscine + photo mugs ── */}
+          <div className="relative overflow-hidden h-[340px] md:h-auto" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
+            <img src="/IMG_pool_evening.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'sepia(0.12) contrast(1.06) brightness(0.80)' }} />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(31,27,24,0.70) 0%, transparent 60%)' }} />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.45)' }}>At The Villa</p>
+              <p className="font-display mt-1 text-[26px] uppercase leading-none" style={{ color: '#fff8ec' }}>{locale === 'fr' ? 'La piscine' : 'The pool'}</p>
+            </div>
+          </div>
+
+          {/* ── COL 2 — Codes accès ── */}
+          <div className="flex flex-col justify-center px-8 py-12 md:py-16" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
+            <p className="reveal font-label text-[7px] uppercase tracking-[0.32em] mb-10" style={{ color: 'rgba(255,248,236,0.30)' }}>{locale === 'fr' ? 'Accès · Villa' : 'Access · Villa'}</p>
+
+            {/* WiFi réseau */}
+            <div className="reveal mb-7" style={{ borderBottom: '1px solid rgba(255,248,236,0.07)', paddingBottom: '20px' }}>
+              <p className="font-label text-[7px] uppercase tracking-[0.22em] mb-2" style={{ color: 'rgba(255,248,236,0.30)' }}>{t.wifiNetwork}</p>
+              <p className="font-display text-[22px] uppercase leading-none" style={{ color: '#fff8ec' }}>{ACCESS.wifiNetwork}</p>
+            </div>
+
+            {/* WiFi password */}
+            <div className="reveal reveal-delay-1 mb-7" style={{ borderBottom: '1px solid rgba(255,248,236,0.07)', paddingBottom: '20px' }}>
+              <p className="font-label text-[7px] uppercase tracking-[0.22em] mb-2" style={{ color: 'rgba(255,248,236,0.30)' }}>{t.wifiPassword}</p>
+              <p className="font-display text-[22px] uppercase leading-none" style={{ color: '#fff8ec' }}>{ACCESS.wifiPassword}</p>
+            </div>
+
+            {/* Code porte — mis en avant */}
+            <div className="reveal reveal-delay-2">
+              <p className="font-label text-[7px] uppercase tracking-[0.22em] mb-3" style={{ color: 'rgba(255,248,236,0.30)' }}>{t.doorCode}</p>
+              <p className="font-display leading-none" style={{ fontSize: '64px', color: '#fff8ec', letterSpacing: '0.12em' }}>{ACCESS.doorCode}</p>
+              <div className="mt-5" style={{ borderLeft: '1px solid rgba(255,248,236,0.15)', paddingLeft: '12px' }}>
+                <p className="font-label text-[9px] leading-[2.2]" style={{ color: 'rgba(255,248,236,0.35)' }}>
+                  {locale === 'fr'
+                    ? <><span style={{ display: 'block' }}>1. Paume entière sur le capteur</span><span style={{ display: 'block' }}>2. Tapez le code</span><span style={{ display: 'block' }}>3. Paume entière sur le capteur</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(255,248,236,0.20)' }}>"door unlocked" ✓</span></>
+                    : <><span style={{ display: 'block' }}>1. Full palm on the sensor</span><span style={{ display: 'block' }}>2. Tap the code</span><span style={{ display: 'block' }}>3. Full palm on the sensor</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(255,248,236,0.20)' }}>"door unlocked" ✓</span></>}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* ── COL 3 — Important ATM + photo mugs ── */}
+          <div className="flex flex-col">
+
+            {/* Photo mugs */}
+            <div className="relative overflow-hidden h-[220px] md:h-[260px]" style={{ borderBottom: '1px solid rgba(255,248,236,0.08)' }}>
+              <img src="/IMG_pool_mugs.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', filter: 'sepia(0.12) contrast(1.06) brightness(0.80)' }} />
+            </div>
+
+            {/* Important ATM */}
+            <div className="reveal flex-1 px-8 py-10">
+              <span className="stamp-price inline-block mb-4" style={{ fontSize: '7px', transform: 'rotate(-2deg)', display: 'inline-block' }}>without<br/>conversion</span>
+              <p className="font-label text-[7px] uppercase tracking-[0.24em] mb-2" style={{ color: 'rgba(255,248,236,0.35)' }}>{locale === 'fr' ? 'Conseil · Argent' : 'Tip · Money'}</p>
+              <p className="font-display text-[28px] uppercase leading-none mb-4" style={{ color: '#fff8ec' }}>Important ATM</p>
+              <p className="text-[12px] leading-[1.85]" style={{ color: 'rgba(255,248,236,0.55)' }}>{t.atmText}</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Receipt 7-Eleven — bande éditoriale */}
+        <div className="grid grid-cols-1 md:grid-cols-2" style={{ borderTop: '1px solid rgba(255,248,236,0.08)' }}>
+
+          {/* Texte gauche */}
+          <div className="flex flex-col justify-center px-8 py-12 md:px-14 md:py-14" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
+            <p className="font-label text-[7px] uppercase tracking-[0.32em] mb-5" style={{ color: 'rgba(255,248,236,0.35)' }}>7-Eleven · Soi Sairaan 11</p>
+            <p className="font-display text-[clamp(28px,3vw,42px)] uppercase leading-none mb-5" style={{ color: '#fff8ec' }}>
+              {locale === 'fr' ? 'Le meilleur voisin\u00a0du monde' : 'The world\'s best\u00a0neighbour'}
+            </p>
+            <p className="text-[12px] leading-[1.9]" style={{ color: 'rgba(255,248,236,0.52)', maxWidth: '380px' }}>
+              {locale === 'fr'
+                ? <>À 200m à pied. Chang Beer bien froide, eau, glaces, SIM cards, crème solaire oubliée, snacks de minuit. <span style={{ color: 'rgba(255,248,236,0.75)' }}>Ouvert 24h/24, 7j/7</span> — y compris à 3h du mat quand l&apos;envie prend. L&apos;ATM juste devant accepte les cartes étrangères.</>
+                : <>A 2-minute walk. Ice-cold Chang Beer, water, ice cream, SIM cards, forgotten sunscreen, midnight snacks. <span style={{ color: 'rgba(255,248,236,0.75)' }}>Open 24/7</span> — including at 3am when the mood strikes. The ATM out front takes foreign cards.</>}
+            </p>
+            <p className="mt-6 text-[10px]" style={{ color: 'rgba(255,248,236,0.28)', fontFamily: 'monospace', letterSpacing: '0.08em' }}>
+              Soi Sairaan 11, Rawai · Phuket 83130
+            </p>
+          </div>
+
+          {/* Receipt droite */}
+          <div className="flex items-center justify-center px-8 py-12 md:py-14">
+            <div style={{ transform: 'rotate(-1.5deg)', maxWidth: '200px', width: '100%' }}>
+              <SevenElevenReceipt locale={locale} />
+            </div>
+          </div>
+
+        </div>
+
       </section>
 
       <section id="rawai" className="relative overflow-hidden px-5 py-20 md:px-10 md:py-32" style={{ background: '#f8f4eb' }}>
@@ -1588,8 +1522,8 @@ export default function HomePage() {
           </p>
           <button
             onClick={() => setFormOpen(true)}
-            className="reveal reveal-delay-3 font-label mt-10 inline-block border px-8 py-4 text-[10px] uppercase tracking-[0.26em] transition-colors hover:bg-[#f8f4eb] hover:text-[#1a1714]"
-            style={{ borderColor: 'rgba(248,244,235,0.35)', color: '#f8f4eb' }}
+            className="reveal reveal-delay-3 font-label mt-10 inline-block border px-8 py-4 text-[10px] uppercase tracking-[0.26em] transition-colors text-[#f8f4eb] hover:bg-[#f8f4eb] hover:text-[#1a1714]"
+            style={{ borderColor: 'rgba(248,244,235,0.35)' }}
           >
             {locale === 'fr' ? 'Remplir le formulaire →' : 'Fill in the form →'}
           </button>
