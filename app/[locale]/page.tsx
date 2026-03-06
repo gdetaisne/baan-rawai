@@ -294,7 +294,7 @@ function SevenElevenReceipt({ locale }: { locale: string }) {
         <div style={{ borderTop: '1px solid rgba(31,27,24,0.08)', paddingTop: '5px', textAlign: 'center' }}>
           <a href="https://share.google/dzSNztRG5borA1tmw" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
             <p style={{ fontSize: '6.5px', color: 'rgba(31,27,24,0.65)', letterSpacing: '0.03em', lineHeight: 1.45 }}>Soi Saiuan 11, Rawai<br/>Phuket 83130</p>
-            <p style={{ fontSize: '6.5px', fontWeight: '600', color: '#b03020', marginTop: '3px', letterSpacing: '0.05em' }}>📍 Voir sur Maps →</p>
+            <p style={{ fontSize: '6.5px', fontWeight: '600', color: '#b03020', marginTop: '3px', letterSpacing: '0.05em' }}>→ Voir sur Maps</p>
           </a>
         </div>
       </div>
@@ -842,13 +842,13 @@ export default function HomePage() {
               {(locale === 'fr' ? [
                 { label: 'Aéroport · Transfert', title: 'Taxi Aéroport', desc: 'Votre chauffeur vous attendra à la sortie avec un panneau à votre nom. 700 THB, de l\'aéroport de Phuket jusqu\'à la villa. Signalez-le dans le formulaire et on s\'occupe de tout.', cta: 'Formulaire', href: '#guest-form' },
                 { label: 'Connexion', title: 'eSIM', desc: 'À installer avant de décoller — connecté dès l\'atterrissage.', cta: 'Holafly', href: 'https://esim.holafly.com/fr/esim-thailande/' },
-                { label: '✈ Pro tip', title: 'Priority Lane', desc: 'Au passport control, approchez l\'agent et dites juste "priority lane — how much ?". Il annonce un prix entre 500 et 1000 bahts — c\'est du bakchich, cash bahts uniquement. Bureau de change juste avant l\'immigration si besoin. Passeports, TDAC et biftons sortis à l\'avance. Vous passerez en 2 minutes. Sans ça : comptez entre 30 min et 2h dans la queue.', cta: null, href: null },
+                { label: 'Pro tip', title: 'Priority Lane', desc: 'Au passport control, approchez l\'agent et dites juste "priority lane — how much ?". Il annonce un prix entre 500 et 1000 bahts — c\'est du bakchich, cash bahts uniquement. Bureau de change juste avant l\'immigration si besoin. Passeports, TDAC et biftons sortis à l\'avance. Vous passerez en 2 minutes. Sans ça : comptez entre 30 min et 2h dans la queue.', cta: null, href: null },
                 { label: 'Immigration', title: 'TDAC', desc: 'Remplissez la carte d\'arrivée en ligne avant votre vol.', cta: 'Site officiel', href: 'https://tdac.immigration.go.th/arrival-card/#/tac/arrival-card/add' },
                 { label: 'Transport & Livraison', title: 'Grab', desc: 'Le Uber de l\'Asie du Sud-Est. Taxis, scooters, livraison. Indispensable en Thaïlande.', cta: 'Télécharger', href: 'https://www.grab.com/th/en/download/' },
               ] : [
                 { label: 'Airport · Transfer', title: 'Airport Taxi', desc: 'Your driver will be waiting at arrivals with a sign in your name. 700 THB, straight from Phuket airport to the villa. Just mention it in the guest form and we\'ll sort it.', cta: 'Guest form', href: '#guest-form' },
                 { label: 'Data', title: 'eSIM', desc: 'Install before takeoff — connected straight from landing.', cta: 'Holafly', href: 'https://esim.holafly.com/fr/esim-thailande/' },
-                { label: '✈ Pro tip', title: 'Priority Lane', desc: 'At passport control, use the Priority Lane. Just say "priority lane — how much?" to the agent — expect 500 to 1000 baht, it\'s up to them. Cash in baht only (exchange desk just before immigration). Have passports, TDAC forms and cash ready. Without it: 30 min to 2 hours in line.', cta: null, href: null },
+                { label: 'Pro tip', title: 'Priority Lane', desc: 'At passport control, use the Priority Lane. Just say "priority lane — how much?" to the agent — expect 500 to 1000 baht, it\'s up to them. Cash in baht only (exchange desk just before immigration). Have passports, TDAC forms and cash ready. Without it: 30 min to 2 hours in line.', cta: null, href: null },
                 { label: 'Immigration', title: 'TDAC', desc: 'Fill the arrival card online before your flight. Takes 2 minutes.', cta: 'Official site', href: 'https://tdac.immigration.go.th/arrival-card/#/tac/arrival-card/add' },
                 { label: 'Transport & Food', title: 'Grab', desc: 'The Uber of Southeast Asia. Taxis, scooters, delivery. Essential in Thailand.', cta: 'Download', href: 'https://www.grab.com/th/en/download/' },
               ]).map((item, i) => (
@@ -992,10 +992,6 @@ export default function HomePage() {
           <div className="relative overflow-hidden h-[220px] md:h-auto md:min-h-[480px]" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
             <img src="/IMG_pool_evening.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', filter: 'sepia(0.12) contrast(1.06) brightness(0.80)' }} />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(31,27,24,0.70) 0%, transparent 60%)' }} />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.45)' }}>At The Villa</p>
-              <p className="font-display mt-1 text-[26px] uppercase leading-none" style={{ color: '#fff8ec' }}>{locale === 'fr' ? 'La piscine' : 'The pool'}</p>
-            </div>
           </div>
 
           {/* ── COL 2 — Codes accès ── */}
@@ -1005,21 +1001,21 @@ export default function HomePage() {
             {/* WiFi réseau */}
             <div className="reveal mb-7" style={{ borderBottom: '1px solid rgba(255,248,236,0.07)', paddingBottom: '20px' }}>
               <p className="font-label text-[7px] uppercase tracking-[0.22em] mb-2" style={{ color: 'rgba(255,248,236,0.30)' }}>{t.wifiNetwork}</p>
-              <p className="font-display text-[22px] uppercase leading-none" style={{ color: '#fff8ec' }}>{ACCESS.wifiNetwork}</p>
+              <p style={{ fontFamily: 'monospace', fontSize: '20px', color: '#fff8ec', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.wifiNetwork}</p>
             </div>
 
             {/* WiFi password */}
             <div className="reveal reveal-delay-1 mb-7" style={{ borderBottom: '1px solid rgba(255,248,236,0.07)', paddingBottom: '20px' }}>
               <p className="font-label text-[7px] uppercase tracking-[0.22em] mb-2" style={{ color: 'rgba(255,248,236,0.30)' }}>{t.wifiPassword}</p>
-              <p className="font-display text-[22px] uppercase leading-none" style={{ color: '#fff8ec' }}>{ACCESS.wifiPassword}</p>
+              <p style={{ fontFamily: 'monospace', fontSize: '20px', color: '#fff8ec', letterSpacing: '0.04em', lineHeight: 1.2 }}>{ACCESS.wifiPassword}</p>
             </div>
 
             {/* Code porte — mis en avant */}
             <div className="reveal reveal-delay-2">
               <p className="font-label text-[7px] uppercase tracking-[0.22em] mb-3" style={{ color: 'rgba(255,248,236,0.30)' }}>{t.doorCode}</p>
-              <p className="font-display leading-none" style={{ fontSize: 'clamp(44px,8vw,64px)', color: '#fff8ec', letterSpacing: '0.12em' }}>{ACCESS.doorCode}</p>
+              <p style={{ fontFamily: 'monospace', fontSize: '36px', fontWeight: '700', color: '#fff8ec', letterSpacing: '0.10em', lineHeight: 1 }}>{ACCESS.doorCode}</p>
               <div className="mt-5" style={{ borderLeft: '1px solid rgba(255,248,236,0.15)', paddingLeft: '12px' }}>
-                <p className="font-label text-[9px] leading-[2.2]" style={{ color: 'rgba(255,248,236,0.35)' }}>
+                <p className="font-label text-[11px] leading-[2.2]" style={{ color: 'rgba(255,248,236,0.55)' }}>
                   {locale === 'fr'
                     ? <><span style={{ display: 'block' }}>1. Paume entière sur le capteur</span><span style={{ display: 'block' }}>2. Tapez le code</span><span style={{ display: 'block' }}>3. Paume entière sur le capteur</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(255,248,236,0.20)' }}>"door unlocked" ✓</span></>
                     : <><span style={{ display: 'block' }}>1. Full palm on the sensor</span><span style={{ display: 'block' }}>2. Tap the code</span><span style={{ display: 'block' }}>3. Full palm on the sensor</span><span style={{ display: 'block', fontStyle: 'italic', color: 'rgba(255,248,236,0.20)' }}>"door unlocked" ✓</span></>}
@@ -1053,7 +1049,7 @@ export default function HomePage() {
 
           {/* Texte gauche */}
           <div className="flex flex-col justify-center px-8 py-12 md:px-14 md:py-14" style={{ borderRight: '1px solid rgba(255,248,236,0.08)' }}>
-            <p className="font-label text-[7px] uppercase tracking-[0.32em] mb-5" style={{ color: 'rgba(255,248,236,0.35)' }}>7-Eleven · Soi Sairaan 11</p>
+            <p className="font-label text-[7px] uppercase tracking-[0.32em] mb-5" style={{ color: 'rgba(255,248,236,0.35)' }}>7-Eleven · une institution</p>
             <p className="font-display text-[clamp(28px,3vw,42px)] uppercase leading-none mb-5" style={{ color: '#fff8ec' }}>
               {locale === 'fr' ? 'Le meilleur voisin\u00a0du monde' : 'The world\'s best\u00a0neighbour'}
             </p>
