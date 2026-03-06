@@ -812,8 +812,8 @@ export default function HomePage() {
 
           {/* VERSO — même structure */}
           <div className="reveal w-full bg-[#f8f4eb]" style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.45)', padding: '6px' }}>
-            <div className="w-full min-h-[240px] md:min-h-[280px]">
-            <div className="flex flex-col justify-start gap-3 w-full h-full p-4 md:p-6">
+            <div className="w-full min-h-[240px] md:min-h-[280px] flex flex-col">
+            <div className="flex flex-col justify-center gap-3 w-full flex-1 p-4 md:p-6">
 
               {/* Haut : label + ligne + timbre */}
               <div className="flex items-start gap-3">
@@ -838,7 +838,7 @@ export default function HomePage() {
               </div>
 
               {/* Bas : adresse */}
-              <p className="font-label mt-auto text-[6px] md:text-[7px] uppercase tracking-[0.18em] text-[#1f1b18]/22">
+              <p className="font-label text-[6px] md:text-[7px] uppercase tracking-[0.18em] text-[#1f1b18]/22">
                 baan Sayiuan · 59/45 Soi Sayiuan 13 · Rawai · Phuket
               </p>
 
@@ -983,15 +983,16 @@ export default function HomePage() {
           </div>
 
           {/* PRIORITY LANE — encart pleine largeur */}
-          <div className="relative mt-6 md:mt-8 overflow-hidden" style={{ borderRadius: '2px', backgroundImage: 'url(/collage/grid-paper.png)', backgroundSize: '100% 100%', backgroundRepeat: 'no-repeat' }}>
-            <div className="absolute inset-0" style={{ background: 'rgba(248,244,235,0.55)' }} />
-            <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-12 px-8 py-8 md:px-14 md:py-10">
+          <div className="relative mt-6 md:mt-8" style={{ borderRadius: '2px' }}>
+            <img src="/collage/grid-paper.png" alt="" className="absolute inset-0 w-full h-full" style={{ objectFit: 'fill', opacity: 0.55, borderRadius: '2px' }} />
+            <div className="absolute inset-0" style={{ background: 'rgba(248,244,235,0.50)', borderRadius: '2px' }} />
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 px-6 py-8 md:px-12 md:py-10">
               {/* Gauche : label + titre + stamps */}
-              <div className="flex-shrink-0 md:w-[220px] flex flex-col items-center md:items-start text-center md:text-left">
+              <div className="flex-shrink-0 w-full md:w-[200px] flex flex-col items-center md:items-start text-center md:text-left">
                 <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.40)' }}>Pro tip</p>
-                <p className="font-display mt-1 leading-none uppercase" style={{ fontSize: 'clamp(32px,4vw,56px)', color: '#1a1714' }}>Priority<br/>Lane</p>
+                <p className="font-display mt-1 leading-none uppercase" style={{ fontSize: 'clamp(28px,3.5vw,52px)', color: '#1a1714' }}>Priority<br/>Lane</p>
                 <div className="mt-4 flex items-center justify-center md:justify-start gap-3 flex-wrap">
-                  <span className="stamp-important" style={{ width: '64px', height: '64px', transform: 'rotate(-4deg)', flexShrink: 0 }}>
+                  <span className="stamp-important" style={{ width: '60px', height: '60px', transform: 'rotate(-4deg)', flexShrink: 0 }}>
                     <span style={{ fontSize: '9px' }}>ด่วน</span>
                     <span style={{ fontSize: '7px' }}>priority</span>
                   </span>
@@ -1002,8 +1003,8 @@ export default function HomePage() {
                 </div>
               </div>
               {/* Droite : texte */}
-              <div className="flex-1 min-w-0 text-center md:text-left">
-                <p className="text-[12px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.72)' }}>
+              <div className="w-full md:flex-1 min-w-0 text-center md:text-left">
+                <p className="text-[11.5px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.72)' }}>
                   {locale === 'fr'
                     ? "Au passport control, approchez l'agent et dites juste « priority lane — how much ? ». Il annonce un prix entre 500 et 1000 bahts — cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : comptez entre 30 min et 2h dans la queue."
                     : 'At passport control, walk up to the agent and say "priority lane — how much?" They\'ll quote you 500–1000 baht — cash in baht only. Exchange desk right before if needed. Passports, TDAC forms and cash ready. You\'re through in 2 minutes. Without it: queue for 30 min to 2 hours.'}
@@ -1026,9 +1027,10 @@ export default function HomePage() {
         {/* Bloc pleine largeur — fond océan */}
         <div className="relative overflow-hidden min-h-[500px] md:min-h-[560px] flex items-center justify-center px-6 py-14 md:px-16 md:py-20">
 
-          {/* Fond océan */}
-          <img src="/IMG_2278.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center top', filter: 'brightness(0.45) saturate(1.1)' }} />
-          <div className="absolute inset-0" style={{ background: 'rgba(15,12,10,0.30)' }} />
+          {/* Fond vidéo villa */}
+          <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center center' }}>
+            <source src="/IMG_3066-web.mp4" type="video/mp4" />
+          </video>
 
           {/* Contenu : photo maison + codes + photo piscine + conseil ATM */}
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 w-full max-w-5xl">
@@ -1152,8 +1154,7 @@ export default function HomePage() {
         {/* ── Décos scrapbook tropicales ── */}
         <img src="/collage/lotus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '220px', top: '-30px', left: '-55px', transform: 'rotate(-10deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/caladium-leaf.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '320px', right: '-60px', transform: 'rotate(12deg)', opacity: 0.60, zIndex: 0 }} />
-        <img src="/collage/mango-sticky-rice.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1050px', right: '-80px', transform: 'rotate(10deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
-        <img src="/collage/hibiscus2-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '1050px', left: '-70px', transform: 'rotate(-12deg)', opacity: 0.85, zIndex: 0 }} />
+        <img src="/collage/mango-sticky-rice.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1050px', left: '-75px', transform: 'rotate(-10deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
         <img src="/collage/tom-yum-bowl-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '1280px', right: '-90px', transform: 'rotate(-8deg)', opacity: 0.85, zIndex: 0 }} />
         <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '150px', top: '1500px', left: '-65px', transform: 'rotate(10deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
         {/* Wellness stickers — distribués de ~1800px à ~2900px */}
@@ -1172,6 +1173,10 @@ export default function HomePage() {
           </div>
 
           {/* ── PLAGES ─────────────────────────────── */}
+          {/* Sticker mobile — lotus intro */}
+          <div className="flex justify-center mb-6 block lg:hidden">
+            <img src="/collage/lotus.png" alt="" className="lg:hidden" style={{ width: '90px', opacity: 0.75, transform: 'rotate(-6deg)' }} />
+          </div>
           <div className="mb-2 flex items-center gap-4">
             <p className="font-script text-[22px]" style={{ color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Les Plages' : 'The Beaches'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
@@ -1231,6 +1236,10 @@ export default function HomePage() {
           </div>
 
           {/* ── RESTAURANTS ─────────────────────────── */}
+          {/* Sticker mobile — hibiscus entre Plages et Restos */}
+          <div className="flex justify-center my-6 lg:hidden">
+            <img src="/collage/hibiscus.png" alt="" className="lg:hidden" style={{ width: '80px', opacity: 0.70, transform: 'rotate(8deg)' }} />
+          </div>
           <div className="mb-2 flex items-center gap-4">
             <p className="font-script text-[22px]" style={{ color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Les Restos' : 'Restaurants'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
@@ -1253,6 +1262,10 @@ export default function HomePage() {
           ))}
 
           {/* ── WELLNESS & ACTIVITÉS ─────────────────── */}
+          {/* Sticker mobile — coconut entre Restos et Wellness */}
+          <div className="flex justify-center my-6 lg:hidden">
+            <img src="/collage/coconut-cocktail-nobg.png" alt="" className="lg:hidden" style={{ width: '80px', opacity: 0.80, transform: 'rotate(-8deg)' }} />
+          </div>
           <div className="mb-2 mt-16 flex items-center gap-4">
             <p className="font-script text-[22px]" style={{ color: 'rgba(31,27,24,0.55)' }}>{locale === 'fr' ? 'Wellness & Activités' : 'Wellness & Activities'}</p>
             <div className="flex-1 border-t" style={{ borderColor: 'rgba(31,27,24,0.12)' }} />
@@ -1406,6 +1419,10 @@ export default function HomePage() {
 
           </div>
         </div>
+        {/* Sticker mobile — mangosteen fin de section rawai */}
+        <div className="flex justify-center mt-10 lg:hidden">
+          <img src="/collage/mangosteen-nobg.png" alt="" style={{ width: '80px', opacity: 0.78, transform: 'rotate(-7deg)' }} />
+        </div>
       </section>
 
       {/* ── DÉCOUVERTE DE PHUKET ─────────────────────────────── */}
@@ -1417,7 +1434,7 @@ export default function HomePage() {
         <img src="/collage/muay-thai-stamp-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '280px', top: '60px', right: '-40px', transform: 'rotate(6deg)', opacity: 0.75, zIndex: 0 }} />
         {/* Nouveaux stickers Phuket */}
         {/* Nouveaux stickers Phuket */}
-        <img src="/collage/monk-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '150px', top: '120px', right: '-55px', transform: 'rotate(-4deg)', opacity: 0.88, zIndex: 0 }} />
+        <img src="/collage/monk-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '150px', top: '360px', right: '-45px', transform: 'rotate(-4deg)', opacity: 0.88, zIndex: 0 }} />
         <img src="/collage/palm-tree-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '480px', left: '-65px', transform: 'rotate(-5deg)', opacity: 0.80, zIndex: 0 }} />
         <img src="/collage/longtail-boat-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '210px', top: '850px', right: '-70px', transform: 'rotate(-6deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/monkeys-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '190px', top: '1280px', right: '-60px', transform: 'rotate(-6deg)', opacity: 0.85, zIndex: 0 }} />
@@ -1430,6 +1447,10 @@ export default function HomePage() {
             <h2 className="reveal reveal-delay-1 font-display text-[clamp(34px,5vw,72px)] uppercase leading-none" style={{ color: '#1a1714' }}>
               {locale === 'fr' ? 'Phuket' : 'Phuket'}
             </h2>
+          </div>
+          {/* Sticker mobile — longtail boat intro Phuket */}
+          <div className="flex justify-center -mt-8 mb-10 lg:hidden">
+            <img src="/collage/longtail-boat-nobg.png" alt="" style={{ width: '110px', opacity: 0.78, transform: 'rotate(-5deg)' }} />
           </div>
 
           {/* ── CULTURE ───────────────────────────────────────── */}
