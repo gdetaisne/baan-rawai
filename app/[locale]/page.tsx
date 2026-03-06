@@ -282,11 +282,11 @@ function SevenElevenReceipt({ locale }: { locale: string }) {
     }}>
 
       {/* Header — logo inline + infos magasin */}
-      <div style={{ padding: '9px 12px 8px', borderBottom: '1px dashed rgba(31,27,24,0.15)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '7px', marginBottom: '6px' }}>
-          <img src="/collage/7eleven-logo-new.png" alt="7-Eleven" style={{ width: '28px', flexShrink: 0, mixBlendMode: 'multiply', borderRadius: '4px' }} />
+      <div style={{ padding: '10px 12px 8px', borderBottom: '1px dashed rgba(31,27,24,0.15)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+          <img src="/collage/7eleven-logo-new.png" alt="7-Eleven" style={{ width: '36px', flexShrink: 0, borderRadius: '5px' }} />
           <div>
-            <p style={{ fontSize: '7px', fontWeight: '700', color: '#1a1714', letterSpacing: '0.07em', lineHeight: 1.2 }}>7-ELEVEN #08412</p>
+            <p style={{ fontSize: '9px', fontWeight: '800', color: '#1a1714', letterSpacing: '0.06em', lineHeight: 1.2 }}>7-ELEVEN #08412</p>
             <p style={{ fontSize: '5.5px', color: 'rgba(31,27,24,0.35)', letterSpacing: '0.04em', marginTop: '1px' }}>CASHIER: NUI  REG:02</p>
           </div>
         </div>
@@ -1032,9 +1032,9 @@ export default function HomePage() {
 
           {/* ── DESKTOP — 3 colonnes alignées, décos ancrées ── */}
           <div className="hidden sm:block">
-            <div className="relative mx-auto" style={{ width: '800px', height: '680px' }}>
+            <div className="relative mx-auto" style={{ width: '800px', height: '760px' }}>
 
-            {/* ══ COL 1 — Photo gauche ══════════════════════════════════ */}
+            {/* ══ COL 1 — Grande photo + ATM ══════════════════════════════ */}
 
             {/* Grande photo piscine */}
             <div className="absolute" style={{ left: '0px', top: '0px', width: '248px', zIndex: 3 }}>
@@ -1046,13 +1046,14 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Petite photo mugs — légèrement décalée, chevauchement bas */}
-            <div className="absolute" style={{ left: '30px', top: '380px', width: '210px', zIndex: 4, transform: 'rotate(-1.5deg)' }}>
+            {/* Carte ATM — col 1, sous la grande photo */}
+            <div className="absolute" style={{ left: '0px', top: '368px', width: '230px', zIndex: 6, transform: 'rotate(-1deg)' }}>
               <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
-              <div className="paper-aged shadow-[0_5px_20px_rgba(31,27,24,0.16)]" style={{ background: '#f0ece3', padding: '7px 7px 26px 7px', border: '1px solid rgba(31,27,24,0.10)' }}>
-                <div style={{ overflow: 'hidden', height: '148px' }}>
-                  <img src="/IMG_pool_mugs.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', filter: 'sepia(0.08) contrast(1.04) brightness(1.02)' }} />
-                </div>
+              <span className="stamp-price absolute -right-4 -top-4 z-20" style={{ fontSize: '8px', transform: 'rotate(10deg)' }}>without<br/>conversion</span>
+              <div className="paper-aged p-5 shadow-[0_6px_24px_rgba(31,27,24,0.20)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)' }}>
+                <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Conseil · Argent' : 'Tip · Money'}</p>
+                <p className="font-display mt-1 text-[26px] uppercase leading-none" style={{ color: '#1a1714' }}>{locale === 'fr' ? 'Conseil ATM' : 'ATM Tip'}</p>
+                <p className="mt-2 text-[11px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.68)' }}>{t.atmText}</p>
               </div>
             </div>
 
@@ -1086,7 +1087,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* ══ COL 3 — 7-Eleven + photo droite ══════════════════════ */}
+            {/* ══ COL 3 — Receipt + photo mugs + billet ════════════════ */}
 
             {/* Receipt 7-Eleven */}
             <div className="absolute" style={{ left: '572px', top: '0px', width: '210px', zIndex: 4, transform: 'rotate(2deg)', transformOrigin: 'top center' }}>
@@ -1094,19 +1095,18 @@ export default function HomePage() {
               <SevenElevenReceipt locale={locale} />
             </div>
 
-            {/* ══ BAS PAGE — ATM + Billet thai ════════════════════════ */}
-
-            {/* Carte ATM — sous les codes */}
-            <div className="absolute" style={{ left: '295px', bottom: '0px', width: '240px', zIndex: 6, transform: 'rotate(-1.5deg)' }}>
-              <span className="stamp-price absolute -right-4 -top-4 z-20" style={{ fontSize: '8px', transform: 'rotate(10deg)' }}>without<br/>conversion</span>
-              <div className="paper-aged p-5 shadow-[0_6px_24px_rgba(31,27,24,0.20)]" style={{ background: '#e8dfd0', border: '1px solid rgba(31,27,24,0.10)', position: 'relative', overflow: 'visible' }}>
-                <p className="font-label text-[7px] uppercase tracking-[0.24em]" style={{ color: 'rgba(31,27,24,0.45)' }}>{locale === 'fr' ? 'Conseil · Argent' : 'Tip · Money'}</p>
-                <p className="font-display mt-1 text-[26px] uppercase leading-none" style={{ color: '#1a1714' }}>{locale === 'fr' ? 'Conseil ATM' : 'ATM Tip'}</p>
-                <p className="mt-2 text-[11px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.68)', paddingRight: '16px' }}>{t.atmText}</p>
+            {/* Petite photo mugs — sous le receipt */}
+            <div className="absolute" style={{ left: '565px', top: '400px', width: '210px', zIndex: 4, transform: 'rotate(1.5deg)' }}>
+              <div className="tape-vintage absolute -top-4 left-1/2 z-10 h-7 w-20 -translate-x-1/2" />
+              <div className="paper-aged shadow-[0_5px_20px_rgba(31,27,24,0.16)]" style={{ background: '#f0ece3', padding: '7px 7px 26px 7px', border: '1px solid rgba(31,27,24,0.10)' }}>
+                <div style={{ overflow: 'hidden', height: '148px' }}>
+                  <img src="/IMG_pool_mugs.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 40%', filter: 'sepia(0.08) contrast(1.04) brightness(1.02)' }} />
+                </div>
               </div>
-              {/* Billet thai — chevauche le coin bas-droite */}
-              <img src="/collage/thai-baht-bill.png" alt="" className="pointer-events-none absolute" style={{ width: '160px', right: '-70px', bottom: '-20px', zIndex: 3, transform: 'rotate(-5deg)', opacity: 0.65, mixBlendMode: 'multiply', filter: 'sepia(0.08)' }} />
             </div>
+
+            {/* Billet thai — bas col 3, sous la photo mugs */}
+            <img src="/collage/thai-baht-bill.png" alt="" className="pointer-events-none absolute" style={{ width: '160px', right: '-10px', bottom: '0px', zIndex: 3, transform: 'rotate(-4deg)', opacity: 0.65, mixBlendMode: 'multiply', filter: 'sepia(0.08)' }} />
 
             </div>{/* fin mx-auto 800px */}
           </div>{/* fin hidden sm:block */}
@@ -1132,10 +1132,10 @@ export default function HomePage() {
           </div>
 
           {/* 3 plages côte à côte — vidéo + overlay texte */}
-          <div className="reveal mb-16 grid grid-cols-3 gap-0 overflow-hidden" style={{ height: '480px', border: '1px solid rgba(31,27,24,0.08)' }}>
+          <div className="reveal mb-16 grid grid-cols-1 md:grid-cols-3 gap-0 overflow-hidden" style={{ border: '1px solid rgba(31,27,24,0.08)' }}>
 
             {/* Nai Harn */}
-            <div className="relative overflow-hidden group" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
+            <div className="relative overflow-hidden group h-[300px] md:h-[480px]" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
               <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
                 <source src="/IMG_2573-web.mp4" type="video/mp4" />
               </video>
@@ -1152,7 +1152,7 @@ export default function HomePage() {
             </div>
 
             {/* Ya Nui */}
-            <div className="relative overflow-hidden group" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
+            <div className="relative overflow-hidden group h-[300px] md:h-[480px]" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
               <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
                 <source src="/IMG_5636-web.mp4" type="video/mp4" />
               </video>
@@ -1166,7 +1166,7 @@ export default function HomePage() {
             </div>
 
             {/* Rawai */}
-            <div className="relative overflow-hidden group">
+            <div className="relative overflow-hidden group h-[300px] md:h-[480px]">
               <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.92)', transform: 'scale(1.04)' }}>
                 <source src="/IMG_0987-web.mp4" type="video/mp4" />
               </video>
@@ -1264,7 +1264,7 @@ export default function HomePage() {
           </div>
 
           {/* ── GRAND PANNEAU VIDÉO ─────────────────────────────── */}
-          <div className="reveal relative mb-0 overflow-hidden" style={{ height: '520px' }}>
+          <div className="reveal relative mb-0 overflow-hidden h-[280px] md:h-[520px]">
             <video autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.12) contrast(1.05) brightness(0.85)' }}>
               <source src="/IMG_2900-web.mp4" type="video/mp4" />
             </video>
@@ -1279,13 +1279,7 @@ export default function HomePage() {
                   : 'Lon, Bon, Coral, Racha, Koh Phi Phi — all reachable from Rawai pier, 5 min walk away. Longtail for nearby islands, speedboat for further adventures.'}
               </p>
             </div>
-            {/* Photo longtail — vignette bas droite */}
-            <div className="absolute bottom-8 right-8 hidden md:block" style={{ width: '160px', transform: 'rotate(1.5deg)' }}>
-              <div style={{ background: '#f0ece3', padding: '5px 5px 18px 5px', boxShadow: '0 4px 16px rgba(0,0,0,0.35)' }}>
-                <img src="/IMG_0990.jpeg" alt="Longtail boats" style={{ width: '100%', height: '100px', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
-              </div>
-              <p style={{ textAlign: 'center', fontSize: '7px', color: 'rgba(255,248,236,0.40)', letterSpacing: '0.18em', textTransform: 'uppercase', marginTop: '6px', fontFamily: 'var(--font-label)' }}>Rawai Beach</p>
-            </div>
+            {/* Photo longtail supprimée */}
           </div>
 
           {/* ── BANDE INFO ──────────────────────────────────────── */}
@@ -1479,7 +1473,7 @@ export default function HomePage() {
           </div>
 
           {/* Grande vidéo intro avec texte overlay */}
-          <div className="reveal relative mb-12 overflow-hidden" style={{ height: '480px', border: '1px solid rgba(31,27,24,0.08)' }}>
+          <div className="reveal relative mb-12 overflow-hidden h-[260px] md:h-[480px]" style={{ border: '1px solid rgba(31,27,24,0.08)' }}>
             <video
               className="h-full w-full object-cover"
               preload="metadata"
@@ -1502,10 +1496,10 @@ export default function HomePage() {
           </div>
 
           {/* 3 hôtels */}
-          <div className="reveal grid grid-cols-3 gap-0 overflow-hidden" style={{ height: '480px', border: '1px solid rgba(31,27,24,0.08)' }}>
+          <div className="reveal grid grid-cols-1 md:grid-cols-3 gap-0 overflow-hidden" style={{ border: '1px solid rgba(31,27,24,0.08)' }}>
 
             {/* The Nai Harn */}
-            <div className="relative overflow-hidden group" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
+            <div className="relative overflow-hidden group h-[320px] md:h-[480px]" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
               <img src="/nai-harn-pool.jpeg" alt="The Nai Harn pool" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.88)' }} />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.82) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
               <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -1519,7 +1513,7 @@ export default function HomePage() {
             </div>
 
             {/* SAii Laguna */}
-            <div className="relative overflow-hidden group" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
+            <div className="relative overflow-hidden group h-[320px] md:h-[480px]" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
               <img src="/saii-laguna.jpeg" alt="SAii Laguna Phuket" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.88)' }} />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.82) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
               <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -1533,7 +1527,7 @@ export default function HomePage() {
             </div>
 
             {/* Sri Panwa */}
-            <div className="relative overflow-hidden group">
+            <div className="relative overflow-hidden group h-[320px] md:h-[480px]">
               <img src="/sri-panwa-pool.jpeg" alt="Sri Panwa pool" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.88)' }} />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.82) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
               <div className="absolute bottom-0 left-0 right-0 p-6">
