@@ -1192,12 +1192,12 @@ export default function HomePage() {
         <img src="/collage/mango-sticky-rice.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1050px', left: '-75px', transform: 'rotate(-10deg)', opacity: 0.80, mixBlendMode: 'multiply', zIndex: 0 }} />
         <img src="/collage/tom-yum-bowl-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '1280px', right: '-90px', transform: 'rotate(-8deg)', opacity: 0.85, zIndex: 0 }} />
         <img src="/collage/tom-kha-plate.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '150px', top: '1500px', left: '-65px', transform: 'rotate(10deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
-        {/* Wellness stickers — distribués de ~1800px à ~2900px */}
+        {/* Wellness stickers — répartis uniformément gauche/droite */}
         <img src="/collage/pad-thai.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '160px', top: '1700px', right: '-75px', transform: 'rotate(-6deg)', opacity: 0.75, mixBlendMode: 'multiply', zIndex: 0 }} />
-        <img src="/collage/coconut-cocktail-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '140px', top: '2100px', right: '-65px', transform: 'rotate(-8deg)', opacity: 0.82, zIndex: 0 }} />
-        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '165px', top: '2500px', right: '-75px', transform: 'rotate(15deg)', opacity: 0.75, zIndex: 0 }} />
-        <img src="/collage/mangosteen-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '2500px', left: '-60px', transform: 'rotate(-7deg)', opacity: 0.82, zIndex: 0 }} />
-        <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', bottom: '80px', right: '-70px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
+        <img src="/collage/coconut-cocktail-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '140px', top: '2000px', left: '-60px', transform: 'rotate(8deg)', opacity: 0.82, zIndex: 0 }} />
+        <img src="/collage/mangosteen-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '2300px', right: '-70px', transform: 'rotate(-7deg)', opacity: 0.82, zIndex: 0 }} />
+        <img src="/collage/hibiscus.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '165px', top: '2600px', left: '-65px', transform: 'rotate(15deg)', opacity: 0.75, zIndex: 0 }} />
+        <img src="/collage/dragonfruit-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '170px', top: '2900px', right: '-70px', transform: 'rotate(-6deg)', opacity: 0.72, zIndex: 0 }} />
 
         <div className="relative mx-auto max-w-5xl">
 
@@ -1469,7 +1469,7 @@ export default function HomePage() {
         <img src="/collage/muay-thai-stamp-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '280px', top: '60px', right: '-40px', transform: 'rotate(6deg)', opacity: 0.75, zIndex: 0 }} />
         {/* Nouveaux stickers Phuket */}
         {/* Nouveaux stickers Phuket */}
-        <img src="/collage/monk-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '150px', top: '360px', right: '-45px', transform: 'rotate(-4deg)', opacity: 0.88, zIndex: 0 }} />
+        <img src="/collage/monk-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '100px', top: '360px', right: '-30px', transform: 'rotate(-4deg)', opacity: 0.88, zIndex: 0 }} />
         <img src="/collage/palm-tree-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '180px', top: '480px', left: '-65px', transform: 'rotate(-5deg)', opacity: 0.80, zIndex: 0 }} />
         <img src="/collage/longtail-boat-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '210px', top: '850px', right: '-70px', transform: 'rotate(-6deg)', opacity: 0.82, zIndex: 0 }} />
         <img src="/collage/monkeys-nobg.png" alt="" className="pointer-events-none absolute hidden lg:block" style={{ width: '190px', top: '1280px', right: '-60px', transform: 'rotate(-6deg)', opacity: 0.85, zIndex: 0 }} />
