@@ -75,6 +75,10 @@ const CONTENT = {
     babyFoodLabel: 'Baby food needed?',
     babyFoodYes: 'Yes',
     babyFoodNo: 'No',
+    nannyLabel: 'Would you like us to arrange a nanny?',
+    nannyNote: 'Not Lily — someone else. Great for evenings out or a quiet afternoon by the pool. Just let us know.',
+    nannyYes: 'Yes please',
+    nannyNo: 'No thanks',
     towelNote: 'No need to bring beach or pool towels — we have everything. We also have a stroller available.',
     houseRules: 'House rules: shoes off at the door (Thai style) · turn off the A/C when leaving your room · keep doors closed to keep mosquitoes out.',
     other: 'Anything else we should know?',
@@ -166,6 +170,10 @@ const CONTENT = {
     babyFoodLabel: 'Besoin de nourriture bébé ?',
     babyFoodYes: 'Oui',
     babyFoodNo: 'Non',
+    nannyLabel: 'Voulez-vous qu\'on organise une nanny ?',
+    nannyNote: 'Pas Lily — quelqu\'un d\'autre. Idéal pour une soirée ou un après-midi tranquille au bord de la piscine. Dites-nous.',
+    nannyYes: 'Oui avec plaisir',
+    nannyNo: 'Non merci',
     towelNote: 'Pas besoin d\'apporter des serviettes de bain ou de plage — on a tout sur place. Une poussette est également disponible.',
     houseRules: 'Les règles de la maison : chaussures à la porte (style thaï) · éteignez la clim en quittant votre chambre · fermez bien les portes pour les moustiques.',
     other: 'Autre chose qu\'on devrait savoir ?',
@@ -371,6 +379,7 @@ export default function HomePage() {
     diapers: '' as '' | 'yes' | 'no',
     diapersSize: '',
     babyFood: '' as '' | 'yes' | 'no',
+    nanny: '' as '' | 'yes' | 'no',
     other: '',
   });
 
@@ -659,6 +668,20 @@ export default function HomePage() {
                           </button>
                         ))}
                       </div>
+                    </div>
+                  </div>
+                )}
+
+                {Number(form.kidsCount) > 0 && (
+                  <div>
+                    <label className="font-label mb-2 block text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(31,27,24,0.50)' }}>{t.nannyLabel}</label>
+                    <p className="mb-3 text-[11px] leading-[1.65]" style={{ color: 'rgba(31,27,24,0.45)' }}>{t.nannyNote}</p>
+                    <div className="flex gap-3">
+                      {(['yes', 'no'] as const).map((v) => (
+                        <button key={v} type="button" onClick={() => setForm((prev) => ({ ...prev, nanny: v }))} className="font-label border px-5 py-2.5 text-[9px] uppercase tracking-[0.18em] transition-colors" style={{ background: form.nanny === v ? '#f5e9c0' : 'transparent', color: form.nanny === v ? '#1a1714' : 'rgba(31,27,24,0.65)', borderColor: form.nanny === v ? '#c8a84b' : 'rgba(31,27,24,0.20)' }}>
+                          {v === 'yes' ? t.nannyYes : t.nannyNo}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 )}
