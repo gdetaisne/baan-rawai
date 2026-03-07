@@ -1010,11 +1010,12 @@ export default function HomePage() {
             <img src="/collage/grid-paper.png" alt="" className="absolute inset-0 w-full h-full" style={{ objectFit: 'fill', opacity: 0.55, borderRadius: '2px' }} />
             <div className="absolute inset-0" style={{ background: 'rgba(248,244,235,0.50)', borderRadius: '2px' }} />
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 px-6 py-8 md:px-12 md:py-10">
-              {/* Gauche : label + titre + stamps */}
+              {/* Gauche : label + titre (desktop: + stamps) */}
               <div className="flex-shrink-0 w-full md:w-[200px] flex flex-col items-center md:items-start text-center md:text-left">
                 <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(31,27,24,0.40)' }}>Pro tip</p>
                 <p className="font-display mt-1 leading-none uppercase" style={{ fontSize: 'clamp(28px,3.5vw,52px)', color: '#1a1714' }}>Priority<br/>Lane</p>
-                <div className="mt-4 flex items-center justify-center md:justify-start gap-3 flex-wrap">
+                {/* Stamps — visibles seulement en desktop sous le titre */}
+                <div className="hidden md:flex mt-4 items-center justify-start gap-3 flex-wrap">
                   <span className="stamp-important" style={{ width: '60px', height: '60px', transform: 'rotate(-4deg)', flexShrink: 0 }}>
                     <span style={{ fontSize: '9px' }}>ด่วน</span>
                     <span style={{ fontSize: '7px' }}>priority</span>
@@ -1025,13 +1026,24 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-              {/* Droite : texte */}
+              {/* Droite : texte + stamps mobile en dessous */}
               <div className="w-full md:flex-1 min-w-0 text-center md:text-left">
                 <p className="text-[11.5px] leading-[1.75]" style={{ color: 'rgba(31,27,24,0.72)' }}>
                   {locale === 'fr'
                     ? "Au passport control, approchez l'agent et dites juste « priority lane — how much ? ». Il annonce un prix entre 500 et 1000 bahts — cash bahts uniquement. Bureau de change juste avant si besoin. Passeports, TDAC et biftons sortis à l'avance. Vous passerez en 2 minutes. Sans ça : comptez entre 30 min et 2h dans la queue."
                     : 'At passport control, walk up to the agent and say "priority lane — how much?" They\'ll quote you 500–1000 baht — cash in baht only. Exchange desk right before if needed. Passports, TDAC forms and cash ready. You\'re through in 2 minutes. Without it: queue for 30 min to 2 hours.'}
                 </p>
+                {/* Stamps — visibles seulement en mobile, sous le texte */}
+                <div className="md:hidden mt-5 flex items-center justify-center gap-4">
+                  <span className="stamp-important" style={{ width: '60px', height: '60px', transform: 'rotate(-4deg)', flexShrink: 0 }}>
+                    <span style={{ fontSize: '9px' }}>ด่วน</span>
+                    <span style={{ fontSize: '7px' }}>priority</span>
+                  </span>
+                  <span className="stamp-price" style={{ transform: 'rotate(3deg)', fontSize: '7.5px', flexShrink: 0 }}>
+                    cash baht only<br/>
+                    <span style={{ fontSize: '7px', letterSpacing: '0.05em' }}>เงินสดเท่านั้น</span>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -1589,13 +1601,13 @@ export default function HomePage() {
             >
               <source src="/IMG_2903-web.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(26,23,20,0.15) 0%, transparent 35%, rgba(26,23,20,0.75) 75%, rgba(26,23,20,0.92) 100%)' }} />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(26,23,20,0.20) 0%, transparent 30%, rgba(26,23,20,0.80) 65%, rgba(26,23,20,0.95) 100%)' }} />
             {/* Label haut gauche */}
-            <p className="absolute top-8 left-8 md:top-10 md:left-12 font-label text-[7px] uppercase tracking-[0.32em]" style={{ color: 'rgba(255,248,236,0.45)' }}>Upgrade Your Day</p>
+            <p className="absolute top-8 left-8 md:top-10 md:left-12 font-label text-[7px] uppercase tracking-[0.32em]" style={{ color: 'rgba(255,248,236,0.55)' }}>Upgrade Your Day</p>
             {/* Texte bas */}
             <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
               <h3 className="font-display text-[clamp(28px,4vw,52px)] uppercase leading-none" style={{ color: '#fff8ec' }}>{t.passesTitle}</h3>
-              <p className="mt-4 text-[12px] leading-[1.8]" style={{ color: 'rgba(255,248,236,0.65)', maxWidth: '560px' }}>{t.dayPassIntro}</p>
+              <p className="mt-4 text-[12px] leading-[1.8]" style={{ color: 'rgba(255,248,236,0.85)', maxWidth: '560px' }}>{t.dayPassIntro}</p>
             </div>
           </div>
 
@@ -1605,43 +1617,43 @@ export default function HomePage() {
             {/* The Nai Harn */}
             <div className="relative overflow-hidden group h-[320px] md:h-[480px]" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
               <img src="/nai-harn-pool.jpeg" alt="The Nai Harn pool" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.88)' }} />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.82) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.92) 0%, rgba(26,23,20,0.55) 50%, rgba(26,23,20,0.10) 100%)' }} />
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.60)' }}>{locale === 'fr' ? 'Hôtel 5★ · Nai Harn · 10 min' : '5★ Hotel · Nai Harn · 10 min'}</p>
+                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.80)' }}>{locale === 'fr' ? 'Hôtel 5★ · Nai Harn · 10 min' : '5★ Hotel · Nai Harn · 10 min'}</p>
                 <h3 className="font-display mt-1 text-[28px] uppercase leading-none" style={{ color: '#fff8ec' }}>The Nai Harn</h3>
-                <p className="font-label mt-1.5 text-[8px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,248,236,0.50)' }}>from 2,500 THB</p>
-                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.72)', maxWidth: '220px' }}>{locale === 'fr' ? 'Piscine à débordement face à la mer, transats, serviettes, crédit restaurant et accès gym. Vue imprenable sur la baie de Nai Harn.' : 'Infinity pool facing the sea, sunbeds, towels, restaurant credit and gym access. Stunning view over Nai Harn bay.'}</p>
-                <a href="https://www.thenaiharn.com/offers/day-pass/" target="_blank" rel="noopener noreferrer" className="font-label mt-3 inline-block border-b pb-px text-[7.5px] uppercase tracking-[0.18em] opacity-60 hover:opacity-100 transition-opacity" style={{ borderColor: 'rgba(255,248,236,0.35)', color: '#fff8ec' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
+                <p className="font-label mt-1.5 text-[8px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,248,236,0.70)' }}>from 2,500 THB</p>
+                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.90)' }}>{locale === 'fr' ? 'Piscine à débordement face à la mer, transats, serviettes, crédit restaurant et accès gym. Vue imprenable sur la baie de Nai Harn.' : 'Infinity pool facing the sea, sunbeds, towels, restaurant credit and gym access. Stunning view over Nai Harn bay.'}</p>
+                <a href="https://www.thenaiharn.com/offers/day-pass/" target="_blank" rel="noopener noreferrer" className="font-label mt-3 inline-block border-b pb-px text-[7.5px] uppercase tracking-[0.18em] opacity-75 hover:opacity-100 transition-opacity" style={{ borderColor: 'rgba(255,248,236,0.50)', color: '#fff8ec' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
               </div>
-              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.35)' }}>01</p>
+              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.45)' }}>01</p>
             </div>
 
             {/* SAii Laguna */}
             <div className="relative overflow-hidden group h-[320px] md:h-[480px]" style={{ borderRight: '1px solid rgba(31,27,24,0.10)' }}>
               <img src="/saii-laguna.jpeg" alt="SAii Laguna Phuket" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.88)' }} />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.82) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.92) 0%, rgba(26,23,20,0.55) 50%, rgba(26,23,20,0.10) 100%)' }} />
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.60)' }}>{locale === 'fr' ? 'Hôtel 5★ · Bangtao · 30 min' : '5★ Hotel · Bangtao · 30 min'}</p>
+                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.80)' }}>{locale === 'fr' ? 'Hôtel 5★ · Bangtao · 30 min' : '5★ Hotel · Bangtao · 30 min'}</p>
                 <h3 className="font-display mt-1 text-[28px] uppercase leading-none" style={{ color: '#fff8ec' }}>SAii Laguna</h3>
-                <p className="font-label mt-1.5 text-[8px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,248,236,0.50)' }}>from 800 THB</p>
-                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.72)', maxWidth: '220px' }}>{locale === 'fr' ? 'Toboggan de 55m, piscine adultes, accès plage, crédit restaurant. Idéal en famille et bonne excuse pour découvrir le nord de l\'île.' : 'A bit further but perfect with kids — 55m waterslide, adults-only pool, beach access, dining credit. Great excuse to discover the north of the island.'}</p>
-                <a href="https://www.saiihotels.com/laguna-phuket/things-to-do/resort-daypass/" target="_blank" rel="noopener noreferrer" className="font-label mt-3 inline-block border-b pb-px text-[7.5px] uppercase tracking-[0.18em] opacity-60 hover:opacity-100 transition-opacity" style={{ borderColor: 'rgba(255,248,236,0.35)', color: '#fff8ec' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
+                <p className="font-label mt-1.5 text-[8px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,248,236,0.70)' }}>from 800 THB</p>
+                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.90)' }}>{locale === 'fr' ? 'Toboggan de 55m, piscine adultes, accès plage, crédit restaurant. Idéal en famille et bonne excuse pour découvrir le nord de l\'île.' : 'A bit further but perfect with kids — 55m waterslide, adults-only pool, beach access, dining credit. Great excuse to discover the north of the island.'}</p>
+                <a href="https://www.saiihotels.com/laguna-phuket/things-to-do/resort-daypass/" target="_blank" rel="noopener noreferrer" className="font-label mt-3 inline-block border-b pb-px text-[7.5px] uppercase tracking-[0.18em] opacity-75 hover:opacity-100 transition-opacity" style={{ borderColor: 'rgba(255,248,236,0.50)', color: '#fff8ec' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
               </div>
-              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.35)' }}>02</p>
+              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.45)' }}>02</p>
             </div>
 
             {/* Sri Panwa */}
             <div className="relative overflow-hidden group h-[320px] md:h-[480px]">
               <img src="/sri-panwa-pool.jpeg" alt="Sri Panwa pool" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.10) contrast(1.04) brightness(0.88)' }} />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.82) 0%, rgba(26,23,20,0.18) 50%, transparent 100%)' }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,23,20,0.92) 0%, rgba(26,23,20,0.55) 50%, rgba(26,23,20,0.10) 100%)' }} />
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.60)' }}>{locale === 'fr' ? 'Hôtel 5★ · Cap Panwa · 25 min' : '5★ Hotel · Cape Panwa · 25 min'}</p>
+                <p className="font-label text-[7px] uppercase tracking-[0.28em]" style={{ color: 'rgba(255,248,236,0.80)' }}>{locale === 'fr' ? 'Hôtel 5★ · Cap Panwa · 25 min' : '5★ Hotel · Cape Panwa · 25 min'}</p>
                 <h3 className="font-display mt-1 text-[28px] uppercase leading-none" style={{ color: '#fff8ec' }}>Sri Panwa</h3>
-                <p className="font-label mt-1.5 text-[8px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,248,236,0.50)' }}>from 1,888 THB</p>
-                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.72)', maxWidth: '220px' }}>{locale === 'fr' ? 'Piscine forêt panoramique de 48m, vue sur l\'Andaman, daybed réservé, crédit repas chez Baba Chino. Le plus spectaculaire des trois.' : '48m forest pool with panoramic Andaman views, reserved daybed, dining credit at Baba Chino. The most spectacular of the three.'}</p>
-                <a href="https://www.sripanwa.com/phuket-day-pass/" target="_blank" rel="noopener noreferrer" className="font-label mt-3 inline-block border-b pb-px text-[7.5px] uppercase tracking-[0.18em] opacity-60 hover:opacity-100 transition-opacity" style={{ borderColor: 'rgba(255,248,236,0.35)', color: '#fff8ec' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
+                <p className="font-label mt-1.5 text-[8px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,248,236,0.70)' }}>from 1,888 THB</p>
+                <p className="mt-2 text-[11px] leading-[1.65]" style={{ color: 'rgba(255,248,236,0.90)' }}>{locale === 'fr' ? 'Piscine forêt panoramique de 48m, vue sur l\'Andaman, daybed réservé, crédit repas chez Baba Chino. Le plus spectaculaire des trois.' : '48m forest pool with panoramic Andaman views, reserved daybed, dining credit at Baba Chino. The most spectacular of the three.'}</p>
+                <a href="https://www.sripanwa.com/phuket-day-pass/" target="_blank" rel="noopener noreferrer" className="font-label mt-3 inline-block border-b pb-px text-[7.5px] uppercase tracking-[0.18em] opacity-75 hover:opacity-100 transition-opacity" style={{ borderColor: 'rgba(255,248,236,0.50)', color: '#fff8ec' }}>{locale === 'fr' ? 'Réserver →' : 'Book →'}</a>
               </div>
-              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.35)' }}>03</p>
+              <p className="absolute top-5 left-6 font-label text-[8px] uppercase tracking-[0.22em]" style={{ color: 'rgba(255,248,236,0.45)' }}>03</p>
             </div>
 
           </div>
@@ -1673,7 +1685,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FOOTER ─────────────────────────────────────────────────── */}
-      <footer className="relative overflow-hidden bg-[#f8f4eb] px-6 py-16 md:px-10 md:py-20" style={{ borderTop: '1px solid rgba(31,27,24,0.10)' }}>
+      <footer className="relative overflow-hidden bg-[#f8f4eb] px-6 py-16 pb-28 md:px-10 md:py-20 md:pb-20" style={{ borderTop: '1px solid rgba(31,27,24,0.10)' }}>
         {/* grain */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.12]"
           style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'1\'/%3E%3C/svg%3E")', backgroundSize: '160px 160px' }} />
