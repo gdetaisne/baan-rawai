@@ -15,8 +15,12 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Next.js collects completely anonymous telemetry data about general usage.
-ENV NEXT_TELEMETRY_DISABLED 1
+# Only NEXT_PUBLIC_ vars are needed at build time
+ARG NEXT_PUBLIC_WIFI_NETWORK
+ARG NEXT_PUBLIC_TM0_FORM_URL
+ENV NEXT_PUBLIC_WIFI_NETWORK=$NEXT_PUBLIC_WIFI_NETWORK
+ENV NEXT_PUBLIC_TM0_FORM_URL=$NEXT_PUBLIC_TM0_FORM_URL
+ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN npm run build
 
@@ -24,19 +28,17 @@ RUN npm run build
 FROM base AS runner
 WORKDIR /app
 
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
 
-# Set the correct permission for prerender cache
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
-# Automatically leverage output traces to reduce image size
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
@@ -44,7 +46,7 @@ USER nextjs
 
 EXPOSE 3000
 
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
 
 CMD ["node", "server.js"]
