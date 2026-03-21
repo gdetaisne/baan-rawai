@@ -17,6 +17,11 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN npm run build
 
+# Next standalone does not embed static/public assets.
+RUN mkdir -p .next/standalone/.next \
+  && cp -r .next/static .next/standalone/.next/static \
+  && if [ -d public ]; then cp -r public .next/standalone/public; fi
+
 ENV NODE_ENV=production
 EXPOSE 3000
 ENV PORT=3000
